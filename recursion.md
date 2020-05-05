@@ -9,4 +9,4 @@ sys.getrecursionlimit()
 # 4000
 ```
 
-However, it's dangerous practice, especially because every new frame on the call stack is quite expensive. Luckily, any recursive algorithm can be rewritten with iterations.
+However, it's a dangerous practice, especially because every new frame on the call stack is quite expensive. Luckily, any recursive algorithm can be rewritten with iterations.
