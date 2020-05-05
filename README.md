@@ -9,6 +9,7 @@ A bit of history and 3.9:
 1. ./3.9/merge-dicts.md
 1. ./3.9/generic-types.md
 1. ./hist/types.md
+1. ./3.9/unparse.md
 
 Frames:
 
