@@ -17,11 +17,19 @@ Frames:
 1. ./snippets/f-strings.md
 1. ./snippets/sum-frames.md
 
+Classes, metaclasses, and descriptors:
+
+1. ./class-body.md
+1. ./init-subclass.md
+1. ./prepare.md
+1. ./data-descriptors.md
+1. ./cached-property.md
+1. ./set-name.md
+
 More:
 
 1. ./assert.md
 1. ./snippets/final.md
-1. ./cached-property.md
 1. ./snippets/getitem.md
 1. ./fnmatch.md
 1. ./snippets/hamming.md
