@@ -36,6 +36,7 @@ More:
 1. ./license.md
 1. ./fnmatch.md
 1. ./snippets/hamming.md
+1. ./literal-eval.md
 1. ./zen.md
 1. ./nan.md
 1. ./snippets/itertools.md
