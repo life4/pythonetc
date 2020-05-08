@@ -28,9 +28,12 @@ Classes, metaclasses, and descriptors:
 
 More:
 
+1. ./dunder.md
+1. ./magic.md
 1. ./assert.md
 1. ./snippets/final.md
 1. ./snippets/getitem.md
+1. ./license.md
 1. ./fnmatch.md
 1. ./snippets/hamming.md
 1. ./zen.md
