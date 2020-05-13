@@ -47,3 +47,4 @@ More:
 1. ./nullcontext.md
 1. ./enum.md
 1. ./dynamic-class-attribute.md
+1. ./zipapp.md
