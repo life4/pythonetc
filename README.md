@@ -31,6 +31,7 @@ More:
 1. ./dunder.md
 1. ./magic.md
 1. ./assert.md
+1. ./colorsys.md
 1. ./snippets/final.md
 1. ./snippets/getitem.md
 1. ./license.md
