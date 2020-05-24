@@ -1,5 +1,4 @@
-There is built-in function `format` that basically just calls `__format__` method of the passed argument type with passed spec. It is used in `str.format` as well.
-
+There is a built-in function `format` that basically just calls `__format__` method of the passed argument type with passed spec. It is used in `str.format` as well.
 
 ```python
 class A:

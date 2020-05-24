@@ -1,4 +1,4 @@
-Every class is an instance of it's metaclass. The default metaclass is `type`. You can use this knowledge to check if something is a class or is an instance:
+Every class is an instance of its metaclass. The default metaclass is `type`. You can use this knowledge to check if something is a class or is an instance:
 
 ```python
 class A: pass
@@ -13,7 +13,7 @@ isinstance(A(), object) # True
 isinstance(A, object)   # True
 ```
 
-This is because `type` an instance of `object` and subclass of `object` at the same time, and `object` is instance of `type` and no parent classes.
+This is because `type` an instance of `object` and subclass of `object` at the same time, and `object` is an instance of `type` and no parent classes.
 
 ```python
 type(type)      # type

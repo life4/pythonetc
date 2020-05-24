@@ -1,7 +1,7 @@
-If you're going to store a data in the descriptor, the reasonable question is "where".
+If you're going to store data in the descriptor, the reasonable question is "where".
 
 1. If data stored in the descriptor's attribute, it will be shared between all instances of the class where the descriptor is assigned.
-2. If data is stored in a dict inside of the descriptor, where key is hash of class and value is data, it will lead to a memory leak.
+2. If data is stored in a dict inside of the descriptor, where the key is hash of class and value is data, it will lead to a memory leak.
 
 So, the best solution is to store data in the class itself. But how to name the attribute?
 

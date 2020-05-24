@@ -1,4 +1,4 @@
-The module [enum](https://docs.python.org/3/library/enum.html) provides a way to build an enumerable class. It is a class with predefined list of instances, and every instance is bound to an unique constant value.
+The module [enum](https://docs.python.org/3/library/enum.html) provides a way to build an enumerable class. It is a class with a predefined list of instances, and every instance is bound to a unique constant value.
 
 ```python
 from colorsys import rgb_to_hls

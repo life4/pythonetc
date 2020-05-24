@@ -1,4 +1,4 @@
-[types.DynamicClassAttribute](https://docs.python.org/3/library/types.html#types.DynamicClassAttribute) is a decorator that allows to have a `@property` that behaves differently when it's called from the class and when from the instance.
+[types.DynamicClassAttribute](https://docs.python.org/3/library/types.html#types.DynamicClassAttribute) is a decorator that allows having a `@property` that behaves differently when it's called from the class and when from the instance.
 
 ```python
 from types import DynamicClassAttribute

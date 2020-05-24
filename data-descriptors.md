@@ -1,9 +1,6 @@
-
-[Descriptors](https://docs.python.org/3/howto/descriptor.html) are special class attributes with a custom behavior on atribute get, set or delete. If an object defines `__set__` or `__delete__`, it is considered a data descriptor. Descriptors that only define `__get__` are called non-data descriptors. The difference is that non-data descriptors are called only if the attribute isn't presented in `__dict__` of the instance.
-
+[Descriptors](https://docs.python.org/3/howto/descriptor.html) are special class attributes with a custom behavior on attribute get, set, or delete. If an object defines `__set__` or `__delete__`, it is considered a data descriptor. Descriptors that only define `__get__` are called non-data descriptors. The difference is that non-data descriptors are called only if the attribute isn't presented in `__dict__` of the instance.
 
 Non-data descriptor:
-
 
 ```python
 class D:
@@ -23,6 +20,7 @@ c.d
 # 1
 ```
 
+Data descriptor:
 
 ```python
 class D:

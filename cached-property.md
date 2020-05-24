@@ -4,12 +4,12 @@ Decorator `@cached_property` is an amazing way to simplify your code. It's like 
 class C:
   @cached_property
   def p(self):
-    print('computating...')
+    print('computing...')
     return 1
 
 c = C()
 c.p
-# computating...
+# computing...
 # 1
 
 c.p

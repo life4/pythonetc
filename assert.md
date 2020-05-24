@@ -9,7 +9,7 @@ def assert_(test, *args):
 assert_(2 + 2 == 4, 'the world is broken')
 ```
 
-However, there are few advantages of assert as directive over assert as function:
+However, there are few advantages of assert as directive over assert as a function:
 
 1. All asserts removed on the bytecode compilation step if [optimization is enabled](https://t.me/pythonetc/115).
 

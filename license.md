@@ -1,4 +1,4 @@
-Python provides 2 totally useless bu interesting built-in functions: `copyright` and `license`. `copyright` gives a short overview who owned Python in different moments of history:
+Python provides 2 useless but interesting built-in functions: `copyright` and `license`. `copyright` gives a short overview who owned Python in different moments of history:
 
 ```python
 >>> copyright()
