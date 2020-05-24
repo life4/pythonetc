@@ -42,6 +42,10 @@ More:
 1. ./zen.md
 1. ./nan.md
 1. ./snippets/itertools.md
+1. ./format.md
+1. ./object-type.md
+1. ./objects.md
+1. ./sys-modules.md
 1. ./numbers.md
 1. ./simplenamespace.md
 1. ./snippets/to-str.md
