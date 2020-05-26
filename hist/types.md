@@ -7,6 +7,7 @@ isinstance(1, int)
 
 import types
 isinstance(1, types.IntType)
+# True
 
 # Python 2.4 and later:
 isinstance(1, int)

@@ -24,7 +24,7 @@ f
 # <function f at ...>
 ```
 
-You can use matrix multiplication to make it really confusing (don't try it at home!):
+You can use matrix multiplication to make it confusing (don't try it at home!):
 
 ```python
 class D:

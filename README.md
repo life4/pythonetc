@@ -1,16 +1,16 @@
 ## Plan
 
-1. ./intro.md
+1. ./intro.md (26 May 2020, 18:00)
 
 A bit of history and 3.9:
 
-1. ./3.9/str-removeprefix.md
-1. ./hist/backquotes.md
-1. ./3.9/merge-dicts.md
-1. ./3.9/generic-types.md
-1. ./hist/types.md
-1. ./3.9/unparse.md
-1. ./3.9/decorators.md
+1. ./3.9/str-removeprefix.md    (28 May 2020, 18:00)
+1. ./hist/backquotes.md         (2 June 2020, 18:00)
+1. ./3.9/merge-dicts.md         (4 June 2020, 18:00)
+1. ./3.9/generic-types.md       (9 June 2020, 18:00)
+1. ./hist/types.md              (11 June 2020, 18:00)
+1. ./3.9/unparse.md             (16 June 2020, 18:00)
+1. ./3.9/decorators.md          (18 June 2020, 18:00)
 
 Frames:
 

@@ -7,4 +7,4 @@ ast.unparse(tree)
 # '\na = 1 + 2 + 3'
 ```
 
-It knows nothing about the initial formatting and comments. So, it's not a code formatter but a tool to simplify analyzing AST. Also, it can be used for code generation.
+It knows nothing about the initial formatting and comments. So, it's not a code formatter but a tool to simplify visual AST analysis. Also, it can be used for code generation.

@@ -1,4 +1,4 @@
-In python 3.6, [PEP-616](https://www.python.org/dev/peps/pep-0616/) introduced `str.removeprefix` and `str.removesuffix` methods:
+In python 3.9, [PEP-616](https://www.python.org/dev/peps/pep-0616/) introduced `str.removeprefix` and `str.removesuffix` methods:
 
 ```python
 'abcd'.removeprefix('ab')
