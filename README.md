@@ -14,9 +14,9 @@ A bit of history and 3.9:
 
 Frames:
 
-1. ./recursion.md
-1. ./snippets/f-strings.md
-1. ./snippets/sum-frames.md
+1. ./recursion.md               (23 June 2020, 18:00)
+1. ./snippets/f-strings.md      (25 June 2020, 18:00)
+1. ./snippets/sum-frames.md     (30 June 2020, 18:00)
 
 Classes, metaclasses, and descriptors:
 
