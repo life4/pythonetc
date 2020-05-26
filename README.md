@@ -56,3 +56,4 @@ More:
 1. ./new-init.md                (15 October 2020, 18:00)
 1. ./sentinel.md                (20 October 2020, 18:00)
 1. ./yield-compr.md             (22 October 2020, 18:00)
+1. ./f-docstrings.md            (27 October 2020, 18:00)
