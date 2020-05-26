@@ -12,7 +12,7 @@ class C:
 
 c = C()
 c.d
-# get <__main__.C object at 0x7fdcec49ceb8> <class '__main__.C'>
+# get <C object at ...> <class 'C'>
 
 # updating __dict__ shadows the descriptor
 c.__dict__['d'] = 1
@@ -35,10 +35,10 @@ class C:
 
 c = C()
 c.d
-# get <__main__.C object at 0x7fdcec49ceb8> <class '__main__.C'>
+# get <C object at ...> <class 'C'>
 
 # updating __dict__ doesn't shadow the descriptor
 c.__dict__['d'] = 1
 c.d
-# get <__main__.C object at 0x7fdcec49ceb8> <class '__main__.C'>
+# get <C object at ...> <class 'C'>
 ```

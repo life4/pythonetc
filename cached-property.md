@@ -18,7 +18,7 @@ c.p
 
 The implementation is short and relatively simple:
 
-``` python
+```python
 class cached_property:
   def __init__(self, func):
     self.func = func

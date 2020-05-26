@@ -5,9 +5,9 @@
 A bit of history and 3.9:
 
 1. ./3.9/str-removeprefix.md    (28 May 2020, 18:00)
-1. ./hist/backquotes.md         (2 June 2020, 18:00)
-1. ./3.9/merge-dicts.md         (4 June 2020, 18:00)
-1. ./3.9/generic-types.md       (9 June 2020, 18:00)
+1. ./hist/backquotes.md         (02 June 2020, 18:00)
+1. ./3.9/merge-dicts.md         (04 June 2020, 18:00)
+1. ./3.9/generic-types.md       (09 June 2020, 18:00)
 1. ./hist/types.md              (11 June 2020, 18:00)
 1. ./3.9/unparse.md             (16 June 2020, 18:00)
 1. ./3.9/decorators.md          (18 June 2020, 18:00)
@@ -20,19 +20,19 @@ Frames:
 
 Classes, metaclasses, and descriptors:
 
-1. ./class-body.md
-1. ./init-subclass.md
-1. ./prepare.md
-1. ./data-descriptors.md
-1. ./cached-property.md
-1. ./set-name.md
+1. ./class-body.md              (02 July 2020, 18:00)
+1. ./init-subclass.md           (07 July 2020, 18:00)
+1. ./prepare.md                 (09 July 2020, 18:00)
+1. ./data-descriptors.md        (14 July 2020, 18:00)
+1. ./cached-property.md         (16 July 2020, 18:00)
+1. ./set-name.md                (21 July 2020, 18:00)
 
 More:
 
-1. ./dunder.md
-1. ./magic.md
-1. ./assert.md
-1. ./colorsys.md
+1. ./dunder.md                  (23 July 2020, 18:00)
+1. ./magic.md                   (28 July 2020, 18:00)
+1. ./assert.md                  (30 July 2020, 18:00)
+1. ./colorsys.md                (04 August 2020, 18:00)
 1. ./snippets/final.md
 1. ./snippets/getitem.md
 1. ./license.md
