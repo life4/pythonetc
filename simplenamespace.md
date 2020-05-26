@@ -10,7 +10,7 @@ sn.c
 # AttributeError: ...
 ```
 
-However, values from SimpleNamespace can't be accessed by getitem anymore because "There should be one obvious way to do it":
+However, values from SimpleNamespace can't be accessed by getitem anymore because "There should be only one obvious way to do it":
 
 ```python
 sn['a']

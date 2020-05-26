@@ -17,6 +17,7 @@ Template('$n').substitute(n=n)  # 7
 n.__repr__()
 repr(n)
 str.format('{}', n)
+n.__format__('d')
 ```
 
 Can you beat it?

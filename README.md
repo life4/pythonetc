@@ -33,24 +33,24 @@ More:
 1. ./magic.md                   (28 July 2020, 18:00)
 1. ./assert.md                  (30 July 2020, 18:00)
 1. ./colorsys.md                (04 August 2020, 18:00)
-1. ./snippets/final.md
-1. ./snippets/getitem.md
-1. ./license.md
-1. ./fnmatch.md
-1. ./snippets/hamming.md
-1. ./literal-eval.md
-1. ./zen.md
-1. ./nan.md
-1. ./snippets/itertools.md
-1. ./format.md
-1. ./object-type.md
-1. ./objects.md
-1. ./sys-modules.md
-1. ./numbers.md
-1. ./simplenamespace.md
-1. ./snippets/to-str.md
-1. ./nullcontext.md
-1. ./enum.md
-1. ./dynamic-class-attribute.md
-1. ./zipapp.md
-1. ./new-init.md
+1. ./snippets/final.md          (06 August 2020, 18:00)
+1. ./snippets/getitem.md        (11 August 2020, 18:00)
+1. ./license.md                 (13 August 2020, 18:00)
+1. ./fnmatch.md                 (18 August 2020, 18:00)
+1. ./snippets/hamming.md        (20 August 2020, 18:00)
+1. ./literal-eval.md            (25 August 2020, 18:00)
+1. ./zen.md                     (27 August 2020, 18:00)
+1. ./nan.md                     (01 September 2020, 18:00)
+1. ./snippets/itertools.md      (03 September 2020, 18:00)
+1. ./format.md                  (08 September 2020, 18:00)
+1. ./object-type.md             (10 September 2020, 18:00)
+1. ./objects.md                 (15 September 2020, 18:00)
+1. ./sys-modules.md             (17 September 2020, 18:00)
+1. ./numbers.md                 (22 September 2020, 18:00)
+1. ./simplenamespace.md         (24 September 2020, 18:00)
+1. ./snippets/to-str.md         (29 September 2020, 18:00)
+1. ./nullcontext.md             (01 October 2020, 18:00)
+1. ./enum.md                    (06 October 2020, 18:00)
+1. ./dynamic-class-attribute.md (08 October 2020, 18:00)
+1. ./zipapp.md                  (13 October 2020, 18:00)
+1. ./new-init.md                (15 October 2020, 18:00)

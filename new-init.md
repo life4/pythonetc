@@ -5,11 +5,12 @@ Creation of class instance is done by `__call__` method of `object` class (provi
 
 ```python
 class A:
-    def __new__(cls, *args):
-        print('new', args)
-        return super().__new__(cls)
-    def __init__(self, *args):
-        print('init', args)
+  def __new__(cls, *args):
+    print('new', args)
+    return super().__new__(cls)
+
+  def __init__(self, *args):
+    print('init', args)
 
 A(1)
 # new (1,)

@@ -13,9 +13,11 @@ isinstance(A(), object) # True
 isinstance(A, object)   # True
 ```
 
-This is because `type` an instance of `object` and subclass of `object` at the same time, and `object` is an instance of `type` and no parent classes.
+This is because `type` an instance of `object` and subclass of `object` at the same time, and `object` is an instance of `type` and has no parent classes.
 
 ```python
+isinstance(type, object) # True
+issubclass(type, object) # True
 type(type)      # type
 type(object)    # type
 type.__mro__    # (type, object)

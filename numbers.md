@@ -4,7 +4,7 @@ Module [numbers](https://docs.python.org/3/library/numbers.html) was introduced 
 Number :> Complex :> Real :> Rational :> Integral
 ```
 
-this is [ABC](https://t.me/pythonetc/550) classes, so they can be used in `isinstance` checks:
+They are [ABC](https://t.me/pythonetc/550) classes, so they can be used in `isinstance` checks:
 
 ```python
 import numbers

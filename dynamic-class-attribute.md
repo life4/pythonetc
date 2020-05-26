@@ -22,7 +22,6 @@ C().hello
 
 Practically, it is used only in `enum` to provide `name` and `value` properties for instances while still allowing to have `name` and `value` class members:
 
-
 ```python
 import enum
 
