@@ -55,3 +55,4 @@ More:
 1. ./zipapp.md                  (13 October 2020, 18:00)
 1. ./new-init.md                (15 October 2020, 18:00)
 1. ./sentinel.md                (20 October 2020, 18:00)
+1. ./yield-compr.md             (22 October 2020, 18:00)
