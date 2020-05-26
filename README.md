@@ -53,3 +53,4 @@ More:
 1. ./enum.md
 1. ./dynamic-class-attribute.md
 1. ./zipapp.md
+1. ./new-init.md
