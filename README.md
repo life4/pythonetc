@@ -54,3 +54,4 @@ More:
 1. ./dynamic-class-attribute.md (08 October 2020, 18:00)
 1. ./zipapp.md                  (13 October 2020, 18:00)
 1. ./new-init.md                (15 October 2020, 18:00)
+1. ./sentinel.md                (20 October 2020, 18:00)
