@@ -59,3 +59,5 @@ More:
 1. ./f-docstrings.md            (27 October 2020, 18:00)
 1. ./codecs.md                  (29 October 2020, 18:00)
 1. ./comprehension-func.md      (3 November 2020, 18:00)
+1. ./slots-docs.md              (5 November 2020, 18:00)
+1. ./pydoc.md                   (10 November 2020, 18:00)
