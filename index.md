@@ -45,3 +45,5 @@ type(two)
 type(two.__index__())
 # int
 ```
+
+Now it is mostly useless. However, it is a good example of language changes to meet the needs of a particular third-party library.
