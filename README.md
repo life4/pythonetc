@@ -64,6 +64,8 @@ More:
 1. ./class-getitem.md           (12 November 2020, 18:00)
 1. ./ipaddress.md               (17 November 2020, 18:00)
 1. ./index.md                   (19 November 2020, 18:00)
+1. ./qualname.md                (24 November 2020, 18:00)
+1. ./digits.md                  (26 November 2020, 18:00)
 
 Out of order:
 
