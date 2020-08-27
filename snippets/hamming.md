@@ -4,7 +4,7 @@
 from itertools import zip_longest
 
 def hamming(left, right):
-    return sum([sl != sr for sl, sr in zip_longest(left, right)])
+    return sum(sl != sr for sl, sr in zip_longest(left, right))
 
 hamming('hello', 'hello')
 # 0

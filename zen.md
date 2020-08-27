@@ -1,7 +1,7 @@
-The famous "Zen of Python" was introduced in [PEP-20](https://www.python.org/dev/peps/pep-0020/). This is 19 Guido van Rossum's aphorisms collected by Tim Peters. Do `import this` in the Python interpreter to see them:
+The famous "Zen of Python" was introduced in [PEP-20](https://www.python.org/dev/peps/pep-0020/). This is 19 aphorisms [authored by Tim Peters](https://mail.python.org/pipermail/python-list/1999-June/001951.html). Do `import this` in the Python interpreter to see them:
 
 ```python
->>> import this                                                                 
+>>> import this
 The Zen of Python, by Tim Peters
 
 Beautiful is better than ugly.
