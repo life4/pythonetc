@@ -68,6 +68,7 @@ More:
 1. ./digits.md                  (26 November 2020, 18:00)
 1. ./ipython.md
 1. ./array.md
+1. ./emoji.md
 
 Out of order:
 
@@ -84,7 +85,6 @@ Bytearray
 Subprocess and env vars
 Subprocess pipe
 Fnmatch?
-Emoji by name in a string
 Unicode module
 String.Template
 String module consts
