@@ -1,4 +1,4 @@
-## Plan
+# Plan
 
 1. ./intro.md (26 May 2020, 18:00)
 
@@ -66,7 +66,29 @@ More:
 1. ./index.md                   (19 November 2020, 18:00)
 1. ./qualname.md                (24 November 2020, 18:00)
 1. ./digits.md                  (26 November 2020, 18:00)
+1. ./ipython.md
+1. ./array.md
 
 Out of order:
 
 1. ./match.md                   (26 June 2020, 18:00)
+1. ./snippets/to-str-2.md       (30 September 2020, 18:00)
+
+## TODO
+
+Json indent
+JSON custom loader
+Csv instead of xls
+Turtle
+Bytearray
+Subprocess and env vars
+Subprocess pipe
+Fnmatch?
+Emoji by name in a string
+Unicode module
+String.Template
+String module consts
+Urllib
+Always compile regexp
+Re.Verbose
+Tau vs pi
