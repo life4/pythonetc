@@ -67,6 +67,7 @@ More:
 1. ./qualname.md                (24 November 2020, 18:00)
 1. ./digits.md                  (26 November 2020, 18:00)
 1. ./emoji.md                   (1 December 2020, 18:00)
+1. ./json-default.md
 1. ./ipython.md
 1. ./array.md
 
@@ -78,7 +79,6 @@ Out of order:
 ## TODO
 
 Json indent
-JSON custom loader
 Csv instead of xls
 Turtle
 Bytearray
@@ -90,5 +90,4 @@ String.Template
 String module consts
 Urllib
 Always compile regexp
-Re.Verbose
 Tau vs pi
