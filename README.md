@@ -70,6 +70,7 @@ More:
 1. ./json-default.md
 1. ./ipython.md
 1. ./array.md
+1. ./re_compile.md
 
 Out of order:
 
