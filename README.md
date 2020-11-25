@@ -70,7 +70,9 @@ More:
 1. ./json-default.md
 1. ./ipython.md
 1. ./array.md
-1. ./re_compile.md
+1. ./re-compile.md
+1. ./lru-cache.md
+1. ./functools-cache.md
 
 Out of order:
 
