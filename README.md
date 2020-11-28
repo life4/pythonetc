@@ -74,6 +74,9 @@ More:
 1. ./lru-cache.md
 1. ./functools-cache.md
 1. ./tau.md
+1. ./str-append.md
+1. ./str-concat.md
+1. ./bytearray.md
 
 Out of order:
 
@@ -85,10 +88,8 @@ Out of order:
 Json indent
 Csv instead of xls
 Turtle
-Bytearray
 Subprocess and env vars
 Subprocess pipe
-Fnmatch?
 Unicode module
 String.Template
 String module consts
