@@ -1,4 +1,4 @@
-We used to use Arabic digits to record numbers. However, there are many more numeral systems: Chinese (and Suzhou), Chakma, Persian, Hebrew, and so on. And Python supports them when detecting numbers:
+We use Arabic digits to record numbers. However, there are many more numeral systems: Chinese (and Suzhou), Chakma, Persian, Hebrew, and so on. And Python supports them when detecting numbers:
 
 ```python
 int('٤٢')

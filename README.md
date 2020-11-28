@@ -73,6 +73,7 @@ More:
 1. ./re-compile.md
 1. ./lru-cache.md
 1. ./functools-cache.md
+1. ./tau.md
 
 Out of order:
 
@@ -92,5 +93,3 @@ Unicode module
 String.Template
 String module consts
 Urllib
-Always compile regexp
-Tau vs pi
