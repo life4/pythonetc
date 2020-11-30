@@ -1,4 +1,4 @@
-What is the fastest way to build a string from many substrings in a loop? In other words, how to concatenate fast when we don't know in advance how much strings we have? There are many discussions about it, and the common advice is that strings are immutable, so it's better to use a list and then `str.join` it. Let's not trust anyone and just check it.
+What is the fastest way to build a string from many substrings in a loop? In other words, how to concatenate fast when we don't know in advance how many strings we have? There are many discussions about it, and the common advice is that strings are immutable, so it's better to use a list and then `str.join` it. Let's not trust anyone and just check it.
 
 The straightforward solution:
 
@@ -39,7 +39,7 @@ A bit faster. What if we use list comprehensions instead?
 
 Wow, this is 1.6x faster than what we had before. Can you make it faster?
 
-And there should be disclamer:
+And there should be a disclaimer:
 
 1. Avoid [premature optimization](http://wiki.c2.com/?PrematureOptimization), value readability over performance when using a bit slower operation is tolerable.
 

@@ -66,15 +66,16 @@ More:
 1. ./index.md                   (19 November 2020, 18:00)
 1. ./qualname.md                (24 November 2020, 18:00)
 1. ./digits.md                  (26 November 2020, 18:00)
-1. ./emoji.md                   (1 December 2020, 18:00)
-1. ./json-default.md
-1. ./ipython.md
-1. ./array.md
-1. ./re-compile.md
-1. ./lru-cache.md
-1. ./functools-cache.md
-1. ./tau.md
-1. ./str-append.md
+1. ./emoji.md                   (01 December 2020, 18:00)
+1. ./json-default.md            (03 December 2020, 18:00)
+1. ./ipython.md                 (08 December 2020, 18:00)
+1. ./array.md                   (10 December 2020, 18:00)
+1. ./lru-cache.md               (15 December 2020, 18:00)
+1. ./functools-cache.md         (17 December 2020, 18:00)
+1. ./re-compile.md              (22 December 2020, 18:00)
+1. ./tau.md                     (24 December 2020, 18:00)
+1. ./str-append.md              (29 December 2020, 18:00)
+1. ./new-year.md                (31 December 2020, 18:00)
 1. ./str-concat.md
 1. ./bytearray.md
 

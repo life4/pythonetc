@@ -1,4 +1,4 @@
-The decorator `functools.lru_cache` named so because of underlying cache replacement policy. When the cache size limit is reached [Least Recently Used](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_.28LRU.29) records removed first:
+The decorator `functools.lru_cache` named so because of the underlying cache replacement policy. When the cache size limit is reached [Least Recently Used](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_.28LRU.29) records removed first:
 
 ```python
 from functools import lru_cache
@@ -43,7 +43,7 @@ fib.cache_info()
 # CacheInfo(hits=27, misses=30, maxsize=None, currsize=30)
 ```
 
-Python 3.9 introduced `functools.cache` which is the same as `lru_cache(maxsize=None)` but a little bit faster because it doesn't have all that LRU-related logix inside:
+Python 3.9 introduced `functools.cache` which is the same as `lru_cache(maxsize=None)` but a little bit faster because it doesn't have all that LRU-related logic inside:
 
 ```python
 from functools import cache
