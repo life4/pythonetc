@@ -78,6 +78,7 @@ More:
 1. ./new-year.md                (31 December 2020, 18:00)
 1. ./str-concat.md
 1. ./bytearray.md
+1. ./join-lists.md
 
 Out of order:
 
@@ -95,3 +96,7 @@ Unicode module
 String.Template
 String module consts
 Urllib
+types.MappingProxyType
+frozenset
+https://bugs.python.org/issue36326
+str[0][0][0]
