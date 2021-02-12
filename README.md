@@ -76,9 +76,13 @@ More:
 1. ./tau.md                     (24 December 2020, 18:00)
 1. ./str-append.md              (29 December 2020, 18:00)
 1. ./new-year.md                (31 December 2020, 18:00)
+1. ./scopes.md
 1. ./str-concat.md
 1. ./bytearray.md
 1. ./join-lists.md
+1. ./is-warning.md
+1. ./float.md
+1. ./inf.md
 
 Out of order:
 

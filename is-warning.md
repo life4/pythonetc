@@ -1,0 +1,29 @@
+Starting Python 3.8, interpreter started to warn about `is` comparison of literals.
+
+Python 3.7:
+
+```python
+>>> 0 is 0
+True
+```
+
+Python 3.8:
+
+```python
+>>> 0 is 0
+<stdin>:1: SyntaxWarning: "is" with a literal. Did you mean "=="?
+True
+```
+
+The reason is that it is a famous gotcha. `==` is used to use values comparison (which is implemented by calling `__eq__` magic method, in a nutshell) while `is` compares memory addresses of objects. While it holds true for ints from -5 to 256, it won't work for ints out of this range or object of other types:
+
+```python
+a = -5
+a is -5   # True
+a = -6
+a is -6   # False
+a = 256
+a is 256  # True
+a = 257
+a is 257  # False
+```
