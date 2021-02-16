@@ -83,6 +83,8 @@ More:
 1. ./is-warning.md
 1. ./float.md
 1. ./inf.md
+1. ./typed-dict.md
+1. ./getattr-annotation.md
 
 Out of order:
 
