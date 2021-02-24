@@ -77,6 +77,7 @@ More:
 1. ./str-append.md              (29 December 2020, 18:00)
 1. ./new-year.md                (31 December 2020, 18:00)
 1. ./scopes.md
+1. ./nonlocal.md
 1. ./str-concat.md
 1. ./bytearray.md
 1. ./join-lists.md
