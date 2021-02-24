@@ -76,8 +76,8 @@ More:
 1. ./tau.md                     (24 December 2020, 18:00)
 1. ./str-append.md              (29 December 2020, 18:00)
 1. ./new-year.md                (31 December 2020, 18:00)
-1. ./scopes.md
-1. ./nonlocal.md
+1. ./scopes.md                  (25 February 2021, 18:00)
+1. ./nonlocal.md                (2 March 2021, 18:00)
 1. ./str-concat.md
 1. ./bytearray.md
 1. ./join-lists.md
@@ -92,7 +92,7 @@ Out of order:
 1. ./match.md                   (26 June 2020, 18:00)
 1. ./snippets/to-str-2.md       (30 September 2020, 18:00)
 1. ./class-scope.md             (27 January 2021, 19:00)
-1. ./season25.md
+1. ./season25.md                (24 February 2021, 16:20)
 
 ## TODO
 
