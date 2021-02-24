@@ -92,6 +92,7 @@ Out of order:
 1. ./match.md                   (26 June 2020, 18:00)
 1. ./snippets/to-str-2.md       (30 September 2020, 18:00)
 1. ./class-scope.md             (27 January 2021, 19:00)
+1. ./season25.md
 
 ## TODO
 
@@ -109,3 +110,4 @@ frozenset
 https://bugs.python.org/issue36326
 str[0][0][0]
 https://www.python.org/downloads/release/python-3100a4/
+https://www.python.org/dev/peps/pep-0505/

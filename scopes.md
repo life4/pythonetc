@@ -1,4 +1,4 @@
-So, let's talk a bit more about scopes.
+Let's talk a bit more about scopes.
 
 Any class and function can implicitly use variables from the global scope:
 

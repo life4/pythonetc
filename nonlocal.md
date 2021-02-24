@@ -64,4 +64,4 @@ f1()
 # f2 v='global'
 ```
 
-To be said, using `global` and `nonlocal` considered a bad practice that complicates the code testing and usage. If you want a global state, think if it can be achieved in another way. If you desperately need a global state, consider using [singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern) which is a little bit better.
+To be said, using `global` and `nonlocal` is considered a bad practice that complicates the code testing and usage. If you want a global state, think if it can be achieved in another way. If you desperately need a global state, consider using [singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern) which is a little bit better.
