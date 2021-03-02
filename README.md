@@ -87,6 +87,8 @@ More:
 1. ./typed-dict.md
 1. ./getattr-annotation.md
 1. ./eval-strategy.md
+1. ./deepcopy.md
+1. ./eval-order.md
 
 Out of order:
 
@@ -122,5 +124,4 @@ Make your own exceptions
 When to use is
 Key error message
 In uses hash, not eq
-Power order in python `**`
 sre_parse
