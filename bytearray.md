@@ -10,7 +10,7 @@ b.upper()
 # bytearray(b'HELLO, @PYTHONETC')
 ```
 
-The type `bytearray` has all methods of both `bytes` and `list` except method `sort`:
+The type `bytearray` has all methods of both `bytes` and `list` except `sort`:
 
 ```python
 set(dir(bytearray)) ^ (set(dir(bytes)) | set(dir(list)))

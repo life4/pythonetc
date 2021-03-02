@@ -4,7 +4,7 @@ It was a long break but tomorrow we start again. We have plenty of ideas for pos
 
 + If you don't have an idea, just contact us, we have plenty of them! And if you like it, the algorithm is the same as above: write a post, send it, we publish it with your name.
 
-+ If you don't have time to write posts but still want to help, consider donating a bot of money. If we get enough, we can take a one-day vacation and invest it exclusively into writing posts.
++ If you don't have time to write posts but still want to help, consider donating a bit of money, links are in the channel description. If we get enough, we can take a one-day vacation and invest it exclusively into writing posts.
 
 + If you see a bug or typo in a post, please, let us know!
 

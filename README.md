@@ -86,6 +86,7 @@ More:
 1. ./inf.md
 1. ./typed-dict.md
 1. ./getattr-annotation.md
+1. ./eval-strategy.md
 
 Out of order:
 
@@ -111,3 +112,15 @@ https://bugs.python.org/issue36326
 str[0][0][0]
 https://www.python.org/downloads/release/python-3100a4/
 https://www.python.org/dev/peps/pep-0505/
+`__dir__`
+ModuleType
+Import hooks
+TypeVar
+Bare except
+Value error
+Make your own exceptions
+When to use is
+Key error message
+In uses hash, not eq
+Power order in python `**`
+sre_parse

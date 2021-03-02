@@ -1,4 +1,4 @@
-Let's learn a bit more about strings performance. What if instead of unknown amount of strings we have only a few known variables?
+Let's learn a bit more about strings performance. What if instead of an unknown amount of strings we have only a few known variables?
 
 ```python
 s1 = 'hello, '
@@ -17,7 +17,7 @@ s2 = '@pythonetc'
 # 57 ns ± 5.43 ns per loop
 ```
 
-No surprises here, `+` and f-strings are equaly good, `str.format` is quite close. But what if we have numbers instead?
+No surprises here, `+` and f-strings are equally good, `str.format` is quite close. But what if we have numbers instead?
 
 ```python
 n1 = 123
@@ -32,7 +32,7 @@ n2 = 456
 # 208 ns ± 3.49 ns per loop
 ```
 
-In this case, formatting is faster because it doesn't create intermediate strings. However, there is something else about f-strings. Let's measure how long it takes just to convert an `int` into a `str`:
+In this case, formatting is faster because it doesn't create intermediate strings. However, there is something else about f-strings. Let's measure how long it takes just to convert an `int` into an `str`:
 
 ```python
 %timeit str(n1)
@@ -64,4 +64,4 @@ dis.dis("str(n1)")
               6 RETURN_VALUE
 ```
 
-And once more, disclamer: readability is more important than performance until proven otherwise. Use your knowledge with caution :)
+And once more, disclaimer: readability is more important than performance until proven otherwise. Use your knowledge with caution :)
