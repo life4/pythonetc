@@ -89,6 +89,7 @@ More:
 1. ./eval-strategy.md
 1. ./deepcopy.md
 1. ./eval-order.md
+1. ./key-error.md
 
 Out of order:
 
@@ -122,6 +123,5 @@ Bare except
 Value error
 Make your own exceptions
 When to use is
-Key error message
 In uses hash, not eq
 sre_parse
