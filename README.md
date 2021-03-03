@@ -90,6 +90,7 @@ More:
 1. ./deepcopy.md
 1. ./eval-order.md
 1. ./key-error.md
+1. ./dedent.md
 
 Out of order:
 
