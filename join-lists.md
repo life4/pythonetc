@@ -1,10 +1,10 @@
-Suppose, we have 10 lists:
+Suppose, you have 10 lists:
 
 ```python
 lists = [list(range(10_000)) for _ in range(10)]
 ```
 
-What's the fastest way to do it? To have a baseline, let's just `+` everything together:
+What's the fastest way to join them into one? To have a baseline, let's just `+` everything together:
 
 ```python
 s = lists
@@ -21,7 +21,7 @@ from operator import add
 # 1.65 ms ± 27.2 µs per loop
 ```
 
-Good, about the same speed. However, reduce is not "pythonic" anymore, this is why it was moved from built-ins into `functools`. The more beautiful way to do it is uning `sum`:
+Good, about the same speed. However, reduce is not "pythonic" anymore, this is why it was moved from built-ins into `functools`. The more beautiful way to do it is using `sum`:
 
 ```python
 %timeit sum(lists, start=[])
@@ -46,4 +46,4 @@ for lst in lists:
 # 250 µs ± 5.96 µs per loop
 ```
 
-Turned out, the most straightforward and simple to understand solution is the fastest one.
+Turned out, the most straightforward and simple solution is the fastest one.

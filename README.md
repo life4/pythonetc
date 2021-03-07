@@ -78,9 +78,9 @@ More:
 1. ./new-year.md                (31 December 2020, 18:00)
 1. ./scopes.md                  (25 February 2021, 18:00)
 1. ./nonlocal.md                (2 March 2021, 18:00)
-1. ./str-concat.md
-1. ./bytearray.md
-1. ./join-lists.md
+1. ./str-concat.md              (4 March 2021, 18:00)
+1. ./bytearray.md               (9 March 2021, 18:00)
+1. ./join-lists.md              (11 March 2021, 18:00)
 1. ./is-warning.md
 1. ./float.md
 1. ./inf.md
