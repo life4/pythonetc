@@ -1,4 +1,6 @@
-# Plan
+# Python etc
+
+## Schedule
 
 1. ./intro.md (26 May 2020, 18:00)
 
