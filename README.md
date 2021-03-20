@@ -83,8 +83,8 @@ More:
 1. ./str-concat.md              (4 March 2021, 18:00)
 1. ./bytearray.md               (9 March 2021, 18:00)
 1. ./join-lists.md              (11 March 2021, 18:00)
-1. ./is-warning.md
-1. ./float.md
+1. ./is-warning.md              (16 March 2021, 18:00)
+1. ./float.md                   (18 March 2021, 18:00)
 1. ./inf.md
 1. ./typed-dict.md
 1. ./getattr-annotation.md

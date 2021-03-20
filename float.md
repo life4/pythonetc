@@ -1,4 +1,4 @@
-[Floating point numbers](https://en.wikipedia.org/wiki/Floating-point_arithmetic) in Python and most of the modern languages are implemented according to [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754). The most interesting and hradcore part is "arithmetic formats" which defines a few special values:
+[Floating point numbers](https://en.wikipedia.org/wiki/Floating-point_arithmetic) in Python and most of the modern languages are implemented according to [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754). The most interesting and hardcore part is "arithmetic formats" which defines a few special values:
 
 + `inf` and `-inf` representing infinity.
 + `nan` representing a special "Not a Number" value.
@@ -43,7 +43,7 @@ Infinity is bigger than anything else (except nan). However, unlike in pure math
 math.inf == math.inf  # True
 ```
 
-Sum of positive an negative infinity is nan:
+The sum of positive and negative infinity is nan:
 
 ```python
 -math.inf + math.inf  # nan

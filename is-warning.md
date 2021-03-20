@@ -1,4 +1,4 @@
-Starting Python 3.8, interpreter started to warn about `is` comparison of literals.
+Starting Python 3.8, the interpreter warns about `is` comparison of literals.
 
 Python 3.7:
 
@@ -15,7 +15,7 @@ Python 3.8:
 True
 ```
 
-The reason is that it is a famous gotcha. `==` is used to use values comparison (which is implemented by calling `__eq__` magic method, in a nutshell) while `is` compares memory addresses of objects. While it holds true for ints from -5 to 256, it won't work for ints out of this range or object of other types:
+The reason is that it is an infamous Python gotcha. While `==` does values comparison (which is implemented by calling `__eq__` magic method, in a nutshell), `is` compares memory addresses of objects. It's true for ints from -5 to 256 but it won't work for ints out of this range or for objects of other types:
 
 ```python
 a = -5
