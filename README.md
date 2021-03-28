@@ -85,8 +85,8 @@ More:
 1. ./join-lists.md              (11 March 2021, 18:00)
 1. ./is-warning.md              (16 March 2021, 18:00)
 1. ./float.md                   (18 March 2021, 18:00)
-1. ./inf.md
-1. ./typed-dict.md
+1. ./inf.md                     (23 March 2021, 18:00)
+1. ./typed-dict.md              (25 March 2021, 18:00)
 1. ./getattr-annotation.md
 1. ./eval-strategy.md
 1. ./deepcopy.md
