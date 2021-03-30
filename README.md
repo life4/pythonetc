@@ -93,6 +93,8 @@ More:
 1. ./eval-order.md
 1. ./key-error.md
 1. ./dedent.md
+1. ./immutable.md
+1. ./sqlite3.md
 
 Out of order:
 
@@ -112,8 +114,6 @@ Unicode module
 String.Template
 String module consts
 Urllib
-types.MappingProxyType
-frozenset
 https://bugs.python.org/issue36326
 str[0][0][0]
 https://www.python.org/downloads/release/python-3100a4/
