@@ -60,8 +60,8 @@ More:
 1. ./yield-compr.md             (22 October 2020, 18:00)
 1. ./f-docstrings.md            (27 October 2020, 18:00)
 1. ./codecs.md                  (29 October 2020, 18:00)
-1. ./comprehension-func.md      (3 November 2020, 18:00)
-1. ./slots-docs.md              (5 November 2020, 18:00)
+1. ./comprehension-func.md      (03 November 2020, 18:00)
+1. ./slots-docs.md              (05 November 2020, 18:00)
 1. ./pydoc.md                   (10 November 2020, 18:00)
 1. ./class-getitem.md           (12 November 2020, 18:00)
 1. ./ipaddress.md               (17 November 2020, 18:00)
@@ -79,16 +79,16 @@ More:
 1. ./str-append.md              (29 December 2020, 18:00)
 1. ./new-year.md                (31 December 2020, 18:00)
 1. ./scopes.md                  (25 February 2021, 18:00)
-1. ./nonlocal.md                (2 March 2021, 18:00)
-1. ./str-concat.md              (4 March 2021, 18:00)
-1. ./bytearray.md               (9 March 2021, 18:00)
+1. ./nonlocal.md                (02 March 2021, 18:00)
+1. ./str-concat.md              (04 March 2021, 18:00)
+1. ./bytearray.md               (09 March 2021, 18:00)
 1. ./join-lists.md              (11 March 2021, 18:00)
 1. ./is-warning.md              (16 March 2021, 18:00)
 1. ./float.md                   (18 March 2021, 18:00)
 1. ./inf.md                     (23 March 2021, 18:00)
 1. ./typed-dict.md              (25 March 2021, 18:00)
-1. ./getattr-annotation.md
-1. ./eval-strategy.md
+1. ./getattr-annotation.md      (30 March 2021, 18:00)
+1. ./eval-strategy.md           (01 April 2021, 18:00)
 1. ./deepcopy.md
 1. ./eval-order.md
 1. ./key-error.md
@@ -123,8 +123,9 @@ ModuleType
 Import hooks
 TypeVar
 Bare except
-Value error
+Lookup error
 Make your own exceptions
 When to use is
 In uses hash, not eq
 sre_parse
+super()

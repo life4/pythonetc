@@ -19,7 +19,7 @@ func main() {
 }
 ```
 
-+ [Call by reference](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_reference) means that all modifications done by the function, including reassignment, will modify the original value:
++ [Call by reference](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_reference) means that all modifications that are done by the function, including reassignment, will modify the original value:
 
 ```go
 package main
@@ -68,4 +68,4 @@ print('v1:', v1)
 # v1: 1
 ```
 
-This approach is called [Call by sharing](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing). That means, the argument is always passed into a function as a copy of pointer. So, both variables point to the same boxed object in memory but if the pointer itself is modified inside the function, it doesn't affect the caller code.
+This approach is called [Call by sharing](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing). That means the argument is always passed into a function as a copy of the pointer. So, both variables point to the same boxed object in memory but if the pointer itself is modified inside the function, it doesn't affect the caller code.

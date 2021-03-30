@@ -1,4 +1,4 @@
-[PEP-526](https://www.python.org/dev/peps/pep-0526/), introducing syntax for variable annotations (laded in Python 3.6) allows annotating any valid assignment target:
+[PEP-526](https://www.python.org/dev/peps/pep-0526/), introducing syntax for variable annotations (laded in Python 3.6), allows annotating any valid assignment target:
 
 ```python
 c.x: int = 0
@@ -9,7 +9,7 @@ d['a']: int = 0
 d['b']: int
 ```
 
-The last line is the most interesting one. Adding annotations to the expression suppresses it's execution:
+The last line is the most interesting one. Adding annotations to an expression suppresses its execution:
 
 ```python
 d = {}
@@ -22,7 +22,7 @@ d[1]
 d[1]: 1
 ```
 
-However, it's not supported by mypy:
+Despite being a part of the PEP, it's not supported by [mypy](http://mypy-lang.org/):
 
 ```bash
 $ cat tmp.py
