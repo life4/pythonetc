@@ -95,6 +95,7 @@ More:
 1. ./dedent.md
 1. ./immutable.md
 1. ./sqlite3.md
+1. ./str-chain.md
 
 Out of order:
 
