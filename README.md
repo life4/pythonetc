@@ -89,8 +89,8 @@ More:
 1. ./typed-dict.md              (25 March 2021, 18:00)
 1. ./getattr-annotation.md      (30 March 2021, 18:00)
 1. ./eval-strategy.md           (01 April 2021, 18:00)
-1. ./deepcopy.md
-1. ./eval-order.md
+1. ./deepcopy.md                (6 April 2021, 18:00)
+1. ./eval-order.md              (8 April 2021, 18:00)
 1. ./key-error.md
 1. ./dedent.md
 1. ./immutable.md
@@ -130,3 +130,5 @@ When to use is
 In uses hash, not eq
 sre_parse
 super()
+gc
+trace

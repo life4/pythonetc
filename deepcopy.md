@@ -1,6 +1,6 @@
-What if we want to modify a collection inside a function but don't want these modifications affect the caller code? Then we should explicitly copy the value.
+What if we want to modify a collection inside a function but don't want these modifications to affect the caller code? Then we should explicitly copy the value.
 
-For this purpose, all built-in collections provide method `.copy`:
+For this purpose, all mutable built-in collections provide method `.copy`:
 
 ```python
 def f(v2):
