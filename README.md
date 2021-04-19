@@ -96,6 +96,7 @@ More:
 1. ./immutable.md
 1. ./sqlite3.md
 1. ./str-chain.md
+1. ./json-allow-nan.md
 
 Out of order:
 
