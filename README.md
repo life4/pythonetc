@@ -99,6 +99,7 @@ More:
 1. ./sqlite3.md
 1. ./str-chain.md
 1. ./json-allow-nan.md
+1. ./sre-parse.md
 
 Out of order:
 
@@ -131,7 +132,8 @@ Lookup error
 Make your own exceptions
 When to use is
 In uses hash, not eq
-sre_parse
 super()
 gc
 trace
+atexit
+Lazy annotations hype

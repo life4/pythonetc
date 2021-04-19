@@ -1,9 +1,4 @@
-
-
-`exc_info`
-
 When something fails, usually you want to log it. Let's have a look at a small toy example:
-
 
 ```python
 from logging import getLogger
