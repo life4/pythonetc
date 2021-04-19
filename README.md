@@ -93,6 +93,7 @@ More:
 1. ./eval-order.md              (8 April 2021, 18:00)
 1. ./key-error.md               (15 April 2021, 18:00)
 1. ./exc-info.md
+1. ./log-extra.md
 1. ./dedent.md
 1. ./immutable.md
 1. ./sqlite3.md
