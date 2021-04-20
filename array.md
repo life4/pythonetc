@@ -1,3 +1,7 @@
+# array performance
+
+Published: 10 December 2020, 18:00
+
 The module [array](https://t.me/pythonetc/124) is helpful if you want to be memory efficient or interoperate with C. However, working with array can be slower than with list:
 
 ```python

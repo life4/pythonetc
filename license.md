@@ -1,3 +1,7 @@
+# license
+
+Published: 13 August 2020, 18:00
+
 Python provides 2 useless but interesting built-in functions: `copyright` and `license`. `copyright` gives a short overview who owned Python in different moments of history:
 
 ```python

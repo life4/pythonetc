@@ -1,3 +1,7 @@
+# join strings
+
+Published: 29 December 2020, 18:00
+
 What is the fastest way to build a string from many substrings in a loop? In other words, how to concatenate fast when we don't know in advance how many strings we have? There are many discussions about it, and the common advice is that strings are immutable, so it's better to use a list and then `str.join` it. Let's not trust anyone and just check it.
 
 The straightforward solution:

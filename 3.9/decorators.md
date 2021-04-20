@@ -1,3 +1,7 @@
+# decorators (PEP-614)
+
+Published: 18 June 2020, 18:00
+
 [Syntax for decorators is limited](https://t.me/pythonetc/16) by getting attributes and calling objects:
 
 ```python

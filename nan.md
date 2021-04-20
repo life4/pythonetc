@@ -1,3 +1,7 @@
+# nan
+
+Published: 01 September 2020, 18:00
+
 Python has [NaN](https://t.me/pythonetc/561) float value and it's a rule-breaking thing:
 
 ```python

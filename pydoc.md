@@ -1,3 +1,7 @@
+# pydoc
+
+Published: 10 November 2020, 18:00
+
 The script [pydoc](https://docs.python.org/3/library/pydoc.html) can be used to see documentationand docstrings from the console:
 
 ```bash

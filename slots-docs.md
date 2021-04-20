@@ -1,3 +1,7 @@
+# dict as `__slots__`
+
+Published: 05 November 2020, 18:00
+
 `__slots__` [can be used to save memory](https://t.me/pythonetc/233). You can use any iterable as `__slots__` value, including `dict`. AND Starting from Python 3.8, you can use `dict` to specify docstrings for slotted attributes `__slots__`:
 
 ```python
@@ -20,20 +24,20 @@ Also, `help(Channel)` lists docs for all slotted attributes:
 ```python
 class Channel(builtins.object)
  |  Channel(slug, name)
- |  
+ |
  |  Telegram channel
- |  
+ |
  |  Methods defined here:
- |  
+ |
  |  __init__(self, slug, name)
  |      Initialize self.  See help(type(self)) for accurate signature.
- |  
+ |
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
- |  
+ |
  |  name
  |      user-friendly name
- |  
+ |
  |  slug
  |      short name, without @
 ```

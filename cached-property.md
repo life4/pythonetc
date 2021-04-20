@@ -1,3 +1,7 @@
+# @cached_property
+
+Published: 16 July 2020, 18:00
+
 Decorator `@cached_property` is an amazing way to simplify your code. It's like the regular `@property` but remembers the value after the first call:
 
 ```python

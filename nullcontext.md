@@ -1,3 +1,7 @@
+# contextlib.nullcontext
+
+Published: 01 October 2020, 18:00
+
 Context manager [contextlib.nullcontext](https://docs.python.org/3/library/contextlib.html#contextlib.nullcontext) is helpful when a block of code not always should be executed in a context.
 
 A good example is a function that works with a database. If a session is passed, the function will use it. Otherwise, it creates a new session, and does it in a context to guarantee fallback logic to be executed:

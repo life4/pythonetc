@@ -1,3 +1,7 @@
+# `__set_name__` (PEP-487)
+
+Published: 21 July 2020, 18:00
+
 If you're going to store data in the descriptor, the reasonable question is "where".
 
 1. If data stored in the descriptor's attribute, it will be shared between all instances of the class where the descriptor is assigned.

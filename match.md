@@ -1,3 +1,7 @@
+# match
+
+Published: 26 June 2020, 18:00
+
 On this Tuesday, a team of 5 authors (including Guido van Rossum) published [PEP-622](https://www.python.org/dev/peps/pep-0622/). This is a huge draft in terms of size, complexity, and impact. It is a proposal to extend Python syntax to support structural [pattern matching](https://en.wikipedia.org/wiki/Pattern_matching). Think about it as `if` statement on steroids.
 
 A small example using `match` as [switch statement](https://en.wikipedia.org/wiki/Switch_statement):

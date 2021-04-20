@@ -1,3 +1,7 @@
+# types.SimpleNamespace
+
+Published: 24 September 2020, 18:00
+
 [types.SimpleNamespace](https://docs.python.org/3/library/types.html#types.SimpleNamespace) is a way to make a `dict` with access by attributes:
 
 ```python

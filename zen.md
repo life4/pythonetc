@@ -1,3 +1,7 @@
+# zen of python (PEP-20)
+
+Published: 27 August 2020, 18:00
+
 The famous "Zen of Python" was introduced in [PEP-20](https://www.python.org/dev/peps/pep-0020/). This is 19 aphorisms [authored by Tim Peters](https://mail.python.org/pipermail/python-list/1999-June/001951.html). Do `import this` in the Python interpreter to see them:
 
 ```python
@@ -26,7 +30,6 @@ Namespaces are one honking great idea -- let's do more of those!
 ```
 
 The fun thing is how this module looks like. The original text is encoded by [ROT13](https://en.wikipedia.org/wiki/ROT13) algorithm and is decoded on the fly:
-
 
 ```python
 s = """Gur Mra bs Clguba, ol Gvz Crgref

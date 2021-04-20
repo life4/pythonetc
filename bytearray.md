@@ -1,3 +1,7 @@
+# bytearray
+
+Published: 09 March 2021, 18:00
+
 Types `str` and `bytes` are immutable. As we learned in previous posts, `+` is optimized for `str` but sometimes you need a fairly mutable type. For such cases, there is `bytearray` type. It is a "hybrid" of `bytes` and `list`:
 
 ```python

@@ -1,3 +1,7 @@
+# str.removeprefix
+
+Published: 28 May 2020, 18:00
+
 In python 3.9, [PEP-616](https://www.python.org/dev/peps/pep-0616/) introduced `str.removeprefix` and `str.removesuffix` methods:
 
 ```python

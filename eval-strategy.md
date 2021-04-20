@@ -1,3 +1,7 @@
+# eval strategy
+
+Published: 01 April 2021, 18:00
+
 In most of the programming languages (like C, PHP, Go, Rust) values can be passed into a function either as value or as reference (pointer):
 
 + [Call by value](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_value) means that the value of the variable is copied, so all modification with the argument value inside the function won't affect the original value. This is an example of how it works in [Go](https://golang.org/):

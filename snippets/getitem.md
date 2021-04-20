@@ -1,3 +1,7 @@
+# operator.getitem
+
+Published: 11 August 2020, 18:00
+
 When you have a dict with a deep inheritance (like a configuration file) and path in it specified as a string, there is a fun and short way how to get a value from the dict by the given path:
 
 ```python

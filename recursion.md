@@ -1,3 +1,7 @@
+# sys.setrecursionlimit
+
+Published: 23 June 2020, 18:00
+
 Python doesn't support [tail recursion](https://t.me/pythonetc/239). Hence, it's easy to face `RecursionError` when implementing recursive algorithms. You can get and change maximum recursion depth with [sys.getrecursionlimit](https://docs.python.org/3/library/sys.html#sys.getrecursionlimit) and [sys.setrecursionlimit](https://docs.python.org/3/library/sys.html#sys.setrecursionlimit) functions:
 
 ```python

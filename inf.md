@@ -1,3 +1,7 @@
+# float division
+
+Published: 23 March 2021, 18:00
+
 Infinity has an interesting behavior on division operations. Some of them are expected, some of them are surprising. Without further talking, there is a table:
 
 ```python

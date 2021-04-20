@@ -1,3 +1,7 @@
+# everything is object
+
+Published: 15 September 2020, 18:00
+
 Everything is an object, including functions, lambdas, and generators:
 
 ```python

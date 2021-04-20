@@ -1,3 +1,7 @@
+# warning about is
+
+Published: 16 March 2021, 18:00
+
 Starting Python 3.8, the interpreter warns about `is` comparison of literals.
 
 Python 3.7:

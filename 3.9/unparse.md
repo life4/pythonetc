@@ -1,3 +1,7 @@
+# ast.unparse
+
+Published: 16 June 2020, 18:00
+
 Python 3.9 introduces a new function [ast.unparse](https://docs.python.org/3.9/library/ast.html#ast.unparse). It accepts a parsed AST and produces a Python code. This code if parsed will produce the same AST:
 
 ```python

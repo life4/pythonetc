@@ -1,3 +1,7 @@
+# re.compile
+
+Publish: 22 December 2020, 18:00
+
 Always precompile regular expressions using `re.compile` if the expression is known in advance:
 
 ```python

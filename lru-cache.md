@@ -1,3 +1,7 @@
+# functools.lru_cache
+
+Published: 15 December 2020, 18:00
+
 Decorator [functools.lru_cache](https://docs.python.org/3/library/functools.html#functools.lru_cache) caches the function result based on the given arguments:
 
 ```python

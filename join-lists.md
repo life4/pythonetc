@@ -1,3 +1,7 @@
+# join lists
+
+Published: 11 March 2021, 18:00
+
 Suppose, you have 10 lists:
 
 ```python

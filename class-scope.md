@@ -1,3 +1,7 @@
+# class scope
+
+Published: 27 January 2021, 19:00
+
 Today Guido van Rossum [posted a Python riddle](https://twitter.com/gvanrossum/status/1354305179244392453):
 
 ```python

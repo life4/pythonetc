@@ -1,3 +1,7 @@
+# copy.deepcopy
+
+Published: 6 April 2021, 18:00
+
 What if we want to modify a collection inside a function but don't want these modifications to affect the caller code? Then we should explicitly copy the value.
 
 For this purpose, all mutable built-in collections provide method `.copy`:

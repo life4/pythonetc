@@ -1,3 +1,7 @@
+# sum implemented on frames
+
+Published: 30 June 2020, 18:00
+
 Let's  have more fun with frames and recursion. There is sum function that adds 2 natural small numbers by getting down into recursive calls and then counting back the stack size:
 
 ```python

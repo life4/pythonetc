@@ -1,3 +1,7 @@
+# float (IEEE 754)
+
+Published: 18 March 2021, 18:00
+
 [Floating point numbers](https://en.wikipedia.org/wiki/Floating-point_arithmetic) in Python and most of the modern languages are implemented according to [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754). The most interesting and hardcore part is "arithmetic formats" which defines a few special values:
 
 + `inf` and `-inf` representing infinity.

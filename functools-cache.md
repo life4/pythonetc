@@ -1,3 +1,7 @@
+# functools.cache
+
+Published: 17 December 2020, 18:00
+
 The decorator `functools.lru_cache` named so because of the underlying cache replacement policy. When the cache size limit is reached [Least Recently Used](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_.28LRU.29) records removed first:
 
 ```python

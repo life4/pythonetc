@@ -1,3 +1,7 @@
+# fnmatch
+
+Published: 18 August 2020, 18:00
+
 Module [fnmatch](https://docs.python.org/3/library/fnmatch.html) provides a few functions to work with Unix-like patterns:
 
 ```python

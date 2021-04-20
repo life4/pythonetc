@@ -1,3 +1,7 @@
+# types.DynamicClassAttribute
+
+Published: 08 October 2020, 18:00
+
 [types.DynamicClassAttribute](https://docs.python.org/3/library/types.html#types.DynamicClassAttribute) is a decorator that allows having a `@property` that behaves differently when it's called from the class and when from the instance.
 
 ```python

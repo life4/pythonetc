@@ -1,3 +1,7 @@
+# typing.TypedDict (PEP-589)
+
+Published: 25 March 2021, 18:00
+
 [PEP-589](https://www.python.org/dev/peps/pep-0589/) (landed in Python 3.8) introduced `typing.TypedDict` as a way to annotate dicts:
 
 ```python

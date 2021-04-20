@@ -1,7 +1,11 @@
+# `__prepare__`
+
+Published: 09 July 2020, 18:00
+
 Magic method `__prepare__` on metaclass is called on class creation. It must return a dict instance that then will be used as `__dict__` of the class. For example, it can be used to inject variables into the function scope:
 
 ```python
-class Meta(type):    
+class Meta(type):
     def __prepare__(_name, _bases, **kwargs):
         d = {}
         for k, v in kwargs.items():

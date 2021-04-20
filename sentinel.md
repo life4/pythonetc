@@ -1,3 +1,7 @@
+# unittest.mock.sentinel
+
+Published: 20 October 2020, 18:00
+
 Some functions can accept as an argument value of any type or no value at all. If you set the default value to `None` you can't say if `None` was explicitly passed or not. For example, the [default value](https://docs.python.org/3/library/argparse.html#default) for [argparse.ArgumentParser.add_argument](https://docs.python.org/3/library/argparse.html#the-add-argument-method). For this purpose, you can create a new object and then use `is` check:
 
 ```python

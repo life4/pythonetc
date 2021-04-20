@@ -1,3 +1,7 @@
+# eval order
+
+Published: 8 April 2021, 18:00
+
 Python uses [eager evaluation](https://en.wikipedia.org/wiki/Eager_evaluation). When a function is called, all its arguments are evaluated from left to right and only then their results are passed into the function:
 
 ```python

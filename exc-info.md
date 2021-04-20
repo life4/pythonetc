@@ -25,7 +25,7 @@ update_channel('telegram', 'Telegram News')
 This example has a few issues:
 
 + There is no explicit log message. So, when it fails, you can't search in the project where this log record comes from.
-+ There is no traceback. When the `try` block execution is more complicated, we want to be able to track where exactly an the call stack the exception occured. To achieve it, logger methods provide `exc_info` argument. When it is set to `True`, the current exception with traceback will be added into the log message.
++ There is no traceback. When the `try` block execution is more complicated, we want to be able to track where exactly in the call stack the exception occurred. To achieve it, logger methods provide `exc_info` argument. When it is set to `True`, the current exception with traceback will be added to the log message.
 
 So, this is how we can do it better:
 
@@ -45,7 +45,7 @@ update_channel('telegram', 'Telegram News')
 # KeyError: 'telegram'
 ```
 
-Also, logger provides a convenient method `exception` which is the same as `error` with `exc_info=True`:
+Also, the logger provides a convenient method `exception` which is the same as `error` with `exc_info=True`:
 
 ```python
 logger.exception('channel not found')

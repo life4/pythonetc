@@ -1,3 +1,6 @@
+# nonlocal
+
+Published: 02 March 2021, 18:00
 
 Any enclosing variable can be shadowed in the local scope without affecting the global one:
 

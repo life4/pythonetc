@@ -1,3 +1,7 @@
+# KeyError
+
+Published: 15 April 2021, 18:00
+
 Most of the exceptions raised from the standard library or built-ins have a quite descriptive self-contained message:
 
 ```python

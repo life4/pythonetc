@@ -1,3 +1,7 @@
+# object and type
+
+Published: 10 September 2020, 18:00
+
 Every class is an instance of its metaclass. The default metaclass is `type`. You can use this knowledge to check if something is a class or is an instance:
 
 ```python

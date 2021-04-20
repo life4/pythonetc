@@ -1,3 +1,7 @@
+# comprehensions are functions
+
+Published: 03 November 2020, 18:00
+
 As we said, comprehensions compiled into functions. That means, we can take a [types.CodeType](https://docs.python.org/3.8/library/types.html#types.CodeType) object for a comprehension, wrap it into [types.FunctionType](https://docs.python.org/3.8/library/types.html#types.FunctionType), and get a function.
 
 ```python

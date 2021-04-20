@@ -1,3 +1,7 @@
+# scopes
+
+Published: 25 February 2021, 18:00
+
 Let's talk a bit more about scopes.
 
 Any class and function can implicitly use variables from the global scope:

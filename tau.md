@@ -1,3 +1,7 @@
+# math.tau (PEP-628)
+
+Published: 24 December 2020, 18:00
+
 The issue with a beautiful number [#12345](https://bugs.python.org/issue12345) proposed to add the following constant into stdlib:
 
 ```python

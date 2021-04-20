@@ -1,3 +1,7 @@
+# Season #2.5
+
+Published: 24 February 2021, 16:20
+
 It was a long break but tomorrow we start again. We have plenty of ideas for posts but don't always have time to write them. So, this is how you can help us:
 
 + If you have something to tell about Python (syntax, stdlib, PEPs), check if it already was posted. If not, write a post, send it to us, and we will publish it. It will include your name (if you want to), we don't steal content ;)

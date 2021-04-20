@@ -1,3 +1,7 @@
+# yield and comprehensions
+
+Published: 22 October 2020, 18:00
+
 Accidentally, `yield` can be used in generator expressions and comprehensions:
 
 ```python
@@ -14,7 +18,7 @@ list((yield i) for i in 'ab')
 This is because `yield` can be used in any function (turning it into a generator) and comprehensions are compiled into functions:
 
 ```python
->>> dis.dis("[(yield i) for i in range(3)]")                                                                                                                                             
+>>> dis.dis("[(yield i) for i in range(3)]")
 0 LOAD_CONST     0 (<code object <listcomp> ...>)
 2 LOAD_CONST     1 ('<listcomp>')
 4 MAKE_FUNCTION  0

@@ -1,3 +1,7 @@
+# assert
+
+Published: 30 July 2020, 18:00
+
 Basically, `assert` could be a function:
 
 ```python
