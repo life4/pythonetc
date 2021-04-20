@@ -14,8 +14,6 @@ You don't need telegram to read the channel using the link above. If neither of 
 
 ## To schedule
 
-1. ./exc-info.md
-1. ./log-extra.md
 1. ./dedent.md
 1. ./immutable.md
 1. ./sqlite3.md
@@ -36,9 +34,8 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + String.Template
 + String module consts
 + Urllib
-+ https://bugs.python.org/issue36326
 + str[0][0][0]
-+ https://www.python.org/downloads/release/python-3100a4/
++ https://www.python.org/downloads/release/python-3100a7/
 + https://www.python.org/dev/peps/pep-0505/
 + `__dir__`
 + ModuleType

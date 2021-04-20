@@ -1,3 +1,7 @@
+# logging extra
+
+Published: 22 April 2021, 18:00
+
 Let's have a look at the following log message:
 
 ```python
@@ -14,7 +18,7 @@ user_id = 13
 logger.warning(f'user #{user_id} not found')
 ```
 
-That's better, now we know what user it was. However, it's hard to work with such kinds of messages. For example, we want to get a notification when the same type of error messages occurred too many times in a minute. Before, it was one error message, "user not found". Now, for every user, we get a different message. Or another example, if we want to get all messages related to the same user. If we just search for "13", we will get many false positives where "13" means something else, not user_id.
+That's better, now we know what user it was. However, it's hard to work with such kinds of messages. For example, we want to get a notification when the same type of error messages occurred too many times in a minute. Before, it was one error message, "user not found". Now, for every user, we get a different message. Or another example, if we want to get all messages related to the same user. If we just search for "13", we will get many false positives where "13" means something else, not `user_id`.
 
 The solution is to use [structured logging](softwareengineering.stackexchange.com/questions/312197/). The idea of structured logging is to store all additional values as separate fields instead of mixing everything in one text message. In Python, it can be achieved by passing the variables as the `extra` argument. Most of the logging libraries will recognize and store everything passed into `extra`. For example, how it looks like in [python-json-logger](https://pypi.org/project/python-json-logger/):
 
@@ -39,6 +43,12 @@ logger = logging.getLogger()
 logger.warning('user not found', extra=dict(user_id=13))
 # user not found
 ```
+
+So, if you use `extra`, stick to the third-party formatter you use or write your own.
+
+## Custom formatter
+
+NOTE: The text below wasn't published. Should it be a separate post?
 
 So, to show `extra` when printing human-readable log messages as plain text, you have to write your own logs formatter:
 

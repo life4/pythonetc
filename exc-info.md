@@ -1,25 +1,24 @@
+# logging exc_info
+
+Published: 20 April 2021, 18:00
+
 When something fails, usually you want to log it. Let's have a look at a small toy example:
 
 ```python
 from logging import getLogger
 
 logger = getLogger(__name__)
-channels = dict(
-  pythonetc='Python etc',
-)
+channels = {}
 
 def update_channel(slug, name):
   try:
     old_name = channels[slug]
   except KeyError as exc:
     logger.error(repr(exc))
-    channels[slug] = name
-    return
-  if name != old_name:
-    channels[slug] = name
+  ...
 
-update_channel('telegram', 'Telegram News')
-# Logged: KeyError('telegram')
+update_channel('pythonetc', 'Python etc')
+# Logged: KeyError('pythonetc')
 ```
 
 This example has a few issues:
@@ -37,12 +36,12 @@ def update_channel(slug, name):
     logger.error('channel not found', exc_info=True)
   ...
 
-update_channel('telegram', 'Telegram News')
+update_channel('pythonetc', 'Python etc')
 # channel not found
 # Traceback (most recent call last):
-#   File "...", line 10, in update_channel
+#   File "...", line 3, in update_channel
 #     old_name = channels[slug]
-# KeyError: 'telegram'
+# KeyError: 'pythonetc'
 ```
 
 Also, the logger provides a convenient method `exception` which is the same as `error` with `exc_info=True`:
