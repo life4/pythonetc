@@ -14,7 +14,6 @@ You don't need telegram to read the channel using the link above. If neither of 
 
 ## To schedule
 
-1. ./str-chain.md
 1. ./json-allow-nan.md
 1. ./sre-parse.md
 
