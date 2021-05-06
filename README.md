@@ -14,7 +14,6 @@ You don't need telegram to read the channel using the link above. If neither of 
 
 ## To schedule
 
-1. ./sqlite3.md
 1. ./str-chain.md
 1. ./json-allow-nan.md
 1. ./sre-parse.md
@@ -50,3 +49,4 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + atexit
 + Lazy annotations hype
 + del
++ destructor
