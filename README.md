@@ -12,15 +12,11 @@ Reasons to read posts from the cannel rather than here:
 
 You don't need telegram to read the channel using the link above. If neither of it stops you, sure, go ahead, read it here.
 
-## To schedule
-
-1. ./json-allow-nan.md
-1. ./sre-parse.md
-
 ## To write
 
 These are ideas for future posts. Let me know if you want to write a guest post on any of these topics.
 
++ https://barry.warsaw.us/software/STYLEGUIDE.txt
 + Json indent
 + Csv instead of xls
 + Turtle
@@ -30,7 +26,6 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + String.Template
 + String module consts
 + Urllib
-+ str[0][0][0]
 + https://www.python.org/downloads/release/python-3100a7/
 + https://www.python.org/dev/peps/pep-0505/
 + `__dir__`

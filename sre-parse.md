@@ -1,3 +1,7 @@
+# sre_parse
+
+Published: 7 September 2021, 18:00
+
 Internally, the module [re](https://docs.python.org/3/library/re.html) uses 2 undocumented libraries:
 
 + `sre_parse` to parse regular expressions into an abstract syntax tree.
@@ -6,6 +10,7 @@ Internally, the module [re](https://docs.python.org/3/library/re.html) uses 2 un
 The first one can be used to see how a regexp was parsed by Python. There are many better tools and services (like [regex101.com](https://regex101.com/)) to debug regular expressions but this one is already in the stdlib.
 
 ```python
+>>> import sre_parse
 >>> sre_parse.parse(r'([Pp]ython)\s?etc').dump()
 SUBPATTERN 1 0 0
   IN

@@ -1,3 +1,7 @@
+# allow_nan
+
+Published: 31 August 2021, 18:00
+
 JSON states for "JavaScript Object Notation". It's a subset of JavaScript and representation of values is based on how they are represented in JavaScript:
 
 ```python
@@ -16,7 +20,7 @@ The last two examples are valid JavaScript but explicitly forbidden by [RFC 4627
 
 > Numeric values that cannot be represented as sequences of digits (such as Infinity and NaN) are not permitted.
 
-And so, the `inf` / `nan` values, succesfully serialized in Python, can fail deserialization in another language. For example, in Go:
+And so, the `inf` / `nan` values, successfully serialized in Python, can fail deserialization in another language. For example, in Go:
 
 ```go
 import "encoding/json"
