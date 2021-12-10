@@ -1,6 +1,8 @@
 # faulthandler part 2
 
-Now, let's see how to dump stack trace when a specific signal received. We will use [SIGUSR1](https://www.gnu.org/software/libc/manual/html_node/Miscellaneous-Signals.html) but you can do the same for any signal.
+Published: 21 December 2021, 18:00.
+
+Now, let's see how to dump stack trace when a specific signal is received. We will use [SIGUSR1](https://www.gnu.org/software/libc/manual/html_node/Miscellaneous-Signals.html) but you can do the same for any signal.
 
 ```python
 import faulthandler
@@ -29,3 +31,5 @@ And back in the terminal with the running script. You will see the stack trace:
 Current thread 0x00007f22edb29740 (most recent call first):
   File "tmp.py", line 6 in <module>
 ```
+
+This trick can help you to see where your program has frozen without adding logs to every line. However, a better alternative can be something like [py-spy](https://github.com/benfred/py-spy) which allows you to dump the current stack trace without any changes in the code.

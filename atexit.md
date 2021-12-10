@@ -1,6 +1,8 @@
 # atexit
 
-The module [atexit](https://docs.python.org/3/library/atexit.html) allows to register hooks that will be executed when the program terminates.
+Published: 14 December 2021, 18:00.
+
+The module [atexit](https://docs.python.org/3/library/atexit.html) allows registering hooks that will be executed when the program terminates.
 
 There are only a few cases when it is NOT executed:
 
@@ -16,7 +18,7 @@ A few use cases:
 + Send pending log messages into the log system
 + Save interactive interpreter history
 
-However, keep in mind that there is no way to handle unhandled exceptions using `atexit` because it is executed after the exception is printed and disacarded.
+However, keep in mind that there is no way to handle unhandled exceptions using `atexit` because it is executed after the exception is printed and discarded.
 
 ```python
 import atexit

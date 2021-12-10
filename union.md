@@ -1,5 +1,7 @@
 # Union alias (PEP-604)
 
+Published: 28 December 2021, 18:00.
+
 [PEP-604](https://www.python.org/dev/peps/pep-0604/) (landed in Python 3.10) introduced a new short syntax for `typing.Union` ([as we predicted](https://t.me/pythonetc/569)):
 
 ```python
