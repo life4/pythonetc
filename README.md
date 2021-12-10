@@ -40,7 +40,5 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + super()
 + gc
 + trace
-+ atexit
-+ Lazy annotations hype
 + del
 + destructor
