@@ -12,6 +12,16 @@ Reasons to read posts from the cannel rather than here:
 
 You don't need telegram to read the channel using the link above. If neither of it stops you, sure, go ahead, read it here.
 
+## To publish
+
++ atexit
++ faulthandler
++ faulthandler2
++ future-annotations
++ union
++ lookup-error
++ is
+
 ## To write
 
 These are ideas for future posts. Let me know if you want to write a guest post on any of these topics.
@@ -33,12 +43,20 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + Import hooks
 + TypeVar
 + Bare except
-+ Lookup error
 + Make your own exceptions
-+ When to use is
 + In uses hash, not eq
 + super()
 + gc
 + trace
 + del
 + destructor
++ iterator vs iterable
++ next()
++ `__length_hint__`
++ generators
++ yield from
++ yield+return
++ yield+return with a value
++ generator.throw()
++ generator.close
++ re.scanner
