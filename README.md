@@ -64,3 +64,5 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + re.scanner
 + pickle and security
 + list.clear
++ typing.Protocol
++ runtime_checkable
