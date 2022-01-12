@@ -21,6 +21,9 @@ You don't need telegram to read the channel using the link above. If neither of 
 + union
 + lookup-error
 + is
++ del
++ del2
++ gc_is_finalized
 
 ## To write
 
@@ -60,3 +63,4 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + generator.close
 + re.scanner
 + pickle and security
++ list.clear
