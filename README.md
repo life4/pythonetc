@@ -24,6 +24,7 @@ You don't need telegram to read the channel using the link above. If neither of 
 + del
 + del2
 + gc_is_finalized
++ warnings
 
 ## To write
 
