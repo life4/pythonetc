@@ -1,10 +1,16 @@
 # LookupError
 
+Published: 2022-08-09
+
 `LookupError` is a base class for `IndexError` and `KeyError`:
 
 ```python
+LookupError.__subclasses__()
+# [IndexError, KeyError, encodings.CodecRegistryError]
+
 KeyError.mro()
 # [KeyError, LookupError, Exception, BaseException, object]
+
 IndexError.mro()
 # [IndexError, LookupError, Exception, BaseException, object]
 ```

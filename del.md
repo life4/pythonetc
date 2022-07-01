@@ -1,5 +1,7 @@
 # del
 
+Published: 2022-08-23.
+
 The `del` statement is used to delete things. It has a few distinct behaviors, depending on what is the specified target.
 
 If a variable specified, it will be removed from the scope in which it is defined:
