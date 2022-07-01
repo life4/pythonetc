@@ -1,6 +1,6 @@
 # `from __future__ import annotations` (PEP-563)
 
-Published: 23 December 2021, 18:00.
+Published: 2022-07-19.
 
 [PEP-563](https://www.python.org/dev/peps/pep-0563/) (landed in Python 3.7) introduced postponed evaluation of type annotations. That means, all your type annotations aren't executed at runtime but rather considered strings.
 

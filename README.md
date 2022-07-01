@@ -14,10 +14,6 @@ You don't need telegram to read the channel using the link above. If neither of 
 
 ## To publish
 
-+ atexit
-+ faulthandler
-+ faulthandler2
-+ future-annotations
 + union
 + lookup-error
 + is
