@@ -30,7 +30,7 @@ You don't need telegram to read the channel using the link above. If neither of 
 
 These are ideas for future posts. Let me know if you want to write a guest post on any of these topics.
 
-+ https://barry.warsaw.us/software/STYLEGUIDE.txt
++ <https://barry.warsaw.us/software/STYLEGUIDE.txt>
 + Json indent
 + Csv instead of xls
 + Turtle
@@ -40,8 +40,8 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + String.Template
 + String module consts
 + Urllib
-+ https://www.python.org/downloads/release/python-3100a7/
-+ https://www.python.org/dev/peps/pep-0505/
++ <https://www.python.org/downloads/release/python-3100a7/>
++ <https://www.python.org/dev/peps/pep-0505/>
 + `__dir__`
 + ModuleType
 + Import hooks
@@ -67,3 +67,6 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + list.clear
 + typing.Protocol
 + runtime_checkable
++ <https://docs.python.org/3/library/zoneinfo.html>
++ <https://www.reddit.com/r/Python/comments/tczsrh/psa_there_are_more_strftime_formats_than_just/>
++ <https://peps.python.org/pep-0680/>
