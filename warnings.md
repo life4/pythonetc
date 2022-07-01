@@ -1,5 +1,7 @@
 # warnings
 
+Published: 2022-09-13.
+
 The module [warnings](https://docs.python.org/3/library/warnings.html) allows to print, you've guessed it, warnings. Most often, it is used to warn users of a library that the module, function, or argument they use is deprecated.
 
 ```python

@@ -23,7 +23,6 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + Subprocess and env vars
 + Subprocess pipe
 + Unicode module
-+ String.Template
 + String module consts
 + Urllib
 + <https://www.python.org/downloads/release/python-3100a7/>
