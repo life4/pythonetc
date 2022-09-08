@@ -1,6 +1,7 @@
 ---
 published: 05 November 2020, 18:00
 author: orsinium
+python: "3.8"
 ---
 
 # dict as `__slots__`

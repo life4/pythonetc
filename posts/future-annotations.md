@@ -2,6 +2,7 @@
 published: 2022-07-19
 author: orsinium
 pep: 563
+python: "3.7"
 ---
 
 # `from __future__ import annotations` (PEP-563)

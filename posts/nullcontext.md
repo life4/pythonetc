@@ -2,6 +2,7 @@
 published: 01 October 2020, 18:00
 author: orsinium
 qname: contextlib.nullcontext
+python: "3.7"
 ---
 
 # contextlib.nullcontext

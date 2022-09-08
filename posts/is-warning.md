@@ -2,6 +2,7 @@
 published: 16 March 2021, 18:00
 author: orsinium
 qname: is
+python: "3.8"
 ---
 
 # warning about is

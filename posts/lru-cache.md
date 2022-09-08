@@ -2,6 +2,7 @@
 published: 15 December 2020, 18:00
 author: orsinium
 qname: functools.lru_cache
+python: "3.2"
 ---
 
 # functools.lru_cache

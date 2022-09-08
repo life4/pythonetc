@@ -2,6 +2,7 @@
 published: 16 June 2020, 18:00
 author: orsinium
 qname: ast.unparse
+python: "3.9"
 ---
 
 # ast.unparse

@@ -2,6 +2,7 @@
 published: 12 November 2020, 18:00
 author: orsinium
 pep: 560
+python: "3.7"
 ---
 
 # `__class_getitem__` (PEP-560)

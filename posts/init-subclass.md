@@ -2,6 +2,7 @@
 published: 07 July 2020, 18:00
 author: orsinium
 pep: 487
+python: "3.6"
 ---
 
 # `__init_subclass__` (PEP-487)

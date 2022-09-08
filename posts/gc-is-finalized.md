@@ -2,6 +2,7 @@
 published: 2022-09-06
 author: orsinium
 qname: gc.is_finalized
+python: "3.9"
 ---
 
 # gc.is_finalized

@@ -3,6 +3,7 @@ published: 25 March 2021, 18:00
 author: orsinium
 qname: typing.TypedDict
 pep: 589
+python: "3.8"
 ---
 
 # typing.TypedDict (PEP-589)

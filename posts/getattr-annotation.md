@@ -2,6 +2,7 @@
 published: 30 March 2021, 18:00
 author: orsinium
 pep: 526
+python: "3.6"
 ---
 
 # getattr type annotaions (PEP-526)

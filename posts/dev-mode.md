@@ -1,6 +1,7 @@
 ---
 published: 26 August 2021, 18:00
 author: orsinium
+python: "3.7"
 ---
 
 # Development Mode

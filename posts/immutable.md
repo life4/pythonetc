@@ -2,6 +2,7 @@
 published: 29 April 2021, 18:00
 author: orsinium
 qname: types.MappingProxyType
+python: "3.3"
 ---
 
 # types.MappingProxyType

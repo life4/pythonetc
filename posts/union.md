@@ -3,6 +3,7 @@ published: 2022-08-02.
 author: orsinium
 qname: typing.Union
 pep: 604
+python: "3.10"
 ---
 
 # Union alias (PEP-604)

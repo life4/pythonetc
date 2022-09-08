@@ -2,6 +2,7 @@
 published: 17 December 2020, 18:00
 author: orsinium
 qname: functools.cache
+python: "3.9"
 ---
 
 # functools.cache
