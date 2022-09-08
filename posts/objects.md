@@ -1,6 +1,9 @@
-# everything is object
+---
+published: 15 September 2020, 18:00
+author: orsinium
+---
 
-Published: 15 September 2020, 18:00
+# everything is object
 
 Everything is an object, including functions, lambdas, and generators:
 

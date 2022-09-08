@@ -1,6 +1,9 @@
-# zip
+---
+published: 4 January 2022, 18:00.
+author: orsinium
+---
 
-Published: 4 January 2022, 18:00.
+# zip
 
 [zip](https://docs.python.org/3/library/functions.html#zip) function allows you to iterate over multiple iterators at the same time (I know you know it, just bear with me):
 

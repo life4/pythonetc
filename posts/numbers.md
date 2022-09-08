@@ -1,6 +1,9 @@
-# numbers (PEP-3141)
+---
+published: 22 September 2020, 18:00
+author: orsinium
+---
 
-Published: 22 September 2020, 18:00
+# numbers (PEP-3141)
 
 Module [numbers](https://docs.python.org/3/library/numbers.html) was introduced by [PEP-3141](https://www.python.org/dev/peps/pep-3141/) in Python 2.6. It implements the numbers hierarchy, inspired by [Scheme](https://en.wikipedia.org/wiki/Scheme_programming_language):
 

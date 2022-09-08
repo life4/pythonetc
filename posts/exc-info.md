@@ -1,6 +1,9 @@
-# logging exc_info
+---
+published: 20 April 2021, 18:00
+author: orsinium
+---
 
-Published: 20 April 2021, 18:00
+# logging exc_info
 
 When something fails, usually you want to log it. Let's have a look at a small toy example:
 

@@ -1,6 +1,9 @@
-# logging extra
+---
+published: 22 April 2021, 18:00
+author: orsinium
+---
 
-Published: 22 April 2021, 18:00
+# logging extra
 
 Let's have a look at the following log message:
 

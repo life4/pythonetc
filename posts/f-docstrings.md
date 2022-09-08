@@ -1,6 +1,9 @@
-# f-strings and docstrings
+---
+published: 27 October 2020, 18:00
+author: orsinium
+---
 
-Published: 27 October 2020, 18:00
+# f-strings and docstrings
 
 Docstring is a string that goes before all other statements in the function body (comments are ignored):
 

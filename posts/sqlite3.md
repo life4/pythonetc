@@ -1,6 +1,9 @@
-# sqlite3
+---
+published: 4 May 2021, 18:00
+author: orsinium
+---
 
-Published: 4 May 2021, 18:00
+# sqlite3
 
 Python has a built-in module [sqlite3](https://docs.python.org/3/library/sqlite3.html) to work with [SQLite](https://sqlite.org/index.html) database.
 

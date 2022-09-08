@@ -1,6 +1,9 @@
-# int to str
+---
+published: 29 September 2020, 18:00
+author: orsinium
+---
 
-Published: 29 September 2020, 18:00
+# int to str
 
 How many ways you know how to convert `int` to `str`? Let's try! Note that complications of the same method don't count.
 

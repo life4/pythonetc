@@ -1,6 +1,9 @@
-# f-strings
+---
+published: 25 June 2020, 18:00
+author: orsinium
+---
 
-Published: 25 June 2020, 18:00
+# f-strings
 
 You can implement [f-strings](https://www.python.org/dev/peps/pep-0498/) in older Python versions by accessing [globals and locals](https://t.me/pythonetc/121) from the caller function. It is possible through getting the parent frame from the call stack:
 

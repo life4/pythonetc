@@ -1,6 +1,9 @@
-# `__index__` (PEP-357)
+---
+published: 19 November 2020, 18:00
+author: orsinium
+---
 
-Published: 19 November 2020, 18:00
+# `__index__` (PEP-357)
 
 In Python 2.5, [PEP-357](https://www.python.org/dev/peps/pep-0357/) allowed any object to be passed as index or slice into `__getitem__`:
 

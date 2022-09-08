@@ -1,6 +1,9 @@
-# final
+---
+published: 06 August 2020, 18:00
+author: orsinium
+---
 
-Published: 06 August 2020, 18:00
+# final
 
 Some languages, like Java, allow you to mark a class as `final` that means you can't inherit from it. There is how it can be implemented in a few lines (thanks to [Nikita Sobolev](https://github.com/sobolevn) for the implementation!):
 

@@ -1,6 +1,9 @@
-# new year 2021-2022
+---
+published: 31 December 2021, 18:00
+author: orsinium
+---
 
-Published: 31 December 2021, 18:00
+# new year 2021-2022
 
 channel = '@pythonetc'
 print(f'Happy new Year, {channel}!')

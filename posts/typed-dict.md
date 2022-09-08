@@ -1,6 +1,9 @@
-# typing.TypedDict (PEP-589)
+---
+published: 25 March 2021, 18:00
+author: orsinium
+---
 
-Published: 25 March 2021, 18:00
+# typing.TypedDict (PEP-589)
 
 [PEP-589](https://www.python.org/dev/peps/pep-0589/) (landed in Python 3.8) introduced `typing.TypedDict` as a way to annotate dicts:
 

@@ -1,6 +1,9 @@
-# Chain `is`
+---
+published: 2022-09-27.
+author: orsinium
+---
 
-Published: 2022-09-27.
+# Chain `is`
 
 A long time ago, we already covered the chaining of comparison operations:
 <https://t.me/pythonetc/411>

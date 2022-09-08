@@ -1,6 +1,9 @@
-# warning about is
+---
+published: 16 March 2021, 18:00
+author: orsinium
+---
 
-Published: 16 March 2021, 18:00
+# warning about is
 
 Starting Python 3.8, the interpreter warns about `is` comparison of literals.
 

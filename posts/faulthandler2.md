@@ -1,6 +1,9 @@
-# faulthandler part 2
+---
+published: 2022-07-14.
+author: orsinium
+---
 
-Published: 2022-07-14.
+# faulthandler part 2
 
 Now, let's see how to dump stack trace when a specific signal is received. We will use [SIGUSR1](https://www.gnu.org/software/libc/manual/html_node/Miscellaneous-Signals.html) but you can do the same for any signal.
 

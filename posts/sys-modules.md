@@ -1,6 +1,9 @@
-# sys.modules
+---
+published: 17 September 2020, 18:00
+author: orsinium
+---
 
-Published: 17 September 2020, 18:00
+# sys.modules
 
 Python caches every imported module is `sys.modules`:
 

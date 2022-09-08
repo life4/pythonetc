@@ -1,6 +1,9 @@
-# json default
+---
+published: 03 December 2020, 18:00
+author: orsinium
+---
 
-Published: 03 December 2020, 18:00
+# json default
 
 `json.dumps` can serialize every built-in type which has a corresponding JSON type (`int` as `number`, `None` as `null`, `list` as `array` etc) but fails for every other type. Probably, the most often case when you will face it is when trying to serialize a datetime object:
 

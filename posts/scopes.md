@@ -1,6 +1,9 @@
-# scopes
+---
+published: 25 February 2021, 18:00
+author: orsinium
+---
 
-Published: 25 February 2021, 18:00
+# scopes
 
 Let's talk a bit more about scopes.
 

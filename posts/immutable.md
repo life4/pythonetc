@@ -1,6 +1,9 @@
-# types.MappingProxyType
+---
+published: 29 April 2021, 18:00
+author: orsinium
+---
 
-Published: 29 April 2021, 18:00
+# types.MappingProxyType
 
 If any function can modify any passed argument, how to prevent a value from modification? Make it immutable! That means the object doesn't have methods to modify it in place, only methods returning a new value. This is how numbers and `str` are immutable. While `list` has `append` method that modifies the object in place, `str` just doesn't have anything like this, all modifications return a new `str`:
 

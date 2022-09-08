@@ -1,6 +1,9 @@
-# KeyError
+---
+published: 15 April 2021, 18:00
+author: orsinium
+---
 
-Published: 15 April 2021, 18:00
+# KeyError
 
 Most of the exceptions raised from the standard library or built-ins have a quite descriptive self-contained message:
 

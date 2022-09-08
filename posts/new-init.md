@@ -1,6 +1,9 @@
-# `__new__` and `__init__`
+---
+published: 15 October 2020, 18:00
+author: orsinium
+---
 
-Published: 15 October 2020, 18:00
+# `__new__` and `__init__`
 
 Creation of class instance is done by `__call__` method of `object` class (provided by metaclass `type`) and practically includes only 2 steps:
 

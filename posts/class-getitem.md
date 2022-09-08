@@ -1,6 +1,9 @@
-# `__class_getitem__` (PEP-560)
+---
+published: 12 November 2020, 18:00
+author: orsinium
+---
 
-Published: 12 November 2020, 18:00
+# `__class_getitem__` (PEP-560)
 
 [PEP-560](https://www.python.org/dev/peps/pep-0560/) (landed in Python 3.7) introduced a new magic method `__class_getitem__`. it is the same as `__getitem__` but for not instancinated class. The main motivation is easier type annotation support for generic collections like `List[int]` or `Type[Dict[str, int]]`:
 

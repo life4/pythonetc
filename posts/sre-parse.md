@@ -1,6 +1,9 @@
-# sre_parse
+---
+published: 7 September 2021, 18:00
+author: orsinium
+---
 
-Published: 7 September 2021, 18:00
+# sre_parse
 
 Internally, the module [re](https://docs.python.org/3/library/re.html) uses 2 undocumented libraries:
 

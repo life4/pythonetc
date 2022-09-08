@@ -1,6 +1,9 @@
-# `__set_name__` (PEP-487)
+---
+published: 21 July 2020, 18:00
+author: orsinium
+---
 
-Published: 21 July 2020, 18:00
+# `__set_name__` (PEP-487)
 
 If you're going to store data in the descriptor, the reasonable question is "where".
 

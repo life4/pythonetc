@@ -1,6 +1,9 @@
-# float (IEEE 754)
+---
+published: 18 March 2021, 18:00
+author: orsinium
+---
 
-Published: 18 March 2021, 18:00
+# float (IEEE 754)
 
 [Floating point numbers](https://en.wikipedia.org/wiki/Floating-point_arithmetic) in Python and most of the modern languages are implemented according to [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754). The most interesting and hardcore part is "arithmetic formats" which defines a few special values:
 
@@ -37,8 +40,8 @@ math.nan + 10  # nan
 
 You can read more about nan in previous posts:
 
-+ https://t.me/pythonetc/561
-+ https://t.me/pythonetc/597
++ <https://t.me/pythonetc/561>
++ <https://t.me/pythonetc/597>
 
 Infinity is bigger than anything else (except nan). However, unlike in pure math, infinity is equal to infinity:
 

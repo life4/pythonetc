@@ -1,6 +1,9 @@
-# join lists
+---
+published: 11 March 2021, 18:00
+author: orsinium
+---
 
-Published: 11 March 2021, 18:00
+# join lists
 
 Suppose, you have 10 lists:
 

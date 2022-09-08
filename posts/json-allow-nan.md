@@ -1,6 +1,9 @@
-# allow_nan
+---
+published: 31 August 2021, 18:00
+author: orsinium
+---
 
-Published: 31 August 2021, 18:00
+# allow_nan
 
 JSON states for "JavaScript Object Notation". It's a subset of JavaScript and representation of values is based on how they are represented in JavaScript:
 

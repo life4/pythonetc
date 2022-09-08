@@ -1,6 +1,9 @@
-# dict as `__slots__`
+---
+published: 05 November 2020, 18:00
+author: orsinium
+---
 
-Published: 05 November 2020, 18:00
+# dict as `__slots__`
 
 `__slots__` [can be used to save memory](https://t.me/pythonetc/233). You can use any iterable as `__slots__` value, including `dict`. And starting from Python 3.8, you can use `dict` to specify docstrings for slotted attributes `__slots__`:
 

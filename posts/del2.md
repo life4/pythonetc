@@ -1,6 +1,9 @@
-# `__del__`
+---
+published: 2022-08-30.
+author: orsinium
+---
 
-Published: 2022-08-30.
+# `__del__`
 
 The method `__del__` is called on the object by the garbage collector when the last reference to the object is removed:
 

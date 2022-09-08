@@ -1,6 +1,9 @@
-# ipython
+---
+published: 08 December 2020, 18:00
+author: orsinium
+---
 
-Published: 08 December 2020, 18:00
+# ipython
 
 [IPython](https://ipython.org/) is an alternative interactive shell for Python. It has syntax highlighting, powerful introspection and autocomplete, searchable cross-session history, and much more. Run `%quickref` in IPython to get a quick reference on useful commands and shortcuts. Some of our favorite ones:
 

@@ -1,6 +1,9 @@
-# `dict.__or__` (PEP-584)
+---
+published: 04 June 2020, 18:00
+author: orsinium
+---
 
-Published: 04 June 2020, 18:00
+# `dict.__or__` (PEP-584)
 
 There are a lot of ways to merge two dicts:
 

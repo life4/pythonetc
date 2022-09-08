@@ -1,6 +1,9 @@
-# eval strategy
+---
+published: 01 April 2021, 18:00
+author: orsinium
+---
 
-Published: 01 April 2021, 18:00
+# eval strategy
 
 In most of the programming languages (like C, PHP, Go, Rust) values can be passed into a function either as value or as reference (pointer):
 

@@ -1,6 +1,9 @@
-# typing.TYPE_CHECKING
+---
+published: 2022-07-26.
+author: orsinium
+---
 
-Published: 2022-07-26.
+# typing.TYPE_CHECKING
 
 Often, your type annotations will have circular dependencies. For example, `Article` has an attribute `category: Category`, and `Category` has attribute `articles: list[Article]`. If both classes are in the same file, adding `from __future__ import annotations` would solve the issue. But what if they are in different modules? Then you can hide imports that you need only for type annotations inside of the [if TYPE_CHECKING](https://docs.python.org/3/library/typing.html#typing.TYPE_CHECKING) block:
 

@@ -1,6 +1,9 @@
-# types
+---
+published: 11 June 2020, 18:00
+author: orsinium
+---
 
-Published: 11 June 2020, 18:00
+# types
 
 An interesting story is behind [types](https://docs.python.org/3/library/types.html) module. Until Python 2.7, it had types like `IntType`, `TupleType`, `UnicodeType`, and so on. The motivation behind is that before Python 2.4 built-in functions like `int` and `str` were constructors for the types but not the types itself. Hence they couldn't be used in type checks:
 

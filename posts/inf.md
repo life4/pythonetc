@@ -1,6 +1,9 @@
-# float division
+---
+published: 23 March 2021, 18:00
+author: orsinium
+---
 
-Published: 23 March 2021, 18:00
+# float division
 
 Infinity has an interesting behavior on division operations. Some of them are expected, some of them are surprising. Without further talking, there is a table:
 

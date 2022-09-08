@@ -1,6 +1,9 @@
-# copy.deepcopy
+---
+published: 6 April 2021, 18:00
+author: orsinium
+---
 
-Published: 6 April 2021, 18:00
+# copy.deepcopy
 
 What if we want to modify a collection inside a function but don't want these modifications to affect the caller code? Then we should explicitly copy the value.
 

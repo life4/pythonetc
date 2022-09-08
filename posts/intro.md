@@ -1,6 +1,9 @@
-# intro (season 2)
+---
+published: 26 May 2020, 18:00
+author: orsinium
+---
 
-Published: 26 May 2020, 18:00
+# intro (season 2)
 
 Welcome to season 2! In the next episodes:
 

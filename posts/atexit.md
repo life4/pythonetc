@@ -1,6 +1,9 @@
-# atexit
+---
+published: 2022-07-05.
+author: orsinium
+---
 
-Published: 2022-07-05.
+# atexit
 
 The module [atexit](https://docs.python.org/3/library/atexit.html) allows registering hooks that will be executed when the program terminates.
 

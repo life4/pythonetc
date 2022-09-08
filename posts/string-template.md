@@ -1,6 +1,9 @@
-# string.Template
+---
+published: 2022-09-20.
+author: orsinium
+---
 
-Published: 2022-09-20.
+# string.Template
 
 The [string.Template](https://docs.python.org/3/library/string.html#template-strings) class allows to do `$`-style substitutions:
 

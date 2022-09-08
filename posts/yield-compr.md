@@ -1,6 +1,9 @@
-# yield and comprehensions
+---
+published: 22 October 2020, 18:00
+author: orsinium
+---
 
-Published: 22 October 2020, 18:00
+# yield and comprehensions
 
 Accidentally, `yield` can be used in generator expressions and comprehensions:
 

@@ -1,6 +1,9 @@
-# str.isdigit
+---
+published: 26 November 2020, 18:00
+author: orsinium
+---
 
-Published: 26 November 2020, 18:00
+# str.isdigit
 
 We use Arabic digits to record numbers. However, there are many more numeral systems: Chinese (and Suzhou), Chakma, Persian, Hebrew, and so on. And Python supports them when detecting numbers:
 

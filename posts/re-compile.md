@@ -1,6 +1,9 @@
-# re.compile
+---
+published: 22 December 2020, 18:00
+author: orsinium
+---
 
-Publish: 22 December 2020, 18:00
+# re.compile
 
 Always precompile regular expressions using `re.compile` if the expression is known in advance:
 

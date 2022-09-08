@@ -1,6 +1,9 @@
-# Development Mode
+---
+published: 26 August 2021, 18:00
+author: orsinium
+---
 
-Published: 26 August 2021, 18:00
+# Development Mode
 
 Python 3.7 introduced [Development Mode](https://docs.python.org/3.9/library/devmode.html). The mode can be activated with the `-X dev` argument and it makes the interpreter produce some helpful warnings. For instance:
 

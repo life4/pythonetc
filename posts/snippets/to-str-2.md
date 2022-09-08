@@ -1,6 +1,9 @@
-# int to str #2
+---
+published: 30 September 2020, 18:00
+author: orsinium
+---
 
-Published: 30 September 2020, 18:00
+# int to str #2
 
 The point of the post above was that for some simple tasks there are many ways to do it (and some ways are good only in some cases). Also, the number of possible solutions grows as the language evolves. Another good example is concatenation. You can join 2 strings with f-strings, `str.format`, `str.join`, `+`, and so on. Thinking about these ways, even not suitable for daily usage, helps better language understanding.
 

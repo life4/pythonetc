@@ -1,6 +1,9 @@
-# `str.__getitem__` quirks
+---
+published: 6 May 2021, 18:00
+author: orsinium
+---
 
-Published: 6 May 2021, 18:00
+# `str.__getitem__` quirks
 
 Since Python doesn't have a `char` type, an element of `str` is always `str`:
 

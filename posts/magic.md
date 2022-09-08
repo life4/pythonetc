@@ -1,6 +1,9 @@
-# don't use magic methods directly
+---
+published: 28 July 2020, 18:00
+author: orsinium
+---
 
-Published: 28 July 2020, 18:00
+# don't use magic methods directly
 
 Try to avoid getting dunder attributes directly. Python provides helper functions for getting of of standard dunder attributes:
 

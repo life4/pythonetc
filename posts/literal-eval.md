@@ -1,6 +1,9 @@
-# ast.literal_eval
+---
+published: 25 August 2020, 18:00
+author: orsinium
+---
 
-Published: 25 August 2020, 18:00
+# ast.literal_eval
 
 `ast.literal_eval` is a restricted version of `eval` that evaluates only literals:
 

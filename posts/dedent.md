@@ -1,6 +1,9 @@
-# textwrap.dedent
+---
+published: 27 April 2021, 18:00
+author: orsinium
+---
 
-Published: 27 April 2021, 18:00
+# textwrap.dedent
 
 Multiline string literal preserves every symbol between opening and closing quotes, including indentation:
 

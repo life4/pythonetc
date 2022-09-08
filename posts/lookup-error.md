@@ -1,6 +1,9 @@
-# LookupError
+---
+published: 2022-08-09
+author: orsinium
+---
 
-Published: 2022-08-09
+# LookupError
 
 `LookupError` is a base class for `IndexError` and `KeyError`:
 

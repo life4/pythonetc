@@ -1,6 +1,9 @@
-# faulthandler
+---
+published: 2022-07-12.
+author: orsinium
+---
 
-Published: 2022-07-12.
+# faulthandler
 
 The module [faulthandler](https://docs.python.org/3/library/faulthandler.html) allows registering a handler that will dump the current stack trace in a specific file (stderr by default) upon receiving a specific signal or every N seconds.
 

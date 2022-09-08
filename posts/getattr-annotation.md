@@ -1,6 +1,9 @@
-# getattr type annotaions (PEP-526)
+---
+published: 30 March 2021, 18:00
+author: orsinium
+---
 
-Published: 30 March 2021, 18:00
+# getattr type annotaions (PEP-526)
 
 [PEP-526](https://www.python.org/dev/peps/pep-0526/), introducing syntax for variable annotations (laded in Python 3.6), allows annotating any valid assignment target:
 

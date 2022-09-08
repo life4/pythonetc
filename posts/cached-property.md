@@ -1,6 +1,9 @@
-# @cached_property
+---
+published: 16 July 2020, 18:00
+author: orsinium
+---
 
-Published: 16 July 2020, 18:00
+# @cached_property
 
 Decorator `@cached_property` is an amazing way to simplify your code. It's like the regular `@property` but remembers the value after the first call:
 

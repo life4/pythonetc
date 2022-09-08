@@ -1,6 +1,9 @@
-# codecs
+---
+published: 29 October 2020, 18:00
+author: orsinium
+---
 
-Published: 29 October 2020, 18:00
+# codecs
 
 The module [codecs](https://docs.python.org/3/library/codecs.html) provides `encode` and `decode` function to encode and decode (wow!) text in different encodings, like UTF8, CP1251, [Punycode](https://en.wikipedia.org/wiki/Punycode), [IDNA](https://en.wikipedia.org/wiki/Internationalized_domain_name), [ROT13](https://en.wikipedia.org/wiki/ROT13), execute [escape sequences](https://en.wikipedia.org/wiki/Escape_sequence), etc.
 

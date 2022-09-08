@@ -1,6 +1,9 @@
-# enum
+---
+published: 06 October 2020, 18:00
+author: orsinium
+---
 
-Published: 06 October 2020, 18:00
+# enum
 
 The module [enum](https://docs.python.org/3/library/enum.html) provides a way to build an enumerable class. It is a class with a predefined list of instances, and every instance is bound to a unique constant value.
 

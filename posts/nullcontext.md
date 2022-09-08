@@ -1,6 +1,9 @@
-# contextlib.nullcontext
+---
+published: 01 October 2020, 18:00
+author: orsinium
+---
 
-Published: 01 October 2020, 18:00
+# contextlib.nullcontext
 
 Context manager [contextlib.nullcontext](https://docs.python.org/3/library/contextlib.html#contextlib.nullcontext) is helpful when a block of code not always should be executed in a context.
 

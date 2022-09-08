@@ -1,6 +1,9 @@
-# is
+---
+published: 2022-08-16.
+author: orsinium
+---
 
-Published: 2022-08-16.
+# is
 
 The operator `is` checks if the two given objects are the same object in the memory:
 

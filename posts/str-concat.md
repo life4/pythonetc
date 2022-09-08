@@ -1,6 +1,9 @@
-# int to str performance
+---
+published: 04 March 2021, 18:00
+author: orsinium
+---
 
-Published: 04 March 2021, 18:00
+# int to str performance
 
 Let's learn a bit more about strings performance. What if instead of an unknown amount of strings we have only a few known variables?
 

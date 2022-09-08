@@ -1,6 +1,9 @@
-# format
+---
+published: 08 September 2020, 18:00
+author: orsinium
+---
 
-Published: 08 September 2020, 18:00
+# format
 
 There is a built-in function `format` that basically just calls `__format__` method of the passed argument type with passed spec. It is used in `str.format` as well.
 

@@ -1,6 +1,9 @@
-# emojis
+---
+published: 01 December 2020, 18:00
+author: orsinium
+---
 
-Published: 01 December 2020, 18:00
+# emojis
 
 Python has rich support for Unicode, including referencing glyphs (including emojis, of course) by name.
 

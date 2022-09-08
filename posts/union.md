@@ -1,6 +1,9 @@
-# Union alias (PEP-604)
+---
+published: 2022-08-02.
+author: orsinium
+---
 
-Published: 2022-08-02.
+# Union alias (PEP-604)
 
 [PEP-604](https://www.python.org/dev/peps/pep-0604/) (landed in Python 3.10) introduced a new short syntax for `typing.Union` ([as I predicted](https://t.me/pythonetc/569), but I messed up union with intersection, shame on me):
 

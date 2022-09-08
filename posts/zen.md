@@ -1,6 +1,9 @@
-# zen of python (PEP-20)
+---
+published: 27 August 2020, 18:00
+author: orsinium
+---
 
-Published: 27 August 2020, 18:00
+# zen of python (PEP-20)
 
 The famous "Zen of Python" was introduced in [PEP-20](https://www.python.org/dev/peps/pep-0020/). This is 19 aphorisms [authored by Tim Peters](https://mail.python.org/pipermail/python-list/1999-June/001951.html). Do `import this` in the Python interpreter to see them:
 

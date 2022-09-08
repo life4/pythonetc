@@ -1,6 +1,9 @@
-# zipapp
+---
+published: 13 October 2020, 18:00
+author: orsinium
+---
 
-Published: 13 October 2020, 18:00
+# zipapp
 
 The module [zipapp](https://docs.python.org/3/library/zipapp.html) can pack a python module into a zip archive that can be executed directly by a Python interpreter. It is a good way to ship CLI tools:
 

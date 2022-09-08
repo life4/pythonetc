@@ -1,6 +1,9 @@
-# gc.is_finalized
+---
+published: 2022-09-06.
+author: orsinium
+---
 
-Published: 2022-09-06.
+# gc.is_finalized
 
 By using `__del__` and global variables, it is possible to leave a reference to the object after it was "destroyed":
 

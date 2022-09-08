@@ -1,6 +1,9 @@
-# pydoc
+---
+published: 10 November 2020, 18:00
+author: orsinium
+---
 
-Published: 10 November 2020, 18:00
+# pydoc
 
 The script [pydoc](https://docs.python.org/3/library/pydoc.html) can be used to see documentationand docstrings from the console:
 

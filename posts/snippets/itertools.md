@@ -1,6 +1,9 @@
-# itertools
+---
+published: 03 September 2020, 18:00
+author: orsinium
+---
 
-Published: 03 September 2020, 18:00
+# itertools
 
 Some functional languages, like Elixir, have in the standard library a huge collection of functions to work with lazy enumerables (in Python, we name them [iterators](https://articles.orsinium.dev/python/iterators/)). In Python, this role is on [itertools](https://docs.python.org/3/library/itertools.html). However, `itertools` is a relatively small collection of such functions, it contains only most important and basic ones (maybe, a bit of junk, but so). The documentation has [Itertools Recipes](https://docs.python.org/3/library/itertools.html#itertools-recipes) with some useful functions. A few examples:
 

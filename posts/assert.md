@@ -1,6 +1,9 @@
-# assert
+---
+published: 30 July 2020, 18:00
+author: orsinium
+---
 
-Published: 30 July 2020, 18:00
+# assert
 
 Basically, `assert` could be a function:
 

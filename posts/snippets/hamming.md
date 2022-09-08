@@ -1,6 +1,9 @@
-# hamming distance
+---
+published: 20 August 2020, 18:00
+author: orsinium
+---
 
-Published: 20 August 2020, 18:00
+# hamming distance
 
 [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance) is the number of positions at which the corresponding symbols are different. It's the simplest measure of difference between 2 strings and can be implemented in a few lines:
 

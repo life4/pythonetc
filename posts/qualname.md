@@ -1,6 +1,9 @@
-# `__qualname__` (PEP-3155)
+---
+published: 24 November 2020, 18:00
+author: orsinium
+---
 
-Published: 24 November 2020, 18:00
+# `__qualname__` (PEP-3155)
 
 In Python 3.3, [PEP-3155](https://www.python.org/dev/peps/pep-3155/) introduced a new `__qualname__` attribute for classes and functions which contains a full dotted path to the definition of the given object.
 

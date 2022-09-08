@@ -1,6 +1,9 @@
-# del
+---
+published: 2022-08-23.
+author: orsinium
+---
 
-Published: 2022-08-23.
+# del
 
 The `del` statement is used to delete things. It has a few distinct behaviors, depending on what is the specified target.
 
