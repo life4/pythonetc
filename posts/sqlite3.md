@@ -1,5 +1,5 @@
 ---
-published: 2021-05-4
+published: 2021-05-04
 author: orsinium
 qname: sqlite3
 ---

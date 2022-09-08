@@ -1,5 +1,5 @@
 ---
-published: 2021-05-6
+published: 2021-05-06
 author: orsinium
 qname: str.__getitem__
 ---
