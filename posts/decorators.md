@@ -1,6 +1,7 @@
 ---
 published: 18 June 2020, 18:00
 author: orsinium
+pep: 614
 ---
 
 # decorators (PEP-614)

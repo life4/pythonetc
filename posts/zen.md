@@ -1,6 +1,7 @@
 ---
 published: 27 August 2020, 18:00
 author: orsinium
+pep: 20
 ---
 
 # zen of python (PEP-20)

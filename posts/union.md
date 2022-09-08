@@ -2,6 +2,7 @@
 published: 2022-08-02.
 author: orsinium
 qname: typing.Union
+pep: 604
 ---
 
 # Union alias (PEP-604)

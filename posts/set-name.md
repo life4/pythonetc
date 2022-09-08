@@ -1,6 +1,7 @@
 ---
 published: 21 July 2020, 18:00
 author: orsinium
+pep: 487
 ---
 
 # `__set_name__` (PEP-487)

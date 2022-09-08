@@ -2,6 +2,7 @@
 published: 24 December 2020, 18:00
 author: orsinium
 qname: math.tau
+pep: 628
 ---
 
 # math.tau (PEP-628)

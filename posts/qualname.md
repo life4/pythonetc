@@ -1,6 +1,7 @@
 ---
 published: 24 November 2020, 18:00
 author: orsinium
+pep: 3155
 ---
 
 # `__qualname__` (PEP-3155)

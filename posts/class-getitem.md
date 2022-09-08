@@ -1,7 +1,7 @@
 ---
 published: 12 November 2020, 18:00
 author: orsinium
-qname: __class_getitem__
+pep: 560
 ---
 
 # `__class_getitem__` (PEP-560)

@@ -1,6 +1,7 @@
 ---
 published: 19 November 2020, 18:00
 author: orsinium
+pep: 357
 ---
 
 # `__index__` (PEP-357)

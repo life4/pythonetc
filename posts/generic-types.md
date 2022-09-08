@@ -1,6 +1,7 @@
 ---
 published: 09 June 2020, 18:00
 author: orsinium
+pep: 585
 ---
 
 # generic built-in types (PEP-585)

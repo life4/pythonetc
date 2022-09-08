@@ -2,6 +2,7 @@
 published: 28 May 2020, 18:00
 author: orsinium
 qname: str.removeprefix
+pep: 616
 ---
 
 # str.removeprefix
