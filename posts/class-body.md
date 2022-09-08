@@ -1,6 +1,7 @@
 ---
 published: 02 July 2020, 18:00
 author: orsinium
+qname: class
 ---
 
 # class body

@@ -1,6 +1,7 @@
 ---
 published: 27 April 2021, 18:00
 author: orsinium
+qname: textwrap.dedent
 ---
 
 # textwrap.dedent

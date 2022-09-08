@@ -1,6 +1,7 @@
 ---
-published: 2022-09-06.
+published: 2022-09-06
 author: orsinium
+qname: gc.is_finalized
 ---
 
 # gc.is_finalized

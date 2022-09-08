@@ -1,6 +1,7 @@
 ---
 published: 2022-07-26.
 author: orsinium
+qname: typing.TYPE_CHECKING
 ---
 
 # typing.TYPE_CHECKING

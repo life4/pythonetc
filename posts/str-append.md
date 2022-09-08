@@ -1,6 +1,7 @@
 ---
 published: 29 December 2020, 18:00
 author: orsinium
+qname: str.join
 ---
 
 # join strings

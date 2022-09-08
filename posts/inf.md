@@ -1,6 +1,7 @@
 ---
 published: 23 March 2021, 18:00
 author: orsinium
+qname: float
 ---
 
 # float division

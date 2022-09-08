@@ -1,6 +1,7 @@
 ---
 published: 25 August 2020, 18:00
 author: orsinium
+qname: ast.literal_eval
 ---
 
 # ast.literal_eval

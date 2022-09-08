@@ -1,5 +1,5 @@
 ---
-published: 2022-07-19.
+published: 2022-07-19
 author: orsinium
 ---
 

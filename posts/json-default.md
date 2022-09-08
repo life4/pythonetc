@@ -1,6 +1,7 @@
 ---
 published: 03 December 2020, 18:00
 author: orsinium
+qname: json.dumps
 ---
 
 # json default

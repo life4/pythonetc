@@ -1,6 +1,7 @@
 ---
 published: 6 April 2021, 18:00
 author: orsinium
+qname: copy.deepcopy
 ---
 
 # copy.deepcopy

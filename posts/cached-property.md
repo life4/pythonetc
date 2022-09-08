@@ -1,6 +1,7 @@
 ---
 published: 16 July 2020, 18:00
 author: orsinium
+qname: functools.cached_property
 ---
 
 # @cached_property

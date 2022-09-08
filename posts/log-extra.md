@@ -1,6 +1,7 @@
 ---
 published: 22 April 2021, 18:00
 author: orsinium
+qname: logging
 ---
 
 # logging extra

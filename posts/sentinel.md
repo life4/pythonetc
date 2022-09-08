@@ -1,6 +1,7 @@
 ---
 published: 20 October 2020, 18:00
 author: orsinium
+qname: unittest.mock.sentinel
 ---
 
 # unittest.mock.sentinel

@@ -1,6 +1,9 @@
 ---
 published: 10 September 2020, 18:00
 author: orsinium
+qname:
+    - object
+    - type
 ---
 
 # object and type

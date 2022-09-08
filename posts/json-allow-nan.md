@@ -1,6 +1,7 @@
 ---
 published: 31 August 2021, 18:00
 author: orsinium
+qname: json.dumps
 ---
 
 # allow_nan

@@ -1,6 +1,7 @@
 ---
 published: 11 March 2021, 18:00
 author: orsinium
+qname: list
 ---
 
 # join lists

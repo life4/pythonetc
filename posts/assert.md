@@ -1,6 +1,7 @@
 ---
 published: 30 July 2020, 18:00
 author: orsinium
+qname: assert
 ---
 
 # assert

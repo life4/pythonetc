@@ -1,6 +1,7 @@
 ---
 published: 15 September 2020, 18:00
 author: orsinium
+qname: object
 ---
 
 # everything is object

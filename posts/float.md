@@ -1,6 +1,7 @@
 ---
 published: 18 March 2021, 18:00
 author: orsinium
+qname: float
 ---
 
 # float (IEEE 754)

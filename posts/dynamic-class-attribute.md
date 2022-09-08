@@ -1,6 +1,7 @@
 ---
 published: 08 October 2020, 18:00
 author: orsinium
+qname: types.DynamicClassAttribute
 ---
 
 # types.DynamicClassAttribute

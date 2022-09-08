@@ -1,6 +1,7 @@
 ---
 published: 26 November 2020, 18:00
 author: orsinium
+qname: str.isdigit
 ---
 
 # str.isdigit

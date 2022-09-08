@@ -1,6 +1,7 @@
 ---
 published: 22 October 2020, 18:00
 author: orsinium
+qname: yield
 ---
 
 # yield and comprehensions

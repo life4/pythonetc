@@ -1,6 +1,7 @@
 ---
 published: 24 September 2020, 18:00
 author: orsinium
+qname: types.SimpleNamespace
 ---
 
 # types.SimpleNamespace

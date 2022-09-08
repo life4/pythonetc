@@ -1,6 +1,7 @@
 ---
 published: 2022-07-05.
 author: orsinium
+qname: atexit
 ---
 
 # atexit

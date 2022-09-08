@@ -1,6 +1,7 @@
 ---
 published: 04 March 2021, 18:00
 author: orsinium
+qname: str
 ---
 
 # int to str performance

@@ -1,6 +1,7 @@
 ---
 published: 13 October 2020, 18:00
 author: orsinium
+qname: zipapp
 ---
 
 # zipapp

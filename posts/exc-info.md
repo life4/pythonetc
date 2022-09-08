@@ -1,6 +1,7 @@
 ---
 published: 20 April 2021, 18:00
 author: orsinium
+qname: logging
 ---
 
 # logging exc_info

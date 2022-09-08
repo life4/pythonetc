@@ -1,6 +1,7 @@
 ---
 published: 29 April 2021, 18:00
 author: orsinium
+qname: types.MappingProxyType
 ---
 
 # types.MappingProxyType

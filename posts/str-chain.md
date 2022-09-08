@@ -1,6 +1,7 @@
 ---
 published: 6 May 2021, 18:00
 author: orsinium
+qname: str.__getitem__
 ---
 
 # `str.__getitem__` quirks

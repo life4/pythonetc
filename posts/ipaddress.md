@@ -1,6 +1,7 @@
 ---
 published: 17 November 2020, 18:00
 author: orsinium
+qname: ipaddress
 ---
 
 # ipaddress

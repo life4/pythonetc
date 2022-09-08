@@ -1,6 +1,7 @@
 ---
 published: 04 August 2020, 18:00
 author: orsinium
+qname: colorsys
 ---
 
 # colorsys

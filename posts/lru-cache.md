@@ -1,6 +1,7 @@
 ---
 published: 15 December 2020, 18:00
 author: orsinium
+qname: functools.lru_cache
 ---
 
 # functools.lru_cache

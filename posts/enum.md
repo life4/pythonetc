@@ -1,6 +1,7 @@
 ---
 published: 06 October 2020, 18:00
 author: orsinium
+qname: enum
 ---
 
 # enum

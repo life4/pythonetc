@@ -1,6 +1,7 @@
 ---
 published: 10 December 2020, 18:00
 author: orsinium
+qname: array
 ---
 
 # array performance

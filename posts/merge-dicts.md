@@ -1,6 +1,7 @@
 ---
 published: 04 June 2020, 18:00
 author: orsinium
+qname: dict
 ---
 
 # `dict.__or__` (PEP-584)

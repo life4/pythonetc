@@ -1,6 +1,7 @@
 ---
 published: 2022-08-09
 author: orsinium
+qname: LookupError
 ---
 
 # LookupError

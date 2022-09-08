@@ -1,6 +1,7 @@
 ---
 published: 4 May 2021, 18:00
 author: orsinium
+qname: sqlite3
 ---
 
 # sqlite3

@@ -1,6 +1,9 @@
 ---
 published: 23 June 2020, 18:00
 author: orsinium
+qname:
+    - sys.getrecursionlimit
+    - sys.setrecursionlimit
 ---
 
 # sys.setrecursionlimit

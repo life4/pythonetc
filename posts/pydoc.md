@@ -1,6 +1,7 @@
 ---
 published: 10 November 2020, 18:00
 author: orsinium
+qname: pydoc
 ---
 
 # pydoc
