@@ -1,5 +1,5 @@
 ---
-published: 02 July 2020, 18:00
+published: 2020-07-02
 author: orsinium
 qname: class
 ---

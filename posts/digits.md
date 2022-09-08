@@ -1,5 +1,5 @@
 ---
-published: 26 November 2020, 18:00
+published: 2020-11-26
 author: orsinium
 qname: str.isdigit
 ---

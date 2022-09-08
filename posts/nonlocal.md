@@ -1,5 +1,5 @@
 ---
-published: 02 March 2021, 18:00
+published: 2021-03-02
 author: orsinium
 qname: nonlocal
 ---

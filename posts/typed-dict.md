@@ -1,5 +1,5 @@
 ---
-published: 25 March 2021, 18:00
+published: 2021-03-25
 author: orsinium
 qname: typing.TypedDict
 pep: 589

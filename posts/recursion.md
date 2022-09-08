@@ -1,5 +1,5 @@
 ---
-published: 23 June 2020, 18:00
+published: 2020-06-23
 author: orsinium
 qname:
     - sys.getrecursionlimit

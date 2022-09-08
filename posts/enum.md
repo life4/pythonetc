@@ -1,5 +1,5 @@
 ---
-published: 06 October 2020, 18:00
+published: 2020-10-06
 author: orsinium
 qname: enum
 ---

@@ -1,5 +1,5 @@
 ---
-published: 30 June 2020, 18:00
+published: 2020-06-30
 author: orsinium
 ---
 

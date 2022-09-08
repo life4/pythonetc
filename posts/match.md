@@ -1,5 +1,5 @@
 ---
-published: 26 June 2020, 18:00
+published: 2020-06-26
 author: orsinium
 qname: match
 pep: 622

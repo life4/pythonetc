@@ -1,5 +1,5 @@
 ---
-published: 04 August 2020, 18:00
+published: 2020-08-04
 author: orsinium
 qname: colorsys
 ---

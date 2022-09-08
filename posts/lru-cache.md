@@ -1,5 +1,5 @@
 ---
-published: 15 December 2020, 18:00
+published: 2020-12-15
 author: orsinium
 qname: functools.lru_cache
 python: "3.2"

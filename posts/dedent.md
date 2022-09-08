@@ -1,5 +1,5 @@
 ---
-published: 27 April 2021, 18:00
+published: 2021-04-27
 author: orsinium
 qname: textwrap.dedent
 ---

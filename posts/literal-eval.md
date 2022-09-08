@@ -1,5 +1,5 @@
 ---
-published: 25 August 2020, 18:00
+published: 2020-08-25
 author: orsinium
 qname: ast.literal_eval
 ---

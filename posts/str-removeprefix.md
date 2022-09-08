@@ -1,5 +1,5 @@
 ---
-published: 28 May 2020, 18:00
+published: 2020-05-28
 author: orsinium
 qname: str.removeprefix
 pep: 616

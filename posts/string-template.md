@@ -1,5 +1,5 @@
 ---
-published: 2022-09-20.
+published: 2022-09-20
 author: orsinium
 qname: string.Template
 ---

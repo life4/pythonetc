@@ -1,5 +1,5 @@
 ---
-published: 09 March 2021, 18:00
+published: 2021-03-09
 author: orsinium
 qname: bytearray
 ---

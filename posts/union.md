@@ -1,5 +1,5 @@
 ---
-published: 2022-08-02.
+published: 2022-08-02
 author: orsinium
 qname: typing.Union
 pep: 604

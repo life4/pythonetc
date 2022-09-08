@@ -1,5 +1,5 @@
 ---
-published: 31 August 2021, 18:00
+published: 2021-08-31
 author: orsinium
 qname: json.dumps
 ---

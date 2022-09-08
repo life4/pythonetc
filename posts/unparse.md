@@ -1,5 +1,5 @@
 ---
-published: 16 June 2020, 18:00
+published: 2020-06-16
 author: orsinium
 qname: ast.unparse
 python: "3.9"

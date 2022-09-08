@@ -1,5 +1,5 @@
 ---
-published: 22 December 2020, 18:00
+published: 2020-12-22
 author: orsinium
 qname: re.compile
 ---

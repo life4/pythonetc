@@ -1,5 +1,5 @@
 ---
-published: 04 June 2020, 18:00
+published: 2020-06-04
 author: orsinium
 qname: dict.__or__
 pep: 584

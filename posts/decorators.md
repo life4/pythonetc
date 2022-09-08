@@ -1,5 +1,5 @@
 ---
-published: 18 June 2020, 18:00
+published: 2020-06-18
 author: orsinium
 pep: 614
 python: "3.9"

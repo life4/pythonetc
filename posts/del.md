@@ -1,5 +1,5 @@
 ---
-published: 2022-08-23.
+published: 2022-08-23
 author: orsinium
 qname: del
 ---

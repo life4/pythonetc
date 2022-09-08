@@ -1,5 +1,5 @@
 ---
-published: 26 August 2021, 18:00
+published: 2021-08-26
 author: orsinium
 python: "3.7"
 ---

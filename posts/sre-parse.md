@@ -1,5 +1,5 @@
 ---
-published: 7 September 2021, 18:00
+published: 2021-09-7
 author: orsinium
 qname:
     - sre_parse

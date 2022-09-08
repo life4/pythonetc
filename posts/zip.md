@@ -1,5 +1,5 @@
 ---
-published: 4 January 2022, 18:00.
+published: 2022-01-4
 author: orsinium
 qname: zip
 pep: 618

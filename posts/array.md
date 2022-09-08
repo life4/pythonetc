@@ -1,5 +1,5 @@
 ---
-published: 10 December 2020, 18:00
+published: 2020-12-10
 author: orsinium
 qname: array
 ---

@@ -1,5 +1,5 @@
 ---
-published: 05 November 2020, 18:00
+published: 2020-11-05
 author: orsinium
 python: "3.8"
 ---

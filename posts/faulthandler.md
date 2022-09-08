@@ -1,5 +1,5 @@
 ---
-published: 2022-07-12.
+published: 2022-07-12
 author: orsinium
 qname: faulthandler
 ---
