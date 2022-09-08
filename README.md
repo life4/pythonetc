@@ -1,6 +1,6 @@
 # Python etc
 
-These are the posts I made for [@pythonetc](https://t.me/s/pythonetc).
+These are the posts we published in [@pythonetc](https://t.me/s/pythonetc).
 
 Reasons to read posts from the cannel rather than here:
 
@@ -12,46 +12,4 @@ Reasons to read posts from the cannel rather than here:
 
 You don't need telegram to read the channel using the link above. If neither of it stops you, sure, go ahead, read it here.
 
-## To write
 
-These are ideas for future posts. Let me know if you want to write a guest post on any of these topics.
-
-+ <https://barry.warsaw.us/software/STYLEGUIDE.txt>
-+ Json indent
-+ Csv instead of xls
-+ Turtle
-+ Subprocess and env vars
-+ Subprocess pipe
-+ Unicode module
-+ String module consts
-+ Urllib
-+ <https://www.python.org/downloads/release/python-3100a7/>
-+ <https://www.python.org/dev/peps/pep-0505/>
-+ `__dir__`
-+ ModuleType
-+ Import hooks
-+ TypeVar
-+ Bare except
-+ Make your own exceptions
-+ In uses hash, not eq
-+ super()
-+ gc
-+ trace
-+ destructor
-+ iterator vs iterable
-+ next()
-+ `__length_hint__`
-+ generators
-+ yield from
-+ yield+return
-+ yield+return with a value
-+ generator.throw()
-+ generator.close
-+ re.scanner
-+ pickle and security
-+ list.clear
-+ typing.Protocol
-+ runtime_checkable
-+ <https://docs.python.org/3/library/zoneinfo.html>
-+ <https://www.reddit.com/r/Python/comments/tczsrh/psa_there_are_more_strftime_formats_than_just/>
-+ <https://peps.python.org/pep-0680/>
