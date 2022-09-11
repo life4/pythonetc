@@ -1,0 +1,20 @@
+{% extends "base.html.j2" %}
+{% block content %}
+  <ul>
+    {% for python in pythons %}
+      <h2>Python {{ python }}</h2>
+      {% for post in posts %}
+        {% if post.python == python %}
+          <li>
+            <span class="text-muted">
+              {{ post.published }}
+            </span>
+            <a href="posts/{{ post.slug }}.html">
+              {{ post.title }}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  <ul>
+{% endblock %}

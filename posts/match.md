@@ -3,6 +3,7 @@ published: 2020-06-26
 author: orsinium
 qname: match
 pep: 622
+python: "3.10"
 ---
 
 # match

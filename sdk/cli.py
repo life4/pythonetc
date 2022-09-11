@@ -49,6 +49,16 @@ def cmd_html() -> int:
     (ROOT / 'public' / 'posts').mkdir(exist_ok=True, parents=True)
     render_html('index')
     render_html('posts', posts=posts, title='all posts')
+    pythons = sorted(
+        {post.python for post in posts if post.python},
+        key=lambda p: int(p.split('.')[-1]),
+    )
+    render_html(
+        'pythons',
+        posts=posts,
+        pythons=pythons,
+        title='python changelog',
+    )
     for post in posts:
         render_post(post)
     return 0
