@@ -60,13 +60,14 @@ def cmd_html() -> int:
         pythons=pythons,
         title='python changelog',
     )
-    peps: list[PEP] = []
+    peps: dict[int, PEP] = {}
     for post in posts:
-        peps.extend(post.peps)
-    peps.sort(key=lambda pep: pep.number)
+        for pep in post.peps:
+            peps[pep.number] = pep
+    peps_list = sorted(peps.items())
     render_html(
         'peps',
-        peps=peps,
+        peps=[pep for _, pep in peps_list],
         title='PEPs',
     )
 
@@ -78,7 +79,7 @@ def cmd_html() -> int:
 def render_html(slug: str, **kwargs) -> None:
     print(slug)
     template = jinja_env.get_template(f'{slug}.html.j2')
-    content = template.render(**kwargs)
+    content = template.render(len=len, **kwargs)
     html_path = ROOT / 'public' / f'{slug}.html'
     html_path.write_text(content, encoding='utf8')
 

@@ -6,16 +6,22 @@
         <span class="text-muted">
           {{ pep.slug.upper() }}
         </span>
-        {{ pep.title }}
-        <ul>
-          {% for post in pep.posts %}
-            <li>
-              <a href="posts/{{ post.slug }}.html">
-                {{ post.title }}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
+        {% if len(pep.posts) == 1 %}
+          <a href="posts/{{ pep.posts[0].slug }}.html">
+            {{ pep.title }}
+          </a>
+        {% else %}
+          {{ pep.title }}:
+          <ul>
+            {% for post in pep.posts %}
+              <li>
+                <a href="posts/{{ post.slug }}.html">
+                  {{ post.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>
