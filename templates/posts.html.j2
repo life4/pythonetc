@@ -1,0 +1,15 @@
+{% extends "base.html.j2" %}
+{% block content %}
+  <ul>
+    {% for post in posts %}
+      <li>
+        <span class="text-muted">
+          {{ post.published }}
+        </span>
+        <a href="posts/{{ post.slug }}.html">
+          {{ post.title }}
+        </a>
+      </li>
+    {% endfor %}
+  <ul>
+{% endblock %}

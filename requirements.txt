@@ -1,0 +1,4 @@
+attrs
+jinja2
+markdown-it-py
+pyyaml
