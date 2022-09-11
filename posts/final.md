@@ -1,5 +1,6 @@
 ---
 published: 2020-08-06
+id: 587
 author: orsinium
 pep: 591
 python: "3.8"

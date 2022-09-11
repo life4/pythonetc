@@ -1,18 +1,29 @@
 {% extends "base.html.j2" %}
 {% block content %}
   {{ post.html_content }}
-  {% for pep in post.peps %}
-    <div class="alert alert-info">
-      <a href="{{ pep.url }}" target="_blank">
-        {{pep.slug.upper()}}: {{ pep.title }}
-      <a>
-    </div>
-  {% endfor %}
-  {% if post.python %}
-    <div class="alert alert-info">
-      <a href="https://docs.python.org/3/whatsnew/{{ post.python }}.html" target="_blank">
-        What's New In Python {{ post.python }}
-      <a>
-    </div>
-  {% endif %}
+
+  <h2>References</h2>
+  <ul>
+    {% if post.id %}
+      <li>
+        <a href="https://t.me/pythonetc/{{ post.id }}" target="_blank">
+          Telegram post #{{ post.id }} ({{ post.published }})
+        <a>
+      </li>
+    {% endif %}
+    {% for pep in post.peps %}
+      <li>
+        <a href="{{ pep.url }}" target="_blank">
+          PEP {{ pep.number }} - {{ pep.title }}
+        <a>
+      </li>
+    {% endfor %}
+    {% if post.python %}
+      <li>
+        <a href="https://docs.python.org/3/whatsnew/{{ post.python }}.html" target="_blank">
+          What's New In Python {{ post.python }}
+        <a>
+      </li>
+    {% endif %}
+  </ul>
 {% endblock %}

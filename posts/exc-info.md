@@ -1,5 +1,6 @@
 ---
 published: 2021-04-20
+id: 662
 author: orsinium
 qname: logging
 ---

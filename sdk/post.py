@@ -21,6 +21,7 @@ class Post:
     path: Path
     markdown: str
     author: str
+    id: int | None = None
     qname: list[str] = attr.ib(factory=list, converter=wrap_list)
     pep: list[int] = attr.ib(factory=list, converter=wrap_list)
     published: date | None = None

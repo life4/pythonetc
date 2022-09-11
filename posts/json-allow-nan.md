@@ -1,5 +1,6 @@
 ---
 published: 2021-08-31
+id: 677
 author: orsinium
 qname: json.dumps
 ---

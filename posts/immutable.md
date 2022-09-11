@@ -1,5 +1,6 @@
 ---
 published: 2021-04-29
+id: 666
 author: orsinium
 qname: types.MappingProxyType
 python: "3.3"

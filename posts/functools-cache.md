@@ -1,5 +1,6 @@
 ---
 published: 2020-12-17
+id: 641
 author: orsinium
 qname: functools.cache
 python: "3.9"

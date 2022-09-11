@@ -1,5 +1,6 @@
 ---
 published: 2021-04-06
+id: 659
 author: orsinium
 qname: copy.deepcopy
 ---

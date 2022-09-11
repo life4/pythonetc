@@ -1,5 +1,6 @@
 ---
 published: 2022-09-06
+id: 696
 author: orsinium
 qname: gc.is_finalized
 python: "3.9"
