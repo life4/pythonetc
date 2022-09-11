@@ -3,6 +3,7 @@ published: 2020-06-04
 author: orsinium
 qname: dict.__or__
 pep: 584
+python: "3.9"
 ---
 
 # `dict.__or__` (PEP-584)

@@ -2,6 +2,7 @@
 published: 2020-07-21
 author: orsinium
 pep: 487
+python: "3.6"
 ---
 
 # `__set_name__` (PEP-487)

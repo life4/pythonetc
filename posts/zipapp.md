@@ -2,6 +2,7 @@
 published: 2020-10-13
 author: orsinium
 qname: zipapp
+python: "3.5"
 ---
 
 # zipapp

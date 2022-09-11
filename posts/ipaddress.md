@@ -2,6 +2,7 @@
 published: 2020-11-17
 author: orsinium
 qname: ipaddress
+python: "3.3"
 ---
 
 # ipaddress

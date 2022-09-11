@@ -47,3 +47,7 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + method_cache
 + time.sleep and hybernation
 + delattr
++ ensurepip
++ pathlib
++ statistics
++ singledispatch

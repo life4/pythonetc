@@ -2,6 +2,7 @@
 published: 2020-10-06
 author: orsinium
 qname: enum
+python: "3.4"
 ---
 
 # enum
