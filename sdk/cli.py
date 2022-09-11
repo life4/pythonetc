@@ -5,6 +5,7 @@ from pathlib import Path
 import sys
 from typing import Callable, Mapping, NoReturn, TextIO
 from .post import Post
+from .pep import PEP
 from jinja2 import Environment, FileSystemLoader
 
 try:
@@ -59,6 +60,16 @@ def cmd_html() -> int:
         pythons=pythons,
         title='python changelog',
     )
+    peps: list[PEP] = []
+    for post in posts:
+        peps.extend(post.peps)
+    peps.sort(key=lambda pep: pep.number)
+    render_html(
+        'peps',
+        peps=peps,
+        title='PEPs',
+    )
+
     for post in posts:
         render_post(post)
     return 0

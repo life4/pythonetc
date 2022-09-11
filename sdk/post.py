@@ -5,6 +5,7 @@ from pathlib import Path
 import attr
 import yaml
 from markdown_it import MarkdownIt
+from .pep import get_pep, PEP
 
 md_parser = MarkdownIt()
 
@@ -50,3 +51,12 @@ class Post:
     @property
     def slug(self) -> str:
         return self.path.stem
+
+    @cached_property
+    def peps(self) -> list[PEP]:
+        peps = []
+        for pep_number in self.pep:
+            pep = get_pep(pep_number)
+            pep.posts.append(self)
+            peps.append(pep)
+        return peps
