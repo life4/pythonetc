@@ -29,7 +29,7 @@ class Post:
 
     @classmethod
     def from_path(cls, path: Path) -> Post:
-        yaml_str, markdown = path.read_text().lstrip().split('\n---', 1)
+        yaml_str, markdown = path.  read_text('utf8').lstrip().split('\n---', 1)
         meta: dict = yaml.safe_load(yaml_str)
         qname = meta.setdefault('qname', [])
         if isinstance(meta['qname'], str):
