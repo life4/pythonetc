@@ -6,9 +6,7 @@
         <span class="text-muted">
           {{ pep.slug.upper() }}
         </span>
-        <a href="{{ pep.url }}" target="_blank">
-          {{ pep.title }}
-        </a>
+        {{ pep.title }}
         <ul>
           {% for post in pep.posts %}
             <li>
