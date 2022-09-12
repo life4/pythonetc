@@ -2,6 +2,9 @@
 published: 2021-09-07
 id: 678
 author: orsinium
+topic:
+  - stdlib
+  - module
 qname:
     - sre_parse
     - sre_compile

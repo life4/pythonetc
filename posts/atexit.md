@@ -2,6 +2,9 @@
 published: 2022-07-05
 id: 686
 author: orsinium
+topic:
+  - stdlib
+  - module
 qname: atexit
 ---
 

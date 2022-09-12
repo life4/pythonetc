@@ -2,6 +2,9 @@
 published: 2020-08-04
 id: 586
 author: orsinium
+topic:
+  - stdlib
+  - module
 qname: colorsys
 ---
 

@@ -2,6 +2,9 @@
 published: 2020-09-08
 id: 602
 author: orsinium
+topic:
+  - builtin
+  - function
 qname: format
 ---
 

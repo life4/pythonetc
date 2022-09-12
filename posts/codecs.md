@@ -2,6 +2,9 @@
 published: 2020-10-29
 id: 626
 author: orsinium
+topic:
+  - stdlib
+  - module
 qname: codecs
 ---
 

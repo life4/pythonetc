@@ -2,6 +2,8 @@
 published: 2020-11-12
 id: 631
 author: orsinium
+topic: dunder
+qname: __class_getitem__
 pep: 560
 python: "3.7"
 ---

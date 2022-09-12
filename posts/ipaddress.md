@@ -2,6 +2,9 @@
 published: 2020-11-17
 id: 632
 author: orsinium
+topic:
+  - stdlib
+  - module
 qname: ipaddress
 python: "3.3"
 ---

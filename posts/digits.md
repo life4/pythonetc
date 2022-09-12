@@ -2,6 +2,9 @@
 published: 2020-11-26
 id: 635
 author: orsinium
+topic:
+  - builtin
+  - method
 qname: str.isdigit
 ---
 

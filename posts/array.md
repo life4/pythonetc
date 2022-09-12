@@ -2,6 +2,9 @@
 published: 2020-12-10
 id: 639
 author: orsinium
+topic:
+  - stdlib
+  - module
 qname: array
 ---
 

@@ -2,6 +2,9 @@
 published: 2022-07-12
 id: 687
 author: orsinium
+topic:
+  - stdlib
+  - module
 qname: faulthandler
 ---
 

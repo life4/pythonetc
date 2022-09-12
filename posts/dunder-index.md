@@ -2,6 +2,8 @@
 published: 2020-11-19
 id: 633
 author: orsinium
+topic: dunder
+qname: __index__
 pep: 357
 ---
 

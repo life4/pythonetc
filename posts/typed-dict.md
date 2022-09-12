@@ -2,6 +2,10 @@
 published: 2021-03-25
 id: 656
 author: orsinium
+topic:
+  - stdlib
+  - typing
+  - type
 qname: typing.TypedDict
 pep: 589
 python: "3.8"

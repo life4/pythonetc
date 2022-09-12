@@ -2,6 +2,9 @@
 published: 2020-12-24
 id: 643
 author: orsinium
+topic:
+  - stdlib
+  - constant
 qname: math.tau
 pep: 628
 python: "3.6"

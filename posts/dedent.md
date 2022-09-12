@@ -2,6 +2,9 @@
 published: 2021-04-27
 id: 665
 author: orsinium
+topic:
+  - stdlib
+  - function
 qname: textwrap.dedent
 ---
 

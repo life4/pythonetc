@@ -2,6 +2,9 @@
 published: 2020-09-24
 id: 609
 author: orsinium
+topic:
+  - stdlib
+  - type
 qname: types.SimpleNamespace
 ---
 

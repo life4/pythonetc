@@ -2,6 +2,7 @@
 published: 2021-02-24
 id: 647
 author: orsinium
+topic: news
 ---
 
 # Season #2.5
