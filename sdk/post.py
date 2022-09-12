@@ -1,13 +1,17 @@
 from __future__ import annotations
 from datetime import date
 from functools import cached_property
+import json
 from pathlib import Path
 import attr
 import yaml
+import jsonschema
 from markdown_it import MarkdownIt
 from .pep import get_pep, PEP
 
 md_parser = MarkdownIt()
+SCHEMA_PATH = Path(__file__).parent / 'schema.json'
+SCHEMA = json.loads(SCHEMA_PATH.read_text())
 
 
 def wrap_list(x: object) -> list:
@@ -24,6 +28,7 @@ class Post:
     id: int | None = None
     qname: list[str] = attr.ib(factory=list, converter=wrap_list)
     pep: list[int] = attr.ib(factory=list, converter=wrap_list)
+    topic: list[str] = attr.ib(factory=list, converter=wrap_list)
     published: date | None = None
     python: str | None = None
 
@@ -34,6 +39,7 @@ class Post:
         qname = meta.setdefault('qname', [])
         if isinstance(meta['qname'], str):
             meta['qname'] = [qname]
+        jsonschema.validate(meta, SCHEMA)
         return cls(**meta, path=path, markdown=markdown)
 
     @cached_property
