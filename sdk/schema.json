@@ -25,7 +25,8 @@
             ]
         },
         "pep": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": 1
         },
         "topics": {
             "type": "array",

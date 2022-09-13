@@ -1,29 +1,63 @@
 {% extends "base.html.j2" %}
 {% block content %}
-  {{ post.html_content }}
+  <div class="row">
+    <article class="col-12 col-md-8">
+      {{ post.html_content }}
+    </article>
+    <aside class="col">
+      <ul class="list-group">
 
-  <h2>References</h2>
-  <ul>
-    {% if post.id %}
-      <li>
-        <a href="https://t.me/pythonetc/{{ post.id }}" target="_blank">
-          Telegram post #{{ post.id }} ({{ post.published }})
-        <a>
-      </li>
-    {% endif %}
-    {% if post.pep_info %}
-      <li>
-        <a href="{{ post.pep_info.url }}" target="_blank">
-          PEP {{ post.pep_info.number }} - {{ post.pep_info.title }}
-        <a>
-      </li>
-    {% endif %}
-    {% if post.python %}
-      <li>
-        <a href="https://docs.python.org/3/whatsnew/{{ post.python }}.html" target="_blank">
-          What's New In Python {{ post.python }}
-        <a>
-      </li>
-    {% endif %}
-  </ul>
+        {% if post.published %}
+          <li class="list-group-item">
+            <i class="fa-regular fa-calendar"></i>
+            {{ post.published }}
+          </li>
+        {% endif %}
+
+        <li class="list-group-item">
+          <i class="fa-regular fa-user"></i>
+          <a href="https://github.com/{{ post.author }}" target="_blank">
+            {{ post.author }}
+          </a>
+        </li>
+
+        {% if post.id %}
+          <li class="list-group-item">
+            <i class="fa-brands fa-telegram"></i>
+            <a href="https://t.me/pythonetc/{{ post.id }}" target="_blank">
+              Telegram post #{{ post.id }}
+            <a>
+          </li>
+        {% endif %}
+
+        {% if post.pep_info %}
+          <li class="list-group-item">
+            <i class="fa-regular fa-file"></i>
+            <a href="{{ post.pep_info.url }}" target="_blank">
+              PEP {{ post.pep_info.number }} - {{ post.pep_info.title }}
+            <a>
+          </li>
+        {% endif %}
+
+        {% if "module" in post.topics %}
+          <li class="list-group-item">
+            <i class="fa-regular fa-question-circle"></i>
+            <a href="https://docs.python.org/3/library/{{ post.module_name }}.html" target="_blank">
+              {{ post.module_name }} module
+            <a>
+          </li>
+        {% endif %}
+
+        {% if post.python %}
+          <li class="list-group-item">
+            <i class="fa-brands fa-python"></i>
+            <a href="https://docs.python.org/3/whatsnew/{{ post.python }}.html" target="_blank">
+              Python {{ post.python }}
+            <a>
+          </li>
+        {% endif %}
+
+      </ul>
+    </aside>
+  </div>
 {% endblock %}
