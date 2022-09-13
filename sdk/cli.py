@@ -70,6 +70,16 @@ def cmd_html() -> int:
         peps=[pep for _, pep in peps_list],
         title='PEPs',
     )
+    modules: list[Post] = []
+    for post in posts:
+        if 'module' in post.topic and 'stdlib' in post.topic:
+            modules.append(post)
+    modules.sort(key=lambda p: p.module_name or '')
+    render_html(
+        'stdlib',
+        posts=modules,
+        title='stdlib',
+    )
 
     for post in posts:
         render_post(post)

@@ -1,6 +1,7 @@
 from __future__ import annotations
 from datetime import date
 from functools import cached_property
+from importlib import import_module
 import json
 from pathlib import Path
 import attr
@@ -39,7 +40,10 @@ class Post:
         qname = meta.setdefault('qname', [])
         if isinstance(meta['qname'], str):
             meta['qname'] = [qname]
-        jsonschema.validate(meta, SCHEMA)
+        try:
+            jsonschema.validate(meta, SCHEMA)
+        except jsonschema.ValidationError:
+            raise ValueError(f'invalid metadata for {path.name}')
         return cls(**meta, path=path, markdown=markdown)
 
     @cached_property
@@ -67,3 +71,16 @@ class Post:
             pep.posts.append(self)
             peps.append(pep)
         return peps
+
+    @cached_property
+    def module_name(self) -> str | None:
+        module_name = self.qname[0]
+        while True:
+            try:
+                import_module(module_name)
+            except ImportError:
+                if '.' not in module_name:
+                    return None
+                module_name = module_name.rsplit('.', maxsplit=1)[0]
+            else:
+                return module_name
