@@ -4,7 +4,7 @@ id: 587
 author: orsinium
 pep: 591
 python: "3.8"
-topic:
+topics:
   - stdlib
   - decorator
   - typing

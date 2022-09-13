@@ -2,7 +2,7 @@
 published: 2020-11-17
 id: 632
 author: orsinium
-topic:
+topics:
   - stdlib
   - module
 qname: ipaddress

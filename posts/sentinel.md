@@ -2,7 +2,8 @@
 published: 2020-10-20
 id: 619
 author: orsinium
-topic: stdlib
+topics:
+  - stdlib
 qname: unittest.mock.sentinel
 ---
 

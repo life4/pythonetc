@@ -2,7 +2,7 @@
 published: 2020-12-17
 id: 641
 author: orsinium
-topic:
+topics:
   - stdlib
   - decorator
 qname: functools.cache

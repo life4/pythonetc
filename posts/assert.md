@@ -2,7 +2,8 @@
 published: 2020-07-30
 id: 585
 author: orsinium
-topic: keyword
+topics:
+  - keyword
 qname: assert
 ---
 

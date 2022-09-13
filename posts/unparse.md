@@ -2,7 +2,7 @@
 published: 2020-06-16
 id: 571
 author: orsinium
-topic:
+topics:
   - stdlib
   - function
 qname: ast.unparse

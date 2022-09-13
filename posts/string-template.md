@@ -1,7 +1,7 @@
 ---
 published: 2022-09-20
 author: orsinium
-topic:
+topics:
   - stdlib
   - type
 qname: string.Template

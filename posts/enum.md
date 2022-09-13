@@ -2,7 +2,7 @@
 published: 2020-10-06
 id: 614
 author: orsinium
-topic:
+topics:
   - stdlib
   - function
 qname: enum

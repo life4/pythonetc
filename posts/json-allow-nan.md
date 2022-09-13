@@ -2,7 +2,7 @@
 published: 2021-08-31
 id: 677
 author: orsinium
-topic:
+topics:
   - stdlib
   - arg
 qname: json.dumps

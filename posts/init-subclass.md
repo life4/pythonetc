@@ -3,7 +3,8 @@ published: 2020-07-07
 id: 578
 author: orsinium
 pep: 487
-topic: dunder
+topics:
+  - dunder
 qname: __init_subclass__
 python: "3.6"
 ---

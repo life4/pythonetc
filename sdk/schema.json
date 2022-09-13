@@ -37,31 +37,26 @@
                 }
             ]
         },
-        "topic": {
-            "anyOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "enum": [
-                            "arg",
-                            "builtin",
-                            "constant",
-                            "decorator",
-                            "function",
-                            "method",
-                            "module",
-                            "news",
-                            "stdlib",
-                            "type",
-                            "typing"
-                        ]
-                    }
-                }
-            ]
+        "topics": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "arg",
+                    "builtin",
+                    "constant",
+                    "decorator",
+                    "dunder",
+                    "function",
+                    "keyword",
+                    "method",
+                    "module",
+                    "news",
+                    "stdlib",
+                    "type",
+                    "typing"
+                ]
+            }
         },
         "python": {
             "type": "string"

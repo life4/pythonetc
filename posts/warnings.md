@@ -1,7 +1,7 @@
 ---
 published: 2022-09-13
 author: orsinium
-topic:
+topics:
   - stdlib
   - module
 qname: warnings

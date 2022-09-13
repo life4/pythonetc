@@ -4,7 +4,8 @@ id: 582
 author: orsinium
 pep: 487
 python: "3.6"
-topic: dunder
+topics:
+  - dunder
 qname: __set_name__
 ---
 

@@ -2,7 +2,7 @@
 published: 2022-07-26
 id: 690
 author: orsinium
-topic:
+topics:
   - stdlib
   - constant
   - typing

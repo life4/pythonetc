@@ -2,7 +2,8 @@
 published: 2020-09-17
 id: 606
 author: orsinium
-topic: stdlib
+topics:
+  - stdlib
 qname: sys.modules
 ---
 

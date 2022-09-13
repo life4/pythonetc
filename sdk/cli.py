@@ -72,7 +72,7 @@ def cmd_html() -> int:
     )
     modules: list[Post] = []
     for post in posts:
-        if 'module' in post.topic and 'stdlib' in post.topic:
+        if 'module' in post.topics and 'stdlib' in post.topics:
             modules.append(post)
     modules.sort(key=lambda p: p.module_name or '')
     render_html(

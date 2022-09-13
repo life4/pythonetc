@@ -2,7 +2,7 @@
 published: 2020-07-16
 id: 581
 author: orsinium
-topic:
+topics:
   - stdlib
   - decorator
 qname: functools.cached_property

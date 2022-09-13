@@ -2,7 +2,7 @@
 published: 2021-03-18
 id: 654
 author: orsinium
-topic:
+topics:
   - builtin
   - type
 qname: float

@@ -2,7 +2,7 @@
 published: 2020-09-08
 id: 602
 author: orsinium
-topic:
+topics:
   - builtin
   - function
 qname: format

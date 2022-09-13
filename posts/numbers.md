@@ -2,7 +2,7 @@
 published: 2020-09-22
 id: 608
 author: orsinium
-topic:
+topics:
   - stdlib
   - module
 qname: numbers

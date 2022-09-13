@@ -2,7 +2,7 @@
 published: 2022-08-02
 id: 691
 author: orsinium
-topic:
+topics:
   - stdlib
   - typing
   - type

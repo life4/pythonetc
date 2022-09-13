@@ -2,7 +2,7 @@
 published: 2020-08-25
 id: 593
 author: orsinium
-topic:
+topics:
     - stdlib
     - function
 qname: ast.literal_eval

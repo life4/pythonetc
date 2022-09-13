@@ -29,7 +29,7 @@ class Post:
     id: int | None = None
     qname: list[str] = attr.ib(factory=list, converter=wrap_list)
     pep: list[int] = attr.ib(factory=list, converter=wrap_list)
-    topic: list[str] = attr.ib(factory=list, converter=wrap_list)
+    topics: list[str] = attr.ib(factory=list, converter=wrap_list)
     published: date | None = None
     python: str | None = None
 

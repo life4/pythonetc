@@ -2,7 +2,7 @@
 published: 2022-09-06
 id: 696
 author: orsinium
-topic:
+topics:
   - stdlib
   - function
 qname: gc.is_finalized

@@ -1,7 +1,7 @@
 ---
 published: 2022-01-04
 author: orsinium
-topic:
+topics:
   - builtin
   - function
 qname: zip
