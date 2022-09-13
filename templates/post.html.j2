@@ -11,13 +11,13 @@
         <a>
       </li>
     {% endif %}
-    {% for pep in post.peps %}
+    {% if post.pep_info %}
       <li>
-        <a href="{{ pep.url }}" target="_blank">
-          PEP {{ pep.number }} - {{ pep.title }}
+        <a href="{{ post.pep_info.url }}" target="_blank">
+          PEP {{ post.pep_info.number }} - {{ post.pep_info.title }}
         <a>
       </li>
-    {% endfor %}
+    {% endif %}
     {% if post.python %}
       <li>
         <a href="https://docs.python.org/3/whatsnew/{{ post.python }}.html" target="_blank">

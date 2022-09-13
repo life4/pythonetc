@@ -25,17 +25,7 @@
             ]
         },
         "pep": {
-            "anyOf": [
-                {
-                    "type": "integer"
-                },
-                {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    }
-                }
-            ]
+            "type": "integer"
         },
         "topics": {
             "type": "array",

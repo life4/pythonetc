@@ -28,7 +28,7 @@ class Post:
     author: str
     id: int | None = None
     qname: list[str] = attr.ib(factory=list, converter=wrap_list)
-    pep: list[int] = attr.ib(factory=list, converter=wrap_list)
+    pep: int | None = None
     topics: list[str] = attr.ib(factory=list, converter=wrap_list)
     published: date | None = None
     python: str | None = None
@@ -64,13 +64,12 @@ class Post:
         return self.path.stem
 
     @cached_property
-    def peps(self) -> list[PEP]:
-        peps = []
-        for pep_number in self.pep:
-            pep = get_pep(pep_number)
-            pep.posts.append(self)
-            peps.append(pep)
-        return peps
+    def pep_info(self) -> PEP | None:
+        if self.pep is None:
+            return None
+        pep = get_pep(self.pep)
+        pep.posts.append(self)
+        return pep
 
     @cached_property
     def module_name(self) -> str | None:
