@@ -2,6 +2,9 @@
 published: 2020-12-03
 id: 637
 author: orsinium
+topics:
+  - stdlib
+  - arg
 qname: json.dumps
 ---
 

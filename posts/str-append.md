@@ -2,6 +2,9 @@
 published: 2020-12-29
 id: 644
 author: orsinium
+topics:
+  - builtin
+  - method
 qname: str.join
 ---
 

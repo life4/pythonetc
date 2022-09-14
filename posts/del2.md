@@ -2,6 +2,9 @@
 published: 2022-08-30
 id: 695
 author: orsinium
+topics:
+  - dunder
+qname: __del__
 ---
 
 # `__del__`

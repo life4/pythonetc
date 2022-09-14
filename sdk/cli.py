@@ -39,7 +39,7 @@ def get_posts() -> list[Post]:
 
 def cmd_table() -> int:
     for post in get_posts():
-        pep = f'PEP {post.pep[0]:<4}' if post.pep else ' ' * 8
+        pep = f'PEP {post.pep:<4}' if post.pep else ' ' * 8
         python = f'{post.python:<4}' if post.python else ' ' * 4
         print(f'{post.published} | {pep} | {python} | {post.title}')
     return 0
@@ -62,13 +62,24 @@ def cmd_html() -> int:
     )
     peps: dict[int, PEP] = {}
     for post in posts:
-        for pep in post.peps:
+        pep = post.pep_info
+        if pep is not None:
             peps[pep.number] = pep
     peps_list = sorted(peps.items())
     render_html(
         'peps',
         peps=[pep for _, pep in peps_list],
         title='PEPs',
+    )
+    modules: list[Post] = []
+    for post in posts:
+        if 'module' in post.topics and 'stdlib' in post.topics:
+            modules.append(post)
+    modules.sort(key=lambda p: p.module_name or '')
+    render_html(
+        'stdlib',
+        posts=modules,
+        title='stdlib',
     )
 
     for post in posts:

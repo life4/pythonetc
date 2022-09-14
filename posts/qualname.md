@@ -3,6 +3,9 @@ published: 2020-11-24
 id: 634
 author: orsinium
 pep: 3155
+topics:
+  - dunder
+qname: __qualname__
 python: "3.3"
 ---
 

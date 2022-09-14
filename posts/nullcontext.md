@@ -2,6 +2,9 @@
 published: 2020-10-01
 id: 612
 author: orsinium
+topics:
+  - stdlib
+  - decorator
 qname: contextlib.nullcontext
 python: "3.7"
 ---

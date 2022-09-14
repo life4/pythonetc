@@ -2,6 +2,9 @@
 published: 2020-07-09
 id: 579
 author: orsinium
+topics:
+  - dunder
+qname: __prepare__
 ---
 
 # `__prepare__`

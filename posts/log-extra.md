@@ -2,6 +2,9 @@
 published: 2021-04-22
 id: 664
 author: orsinium
+topics:
+  - stdlib
+  - arg
 qname: logging
 ---
 

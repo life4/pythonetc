@@ -2,6 +2,9 @@
 published: 2020-12-17
 id: 641
 author: orsinium
+topics:
+  - stdlib
+  - decorator
 qname: functools.cache
 python: "3.9"
 ---

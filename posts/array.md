@@ -2,6 +2,9 @@
 published: 2020-12-10
 id: 639
 author: orsinium
+topics:
+  - stdlib
+  - module
 qname: array
 ---
 
@@ -28,4 +31,4 @@ arr = array.array('i', lst)
 # 7.8 ms ± 449 µs per loop
 ```
 
-The reason is that because `int` in Python is a [boxed object](https://en.wikipedia.org/wiki/Object_type#Boxing), and wrapping raw integer value into Python `int` takes some time.
+The reason is that `int` in Python is a [boxed object](https://en.wikipedia.org/wiki/Object_type#Boxing), and wrapping raw integer value into Python `int` takes some time.

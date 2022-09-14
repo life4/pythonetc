@@ -2,6 +2,9 @@
 published: 2020-10-13
 id: 616
 author: orsinium
+topics:
+  - stdlib
+  - module
 qname: zipapp
 python: "3.5"
 ---

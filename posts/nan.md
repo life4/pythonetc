@@ -2,7 +2,10 @@
 published: 2020-09-01
 id: 597
 author: orsinium
-qname: float
+topics:
+  - stdlib
+  - constant
+qname: math.nan
 ---
 
 # nan

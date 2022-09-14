@@ -1,6 +1,9 @@
 ---
 published: 2022-01-04
 author: orsinium
+topics:
+  - builtin
+  - function
 qname: zip
 pep: 618
 python: "3.10"

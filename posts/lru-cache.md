@@ -2,6 +2,9 @@
 published: 2020-12-15
 id: 640
 author: orsinium
+topics:
+  - stdlib
+  - decorator
 qname: functools.lru_cache
 python: "3.2"
 ---

@@ -1,0 +1,56 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "required": [
+        "author"
+    ],
+    "properties": {
+        "author": {
+            "type": "string"
+        },
+        "id": {
+            "type": "integer"
+        },
+        "qname": {
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            ]
+        },
+        "pep": {
+            "type": "integer",
+            "minimum": 1
+        },
+        "topics": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "arg",
+                    "builtin",
+                    "constant",
+                    "decorator",
+                    "dunder",
+                    "function",
+                    "keyword",
+                    "method",
+                    "module",
+                    "news",
+                    "stdlib",
+                    "type",
+                    "typing"
+                ]
+            }
+        },
+        "python": {
+            "type": "string"
+        }
+    }
+}
