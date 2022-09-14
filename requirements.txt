@@ -4,3 +4,4 @@ markdown-it-py
 pyyaml
 requests
 jsonschema
+pandoc
