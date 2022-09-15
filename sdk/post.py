@@ -4,6 +4,7 @@ from functools import cached_property
 from importlib import import_module
 import json
 from pathlib import Path
+import re
 import attr
 import yaml
 import jsonschema
@@ -13,6 +14,7 @@ from .pep import get_pep, PEP
 md_parser = MarkdownIt()
 SCHEMA_PATH = Path(__file__).parent / 'schema.json'
 SCHEMA = json.loads(SCHEMA_PATH.read_text())
+REX_FILE_NAME = re.compile(r'[a-z0-9-]+\.md')
 
 
 def wrap_list(x: object) -> list:
@@ -45,6 +47,17 @@ class Post:
         except jsonschema.ValidationError:
             raise ValueError(f'invalid metadata for {path.name}')
         return cls(**meta, path=path, markdown=markdown)
+
+    def validate(self) -> str | None:
+        if not REX_FILE_NAME.fullmatch(self.path.name):
+            return 'file name must be kebab-case'
+        if not self.markdown.strip().startswith('# '):
+            return 'header is required'
+        if not self.markdown.endswith('\n'):
+            return 'empty line at the end of the file is required'
+        if self.id and not self.published:
+            return 'posts with `id` must also have `published`'
+        return None
 
     @cached_property
     def title(self) -> str:

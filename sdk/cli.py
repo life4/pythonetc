@@ -35,7 +35,11 @@ def get_posts() -> list[Post]:
     for path in posts_path.iterdir():
         if path.suffix != '.md':
             continue
-        posts.append(Post.from_path(path))
+        post = Post.from_path(path)
+        error = post.validate()
+        if error:
+            raise ValueError(f'invalid {post.path.name}: {error}')
+        posts.append(post)
     posts.sort(key=lambda post: post.published or date.today())
     return posts
 

@@ -6,10 +6,12 @@
     ],
     "properties": {
         "author": {
-            "type": "string"
+            "type": "string",
+            "minLength": 2
         },
         "id": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": 1
         },
         "qname": {
             "anyOf": [
@@ -50,7 +52,8 @@
             }
         },
         "python": {
-            "type": "string"
+            "type": "string",
+            "minLength": 3
         }
     }
 }
