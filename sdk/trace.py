@@ -46,3 +46,17 @@ class Trace:
         if first_crumb.type == 'keyword':
             return ''
         return 'builtins'
+
+    @cached_property
+    def title(self) -> str:
+        result = ''
+        for crumb in self.crumbs:
+            if crumb not in ('keyword', 'arg'):
+                if result:
+                    result += '.'
+                result += crumb.name
+            if crumb.type == 'decorator':
+                result = f'@{result}'
+            if crumb.type == 'arg':
+                result += f'({crumb.name})'
+        return result

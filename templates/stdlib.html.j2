@@ -12,10 +12,10 @@
         {% endif %}
         {% if module.child_posts %}
           <ul>
-            {% for post in module.child_posts %}
+            {% for trace, post in module.child_posts %}
               <li>
                 <a href="{{ post.url }}">
-                  {{ post.title }}
+                  {{ trace.title }}
                 </a>
               </li>
             {% endfor %}

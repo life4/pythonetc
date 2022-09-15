@@ -3,7 +3,7 @@ published: 2021-04-20
 id: 662
 author: orsinium
 traces:
-  - [{module: logging}]
+  - [{module: logging}, {arg: exc_info}]
 ---
 
 # logging exc_info

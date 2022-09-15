@@ -6,13 +6,14 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from .post import Post
+    from .trace import Trace
 
 
 @dataclass
 class Module:
     name: str = ''
     root_post: Post | None = None
-    child_posts: list[Post] = field(default_factory=list)
+    child_posts: list[tuple[Trace, Post]] = field(default_factory=list)
 
     @classmethod
     def from_posts(self, posts: list[Post]) -> list[Module]:
@@ -26,5 +27,5 @@ class Module:
                 if trace.is_module:
                     modules[name].root_post = post
                 else:
-                    modules[name].child_posts.append(post)
+                    modules[name].child_posts.append((trace, post))
         return sorted(modules.values(), key=lambda m: m.name)
