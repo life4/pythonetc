@@ -39,14 +39,16 @@
           </li>
         {% endif %}
 
-        {% if "module" in post.topics %}
-          <li class="list-group-item">
-            <i class="fa-regular fa-question-circle"></i>
-            <a href="https://docs.python.org/3/library/{{ post.module_name }}.html" target="_blank">
-              {{ post.module_name }} module
-            <a>
-          </li>
-        {% endif %}
+        {% for trace in post.traces %}
+          {% if trace.docs_url %}
+            <li class="list-group-item">
+              <i class="fa-regular fa-question-circle"></i>
+              <a href="{{ trace.docs_url }}" target="_blank">
+                {{ trace.title }}
+              <a>
+            </li>
+          {% endif %}
+        {% endfor %}
 
         {% if post.python %}
           <li class="list-group-item">

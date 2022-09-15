@@ -29,10 +29,12 @@ class Trace:
         return Trace([Crumb.from_raw(crumb) for crumb in raw])
 
     @cached_property
+    def types(self) -> list[str]:
+        return [c.type for c in self.crumbs]
+
+    @property
     def is_module(self) -> bool:
-        if len(self.crumbs) != 1:
-            return False
-        return self.crumbs[0].type == 'module'
+        return self.types == ['module']
 
     @cached_property
     def module_name(self) -> str:
@@ -60,3 +62,15 @@ class Trace:
             if crumb.type == 'arg':
                 result += f'({crumb.name})'
         return result
+
+    @cached_property
+    def docs_url(self) -> str | None:
+        """Link to the page in oficial Python docs.
+        """
+        if self.is_module:
+            return f'https://docs.python.org/3/library/{self.module_name}.html'
+        if len(self.crumbs) == 2 and self.crumbs[0].type == 'module':
+            mod = self.crumbs[0].name
+            obj = self.crumbs[1].name
+            return f'https://docs.python.org/3/library/{mod}.html#{mod}.{obj}'
+        return None
