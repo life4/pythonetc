@@ -5,7 +5,7 @@ author: orsinium
 topics:
   - typing
 traces:
-  - [{module: future}, {function: __annotations__}]
+  - [{module: __future__}, {function: annotations}]
 pep: 563
 python: "3.7"
 ---

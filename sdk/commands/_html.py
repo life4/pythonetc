@@ -4,13 +4,15 @@ from __future__ import annotations
 from pathlib import Path
 from ._command import Command
 from ..pep import PEP
+from ..module import Module
 from ..post import Post, get_posts
-from jinja2 import Environment, FileSystemLoader
+import jinja2
 
 ROOT = Path(__file__).parent.parent.parent
 TEMPLATES_PATH = ROOT / 'templates'
-jinja_env = Environment(
-    loader=FileSystemLoader(TEMPLATES_PATH),
+jinja_env = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(TEMPLATES_PATH),
+    undefined=jinja2.StrictUndefined,
 )
 
 
@@ -45,14 +47,9 @@ class HTMLCommand(Command):
             peps=[pep for _, pep in peps_list],
             title='PEPs',
         )
-        modules: list[Post] = []
-        for post in posts:
-            if 'module' in post.topics and 'stdlib' in post.topics:
-                modules.append(post)
-        modules.sort(key=lambda p: p.module_name or '')
         render_html(
             'stdlib',
-            posts=modules,
+            modules=Module.from_posts(posts),
             title='stdlib',
         )
 
@@ -61,9 +58,9 @@ class HTMLCommand(Command):
         return 0
 
 
-def render_html(slug: str, **kwargs) -> None:
+def render_html(slug: str, title: str | None = None, **kwargs) -> None:
     template = jinja_env.get_template(f'{slug}.html.j2')
-    content = template.render(len=len, **kwargs)
+    content = template.render(len=len, title=title, **kwargs)
     html_path = ROOT / 'public' / f'{slug}.html'
     html_path.write_text(content, encoding='utf8')
 

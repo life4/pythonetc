@@ -22,18 +22,7 @@
             "items": {
                 "type": "string",
                 "enum": [
-                    "arg",
-                    "builtin",
-                    "constant",
-                    "decorator",
-                    "dunder",
-                    "function",
-                    "keyword",
-                    "method",
-                    "module",
                     "news",
-                    "stdlib",
-                    "type",
                     "typing"
                 ]
             }
@@ -41,6 +30,45 @@
         "python": {
             "type": "string",
             "minLength": 3
+        },
+        "traces": {
+            "type": "array",
+            "items": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "module": {
+                            "type": "string"
+                        },
+                        "function": {
+                            "type": "string"
+                        },
+                        "method": {
+                            "type": "string"
+                        },
+                        "decorator": {
+                            "type": "string"
+                        },
+                        "constant": {
+                            "type": "string"
+                        },
+                        "keyword": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "string"
+                        },
+                        "exception": {
+                            "type": "string"
+                        },
+                        "arg": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         }
     }
 }

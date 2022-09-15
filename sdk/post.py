@@ -9,6 +9,7 @@ import yaml
 import jsonschema
 from markdown_it import MarkdownIt
 from .pep import get_pep, PEP
+from .trace import Trace, parse_traces
 
 md_parser = MarkdownIt()
 SCHEMA_PATH = Path(__file__).parent / 'schema.json'
@@ -32,21 +33,15 @@ def get_posts() -> list[Post]:
     return posts
 
 
-def wrap_list(x: object) -> list:
-    if isinstance(x, list):
-        return x
-    return [x]
-
-
 @attr.s(auto_attribs=True, frozen=True)
 class Post:
     path: Path
     markdown: str
     author: str
     id: int | None = None
-    traces: list = attr.ib(factory=list, converter=wrap_list)
+    traces: list[Trace] = attr.ib(factory=list, converter=parse_traces)
     pep: int | None = None
-    topics: list[str] = attr.ib(factory=list, converter=wrap_list)
+    topics: list[str] = attr.ib(factory=list)
     published: date | None = None
     python: str | None = None
 
@@ -99,10 +94,6 @@ class Post:
         pep = get_pep(self.pep)
         pep.posts.append(self)
         return pep
-
-    @cached_property
-    def module_name(self) -> str | None:
-        return None
 
     @cached_property
     def telegram_markdown(self) -> str:
