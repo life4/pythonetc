@@ -15,6 +15,22 @@ md_parser = MarkdownIt()
 SCHEMA_PATH = Path(__file__).parent / 'schema.json'
 SCHEMA = json.loads(SCHEMA_PATH.read_text())
 REX_FILE_NAME = re.compile(r'[a-z0-9-]+\.md')
+ROOT = Path(__file__).parent.parent
+
+
+def get_posts() -> list[Post]:
+    posts: list[Post] = []
+    posts_path = ROOT / 'posts'
+    for path in posts_path.iterdir():
+        if path.suffix != '.md':
+            continue
+        post = Post.from_path(path)
+        error = post.validate()
+        if error:
+            raise ValueError(f'invalid {post.path.name}: {error}')
+        posts.append(post)
+    posts.sort(key=lambda post: post.published or date.today())
+    return posts
 
 
 def wrap_list(x: object) -> list:
