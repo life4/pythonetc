@@ -2,10 +2,8 @@
 published: 2022-07-05
 id: 686
 author: orsinium
-topics:
-  - stdlib
-  - module
-qname: atexit
+traces:
+  - [{module: atexit}]
 ---
 
 # atexit

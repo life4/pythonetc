@@ -2,11 +2,9 @@
 published: 2020-10-06
 id: 614
 author: orsinium
-topics:
-  - stdlib
-  - function
-qname: enum
 python: "3.4"
+traces:
+  - [{module: enum}]
 ---
 
 # enum

@@ -2,7 +2,8 @@
 published: 2021-03-11
 id: 652
 author: orsinium
-qname: list
+traces:
+  - [{type: list}]
 ---
 
 # join lists

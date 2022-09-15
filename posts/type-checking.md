@@ -3,10 +3,9 @@ published: 2022-07-26
 id: 690
 author: orsinium
 topics:
-  - stdlib
-  - constant
   - typing
-qname: typing.TYPE_CHECKING
+traces:
+  - [{module: typing}, {constant: TYPE_CHECKING}]
 ---
 
 # typing.TYPE_CHECKING

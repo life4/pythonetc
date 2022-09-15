@@ -1,10 +1,8 @@
 ---
 published: 2022-09-20
 author: orsinium
-topics:
-  - stdlib
-  - type
-qname: string.Template
+traces:
+  - [{module: string}, {type: Template}]
 ---
 
 # string.Template

@@ -2,7 +2,8 @@
 published: 2022-08-09
 id: 692
 author: orsinium
-qname: LookupError
+traces:
+  - [{exception: LookupError}]
 ---
 
 # LookupError

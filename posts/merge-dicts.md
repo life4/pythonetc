@@ -2,7 +2,8 @@
 published: 2020-06-04
 id: 568
 author: orsinium
-qname: dict.__or__
+traces:
+  - [{module: dict}, {function: __or__}]
 pep: 584
 python: "3.9"
 ---

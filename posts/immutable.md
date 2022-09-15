@@ -2,7 +2,8 @@
 published: 2021-04-29
 id: 666
 author: orsinium
-qname: types.MappingProxyType
+traces:
+  - [{module: types}, {function: MappingProxyType}]
 python: "3.3"
 ---
 

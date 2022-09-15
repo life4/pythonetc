@@ -1,10 +1,8 @@
 ---
 published: 2022-01-04
 author: orsinium
-topics:
-  - builtin
-  - function
-qname: zip
+traces:
+  - [{function: zip}]
 pep: 618
 python: "3.10"
 ---

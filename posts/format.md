@@ -2,10 +2,8 @@
 published: 2020-09-08
 id: 602
 author: orsinium
-topics:
-  - builtin
-  - function
-qname: format
+traces:
+  - [{function: format}]
 ---
 
 # format

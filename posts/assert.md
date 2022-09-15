@@ -2,9 +2,8 @@
 published: 2020-07-30
 id: 585
 author: orsinium
-topics:
-  - keyword
-qname: assert
+traces:
+  - [{keyword: assert}]
 ---
 
 # assert

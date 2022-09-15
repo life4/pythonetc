@@ -2,10 +2,8 @@
 published: 2020-08-25
 id: 593
 author: orsinium
-topics:
-    - stdlib
-    - function
-qname: ast.literal_eval
+traces:
+  - [{module: ast}, {function: literal_eval}]
 ---
 
 # ast.literal_eval

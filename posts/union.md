@@ -2,11 +2,8 @@
 published: 2022-08-02
 id: 691
 author: orsinium
-topics:
-  - stdlib
-  - typing
-  - type
-qname: typing.Union
+traces:
+  - [{module: typing}, {type: Union}]
 pep: 604
 python: "3.10"
 ---

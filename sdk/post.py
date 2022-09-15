@@ -1,7 +1,6 @@
 from __future__ import annotations
 from datetime import date
 from functools import cached_property
-from importlib import import_module
 import json
 from pathlib import Path
 import re
@@ -45,7 +44,7 @@ class Post:
     markdown: str
     author: str
     id: int | None = None
-    qname: list[str] = attr.ib(factory=list, converter=wrap_list)
+    traces: list = attr.ib(factory=list, converter=wrap_list)
     pep: int | None = None
     topics: list[str] = attr.ib(factory=list, converter=wrap_list)
     published: date | None = None
@@ -55,9 +54,6 @@ class Post:
     def from_path(cls, path: Path) -> Post:
         yaml_str, markdown = path.read_text('utf8').lstrip().split('\n---', 1)
         meta: dict = yaml.safe_load(yaml_str)
-        qname = meta.setdefault('qname', [])
-        if isinstance(meta['qname'], str):
-            meta['qname'] = [qname]
         try:
             jsonschema.validate(meta, SCHEMA)
         except jsonschema.ValidationError:
@@ -106,16 +102,7 @@ class Post:
 
     @cached_property
     def module_name(self) -> str | None:
-        module_name = self.qname[0]
-        while True:
-            try:
-                import_module(module_name)
-            except ImportError:
-                if '.' not in module_name:
-                    return None
-                module_name = module_name.rsplit('.', maxsplit=1)[0]
-            else:
-                return module_name
+        return None
 
     @cached_property
     def telegram_markdown(self) -> str:

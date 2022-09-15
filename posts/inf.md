@@ -2,7 +2,8 @@
 published: 2021-03-23
 id: 655
 author: orsinium
-qname: float
+traces:
+  - [{type: float}]
 ---
 
 # float division

@@ -2,10 +2,8 @@
 published: 2021-08-31
 id: 677
 author: orsinium
-topics:
-  - stdlib
-  - arg
-qname: json.dumps
+traces:
+  - [{module: json}, {function: dumps}, {arg: allow_nan}]
 ---
 
 # allow_nan

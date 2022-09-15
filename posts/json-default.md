@@ -2,10 +2,8 @@
 published: 2020-12-03
 id: 637
 author: orsinium
-topics:
-  - stdlib
-  - arg
-qname: json.dumps
+traces:
+  - [{module: json}, {function: dumps}, {arg: default}]
 ---
 
 # json default

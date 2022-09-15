@@ -2,10 +2,8 @@
 published: 2020-11-26
 id: 635
 author: orsinium
-topics:
-  - builtin
-  - method
-qname: str.isdigit
+traces:
+  - [{type: str}, {method: isdigit}]
 ---
 
 # str.isdigit

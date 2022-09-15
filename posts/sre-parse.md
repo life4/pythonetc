@@ -2,12 +2,9 @@
 published: 2021-09-07
 id: 678
 author: orsinium
-topics:
-  - stdlib
-  - module
-qname:
-    - sre_parse
-    - sre_compile
+traces:
+    - [{module: sre_parse}]
+    - [{module: sre_compile}]
 ---
 
 # sre_parse

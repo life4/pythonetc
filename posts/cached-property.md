@@ -2,10 +2,8 @@
 published: 2020-07-16
 id: 581
 author: orsinium
-topics:
-  - stdlib
-  - decorator
-qname: functools.cached_property
+traces:
+  - [{module: functools}, {decorator: cached_property}]
 python: "3.8"
 ---
 

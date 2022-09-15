@@ -3,9 +3,9 @@ published: 2022-07-19
 id: 689
 author: orsinium
 topics:
-  - stdlib
   - typing
-qname: future.__annotations__
+traces:
+  - [{module: future}, {function: __annotations__}]
 pep: 563
 python: "3.7"
 ---

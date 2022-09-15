@@ -2,10 +2,8 @@
 published: 2020-12-10
 id: 639
 author: orsinium
-topics:
-  - stdlib
-  - module
-qname: array
+traces:
+  - [{module: array}]
 ---
 
 # array performance

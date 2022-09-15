@@ -2,9 +2,9 @@
 published: 2020-06-23
 id: 573
 author: orsinium
-qname:
-    - sys.getrecursionlimit
-    - sys.setrecursionlimit
+traces:
+    - [{module: sys}, {function: getrecursionlimit}]
+    - [{module: sys}, {function: setrecursionlimit}]
 ---
 
 # sys.setrecursionlimit

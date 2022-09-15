@@ -2,7 +2,8 @@
 published: 2021-05-06
 id: 668
 author: orsinium
-qname: str.__getitem__
+traces:
+  - [{module: str}, {function: __getitem__}]
 ---
 
 # `str.__getitem__` quirks

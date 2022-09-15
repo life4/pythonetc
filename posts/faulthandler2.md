@@ -2,10 +2,8 @@
 published: 2022-07-14
 id: 688
 author: orsinium
-topics:
-  - stdlib
-  - module
-qname: faulthandler
+traces:
+  - [{module: faulthandler}]
 ---
 
 # faulthandler part 2

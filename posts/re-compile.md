@@ -2,10 +2,8 @@
 published: 2020-12-22
 id: 642
 author: orsinium
-topics:
-  - stdlib
-  - function
-qname: re.compile
+traces:
+  - [{module: re}, {function: compile}]
 ---
 
 # re.compile

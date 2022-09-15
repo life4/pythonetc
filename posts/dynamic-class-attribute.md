@@ -2,7 +2,8 @@
 published: 2020-10-08
 id: 615
 author: orsinium
-qname: types.DynamicClassAttribute
+traces:
+  - [{module: types}, {decorator: DynamicClassAttribute}]
 ---
 
 # types.DynamicClassAttribute

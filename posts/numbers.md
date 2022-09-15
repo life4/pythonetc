@@ -2,10 +2,8 @@
 published: 2020-09-22
 id: 608
 author: orsinium
-topics:
-  - stdlib
-  - module
-qname: numbers
+traces:
+  - [{module: numbers}]
 pep: 3141
 ---
 

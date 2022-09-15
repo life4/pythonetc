@@ -2,10 +2,8 @@
 published: 2020-09-01
 id: 597
 author: orsinium
-topics:
-  - stdlib
-  - constant
-qname: math.nan
+traces:
+  - [{module: math}, {constant: nan}]
 ---
 
 # nan

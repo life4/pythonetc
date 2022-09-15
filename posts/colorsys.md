@@ -2,10 +2,8 @@
 published: 2020-08-04
 id: 586
 author: orsinium
-topics:
-  - stdlib
-  - module
-qname: colorsys
+traces:
+  - [{module: colorsys}]
 ---
 
 # colorsys

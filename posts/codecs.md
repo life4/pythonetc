@@ -2,10 +2,8 @@
 published: 2020-10-29
 id: 626
 author: orsinium
-topics:
-  - stdlib
-  - module
-qname: codecs
+traces:
+  - [{module: codecs}]
 ---
 
 # codecs

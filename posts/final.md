@@ -4,11 +4,8 @@ id: 587
 author: orsinium
 pep: 591
 python: "3.8"
-topics:
-  - stdlib
-  - decorator
-  - typing
-qname: typing.final
+traces:
+  - [{module: typing}, {decorator: final}]
 ---
 
 # typing.final

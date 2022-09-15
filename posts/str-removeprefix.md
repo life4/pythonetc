@@ -2,10 +2,8 @@
 published: 2020-05-28
 id: 566
 author: orsinium
-topics:
-  - builtin
-  - method
-qname: str.removeprefix
+traces:
+  - [{type: str}, {method: removeprefix}]
 pep: 616
 python: "3.9"
 ---

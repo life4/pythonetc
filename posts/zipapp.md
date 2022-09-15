@@ -2,10 +2,8 @@
 published: 2020-10-13
 id: 616
 author: orsinium
-topics:
-  - stdlib
-  - module
-qname: zipapp
+traces:
+  - [{module: zipapp}]
 python: "3.5"
 ---
 

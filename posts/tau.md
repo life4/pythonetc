@@ -2,10 +2,8 @@
 published: 2020-12-24
 id: 643
 author: orsinium
-topics:
-  - stdlib
-  - constant
-qname: math.tau
+traces:
+  - [{module: math}, {constant: tau}]
 pep: 628
 python: "3.6"
 ---

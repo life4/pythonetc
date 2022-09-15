@@ -2,9 +2,9 @@
 published: 2020-09-10
 id: 603
 author: orsinium
-qname:
-    - object
-    - type
+traces:
+  - [{type: object}]
+  - [{type: type}]
 ---
 
 # object and type

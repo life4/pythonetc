@@ -2,7 +2,8 @@
 published: 2020-09-15
 id: 605
 author: orsinium
-qname: object
+traces:
+  - [{type: object}]
 ---
 
 # everything is object

@@ -2,10 +2,8 @@
 published: 2021-04-27
 id: 665
 author: orsinium
-topics:
-  - stdlib
-  - function
-qname: textwrap.dedent
+traces:
+  - [{module: textwrap}, {function: dedent}]
 ---
 
 # textwrap.dedent

@@ -13,19 +13,6 @@
             "type": "integer",
             "minimum": 1
         },
-        "qname": {
-            "anyOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            ]
-        },
         "pep": {
             "type": "integer",
             "minimum": 1
