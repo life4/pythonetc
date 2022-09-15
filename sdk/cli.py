@@ -14,7 +14,10 @@ except ImportError:
 
 def main(argv: list[str], stdout: TextIO) -> int:
     parser = ArgumentParser()
-    parser.add_argument('--pdb', action='store_true')
+    parser.add_argument(
+        '--pdb', action='store_true',
+        help='run debugger on failure',
+    )
     subparsers = parser.add_subparsers()
     parser.set_defaults(cmd=None)
     cmd_class: type[Command]

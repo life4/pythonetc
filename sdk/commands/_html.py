@@ -62,7 +62,6 @@ class HTMLCommand(Command):
 
 
 def render_html(slug: str, **kwargs) -> None:
-    print(slug)
     template = jinja_env.get_template(f'{slug}.html.j2')
     content = template.render(len=len, **kwargs)
     html_path = ROOT / 'public' / f'{slug}.html'
@@ -70,7 +69,6 @@ def render_html(slug: str, **kwargs) -> None:
 
 
 def render_post(post: Post) -> None:
-    print(f'posts/{post.slug}')
     template = jinja_env.get_template('post.html.j2')
     content = template.render(post=post, title=post.title)
     html_path = ROOT / 'public' / 'posts' / f'{post.slug}.html'

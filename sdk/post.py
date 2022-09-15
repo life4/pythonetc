@@ -92,6 +92,10 @@ class Post:
     def slug(self) -> str:
         return self.path.stem
 
+    @property
+    def url(self) -> str:
+        return f'posts/{self.slug}.html'
+
     @cached_property
     def pep_info(self) -> PEP | None:
         if self.pep is None:
