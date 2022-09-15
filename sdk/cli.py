@@ -1,9 +1,12 @@
 from __future__ import annotations
+
+import argparse
 from argparse import ArgumentParser
 from datetime import date
 from pathlib import Path
 import sys
 from typing import Callable, Mapping, NoReturn, TextIO
+
 from .post import Post
 from .pep import PEP
 from jinja2 import Environment, FileSystemLoader
@@ -13,7 +16,7 @@ try:
 except ImportError:
     import pdb  # type: ignore
 
-Command = Callable[[], int]
+Command = Callable[[argparse.Namespace], int]
 ROOT = Path(__file__).parent.parent
 TEMPLATES_PATH = ROOT / 'templates'
 jinja_env = Environment(
@@ -37,7 +40,7 @@ def get_posts() -> list[Post]:
     return posts
 
 
-def cmd_table() -> int:
+def cmd_table(args: argparse.Namespace) -> int:
     for post in get_posts():
         pep = f'PEP {post.pep:<4}' if post.pep else ' ' * 8
         python = f'{post.python:<4}' if post.python else ' ' * 4
@@ -45,7 +48,7 @@ def cmd_table() -> int:
     return 0
 
 
-def cmd_html() -> int:
+def cmd_html(args: argparse.Namespace) -> int:
     posts = get_posts()
     (ROOT / 'public' / 'posts').mkdir(exist_ok=True, parents=True)
     render_html('index')
@@ -87,6 +90,14 @@ def cmd_html() -> int:
     return 0
 
 
+def cmd_telegram(args: argparse.Namespace) -> int:
+    assert args.post is not None, "--post is required"
+
+    print(Post.from_path(ROOT / 'posts' / f'{args.post}.md').telegram_markdown)
+
+    return 0
+
+
 def render_html(slug: str, **kwargs) -> None:
     print(slug)
     template = jinja_env.get_template(f'{slug}.html.j2')
@@ -106,6 +117,7 @@ def render_post(post: Post) -> None:
 COMMANDS: Mapping[str, Command] = {
     'table': cmd_table,
     'html': cmd_html,
+    'telegram': cmd_telegram,
 }
 
 
@@ -113,10 +125,11 @@ def main(argv: list[str], stdin: TextIO, stdout: TextIO) -> int:
     parser = ArgumentParser()
     parser.add_argument('cmd', choices=sorted(COMMANDS))
     parser.add_argument('--pdb', action='store_true')
-    args = parser.parse_args(argv)
+    parser.add_argument('--post')
+    args: argparse.Namespace = parser.parse_args(argv)
     cmd = COMMANDS[args.cmd]
     try:
-        return cmd()
+        return cmd(args)
     except Exception:
         if args.pdb:
             pdb.post_mortem()

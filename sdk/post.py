@@ -35,7 +35,7 @@ class Post:
 
     @classmethod
     def from_path(cls, path: Path) -> Post:
-        yaml_str, markdown = path.read_text().lstrip().split('\n---', 1)
+        yaml_str, markdown = path.read_text('utf8').lstrip().split('\n---', 1)
         meta: dict = yaml.safe_load(yaml_str)
         qname = meta.setdefault('qname', [])
         if isinstance(meta['qname'], str):
@@ -83,3 +83,14 @@ class Post:
                 module_name = module_name.rsplit('.', maxsplit=1)[0]
             else:
                 return module_name
+
+    @cached_property
+    def telegram_markdown(self) -> str:
+        import pandoc.types
+
+        doc = pandoc.read(self.markdown, format='markdown')
+        for elt in pandoc.iter(doc):
+            if isinstance(elt, pandoc.types.CodeBlock):
+                elt[0] = (elt[0][0], [''], elt[0][2])
+
+        return pandoc.write(doc)
