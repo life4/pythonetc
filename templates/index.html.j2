@@ -1,12 +1,15 @@
 {% extends "base.html.j2" %}
 {% block content %}
   <div class="row row-cols-1 row-cols-sm-2 g-2">
-    <div class="col">
-      <a class="btn btn-dark menu-btn" href="https://t.me/s/pythonetc" target="_blank">telegram</a>
-      <a class="btn btn-dark menu-btn" href="posts.html">all posts</a>
-      <a class="btn btn-dark menu-btn" href="pythons.html">python changelog</a>
-      <a class="btn btn-dark menu-btn" href="peps.html">PEPs</a>
-      <a class="btn btn-dark menu-btn" href="stdlib.html">stdlib</a>
-    </div>
+    <ul>
+      {% for page in pages %}
+        <li>
+          <a href="{{ page.url }}">
+            {{ page.title }}
+          <a>
+          &mdash; {{ page.descr }}
+        </li>
+      {% endfor %}
+    </ul>
   </div>
 {% endblock %}

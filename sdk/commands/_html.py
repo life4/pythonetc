@@ -6,6 +6,7 @@ from ._command import Command
 from ..pep import PEP
 from ..module import Module
 from ..post import Post, get_posts
+from ..pages import PAGES
 import jinja2
 
 ROOT = Path(__file__).parent.parent.parent
@@ -24,7 +25,7 @@ class HTMLCommand(Command):
     def run(self) -> int:
         posts = get_posts()
         (ROOT / 'public' / 'posts').mkdir(exist_ok=True, parents=True)
-        render_html('index')
+        render_html('index', pages=PAGES)
         render_html('posts', posts=posts, title='all posts')
         pythons = sorted(
             {post.python for post in posts if post.python},
