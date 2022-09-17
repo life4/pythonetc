@@ -97,11 +97,10 @@ class Post:
 
     @cached_property
     def telegram_markdown(self) -> str:
-        import pandoc.types
-
-        doc = pandoc.read(self.markdown, format='markdown')
-        for elt in pandoc.iter(doc):
-            if isinstance(elt, pandoc.types.CodeBlock):
-                elt[0] = (elt[0][0], [''], elt[0][2])
-
-        return pandoc.write(doc)
+        lines = self.markdown.splitlines(keepends=True)
+        for token in md_parser.parse(self.markdown):
+            if token.type == 'fence':
+                assert token.map
+                line_number = token.map[0]
+                lines[line_number] = '```\n'
+        return ''.join(lines)
