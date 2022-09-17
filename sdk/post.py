@@ -7,11 +7,11 @@ import re
 import attr
 import yaml
 import jsonschema
-from markdown_it import MarkdownIt
+
+from sdk.post_markdown import PostMarkdown
 from .pep import get_pep, PEP
 from .trace import Trace, parse_traces
 
-md_parser = MarkdownIt()
 SCHEMA_PATH = Path(__file__).parent / 'schema.json'
 SCHEMA = json.loads(SCHEMA_PATH.read_text())
 REX_FILE_NAME = re.compile(r'[a-z0-9-]+\.md')
@@ -36,7 +36,7 @@ def get_posts() -> list[Post]:
 @attr.s(auto_attribs=True, frozen=True)
 class Post:
     path: Path
-    markdown: str
+    markdown: PostMarkdown
     author: str
     id: int | None = None
     traces: list[Trace] = attr.ib(factory=list, converter=parse_traces)
@@ -53,33 +53,33 @@ class Post:
             jsonschema.validate(meta, SCHEMA)
         except jsonschema.ValidationError:
             raise ValueError(f'invalid metadata for {path.name}')
-        return cls(**meta, path=path, markdown=markdown)
+        return cls(**meta, path=path, markdown=PostMarkdown(markdown))
 
     def validate(self) -> str | None:
         if not REX_FILE_NAME.fullmatch(self.path.name):
             return 'file name must be kebab-case'
-        if not self.markdown.strip().startswith('# '):
+        if not self.markdown.has_header():
             return 'header is required'
-        if not self.markdown.endswith('\n'):
+        if not self.markdown.has_empty_line_eof():
             return 'empty line at the end of the file is required'
         if self.id and not self.published:
             return 'posts with `id` must also have `published`'
         return None
 
+    def run_code(self) -> None:
+        self.markdown.run_code()
+
     @cached_property
     def title(self) -> str:
-        first_line = self.markdown.lstrip().split('\n', maxsplit=1)[0]
-        if first_line.startswith('# '):
-            first_line = first_line[2:]
-        return first_line
+        return self.markdown.title()
 
     @cached_property
     def md_content(self) -> str:
-        return self.markdown.lstrip().split('\n', maxsplit=1)[-1]
+        return self.markdown.content()
 
     @cached_property
     def html_content(self) -> str:
-        return md_parser.render(self.md_content)
+        return self.markdown.html_content()
 
     @property
     def slug(self) -> str:
@@ -99,10 +99,7 @@ class Post:
 
     @cached_property
     def telegram_markdown(self) -> str:
-        lines = self.markdown.splitlines(keepends=True)
-        for token in md_parser.parse(self.markdown):
-            if token.type == 'fence':
-                assert token.map
-                line_number = token.map[0]
-                lines[line_number] = '```\n'
-        return ''.join(lines)
+        copy = self.markdown.copy()
+        copy.to_telegram()
+
+        return copy.text
