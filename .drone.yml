@@ -29,5 +29,4 @@ steps:
       - clone
     commands:
       - python3 -m pip install -r requirements.txt
-      - python3 -m pip install mypy types-jsonschema
       - python3 -m mypy .
