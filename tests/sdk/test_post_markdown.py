@@ -9,18 +9,13 @@ MD = dedent("""
     
     SOME TEXT 1
     
-    !skip
-    ```python
+    ```python {skip}
     a = 1
     ```
-    
-    !continue
-    ```python
+    ```python {continue}
     a += 1
     ```
-    
-    !skip, continue
-    ```python
+    ```python {skip} {continue}
     assert a == 2
     ```
     
@@ -73,32 +68,33 @@ def test_post_markdown_html_content():
 def test_post_markdown__paragraphs():
     p = PostMarkdown(MD)
     paragraphs = list(p._paragraphs())
-    assert len(paragraphs) == 9
+    assert len(paragraphs) == 6
     assert [len(p.tokens) for p in paragraphs] == [
         3,  # header: open, inline, close
         3,  # text: open, inline, close
-        3,  # text: open, inline, close
         1,  # fence
-        3,  # text: open, inline, close
         1,  # fence
-        3,  # text: open, inline, close
         1,  # fence
         3,  # text: open, inline, close
     ]
 
+    assert paragraphs[2].code is not None
+    assert paragraphs[2].code.body == 'a = 1\n'
+    assert paragraphs[2].code.info == ['python', '{skip}']
+    assert paragraphs[2].code.skip is True
+    assert paragraphs[2].code.continue_code is False
 
-def test_post_markdown__paragraphs_with_bang_support():
-    p = PostMarkdown(MD)
-    paragraphs = list(p._paragraphs_with_bang_support())
-    assert len(paragraphs) == 6
-    assert [(len(p.tokens), p.bang_annotations) for p in paragraphs] == [
-        (3, []),  # header: open, inline, close
-        (3, []),  # text: open, inline, close
-        (4, ['skip']),  # annotations (3) + fence (1) == 4
-        (4, ['continue']),  # annotations (3) + fence (1) == 4
-        (4, ['skip', 'continue']),  # annotations (3) + fence (1) == 4
-        (3, []),  # text: open, inline, close
-    ]
+    assert paragraphs[3].code is not None
+    assert paragraphs[3].code.body == 'a += 1\n'
+    assert paragraphs[3].code.info == ['python', '{continue}']
+    assert paragraphs[3].code.skip is False
+    assert paragraphs[3].code.continue_code is True
+
+    assert paragraphs[4].code is not None
+    assert paragraphs[4].code.body == 'assert a == 2\n'
+    assert paragraphs[4].code.info == ['python', '{skip}', '{continue}']
+    assert paragraphs[4].code.skip is True
+    assert paragraphs[4].code.continue_code is True
 
 
 MD_CODE_INFO = dedent("""
@@ -115,8 +111,7 @@ def test_post_markdown__remove_code_info():
 
 
 SKIPS_MD = dedent("""
-    !skip
-    ```
+    ```{skip}
     a
     ```
     ```
@@ -128,7 +123,7 @@ SKIPS_MD = dedent("""
 def test_post_markdown__skipped_removed():
     p = PostMarkdown(SKIPS_MD)
     p._skipped_removed()
-    assert p.text == '```\nb\n```\n'
+    assert p.text == '\n```\nb\n```\n'
 
 
 def test_post_markdown__skipped_removed__no_skips():
@@ -142,7 +137,6 @@ MD_TELEGRAM = dedent("""
 
     SOME TEXT 1
 
-    !continue
     ```
     a += 1
     ```

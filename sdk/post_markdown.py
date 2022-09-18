@@ -1,19 +1,24 @@
+from __future__ import annotations
+
 import dataclasses
-from typing import Generator, Iterator
+from typing import Iterator
 
 import markdown_it.token
 from markdown_it import MarkdownIt
 
 
 @dataclasses.dataclass
-class Paragraph:
-    tokens: list[markdown_it.token.Token]
+class ParagraphCode:
+    body: str
+    info: list[str]
+    skip: bool
+    continue_code: bool
 
 
 @dataclasses.dataclass
-class ParagraphWithBangSupport:
+class Paragraph:
     tokens: list[markdown_it.token.Token]
-    bang_annotations: list[str] = dataclasses.field(default_factory=list)
+    code: ParagraphCode | None = None
 
 
 class PostMarkdown:
@@ -49,11 +54,11 @@ class PostMarkdown:
 
     def run_code(self) -> None:
         code = ''
-        for paragraph in self._paragraphs_with_bang_support():
-            if not paragraph.tokens[-1].type == 'fence':
+        for paragraph in self._paragraphs():
+            if paragraph.code is None:
                 continue
 
-            if 'continue' not in paragraph.bang_annotations:
+            if paragraph.code.continue_code:
                 if code:
                     exec(code)
                 code = ''
@@ -79,9 +84,9 @@ class PostMarkdown:
         result = self.text.splitlines(keepends=True)
 
         shift = 0
-        for b in self._paragraphs_with_bang_support():
-            if 'skip' in b.bang_annotations:
-                for token in b.tokens:
+        for p in self._paragraphs():
+            if p.code and p.code.skip:
+                for token in p.tokens:
                     if not token.map:
                         continue
                     first_line, until_line = token.map
@@ -89,36 +94,6 @@ class PostMarkdown:
                     shift += until_line - first_line
 
         self.text = ''.join(result)
-
-    def _paragraphs_with_bang_support(self) -> Iterator[ParagraphWithBangSupport]:
-        """
-        Lines started with '!' are special kind of home-brewed annotations.
-        They are removed from the output, but they control how the next paragraph is rendered.
-        """
-        bang_annotation_paragraphs: list[Paragraph] = []
-        paragraph: Paragraph
-        for paragraph in self._paragraphs():
-            if (
-                len(paragraph.tokens) == 3 and
-                paragraph.tokens[0].type.endswith('_open') and
-                paragraph.tokens[1].type == 'inline' and
-                paragraph.tokens[2].type.endswith('_close') and
-                paragraph.tokens[1].content.startswith('!')
-            ):
-                bang_annotation_paragraphs.append(paragraph)
-            else:
-                tokens = []
-                for b in bang_annotation_paragraphs:
-                    tokens.extend(b.tokens)
-                yield ParagraphWithBangSupport(
-                    tokens=tokens + paragraph.tokens,
-                    bang_annotations=[
-                        s.strip()
-                        for b in bang_annotation_paragraphs
-                        for s in b.tokens[1].content.removeprefix('!').split(',')
-                    ],
-                )
-                bang_annotation_paragraphs = []  # reset
 
     def _paragraphs(self) -> Iterator[Paragraph]:
         paragraph_tokens = []
@@ -141,4 +116,14 @@ class PostMarkdown:
                 elif token.type.endswith('_close'):
                     raise ValueError('unexpected paragraph close')
                 else:
-                    yield Paragraph(tokens=[token])
+                    if token.type == "fence":
+                        info = token.info.split(" ")
+                        code = ParagraphCode(
+                            body=token.content,
+                            info=info,
+                            skip="{skip}" in info,
+                            continue_code="{continue}" in info,
+                        )
+                        yield Paragraph(tokens=[token], code=code)
+                    else:
+                        yield Paragraph(tokens=[token])

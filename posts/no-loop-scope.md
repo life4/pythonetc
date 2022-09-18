@@ -7,21 +7,16 @@ published: 2018-03-18
 
 The thing you usually don't care about is loops and if-blocks don't create scopes in Python (as well as try-blocks, with-block etc.). Because if they were, you won't be able to reassign variables inside the block:
 
-!skip
-```python
+```python {skip}
 lst = [1, 2, 3]
 ```
-
-!continue
-```python
+```python {skip} {continue}
 max = 0
 for x in lst:
   if x > max:
     max = x  # reassigned
 ```
-
-!skip, continue
-```python
+```python {continue}
 assert max == 3
 ```
 
