@@ -6,14 +6,20 @@ trigger:
 steps:
   - name: markdownlint
     image: davidanson/markdownlint-cli2:latest
+    depends_on:
+      - clone
     commands:
       - markdownlint-cli2 "**/*.md"
   - name: flake8
     image: alpine/flake8:latest
+    depends_on:
+      - clone
     commands:
       - flake8 .
   - name: sdk-html
     image: python:3.8
+    depends_on:
+      - clone
     commands:
       - python3 -m pip install -r requirements.txt
       - python3 -m sdk html
