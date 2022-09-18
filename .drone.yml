@@ -23,3 +23,11 @@ steps:
     commands:
       - python3 -m pip install -r requirements.txt
       - python3 -m sdk html
+  - name: mypy
+    image: python:3.8
+    depends_on:
+      - clone
+    commands:
+      - python3 -m pip install -r requirements.txt
+      - python3 -m pip install mypy types-jsonschema
+      - python3 -m mypy .
