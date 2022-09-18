@@ -1,42 +1,31 @@
+from textwrap import dedent
+
 from sdk.post_markdown import PostMarkdown
 import pytest
 
 
-MD = '''
-# HEADER
-
-SOME TEXT 1
-
-!skip
-```python
-a = 1
-```
-
-!continue
-```python
-a += 1
-```
-
-!skip, continue
-```python
-assert a == 2
-```
-
-SOME TEXT 2
-'''
-
-MD_TELEGRAM = '''
-# HEADER
-
-SOME TEXT 1
-
-!continue
-```
-a += 1
-```
-
-SOME TEXT 2
-'''
+MD = dedent("""
+    # HEADER
+    
+    SOME TEXT 1
+    
+    !skip
+    ```python
+    a = 1
+    ```
+    
+    !continue
+    ```python
+    a += 1
+    ```
+    
+    !skip, continue
+    ```python
+    assert a == 2
+    ```
+    
+    SOME TEXT 2
+""")
 
 
 def test_post_markdown_has_header():
@@ -64,11 +53,11 @@ def test_post_markdown_title():
     assert p.title() == 'HEADER'
 
 
-MD_CONTENT = '''
-# HEADER
-
-SOME TEXT 1
-'''
+MD_CONTENT = dedent("""
+    # HEADER
+    
+    SOME TEXT 1
+""")
 
 
 def test_post_markdown_content():
@@ -112,11 +101,11 @@ def test_post_markdown__paragraphs_with_bang_support():
     ]
 
 
-MD_CODE_INFO = '''
-```python
-a = 2
-```
-'''
+MD_CODE_INFO = dedent("""
+    ```python
+    a = 2
+    ```
+""")
 
 
 def test_post_markdown__remove_code_info():
@@ -125,15 +114,15 @@ def test_post_markdown__remove_code_info():
     assert p.text == '\n```\na = 2\n```\n'
 
 
-SKIPS_MD = '''
-!skip
-```
-a
-```
-```
-b
-```
-'''
+SKIPS_MD = dedent("""
+    !skip
+    ```
+    a
+    ```
+    ```
+    b
+    ```
+""")
 
 
 def test_post_markdown__skipped_removed():
@@ -148,24 +137,38 @@ def test_post_markdown__skipped_removed__no_skips():
     assert p.text == 'SOME TEXT'
 
 
+MD_TELEGRAM = dedent("""
+    # HEADER
+
+    SOME TEXT 1
+
+    !continue
+    ```
+    a += 1
+    ```
+
+    SOME TEXT 2
+""")
+
+
 def test_post_markdown_to_telegram():
     p = PostMarkdown(MD)
     p.to_telegram()
     assert p.text == MD_TELEGRAM
 
 
-MD_CODE = '''
-```
-a = 1
-```
-'''
+MD_CODE = dedent("""
+    ```
+    a = 1
+    ```
+""")
 
 
-MD_CODE_ERROR = '''
-```
-assert False
-```
-'''
+MD_CODE_ERROR = dedent("""
+    ```
+    assert False
+    ```
+""")
 
 
 def test_post_markdown_run_code():
