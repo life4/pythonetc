@@ -9,7 +9,7 @@ author: orsinium
 Creation of class instance is done by `__call__` method of `object` class (provided by metaclass `type`) and practically includes only 2 steps:
 
 1. Call the `__new__` method to create an instance.
-1. Call the `__init__` method to set up the instance.
+2. Call the `__init__` method to set up the instance.
 
 ```python
 class A:

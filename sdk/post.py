@@ -69,7 +69,9 @@ class Post:
     @cached_property
     def title(self) -> str:
         first_line = self.markdown.lstrip().split('\n', maxsplit=1)[0]
-        return first_line.removeprefix('# ')
+        if first_line.startswith('# '):
+            first_line = first_line[2:]
+        return first_line
 
     @cached_property
     def md_content(self) -> str:

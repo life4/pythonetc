@@ -21,7 +21,8 @@ class PEP:
     def number(self) -> int:
         for line in self.rst.splitlines():
             if line.startswith('PEP: '):
-                return int(line.removeprefix('PEP: ').strip())
+                line = line[len('PEP: '):].strip()
+                return int(line)
         raise LookupError
 
     @cached_property
@@ -32,7 +33,7 @@ class PEP:
     def title(self) -> str:
         for line in self.rst.splitlines():
             if line.startswith('Title: '):
-                return line.removeprefix('Title: ').strip()
+                return line[len('Title: '):].strip()
         raise LookupError
 
     @property
