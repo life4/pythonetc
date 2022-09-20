@@ -25,8 +25,7 @@ class HTMLCommand(Command):
     def run(self) -> int:
         posts = get_posts()
         (ROOT / 'public' / 'posts').mkdir(exist_ok=True, parents=True)
-        render_html('index', pages=PAGES)
-        render_html('posts', posts=posts, title='all posts')
+        render_html('index', pages=PAGES, posts=posts)
         pythons = sorted(
             {post.python for post in posts if post.python},
             key=lambda p: int(p.split('.')[-1]),
