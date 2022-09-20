@@ -4,6 +4,10 @@
     <i class="fa-brands fa-telegram"></i>
     telegram
   </a>
+  <a type="button" class="btn btn-dark btn-lg text-decoration-none" href="https://github.com/life4/pythonetc" target="_blank">
+    <i class="fa-brands fa-github"></i>
+    github
+  </a>
 
   <h2>Categories</h2>
   <ul>
@@ -17,18 +21,27 @@
     {% endfor %}
   </ul>
 
-  <h2>All posts</h2>
-  <ul>
-    {% for post in posts %}
-      <li>
-        <span class="text-muted">
-          {{ post.published }}
-        </span>
-        <a href="{{ post.url }}">
-          {{ post.title }}
-        </a>
-      </li>
+  <div class="row">
+    {% for year, posts in years %}
+      <div class="col-md-4">
+        <h2>
+          {{ year }}
+          <span class="text-muted">({{ len(posts) }})</span>
+        </h2>
+        <ul>
+          {% for post in posts %}
+            <li>
+              <span class="text-muted">
+                {{ post.published }}
+              </span>
+              <a href="{{ post.url }}">
+                {{ post.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
     {% endfor %}
-  <ul>
+  </div>
 
 {% endblock %}

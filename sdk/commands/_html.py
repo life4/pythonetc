@@ -1,5 +1,7 @@
 
 from __future__ import annotations
+from collections import defaultdict
+from datetime import date
 
 from pathlib import Path
 from ._command import Command
@@ -25,7 +27,14 @@ class HTMLCommand(Command):
     def run(self) -> int:
         posts = get_posts()
         (ROOT / 'public' / 'posts').mkdir(exist_ok=True, parents=True)
-        render_html('index', pages=PAGES, posts=posts)
+
+        years: defaultdict[int, list[Post]] = defaultdict(list)
+        today = date.today()
+        for post in posts:
+            published = post.published or today
+            years[published.year].append(post)
+        render_html('index', pages=PAGES, years=sorted(years.items()))
+
         pythons = sorted(
             {post.python for post in posts if post.python},
             key=lambda p: int(p.split('.')[-1]),
@@ -36,6 +45,7 @@ class HTMLCommand(Command):
             pythons=pythons,
             title='python changelog',
         )
+
         peps: dict[int, PEP] = {}
         for post in posts:
             pep = post.pep_info
@@ -47,6 +57,7 @@ class HTMLCommand(Command):
             peps=[pep for _, pep in peps_list],
             title='PEPs',
         )
+
         render_html(
             'stdlib',
             modules=Module.from_posts(posts),
