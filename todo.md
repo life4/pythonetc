@@ -51,3 +51,10 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + pathlib
 + statistics
 + singledispatch
++ reveal_type
++ <https://docs.python.org/3.11/whatsnew/3.11.html>
++ <https://peps.python.org/pep-0646/>
++ importlib.util.LazyLoader
++ <https://redd.it/tczsrh>
++ zipfile.Path
++ mock.seal
