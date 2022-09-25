@@ -6,9 +6,9 @@ import pytest
 
 MD = dedent("""
     # HEADER
-    
+
     SOME TEXT 1
-    
+
     ```python {skip}
     a = 1
     ```
@@ -20,7 +20,7 @@ MD = dedent("""
     ```python {skip} {continue}
     assert a == 2
     ```
-    
+
     SOME TEXT 2
 """)
 
@@ -52,7 +52,7 @@ def test_post_markdown_title():
 
 MD_CONTENT = dedent("""
     # HEADER
-    
+
     SOME TEXT 1
 """)
 
