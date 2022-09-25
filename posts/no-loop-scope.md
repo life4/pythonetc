@@ -10,12 +10,14 @@ The thing you usually don't care about is loops and if-blocks don't create scope
 ```python {skip}
 lst = [1, 2, 3]
 ```
+
 ```python {skip} {continue}
 max = 0
 for x in lst:
   if x > max:
     max = x  # reassigned
 ```
+
 ```python {continue}
 assert max == 3
 ```

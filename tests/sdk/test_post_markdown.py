@@ -12,9 +12,11 @@ MD = dedent("""
     ```python {skip}
     a = 1
     ```
+
     ```python {continue}
     a += 1
     ```
+
     ```python {skip} {continue}
     assert a == 2
     ```
@@ -114,6 +116,7 @@ SKIPS_MD = dedent("""
     ```{skip}
     a
     ```
+
     ```
     b
     ```
@@ -130,6 +133,12 @@ def test_post_markdown__skipped_removed__no_skips():
     p = PostMarkdown('SOME TEXT')
     p._skipped_removed()
     assert p.text == 'SOME TEXT'
+
+
+def test_post_markdown__skipped_removed__no_new_line_after():
+    p = PostMarkdown('```{skip}\na\n```')
+    p._skipped_removed()
+    assert p.text == ''
 
 
 MD_TELEGRAM = dedent("""
