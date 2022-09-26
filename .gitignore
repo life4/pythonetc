@@ -4,3 +4,4 @@ __pycache__/
 /result.json
 .idea/
 /.venvs/
+/.task/

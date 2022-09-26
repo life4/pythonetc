@@ -33,6 +33,7 @@ lint = [
     "types-jsonschema",
     "types-pyyaml",
     "types-requests",
+    "unify",
 ]
 
 [tool.mypy]
