@@ -32,7 +32,7 @@ def main(ctx):
 
 def step(task):
     return dict(
-        name="{}",
+        name=task,
         image="python:3.8-buster",
         depends_on=["install task"],
         commands=["./bin/task PYTHON=python3 -f {task}".format(task=task)],
