@@ -90,13 +90,11 @@ class PostMarkdown:
                     if not token.map:
                         continue
                     first_line, until_line = token.map
-                    if (
-                        until_line - shift < len(result)
-                        and result[until_line - shift] == '\n'
-                    ):
+                    lineno = until_line - shift
+                    if lineno < len(result) and result[lineno] == '\n':
                         # remove empty line after skipped paragraph
                         until_line += 1
-                    result = result[:first_line - shift] + result[until_line - shift:]
+                    result = result[:first_line - shift] + result[lineno:]
                     shift += until_line - first_line
 
         self.text = ''.join(result)
