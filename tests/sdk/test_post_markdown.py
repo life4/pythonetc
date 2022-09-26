@@ -1,7 +1,8 @@
 from textwrap import dedent
 
-from sdk.post_markdown import PostMarkdown
 import pytest
+
+from sdk.post_markdown import PostMarkdown
 
 
 MD = dedent("""

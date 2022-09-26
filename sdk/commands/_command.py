@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import argparse
 from dataclasses import dataclass
 from typing import ClassVar, TextIO

@@ -122,13 +122,13 @@ class PostMarkdown:
                 elif token.type.endswith('_close'):
                     raise ValueError('unexpected paragraph close')
                 else:
-                    if token.type == "fence":
-                        info = token.info.split(" ")
+                    if token.type == 'fence':
+                        info = token.info.split(' ')
                         code = ParagraphCode(
                             body=token.content,
                             info=info,
-                            skip="{skip}" in info,
-                            continue_code="{continue}" in info,
+                            skip='{skip}' in info,
+                            continue_code='{continue}' in info,
                         )
                         yield Paragraph(tokens=[token], code=code)
                     else:

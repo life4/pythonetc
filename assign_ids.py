@@ -1,5 +1,5 @@
-from pathlib import Path
 import json
+from pathlib import Path
 
 
 meta = json.loads(Path('result.json').read_text('utf8'))

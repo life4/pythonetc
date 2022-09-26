@@ -1,9 +1,12 @@
 from __future__ import annotations
+
 from dataclasses import dataclass, field
 from functools import cached_property, lru_cache
 from pathlib import Path
 from typing import TYPE_CHECKING
+
 import requests
+
 
 if TYPE_CHECKING:
     from .post import Post

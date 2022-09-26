@@ -1,8 +1,8 @@
 
 from __future__ import annotations
 
-from ._command import Command
 from ..post import get_posts
+from ._command import Command
 
 
 class TableCommand(Command):

@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-from argparse import ArgumentParser
 import sys
+from argparse import ArgumentParser
 from typing import NoReturn, TextIO
-from .commands import Command, COMMANDS
+
+from .commands import COMMANDS, Command
 
 
 try:
