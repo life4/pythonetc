@@ -90,10 +90,8 @@ class PostMarkdown:
                     if not token.map:
                         continue
                     first_line, until_line = token.map
-                    if (
-                        until_line - shift < len(result)
-                        and result[until_line - shift] == '\n'
-                    ):
+                    lineno = until_line - shift
+                    if lineno < len(result) and result[lineno] == '\n':
                         # remove empty line after skipped paragraph
                         until_line += 1
                     result = result[:first_line - shift] + result[until_line - shift:]
@@ -122,13 +120,13 @@ class PostMarkdown:
                 elif token.type.endswith('_close'):
                     raise ValueError('unexpected paragraph close')
                 else:
-                    if token.type == "fence":
-                        info = token.info.split(" ")
+                    if token.type == 'fence':
+                        info = token.info.split(' ')
                         code = ParagraphCode(
                             body=token.content,
                             info=info,
-                            skip="{skip}" in info,
-                            continue_code="{continue}" in info,
+                            skip='{skip}' in info,
+                            continue_code='{continue}' in info,
                         )
                         yield Paragraph(tokens=[token], code=code)
                     else:

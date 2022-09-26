@@ -1,10 +1,11 @@
 
 from __future__ import annotations
+
 import argparse
 from pathlib import Path
 
-from ._command import Command
 from ..post import Post
+from ._command import Command
 
 
 class TelegramCommand(Command):

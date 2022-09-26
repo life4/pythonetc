@@ -1,15 +1,18 @@
 
 from __future__ import annotations
+
 from collections import defaultdict
 from datetime import date
-
 from pathlib import Path
-from ._command import Command
-from ..pep import PEP
-from ..module import Module
-from ..post import Post, get_posts
-from ..pages import PAGES
+
 import jinja2
+
+from ..module import Module
+from ..pages import PAGES
+from ..pep import PEP
+from ..post import Post, get_posts
+from ._command import Command
+
 
 ROOT = Path(__file__).parent.parent.parent
 TEMPLATES_PATH = ROOT / 'templates'

@@ -1,16 +1,20 @@
 from __future__ import annotations
+
+import json
+import re
 from datetime import date
 from functools import cached_property
-import json
 from pathlib import Path
-import re
+
 import attr
-import yaml
 import jsonschema
+import yaml
 
 from sdk.post_markdown import PostMarkdown
-from .pep import get_pep, PEP
+
+from .pep import PEP, get_pep
 from .trace import Trace, parse_traces
+
 
 SCHEMA_PATH = Path(__file__).parent / 'schema.json'
 SCHEMA = json.loads(SCHEMA_PATH.read_text())

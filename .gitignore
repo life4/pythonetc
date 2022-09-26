@@ -3,3 +3,5 @@ __pycache__/
 /peps/
 /result.json
 .idea/
+/.venvs/
+/.task/

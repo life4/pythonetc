@@ -53,7 +53,7 @@ class Trace:
     def title(self) -> str:
         result = ''
         for crumb in self.crumbs:
-            if crumb not in ('keyword', 'arg'):
+            if crumb.type not in ('keyword', 'arg'):
                 if result:
                     result += '.'
                 result += crumb.name

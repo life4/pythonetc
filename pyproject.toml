@@ -1,5 +1,54 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "sdk"
+authors = [
+    {name = "Gram", email = "git@orsinium.dev"},
+]
+license = {file = "LICENSE"}
+readme = "README.md"
+requires-python = ">=3.8"
+dynamic = ["version", "description"]
+classifiers = ["Private :: Do Not Upload"]
+dependencies = [
+    "attrs",
+    "jinja2",
+    "jsonschema",
+    "markdown-it-py",
+    "pyyaml",
+    "requests",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+]
+lint = [
+    "flake8",
+    "isort",
+    "mypy",
+    "types-jsonschema",
+    "types-pyyaml",
+    "types-requests",
+    "unify",
+]
+
 [tool.mypy]
+files = ["sdk", "tests"]
 python_version = "3.8"
 show_error_codes = true
 ignore_missing_imports = true
 follow_imports = "silent"
+check_untyped_defs = true
+no_implicit_optional = true
+strict_equality = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+
+[tool.isort]
+profile = "django"
+lines_after_imports = 2
+skip = ".venvs/"
