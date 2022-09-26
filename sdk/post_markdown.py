@@ -94,7 +94,7 @@ class PostMarkdown:
                     if lineno < len(result) and result[lineno] == '\n':
                         # remove empty line after skipped paragraph
                         until_line += 1
-                    result = result[:first_line - shift] + result[lineno:]
+                    result = result[:first_line - shift] + result[until_line - shift:]
                     shift += until_line - first_line
 
         self.text = ''.join(result)
