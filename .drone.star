@@ -35,5 +35,7 @@ def step(task):
         name=task,
         image="python:3.8-buster",
         depends_on=["install task"],
-        commands=["./bin/task PYTHON=python3 -f {task}".format(task=task)],
+        commands=[
+            "./bin/task VENVS=/opt/.venvs PYTHON=python3 -f {task}".format(task=task),
+        ],
     )
