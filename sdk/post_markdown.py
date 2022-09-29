@@ -32,6 +32,9 @@ class PostMarkdown:
     def has_header(self) -> bool:
         return self.text.strip().startswith('# ')
 
+    def has_empty_line_bof(self) -> bool:
+        return self.text.startswith('\n\n#')
+
     def has_empty_line_eof(self) -> bool:
         return self.text.endswith('\n')
 

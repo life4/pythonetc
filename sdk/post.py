@@ -64,6 +64,8 @@ class Post:
             return 'file name must be kebab-case'
         if not self.markdown.has_header():
             return 'header is required'
+        if not self.markdown.has_empty_line_bof():
+            return 'empty line at the beginning of the file is required'
         if not self.markdown.has_empty_line_eof():
             return 'empty line at the end of the file is required'
         if self.id and not self.published:
