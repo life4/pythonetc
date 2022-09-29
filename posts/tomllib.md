@@ -2,6 +2,7 @@
 author: orsinium
 traces:
   - [{module: tomllib}]
+pep: 680
 ---
 
 # tomllib
@@ -12,4 +13,4 @@ To recap: PEP-517 introduced pyproject.toml, and many Python tools started to us
 + toml (used by most of the tools) can both read and write TOML.
 + tomlkit (used by [poetry](https://python-poetry.org/)) can read, write, and modify TOML (preserving the original formatting and comments).
 
-PEP-??? (landed in Python 3.11) introduced tomli into stdlib. Why tomli? It's pure Python and minimalistic. It cannot write TOML files, but reading is enough for most of the tools to work with pyproject.toml. To avoid unpleasant conflicts when tomli is installed in the same environment, the name of the module was changed to tomllib.
+[PEP 680](https://peps.python.org/pep-0680/) (landed in Python 3.11) introduced tomli into stdlib. Why tomli? It's pure Python and minimalistic. It cannot write TOML files, but reading is enough for most of the tools to work with pyproject.toml. To avoid unpleasant conflicts when tomli is installed in the same environment, the name of the module was changed to tomllib.
