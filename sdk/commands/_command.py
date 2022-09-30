@@ -18,5 +18,5 @@ class Command:
     def run(self) -> int:
         raise NotImplementedError
 
-    def print(self, *args) -> None:
-        print(*args, file=self.stdout)
+    def print(self, *args, sep='\n') -> None:
+        print(*args, file=self.stdout, sep=sep)

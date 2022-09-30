@@ -12,8 +12,12 @@ class TableCommand(Command):
 
     def run(self) -> int:
         for post in get_posts():
-            pep = f'PEP {post.pep:<4}' if post.pep else ' ' * 8
-            python = f'{post.python:<4}' if post.python else ' ' * 4
-            published = str(post.published or 'TBA')
-            self.print(f'{published:10} | {pep} | {python} | {post.title}')
+            self.print(
+                post.published or 'TBA       ',
+                f'PEP {post.pep:<4}' if post.pep else ' ' * 8,
+                f'{post.python:<4}' if post.python else ' ' * 4,
+                f'{post.path.name:26}',
+                f'{post.title}',
+                sep=' | ',
+            )
         return 0

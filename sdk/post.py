@@ -113,4 +113,4 @@ class Post:
     def __lt__(self, other: Post) -> bool:
         date1 = self.published or date.today()
         date2 = other.published or date.today()
-        return (date1, self.path.name) < (date2, self.path.name)
+        return (date1, self.path.name) < (date2, other.path.name)
