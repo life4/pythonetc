@@ -33,11 +33,11 @@ def get_posts() -> list[Post]:
         if error:
             raise ValueError(f'invalid {post.path.name}: {error}')
         posts.append(post)
-    posts.sort(key=lambda post: post.published or date.today())
+    posts.sort()
     return posts
 
 
-@attr.s(auto_attribs=True, frozen=True)
+@attr.s(auto_attribs=True, frozen=True, order=False)
 class Post:
     path: Path
     markdown: PostMarkdown
@@ -109,3 +109,8 @@ class Post:
         copy.to_telegram()
 
         return copy.text
+
+    def __lt__(self, other: Post) -> bool:
+        date1 = self.published or date.today()
+        date2 = other.published or date.today()
+        return (date1, self.path.name) < (date2, self.path.name)

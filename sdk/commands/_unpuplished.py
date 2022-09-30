@@ -13,5 +13,5 @@ class UnpublishedCommand(Command):
     def run(self) -> int:
         for post in get_posts():
             if post.published is None:
-                self.print(f'{post.path.name:20} {post.title}')
+                self.print(f'{post.path.name:25} {post.title}')
         return 0
