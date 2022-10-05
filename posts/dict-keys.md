@@ -2,6 +2,12 @@
 author: pushtaev
 id: 12
 published: 2018-03-19
+chain:
+    name: dict-keys
+    idx: 0
+    prev: null
+    next: 13
+    length: 2
 ---
 In Python 3 `keys`, `values` and `items` methods of dicts return view objects. They returned lists back in Python 2. The main difference is views don't store all items in memory, but yield them as long as they are requested. It works just fine as long as you are trying to iterate over keys (which you usually are), but you can't access elements by index anymore.
 
