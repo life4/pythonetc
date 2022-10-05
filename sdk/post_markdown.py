@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import dataclasses
+from functools import cached_property
 from typing import Iterator
 
 import markdown_it.token
@@ -14,6 +15,9 @@ class ParagraphCode:
     skip: bool
     continue_code: bool
 
+    @cached_property
+    def is_python(self) -> bool:
+        return 'python' in self.info
 
 @dataclasses.dataclass
 class Paragraph:
@@ -55,7 +59,7 @@ class PostMarkdown:
     def run_code(self) -> None:
         code = ''
         for paragraph in self._paragraphs():
-            if paragraph.code is None:
+            if paragraph.code is None or not paragraph.code.is_python:
                 continue
 
             if paragraph.code.continue_code:
