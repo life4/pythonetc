@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import dataclasses
+from functools import cached_property
 from typing import Iterator
 
 import markdown_it.token
@@ -13,6 +14,14 @@ class ParagraphCode:
     info: list[str]
     skip: bool
     continue_code: bool
+
+    @cached_property
+    def is_python(self) -> bool:
+        return 'python' in self.info
+
+    @cached_property
+    def is_python_interactive(self) -> bool:
+        return 'python-interactive' in self.info
 
 
 @dataclasses.dataclass
@@ -53,19 +62,37 @@ class PostMarkdown:
         self._remove_code_info()
 
     def run_code(self) -> None:
-        code = ''
+        shared_globals: dict = {}
         for paragraph in self._paragraphs():
-            if paragraph.code is None:
+            if (
+                paragraph.code is None or not (
+                    paragraph.code.is_python or paragraph.code.is_python_interactive
+                )
+            ):
                 continue
 
-            if paragraph.code.continue_code:
-                if code:
-                    exec(code)
-                code = ''
+            if not paragraph.code.continue_code:
+                shared_globals = {}
 
-            code += paragraph.tokens[-1].content
+            code = paragraph.tokens[-1].content
+            if paragraph.code.is_python:
+                exec(code, shared_globals)
+            if paragraph.code.is_python_interactive:
+                self._exec_cli(code, shared_globals)
 
-        exec(code)
+    def _exec_cli(self, code: str, shared_globals: dict) -> None:
+        in_out: list[tuple[str, str]] = []
+        for line in code.splitlines():
+            if line.startswith('>>> '):
+                in_out.append((line[4:], ''))
+            elif line.startswith('... '):
+                in_out[-1] = (in_out[-1][0] + line[4:], '')
+            else:
+                in_out[-1] = (in_out[-1][0], in_out[-1][1] + line)
+
+        for in_, out in in_out:
+            result = eval(in_, shared_globals)
+            assert str(result) == out, f'{result} != {out}'
 
     def _remove_code_info(self) -> None:
         lines = self.text.splitlines(keepends=True)
