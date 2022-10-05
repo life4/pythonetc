@@ -9,6 +9,9 @@
             "type": "string",
             "minLength": 2
         },
+        "chain": {
+            "type": "object"
+        },
         "id": {
             "type": "integer",
             "minimum": 1
