@@ -20,8 +20,8 @@ class ParagraphCode:
         return 'python' in self.info
 
     @cached_property
-    def is_python_cli(self) -> bool:
-        return 'python-cli' in self.info
+    def is_python_interactive(self) -> bool:
+        return 'python-interactive' in self.info
 
 
 @dataclasses.dataclass
@@ -66,7 +66,7 @@ class PostMarkdown:
         for paragraph in self._paragraphs():
             if (
                 paragraph.code is None or not (
-                    paragraph.code.is_python or paragraph.code.is_python_cli
+                    paragraph.code.is_python or paragraph.code.is_python_interactive
                 )
             ):
                 continue
@@ -77,7 +77,7 @@ class PostMarkdown:
             code = paragraph.tokens[-1].content
             if paragraph.code.is_python:
                 exec(code, shared_globals)
-            if paragraph.code.is_python_cli:
+            if paragraph.code.is_python_interactive:
                 self._exec_cli(code, shared_globals)
 
     def _exec_cli(self, code: str, shared_globals: dict) -> None:

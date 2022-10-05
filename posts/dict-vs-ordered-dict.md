@@ -18,7 +18,7 @@ If `dict` remembers the order of elements in Python3.6+, why do you need `collec
 from collections import OrderedDict
 ```
 
-```python-cli {continue}
+```python-interactive {continue}
 >>> OrderedDict(a=1, b=2) == OrderedDict(b=2, a=1)
 False
 >>> dict(a=1, b=2) == dict(b=2, a=1)
