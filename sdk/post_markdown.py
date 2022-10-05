@@ -62,7 +62,7 @@ class PostMarkdown:
         self._remove_code_info()
 
     def run_code(self) -> None:
-        shared_globals = {}
+        shared_globals: dict = {}
         for paragraph in self._paragraphs():
             if (
                 paragraph.code is None or not (

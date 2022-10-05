@@ -19,8 +19,10 @@ class CheckAllCommand(Command):
             post = Post.from_path(path)
             # post.run_code()  # TODO: all posts should be runnable
             if post.chain:
-                chain = all_chains.setdefault(post.chain.name, {})
-                chain[post.id] = post.chain
+                elements: dict[int, PostChain] = all_chains.setdefault(
+                    post.chain.name, {}
+                )
+                elements[int(post.id or -1)] = post.chain
 
         # check chains
         for chain_name, chains in all_chains.items():
