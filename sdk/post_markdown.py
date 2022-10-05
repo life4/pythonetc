@@ -64,7 +64,11 @@ class PostMarkdown:
     def run_code(self) -> None:
         shared_globals = {}
         for paragraph in self._paragraphs():
-            if paragraph.code is None or not (paragraph.code.is_python or paragraph.code.is_python_cli):
+            if (
+                paragraph.code is None or not (
+                    paragraph.code.is_python or paragraph.code.is_python_cli
+                )
+            ):
                 continue
 
             if not paragraph.code.continue_code:
