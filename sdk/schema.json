@@ -11,6 +11,9 @@
             "minLength": 2
         },
         "published": {},
+        "chain": {
+            "type": "object"
+        },
         "id": {
             "type": "integer",
             "minimum": 1
