@@ -13,6 +13,7 @@ import yaml
 from sdk.post_markdown import PostMarkdown
 
 from .pep import PEP, get_pep
+from .sequence import PostSequence
 from .trace import Trace, parse_traces
 
 
@@ -38,16 +39,6 @@ def get_posts() -> list[Post]:
 
 
 @dataclass(frozen=True)
-class PostChain:
-    name: str
-    idx: int
-    length: int
-    prev: int | None
-    next: int | None
-    delay_allowed: bool = False
-
-
-@dataclass(frozen=True)
 class Post:
     path: Path
     markdown: PostMarkdown
@@ -59,7 +50,7 @@ class Post:
     depends_on: list[str] = field(default_factory=list)
     published: date | None = None
     python: str | None = None
-    chain: PostChain | None = None
+    sequence: PostSequence | None = None
 
     @classmethod
     def from_path(cls, path: Path) -> Post:
@@ -70,16 +61,21 @@ class Post:
         except jsonschema.ValidationError:
             raise ValueError(f'invalid metadata for {path.name}')
 
-        chain: PostChain | None = None
-        if 'chain' in meta:
-            chain = PostChain(**meta.pop('chain'))
         traces: list[Trace] = []
         if 'traces' in meta:
             traces = parse_traces(meta.pop('traces'))
 
+        sequence: PostSequence | None = None
+        if 'sequence' in meta:
+            sequence = PostSequence.from_path(
+                path.parent
+                / 'sequences'
+                / (meta.pop('sequence') + '.yaml')
+            )
+
         return cls(
             **meta,
-            chain=chain,
+            sequence=sequence,
             path=path,
             traces=traces,
             markdown=PostMarkdown(markdown),

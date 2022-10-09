@@ -2,13 +2,7 @@
 author: pushtaev
 id: 13
 published: 2018-03-19
-chain:
-    name: dict-keys
-    idx: 1
-    prev: 12
-    next: null
-    length: 2
-    delay_allowed: true
+sequence: dict-keys
 ---
 
 # dict VS OrderedDict

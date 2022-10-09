@@ -2,7 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from ..post import Post, PostChain
+from ..post import Post
+from ..sequence import PostSequence
 from ._command import Command
 
 
@@ -11,33 +12,26 @@ class CheckAllCommand(Command):
     name = 'check_all'
 
     def run(self) -> int:
-        all_chains: dict[str, dict[int, PostChain]] = {}
+        known_post_paths: set[Path] = set()
 
         for path in Path('posts').iterdir():
             if path.suffix != '.md':
                 continue
             post = Post.from_path(path)
             # post.run_code()  # TODO: all posts should be runnable
-            if post.chain:
-                elements: dict[int, PostChain] = all_chains.setdefault(
-                    post.chain.name, {}
-                )
-                elements[int(post.id or -1)] = post.chain
+            if post.sequence:
+                assert post.path in [p.path for p in post.sequence.posts],\
+                    f'{post.path.name} is not in its sequence'
 
-        # check chains
-        for chain_name, chains in all_chains.items():
-            i = 0
-            prev: int | None = None
-            for post_id, chain in sorted(chains.items(), key=lambda p: p[1].idx):
-                assert chain.idx == i
-                assert chain.name == chain_name
-                assert chain.length == len(chains)
-                assert chain.prev is None or chain.prev in chains
-                assert chain.prev is None or chains[chain.prev].next == post_id
-                assert chain.prev == prev
-                assert chain.next is None or chain.next in chains
+            known_post_paths.add(path)
 
-                prev = post_id
-                i += 1
+        # check sequences
+        for path in Path('posts/sequences').iterdir():
+            if path.suffix != '.yaml':
+                continue
+            sequence = PostSequence.from_path(path)
+            for post_of_seq in sequence.posts:
+                assert post_of_seq.path in known_post_paths,\
+                    f'unknown post {post_of_seq.path} in {path.name}'
 
         return 0
