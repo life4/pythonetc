@@ -8,4 +8,10 @@ from ._telegram import TelegramCommand
 
 __all__ = ['Command', 'COMMANDS']
 
-COMMANDS = (HTMLCommand, TableCommand, TelegramCommand, RunCodeCommand, CheckAllCommand)
+COMMANDS = (
+    HTMLCommand,
+    RunCodeCommand,
+    TableCommand,
+    TelegramCommand,
+    CheckAllCommand,
+)

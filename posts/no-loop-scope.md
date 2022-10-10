@@ -3,6 +3,7 @@ author: pushtaev
 id: 11
 published: 2018-03-18
 ---
+
 # loop scope
 
 The thing you usually don't care about is loops and if-blocks don't create scopes in Python (as well as try-blocks, with-block etc.). Because if they were, you won't be able to reassign variables inside the block:

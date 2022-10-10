@@ -10,6 +10,7 @@ chain:
     length: 2
     delay_allowed: true
 ---
+
 # dict VS OrderedDict
 
 If `dict` remembers the order of elements in Python3.6+, why do you need `collections.OrderedDict` anymore? That's why:
