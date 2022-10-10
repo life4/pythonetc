@@ -3,6 +3,7 @@ author: orsinium
 traces:
   - [module: asyncio, function: run]
 ---
+
 # asyncio.run
 
 Async is like mold in your fridge or GPU license in your dependencies. It propagates through your code, taking over every corner of it. You can call sync functions from async functions but async functions can be called only from other async functions, using `await` keyword.

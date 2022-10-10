@@ -3,6 +3,7 @@ author: orsinium
 traces:
   - [module: asyncio, function: sleep]
 ---
+
 # asyncio.sleep
 
 Your best companion in learning asyncio is `asyncio.sleep`. It works like `time.sleep` making the calling code to wait the given number of seconds. This is the simplest example of IO-bound task because while sleeping, your code literally does nothing but waits. And unlike `time.sleep`, `asyncio.sleep` is async. That means, while the calling task waits for it to finish, another task can be executed.

@@ -3,6 +3,7 @@ author: orsinium
 traces:
   - [module: asyncio, function: gather]
 ---
+
 # asyncio.gather
 
 The `asyncio.gather` is the function that you will use the most. You pass in it multiple coroutines, it schedules them, waits for all to finish, and returns the list of results in the same order.
