@@ -38,6 +38,16 @@ def get_posts() -> list[Post]:
 
 
 @attr.s(auto_attribs=True, frozen=True, order=False)
+class PostChain:
+    name: str
+    idx: int
+    length: int
+    prev: int | None
+    next: int | None
+    delay_allowed: bool = False
+
+
+@attr.s(auto_attribs=True, frozen=True)
 class Post:
     path: Path
     markdown: PostMarkdown
@@ -48,6 +58,7 @@ class Post:
     topics: list[str] = attr.ib(factory=list)
     published: date | None = None
     python: str | None = None
+    chain: PostChain | None = None
 
     @classmethod
     def from_path(cls, path: Path) -> Post:
@@ -57,7 +68,12 @@ class Post:
             jsonschema.validate(meta, SCHEMA)
         except jsonschema.ValidationError:
             raise ValueError(f'invalid metadata for {path.name}')
-        return cls(**meta, path=path, markdown=PostMarkdown(markdown))
+
+        chain: PostChain | None = None
+        if 'chain' in meta:
+            chain = PostChain(**meta.pop('chain'))
+
+        return cls(**meta, chain=chain, path=path, markdown=PostMarkdown(markdown))
 
     def validate(self) -> str | None:
         if not REX_FILE_NAME.fullmatch(self.path.name):

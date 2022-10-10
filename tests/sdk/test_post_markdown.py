@@ -169,7 +169,7 @@ MD_CODE = dedent("""
 
 
 MD_CODE_ERROR = dedent("""
-    ```
+    ```python
     assert False
     ```
 """)
