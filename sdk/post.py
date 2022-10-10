@@ -1,4 +1,5 @@
 from __future__ import annotations
+from dataclasses import dataclass, field
 
 import json
 import re
@@ -6,7 +7,6 @@ from datetime import date
 from functools import cached_property
 from pathlib import Path
 
-import attr
 import jsonschema
 import yaml
 
@@ -37,7 +37,7 @@ def get_posts() -> list[Post]:
     return posts
 
 
-@attr.s(auto_attribs=True, frozen=True)
+@dataclass(frozen=True)
 class PostChain:
     name: str
     idx: int
@@ -47,15 +47,15 @@ class PostChain:
     delay_allowed: bool = False
 
 
-@attr.s(auto_attribs=True, frozen=True, order=False)
+@dataclass(frozen=True)
 class Post:
     path: Path
     markdown: PostMarkdown
     author: str
     id: int | None = None
-    traces: list[Trace] = attr.ib(factory=list, converter=parse_traces)
+    traces: list[Trace] = field(default_factory=list)
     pep: int | None = None
-    topics: list[str] = attr.ib(factory=list)
+    topics: list[str] = field(default_factory=list)
     published: date | None = None
     python: str | None = None
     chain: PostChain | None = None
@@ -72,8 +72,17 @@ class Post:
         chain: PostChain | None = None
         if 'chain' in meta:
             chain = PostChain(**meta.pop('chain'))
+        traces: list[Trace] = []
+        if 'traces' in meta:
+            traces = parse_traces(meta.pop('traces'))
 
-        return cls(**meta, chain=chain, path=path, markdown=PostMarkdown(markdown))
+        return cls(
+            **meta,
+            chain=chain,
+            path=path,
+            traces=traces,
+            markdown=PostMarkdown(markdown),
+        )
 
     def validate(self) -> str | None:
         if not REX_FILE_NAME.fullmatch(self.path.name):
