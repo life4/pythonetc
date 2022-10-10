@@ -1,5 +1,6 @@
 ---
 author: ypankovych
+published: 2022-10-11
 ---
 
 # generator scope
@@ -13,6 +14,7 @@ def gen():
     x = 5
     yield x
     yield x
+    yield x
 
 g = gen()
 next(g)  # 5
@@ -21,7 +23,7 @@ g.gi_frame.f_locals  # {'x': 5}
 
 So if we can see it, we should be able to modify it, right?
 
-```python
+```python  {continue}
 g.gi_frame.f_locals["x"] = 10
 next(g)  # still gives us 5
 ```
@@ -30,7 +32,7 @@ Frame locals returned as a dict is a newly created object from actual frame loca
 
 But there's a way to bypass that with C API:
 
-```python
+```python  {continue}
 import ctypes
 
 # after we've changed the frame locals, we need to "freeze" it
@@ -40,7 +42,7 @@ ctypes.pythonapi.PyFrame_LocalsToFast(ctypes.py_object(g.gi_frame), ctypes.c_int
 
 So now we can verify that the generator's locals have actually changed:
 
-```python
+```python  {continue}
 next(g)  # 10
 ```
 
