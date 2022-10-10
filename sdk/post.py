@@ -37,7 +37,7 @@ def get_posts() -> list[Post]:
     return posts
 
 
-@attr.s(auto_attribs=True, frozen=True, order=False)
+@attr.s(auto_attribs=True, frozen=True)
 class PostChain:
     name: str
     idx: int
@@ -47,7 +47,7 @@ class PostChain:
     delay_allowed: bool = False
 
 
-@attr.s(auto_attribs=True, frozen=True)
+@attr.s(auto_attribs=True, frozen=True, order=False)
 class Post:
     path: Path
     markdown: PostMarkdown
