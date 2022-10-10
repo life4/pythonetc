@@ -22,4 +22,4 @@ except Exception as e:
 # oh no!
 ```
 
-The PEP gives a good example when it can be useful. The hypothesis library provides for failures the arguments that caused the tested code to fail.
+The PEP gives a good example of how it can be useful. The [hypothesis](https://github.com/HypothesisWorks/hypothesis) library includes in the traceback the arguments that caused the tested code to fail.

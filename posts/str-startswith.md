@@ -7,7 +7,7 @@ traces:
 
 # str.startswith and str.endswith
 
-The `str.startswith` and `str.endswith` methods are used to check if the given strings starts with given prefix and ends with the given suffix respectively;
+The `str.startswith` and `str.endswith` methods are used to check if the given string starts with the given prefix and ends with the given suffix respectively:
 
 ```python
 'abc'.startswith('ab') # True

@@ -7,7 +7,7 @@ python: "3.11"
 
 # contextlib.chdir
 
-I often found myself making a special context manager to temporarily change the current working directory:
+I often find myself making a special context manager to temporarily change the current working directory:
 
 ```python
 import os

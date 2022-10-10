@@ -6,14 +6,14 @@ traces:
 
 # str.split
 
-The `str.split` method splits the string by the given delimeter:
+The `str.split` method splits the string by the given delimiter:
 
 ```python
 '-1-2--3--'.split('-')
 # ['', '1', '2', '', '3', '', '']
 ```
 
-What's interesting, it will behave very differently if you don't pass the delimeter:
+What's interesting, it will behave very differently if you don't pass the delimiter:
 
 1. The string will be split by all whitespace characters: new line, space, tab, etc.
 2. Repeated whitespaces will be treated as one.

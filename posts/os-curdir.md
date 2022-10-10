@@ -15,16 +15,16 @@ os.curdir
 # '.'
 ```
 
-It's a constant indicating how the current directory is denoted in the current OS. And for all OSes that CPython supports (WIndows and POSIX) it's always a dot. It might be different, though, if you run your code with MicroPython on some niche OS.
+It's a constant indicating how the current directory is denoted in the current OS. And for all OSes that CPython supports (Windows and POSIX), it's always a dot. It might be different, though, if you run your code with MicroPython on some niche OS.
 
-Anyway, to actualy get the path to the current directory, you need `os.getcwd`:
+Anyway, to actually get the path to the current directory, you need `os.getcwd`:
 
 ```python
 os.getcwd()
 # '/home/gram'
 ```
 
-Or use pathlib:
+Or use [pathlib](https://docs.python.org/3/library/pathlib.html):
 
 ```python
 from pathlib import Path

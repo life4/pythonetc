@@ -34,4 +34,4 @@ except Exception as e:
 #     +------------------------------------
 ```
 
-It's very helpful in many cases when there are multiple unrelated exceptions occured and you want to show all of them: when retrying an operation or when calling multiple callbacks.
+It's very helpful in many cases when multiple unrelated exceptions have occurred and you want to show all of them: when retrying an operation or when calling multiple callbacks.

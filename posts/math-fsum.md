@@ -6,7 +6,7 @@ traces:
 
 # math.fsum
 
-The `float` type is [infamous for being not as precise as you might expect](https://t.me/pythonetc/201). When you add 2 numbers, the result might contain a small error in precision. And more numbers you add together, higher the error:
+The `float` type is [infamous for being not as precise as you might expect](https://t.me/pythonetc/201). When you add 2 numbers, the result might contain a small error in precision. And the more numbers you add together, the higher the error:
 
 ```python
 sum([.9] * 1_000)

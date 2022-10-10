@@ -58,3 +58,4 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + <https://redd.it/tczsrh>
 + zipfile.Path
 + mock.seal
++ sys.set_int_max_str_digits

@@ -19,7 +19,7 @@ isinstance(b, str) # False
 isinstance(str, type) # True
 ```
 
-Type-checkers understand `isinstance` checks and use it to refine the type:
+Type-checkers understand `isinstance` checks and use them to refine the type:
 
 ```python
 a: object

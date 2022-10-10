@@ -24,7 +24,7 @@ class BaseUser:
     ...
 ```
 
-That's quite verbose, but it's how it should be done for return type for inherited classes to be correct.
+That's quite verbose, but it's how it should be done for the return type for inherited classes to be correct.
 
 [PEP 673](https://peps.python.org/pep-0673/) (landed in Python 3.11) introduced a new type `Self` that can be used as a shortcut for exactly such cases:
 

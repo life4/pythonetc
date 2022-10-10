@@ -8,7 +8,7 @@ traces:
 
 # typing.LiteralString
 
-[PEP 675](https://peps.python.org/pep-0675/) (landed in Python 3.11) introduced a new type `typing.LiteralString`. It matches any `Literal` type, which is the type for explicit literals and constants in the code. The PEP shows a very good exaple of how it can be used to implement a SQL driver with protection on type-checker level against of SQL injections:
+[PEP 675](https://peps.python.org/pep-0675/) (landed in Python 3.11) introduced a new type `typing.LiteralString`. It matches any `Literal` type, which is the type for explicit literals and constants in the code. The PEP shows a very good example of how it can be used to implement a SQL driver with protection on the type-checker level against SQL injections:
 
 ```python
 from typing import LiteralString, Final

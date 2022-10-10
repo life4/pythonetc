@@ -3,7 +3,8 @@ author: orsinium
 topics:
   - typing
 traces:
-  - [{module: typing_extensions}, {function: reveal_type}]
+  - [{module: typing}, {function: reveal_type}]
+python: "3.11"
 ---
 
 # reveal_type
@@ -26,10 +27,10 @@ tmp.py:3: note: Revealed type is "def (typing.Sized) -> builtins.int"
 
 It's quite helpful to see what type mypy inferred for the variable in some tricky cases.
 
-What's interesting, `typing_extensions`, for some reason, does define the `reveal_type` function at runtime:
+For convenience, the `reveal_type` function was also added in `typing` module in Python 3.11:
 
 ```python
-from typing_extensions import reveal_type
+from typing import reveal_type
 a = 1
 reveal_type(a)
 # prints: Runtime type is 'int'

@@ -5,7 +5,7 @@ pep: 657
 
 # Column in tracebacks
 
-[PEP 657](https://peps.python.org/pep-0657/) (landed into Python 3.11) enhanced tracebacks, so that they now include quite a precise location of where the error occured:
+[PEP 657](https://peps.python.org/pep-0657/) (landed into Python 3.11) enhanced tracebacks so that they now include quite a precise location of where the error occurred:
 
 ```plain
 Traceback (most recent call last):
@@ -18,4 +18,4 @@ Traceback (most recent call last):
 TypeError: 'NoneType' object is not subscriptable
 ```
 
-It shows not only where the error occured for each frame, but also which code was executed. Beautiful!
+It shows not only where the error occurred for each frame, but also which code was executed. Beautiful!

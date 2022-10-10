@@ -7,7 +7,7 @@ pep: 518
 
 # build-system
 
-PEP-518 is the first PEP that uses PEP-517. In fact, this is the reason why pyproject.toml was introduced in the first place. PEP-518, in turn, introduced `build-system` section in `pyproject.toml` that tells package management tools (like pip) how to build wheel distributions for the project. For example, this is the section if you use flit:
+[PEP-518](https://peps.python.org/pep-0518/) is the first PEP that uses [PEP-517](https://peps.python.org/pep-0517/). In fact, this is the reason why pyproject.toml was introduced in the first place. PEP-518, in turn, introduced `build-system` section in `pyproject.toml` that tells package management tools (like pip) how to build wheel distributions for the project. For example, this is the section if you use flit:
 
 ```toml
 [build-system]
