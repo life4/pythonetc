@@ -16,6 +16,13 @@ tasks:
     cmds:
       - "{{.PYTHON}} -m venv {{.VENVS}}/base"
       - "{{.VENVS}}/base/bin/python3 -m pip install flitenv"
+  install:main:
+    sources:
+      - pyproject.toml
+    deps:
+      - install:base
+    cmds:
+      - "{{.FLITENV}} main install"
   install:test:
     sources:
       - pyproject.toml
@@ -31,6 +38,12 @@ tasks:
     cmds:
       - "{{.FLITENV}} lint install"
 
+  sdk:
+    desc: "run a command in the SDK"
+    deps:
+      - install:main
+    cmds:
+      - "{{.FLITENV}} main run python3 -m sdk {{.CLI_ARGS}}"
   pytest:
     desc: "run Python tests"
     deps:
