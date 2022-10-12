@@ -8,7 +8,7 @@ python: "3.11"
 
 # typing.Self
 
-As we covered earlier, if the result of a base class is the current class, a `TypeVar` should be used as the annotation:
+[As we covered a 3 years back](https://t.me/pythonetc/451) (gosh, the channel is old), if the result of a base class is the current class, a `TypeVar` should be used as the annotation:
 
 ```python
 from typing import TypeVar

@@ -3,6 +3,8 @@ author: orsinium
 traces:
   - [{module: contextlib}, {function: chdir}]
 python: "3.11"
+depends_on:
+  - os-curdir
 ---
 
 # contextlib.chdir

@@ -2,6 +2,9 @@
 author: orsinium
 traces:
   - [module: asyncio, function: create_task]
+depends_on:
+  - asyncio-run
+  - asyncio-sleep
 ---
 
 # asyncio.create_task

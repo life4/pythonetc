@@ -9,7 +9,7 @@ python: "3.11"
 
 # reveal_type
 
-The `reveal_type` function doesn't exist. However, if you call it and then run a type-checker (like [mypy](https://mypy.readthedocs.io/) or pyright) on the file, it will show the type of the passed object:
+The `reveal_type` function doesn't exist. However, if you call it and then run a type-checker (like [mypy](https://mypy.readthedocs.io/) or [pyright](https://github.com/microsoft/pyright)) on the file, it will show the type of the passed object:
 
 ```python
 a = 1
