@@ -1,19 +1,41 @@
 # Python etc
 
-These are the posts we published in [@pythonetc](https://t.me/s/pythonetc).
+Python etc is a ton of posts we made about Python.
 
-Reasons to read posts from the cannel rather than here:
+1. Subscribe to the Telegram channel for weekly posts: [@pythonetc](https://t.me/s/pythonetc)
+2. Read nicely organized past posts on website: [pythonetc.orsinium.dev](https://pythonetc.orsinium.dev/)
 
-1. The publication order matters because some posts reference previous posts.
-2. Some of the drafts here aren't published yet, so here are some spoilers.
-3. Sometimes, we publish corrections to some already published posts. Not all corrections get here.
-4. It's good to have stat on views count and likes in one place.
-5. This is only the second season, made by me. The previous season was made by @pushtaev and it also has tons of great information.
+## What we write about
 
-You don't need telegram to read the channel using the link above. If neither of it stops you, sure, go ahead, read it here.
+1. Python stdlib.
+2. Python syntax.
+3. PEPs, old and new, including drafts or even rejected.
+4. Short Python code snippets.
 
-## SDK
+The posts are written for the Telegram channel first, and so are short both horizontally and verically.
 
-```bash
-python3 -m sdk --help
-```
+## What we don't post
+
+1. Ad of any kind. Telegram inserts some ad of its own, but we don't get any money from it. And we wish we could get rid of it!
+2. Anything about third-party libraries.
+3. Anything not about Python, except rare channel announcements.
+
+## Contributing
+
+Psss, wanna write some Python posts for the fame and love? Here, we have a guide for you.
+
+What:
+
+1. Any new posts that fit our ideals described above. Check out [todo.md](./todo.md) if you're need some ideas.
+2. Grammar fixes, metadata improvements, and any kind of corrections to the posts.
+3. Small improvements to the website.
+
+How:
+
+1. Search the Telegram channel to make sure we haven't covered it before.
+2. Fork the project and make the changes. See [Contributing to projects](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) guide if you're new to open source.
+3. Install [task](https://taskfile.dev/)
+4. Run `task all` to see if there are any errors.
+5. If everything is good, open a PR, and we will review it in a few days.
+
+Happy hacking!

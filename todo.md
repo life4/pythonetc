@@ -23,7 +23,6 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + super()
 + gc
 + trace
-+ destructor
 + iterator vs iterable
 + next()
 + `__length_hint__`
@@ -43,7 +42,6 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + <https://peps.python.org/pep-0680/>
 + Int is subtype of float in mypy
 + There is no negative number literal
-+ str.split
 + method_cache
 + time.sleep and hybernation
 + delattr
@@ -59,3 +57,4 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + zipfile.Path
 + mock.seal
 + sys.set_int_max_str_digits
++ <https://peps.python.org/pep-0695/>

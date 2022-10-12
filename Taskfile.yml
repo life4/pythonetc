@@ -102,3 +102,4 @@ tasks:
       - task: format
       - task: lint
       - task: test
+      - "{{.FLITENV}} main run python3 -m sdk html"

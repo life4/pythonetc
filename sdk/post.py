@@ -1,8 +1,8 @@
 from __future__ import annotations
-from dataclasses import dataclass, field
 
 import json
 import re
+from dataclasses import dataclass, field
 from datetime import date
 from functools import cached_property
 from pathlib import Path
