@@ -1,5 +1,6 @@
 ---
 author: orsinium
+published: 2022-12-20
 topics:
   - typing
 traces:

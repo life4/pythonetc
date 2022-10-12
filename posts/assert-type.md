@@ -1,5 +1,6 @@
 ---
 author: orsinium
+published: 2022-11-29
 traces:
   - [module: typing, function: assert_type]
 python: "3.11"
@@ -7,7 +8,7 @@ python: "3.11"
 
 # typing.assert_type
 
-The `typing.assert_type` function does nothing in runtime as most of the stuff from the `typing` module. However, if the type of the first argument doesn't match the type provided as the second argument, the type checker will return an error. It can be useful to write simple "tests" for your library to ensure it is well annotated.
+The `typing.assert_type` function (added in Python 3.11) does nothing in runtime as most of the stuff from the `typing` module. However, if the type of the first argument doesn't match the type provided as the second argument, the type checker will return an error. It can be useful to write simple "tests" for your library to ensure it is well annotated.
 
 For example, you have a library that defines a lot of decorators, like this:
 

@@ -1,5 +1,6 @@
 ---
 author: orsinium
+published: 2022-11-22
 traces:
   - [{module: contextlib}, {function: chdir}]
 python: "3.11"
@@ -9,7 +10,7 @@ depends_on:
 
 # contextlib.chdir
 
-I often find myself making a special context manager to temporarily change the current working directory:
+I often find myself writing a context manager to temporarily change the current working directory:
 
 ```python
 import os

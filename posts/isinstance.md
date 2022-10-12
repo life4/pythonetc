@@ -2,6 +2,8 @@
 author: orsinium
 traces:
   - [{function: isinstance}]
+depends_on:
+  - reveal-type
 ---
 
 # isinstance

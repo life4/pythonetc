@@ -1,6 +1,8 @@
 ---
 author: orsinium
+published: 2022-10-25
 pep: 657
+python: "3.11"
 ---
 
 # Column in tracebacks

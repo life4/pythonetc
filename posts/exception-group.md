@@ -1,5 +1,6 @@
 ---
 author: orsinium
+published: 2022-11-08
 traces:
   - [{exception: ExceptionGroup}]
 pep: 654

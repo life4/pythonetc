@@ -1,5 +1,6 @@
 ---
 author: orsinium
+published: 2022-11-15
 traces:
   - [{exception: ExceptionGroup}]
 pep: 654
@@ -41,7 +42,7 @@ caught2: ExceptionGroup('', [ValueError()])
     +------------------------------------
 ```
 
-Here is what happened:
+This is what happened:
 
 1. When `ExceptionGroup` is raised, it's checked against each `except*` block.
 2. `except* KeyError` block catches `ExceptionGroup` that contains `KeyError`.

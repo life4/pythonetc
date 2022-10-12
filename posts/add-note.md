@@ -1,5 +1,6 @@
 ---
 author: orsinium
+published: 2022-11-01
 traces:
   - [{type: BaseException}, {method: add_note}]
 pep: 678
@@ -8,7 +9,7 @@ python: "3.11"
 
 # BaseException.add_note
 
-[PEP 678](https://peps.python.org/pep-0678/) (landed in Python 3.11) introduced a new method `add_note` for `BaseException` class. You can call it on any exception to provice additional context which will be shown at the end of the traceback for the exception:
+[PEP 678](https://peps.python.org/pep-0678/) (landed in Python 3.11) introduced a new method `add_note` for `BaseException` class. You can call it on any exception to provide additional context which will be shown at the end of the traceback for the exception:
 
 ```python
 try:
