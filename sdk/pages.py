@@ -23,4 +23,8 @@ PAGES: tuple[Page, ...] = (
         'stdlib', 'stdlib.html',
         'Posts covering specific modules or function in stdlib.',
     ),
+    Page(
+        'typing', 'typing.html',
+        'Posts about type annotations.',
+    ),
 )

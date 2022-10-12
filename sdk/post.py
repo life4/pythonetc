@@ -120,6 +120,12 @@ class Post:
     def url(self) -> str:
         return f'posts/{self.slug}.html'
 
+    @property
+    def is_typing(self) -> bool:
+        if 'typing' in self.topics:
+            return True
+        return any(trace.module_name == 'typing' for trace in self.traces)
+
     @cached_property
     def pep_info(self) -> PEP | None:
         if self.pep is None:
