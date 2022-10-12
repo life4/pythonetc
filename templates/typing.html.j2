@@ -1,0 +1,17 @@
+{% extends "base.html.j2" %}
+{% block content %}
+  <ul>
+    {% for post in posts %}
+      {% if post.is_typing %}
+        <li>
+          <span class="text-muted">
+            {{ post.published }}
+          </span>
+          <a href="{{ post.url }}">
+            {{ post.title }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endblock %}

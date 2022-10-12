@@ -56,6 +56,7 @@ class Post:
     traces: list[Trace] = field(default_factory=list)
     pep: int | None = None
     topics: list[str] = field(default_factory=list)
+    depends_on: list[str] = field(default_factory=list)
     published: date | None = None
     python: str | None = None
     chain: PostChain | None = None
@@ -119,6 +120,12 @@ class Post:
     @property
     def url(self) -> str:
         return f'posts/{self.slug}.html'
+
+    @property
+    def is_typing(self) -> bool:
+        if 'typing' in self.topics:
+            return True
+        return any(trace.module_name == 'typing' for trace in self.traces)
 
     @cached_property
     def pep_info(self) -> PEP | None:

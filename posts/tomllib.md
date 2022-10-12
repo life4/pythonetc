@@ -3,6 +3,8 @@ author: orsinium
 traces:
   - [{module: tomllib}]
 pep: 680
+depends_on:
+  - pyproject-toml
 ---
 
 # tomllib

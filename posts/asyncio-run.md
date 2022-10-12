@@ -2,6 +2,8 @@
 author: orsinium
 traces:
   - [module: asyncio, function: run]
+depends_on:
+  - asyncio
 ---
 
 # asyncio.run

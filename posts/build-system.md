@@ -3,6 +3,8 @@ author: orsinium
 topics:
   - packaging
 pep: 518
+depends_on:
+  - pyproject-toml
 ---
 
 # build-system

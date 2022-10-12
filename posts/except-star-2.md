@@ -4,6 +4,9 @@ traces:
   - [{exception: ExceptionGroup}]
 pep: 654
 python: "3.11"
+depends_on:
+  - except-star
+  - exception-group
 ---
 
 # `except*` for regular exceptions

@@ -2,6 +2,9 @@
 author: orsinium
 traces:
   - [module: asyncio, function: sleep]
+depends_on:
+  - asyncio
+  - asyncio-run
 ---
 
 # asyncio.sleep

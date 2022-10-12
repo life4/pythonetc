@@ -37,6 +37,7 @@ class HTMLCommand(Command):
             published = post.published or today
             years[published.year].append(post)
         render_html('index', pages=PAGES, years=sorted(years.items()))
+        render_html('typing', posts=posts, title='typing')
 
         pythons = sorted(
             {post.python for post in posts if post.python},
