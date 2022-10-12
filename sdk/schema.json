@@ -37,6 +37,13 @@
             "type": "string",
             "minLength": 3
         },
+        "depends_on": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "minLength": 4
+            }
+        },
         "traces": {
             "type": "array",
             "items": {
