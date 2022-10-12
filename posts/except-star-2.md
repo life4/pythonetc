@@ -1,5 +1,6 @@
 ---
 author: orsinium
+published: 2022-11-17
 traces:
   - [{exception: ExceptionGroup}]
 pep: 654
@@ -11,7 +12,7 @@ depends_on:
 
 # `except*` for regular exceptions
 
-One more thing you should know about `except*`. It can match not only sub-exceptions from `ExceptionGroup` but regular exceptions too. And for simplicity of handling, regular exceptions will be wrapped into `ExceptionGroup`:
+There is one more thing you should know about `except*`. It can match not only sub-exceptions from `ExceptionGroup` but regular exceptions too. And for simplicity of handling, regular exceptions will be wrapped into `ExceptionGroup`:
 
 ```python
 try:

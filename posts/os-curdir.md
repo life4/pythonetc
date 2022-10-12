@@ -1,5 +1,6 @@
 ---
 author: orsinium
+published: 2022-10-18
 traces:
   - [{module: os}, {function: curdir}]
   - [{module: os}, {function: getcwd}]
