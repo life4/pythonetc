@@ -61,6 +61,7 @@ class PostMarkdown:
 
     def to_telegram(self) -> None:
         self.run_code()
+        self._remove_header()
         self._remove_skipped_code_blocks()
         self._remove_code_info()
 
@@ -109,6 +110,10 @@ class PostMarkdown:
                 lines[line_number] = '```\n'
 
         self.text = ''.join(lines)
+
+    def _remove_header(self) -> None:
+        if self.has_header():
+            self.text = self.text.lstrip().split('\n', maxsplit=1)[-1].lstrip()
 
     def _remove_skipped_code_blocks(self) -> None:
         result = self.text.splitlines(keepends=True)

@@ -143,8 +143,6 @@ def test_post_markdown__remove_skipped_code_blocks__no_new_line_after():
 
 
 MD_TELEGRAM = dedent("""
-    # HEADER
-
     SOME TEXT 1
 
     ```
@@ -152,7 +150,7 @@ MD_TELEGRAM = dedent("""
     ```
 
     SOME TEXT 2
-""")
+""").lstrip()
 
 
 def test_post_markdown_to_telegram():
