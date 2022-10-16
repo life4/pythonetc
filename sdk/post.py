@@ -111,7 +111,7 @@ class Post:
 
     @cached_property
     def html_content(self) -> str:
-        return self.markdown.html_content()
+        return self.markdown.copy().html_content()
 
     @property
     def slug(self) -> str:
