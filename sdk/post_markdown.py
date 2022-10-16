@@ -57,6 +57,7 @@ class PostMarkdown:
         return self.text.lstrip().split('\n', maxsplit=1)[-1]
 
     def html_content(self) -> str:
+        self._remove_skipped_code_blocks()
         return self._parser.render(self.text)
 
     def to_telegram(self) -> None:
@@ -136,22 +137,24 @@ class PostMarkdown:
 
     def _paragraphs(self) -> Iterator[Paragraph]:
         paragraph_tokens = []
-        in_paragraph = False
+        paragraph_depth: int = 0
         for token in self._parser.parse(self.text):
-            if in_paragraph:
+            if paragraph_depth > 0:
                 if token.type.endswith('_open'):
-                    raise ValueError('nested paragraphs')
+                    paragraph_depth += 1
                 elif token.type.endswith('_close'):
+                    paragraph_depth -= 1
+                if paragraph_depth == 0:
+                    # Only yield top-level paragraphs
                     paragraph_tokens.append(token)
                     yield Paragraph(tokens=paragraph_tokens)
                     paragraph_tokens = []
-                    in_paragraph = False
                 else:
                     paragraph_tokens.append(token)
             else:
                 if token.type.endswith('_open'):
                     paragraph_tokens = [token]
-                    in_paragraph = True
+                    paragraph_depth += 1
                 elif token.type.endswith('_close'):
                     raise ValueError('unexpected paragraph close')
                 else:
