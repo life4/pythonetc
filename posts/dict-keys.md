@@ -2,12 +2,7 @@
 author: pushtaev
 id: 12
 published: 2018-03-19
-chain:
-    name: dict-keys
-    idx: 0
-    prev: null
-    next: 13
-    length: 2
+sequence: dict-keys
 ---
 
 # Dict keys
