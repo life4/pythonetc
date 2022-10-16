@@ -124,21 +124,21 @@ SKIPS_MD = dedent("""
 """)
 
 
-def test_post_markdown__skipped_removed():
+def test_post_markdown__remove_skipped_code_blocks():
     p = PostMarkdown(SKIPS_MD)
-    p._skipped_removed()
+    p._remove_skipped_code_blocks()
     assert p.text == '\n```\nb\n```\n'
 
 
-def test_post_markdown__skipped_removed__no_skips():
+def test_post_markdown__remove_skipped_code_blocks__no_skips():
     p = PostMarkdown('SOME TEXT')
-    p._skipped_removed()
+    p._remove_skipped_code_blocks()
     assert p.text == 'SOME TEXT'
 
 
-def test_post_markdown__skipped_removed__no_new_line_after():
+def test_post_markdown__remove_skipped_code_blocks__no_new_line_after():
     p = PostMarkdown('```{skip}\na\n```')
-    p._skipped_removed()
+    p._remove_skipped_code_blocks()
     assert p.text == ''
 
 
