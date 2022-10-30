@@ -12,7 +12,7 @@ from markdown_it import MarkdownIt
 class ParagraphCode:
     body: str
     info: list[str]
-    skip: bool
+    hide: bool
     continue_code: bool
 
     @cached_property
@@ -57,13 +57,13 @@ class PostMarkdown:
         return self.text.lstrip().split('\n', maxsplit=1)[-1]
 
     def html_content(self) -> str:
-        self._remove_skipped_code_blocks()
+        self._remove_hidden_code_blocks()
         return self._parser.render(self.text)
 
     def to_telegram(self) -> None:
         self.run_code()
         self._remove_header()
-        self._remove_skipped_code_blocks()
+        self._remove_hidden_code_blocks()
         self._remove_code_info()
 
     def run_code(self) -> None:
@@ -103,7 +103,7 @@ class PostMarkdown:
         lines = self.text.splitlines(keepends=True)
         for token in self._parser.parse(self.text):
             info = set(token.info.split(','))
-            if 'skip' in info:
+            if 'hide' in info:
                 continue
             if token.type == 'fence':
                 assert token.map
@@ -116,19 +116,19 @@ class PostMarkdown:
         if self.has_header():
             self.text = self.text.lstrip().split('\n', maxsplit=1)[-1].lstrip()
 
-    def _remove_skipped_code_blocks(self) -> None:
+    def _remove_hidden_code_blocks(self) -> None:
         result = self.text.splitlines(keepends=True)
 
         shift = 0
         for p in self._paragraphs():
-            if p.code and p.code.skip:
+            if p.code and p.code.hide:
                 for token in p.tokens:
                     if not token.map:
                         continue
                     first_line, until_line = token.map
                     lineno = until_line - shift
                     if lineno < len(result) and result[lineno] == '\n':
-                        # remove empty line after skipped paragraph
+                        # remove empty line after hidden paragraph
                         until_line += 1
                     result = result[:first_line - shift] + result[until_line - shift:]
                     shift += until_line - first_line
@@ -163,7 +163,7 @@ class PostMarkdown:
                         code = ParagraphCode(
                             body=token.content,
                             info=info,
-                            skip='{skip}' in info,
+                            hide='{hide}' in info,
                             continue_code='{continue}' in info,
                         )
                         yield Paragraph(tokens=[token], code=code)
