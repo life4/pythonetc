@@ -6,6 +6,7 @@ build-backend = "flit_core.buildapi"
 name = "sdk"
 authors = [
     {name = "Gram", email = "git@orsinium.dev"},
+    {name = "VadimPushtaev", email = "pushtaev.vm@gmail.com"}
 ]
 license = {file = "LICENSE"}
 readme = "README.md"
@@ -18,6 +19,7 @@ dependencies = [
     "markdown-it-py",
     "pyyaml",
     "requests",
+    "IPython",
 ]
 
 [project.optional-dependencies]
