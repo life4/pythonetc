@@ -10,7 +10,7 @@ MD = dedent("""
 
     SOME TEXT 1
 
-    ```python {skip}
+    ```python {hide}
     a = 1
     ```
 
@@ -18,7 +18,7 @@ MD = dedent("""
     a += 1
     ```
 
-    ```python {skip} {continue}
+    ```python {hide} {continue}
     assert a == 2
     ```
 
@@ -83,20 +83,20 @@ def test_post_markdown__paragraphs():
 
     assert paragraphs[2].code is not None
     assert paragraphs[2].code.body == 'a = 1\n'
-    assert paragraphs[2].code.info == ['python', '{skip}']
-    assert paragraphs[2].code.skip is True
+    assert paragraphs[2].code.info == ['python', '{hide}']
+    assert paragraphs[2].code.hide is True
     assert paragraphs[2].code.continue_code is False
 
     assert paragraphs[3].code is not None
     assert paragraphs[3].code.body == 'a += 1\n'
     assert paragraphs[3].code.info == ['python', '{continue}']
-    assert paragraphs[3].code.skip is False
+    assert paragraphs[3].code.hide is False
     assert paragraphs[3].code.continue_code is True
 
     assert paragraphs[4].code is not None
     assert paragraphs[4].code.body == 'assert a == 2\n'
-    assert paragraphs[4].code.info == ['python', '{skip}', '{continue}']
-    assert paragraphs[4].code.skip is True
+    assert paragraphs[4].code.info == ['python', '{hide}', '{continue}']
+    assert paragraphs[4].code.hide is True
     assert paragraphs[4].code.continue_code is True
 
 
@@ -113,8 +113,8 @@ def test_post_markdown__remove_code_info():
     assert p.text == '\n```\na = 2\n```\n'
 
 
-SKIPS_MD = dedent("""
-    ```{skip}
+HIDDEN_MD = dedent("""
+    ```{hide}
     a
     ```
 
@@ -124,21 +124,21 @@ SKIPS_MD = dedent("""
 """)
 
 
-def test_post_markdown__remove_skipped_code_blocks():
-    p = PostMarkdown(SKIPS_MD)
-    p._remove_skipped_code_blocks()
+def test_post_markdown__remove_hidden_code_blocks():
+    p = PostMarkdown(HIDDEN_MD)
+    p._remove_hidden_code_blocks()
     assert p.text == '\n```\nb\n```\n'
 
 
-def test_post_markdown__remove_skipped_code_blocks__no_skips():
+def test_post_markdown__remove_hidden_code_blocks__no_hidden():
     p = PostMarkdown('SOME TEXT')
-    p._remove_skipped_code_blocks()
+    p._remove_hidden_code_blocks()
     assert p.text == 'SOME TEXT'
 
 
-def test_post_markdown__remove_skipped_code_blocks__no_new_line_after():
-    p = PostMarkdown('```{skip}\na\n```')
-    p._remove_skipped_code_blocks()
+def test_post_markdown__remove_hidden_code_blocks__no_new_line_after():
+    p = PostMarkdown('```{hide}\na\n```')
+    p._remove_hidden_code_blocks()
     assert p.text == ''
 
 
