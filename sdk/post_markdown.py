@@ -7,6 +7,8 @@ from typing import Iterator
 import markdown_it.token
 from markdown_it import MarkdownIt
 
+from sdk.ipython_executor import IPythonExecutor, IPythonCommand
+
 
 @dataclasses.dataclass
 class ParagraphCode:
@@ -22,6 +24,10 @@ class ParagraphCode:
     @cached_property
     def is_python_interactive(self) -> bool:
         return 'python-interactive' in self.info
+
+    @cached_property
+    def is_ipython(self) -> bool:
+        return 'ipython' in self.info
 
 
 @dataclasses.dataclass
@@ -71,7 +77,9 @@ class PostMarkdown:
         for paragraph in self._paragraphs():
             if (
                 paragraph.code is None or not (
-                    paragraph.code.is_python or paragraph.code.is_python_interactive
+                    paragraph.code.is_python
+                    or paragraph.code.is_python_interactive
+                    or paragraph.code.is_ipython
                 )
             ):
                 continue
@@ -84,6 +92,8 @@ class PostMarkdown:
                 exec(code, shared_globals)
             if paragraph.code.is_python_interactive:
                 self._exec_cli(code, shared_globals)
+            if paragraph.code.is_ipython:
+                self._exec_ipython(code, shared_globals)
 
     def _exec_cli(self, code: str, shared_globals: dict) -> None:
         in_out: list[tuple[str, str]] = []
@@ -97,7 +107,15 @@ class PostMarkdown:
 
         for in_, out in in_out:
             result = eval(in_, shared_globals)
-            assert str(result) == out, f'{result} != {out}'
+            assert str(result) == out, f'`{result}` != `{out}`'
+
+    def _exec_ipython(self, code: str, shared_globals: dict) -> None:
+        executor = IPythonExecutor(code)
+        commands: list[IPythonCommand] = list(executor.run(shared_globals))
+
+        for command in commands:
+            assert command.out == command.real_out, \
+                f'`{command.out}` != `{command.real_out}`'
 
     def _remove_code_info(self) -> None:
         lines = self.text.splitlines(keepends=True)
