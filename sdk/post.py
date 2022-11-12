@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 from datetime import date
 from functools import cached_property
 from pathlib import Path
+from typing import Optional
 
 import jsonschema
 import yaml
@@ -13,7 +14,7 @@ import yaml
 from sdk.post_markdown import PostMarkdown
 
 from .pep import PEP, get_pep
-from .sequence import PostSequence
+from .sequence import PostSequence, PostOfSequence
 from .trace import Trace, parse_traces
 
 
@@ -137,6 +138,25 @@ class Post:
         copy.to_telegram()
 
         return copy.text
+
+    def self_in_sequence(self) -> Optional[PostOfSequence]:
+        if self.sequence is None:
+            return None
+        found = [
+            p for p in self.sequence.posts
+            if p.path.absolute() == self.path.absolute()
+        ]
+        assert len(found) == 1,\
+            f"There should be only one post in sequence, but found {len(found)}: {found}"
+
+        return found[0]
+
+    def first_in_sequence(self) -> bool:
+        """Considered as first if there is no sequence, or it is first in sequence"""
+        if self.sequence is None:
+            return True
+
+        return self.self_in_sequence().index == 0
 
     def __lt__(self, other: Post) -> bool:
         date1 = self.published or date.today()

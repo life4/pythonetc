@@ -1,9 +1,10 @@
-
 from __future__ import annotations
 
 from collections import defaultdict
+from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
+from typing import Optional
 
 import jinja2
 
@@ -22,13 +23,34 @@ jinja_env = jinja2.Environment(
 )
 
 
+@dataclass(frozen=True)
+class PostToRender(Post):
+    other_posts_in_sequence: list[Post] = field(default_factory=list)
+
+    @classmethod
+    def from_post(cls, post: Post) -> PostToRender:
+        other_posts_in_sequence = []
+        if post.sequence:
+            other_posts_in_sequence = [
+                p for p in post.sequence.posts
+                if p.path.absolute() != post.path.absolute()
+            ]
+
+        return cls(other_posts_in_sequence=other_posts_in_sequence, **post.__dict__)
+
+
 class HTMLCommand(Command):
     """Generate static HTML pages.
     """
     name = 'html'
 
     def run(self) -> int:
-        posts = get_posts()
+        all_posts = get_posts()
+        posts = [
+            PostToRender.from_post(post)
+            for post in all_posts
+            if post.first_in_sequence()
+        ]
         (ROOT / 'public' / 'posts').mkdir(exist_ok=True, parents=True)
 
         years: defaultdict[int, list[Post]] = defaultdict(list)
@@ -69,7 +91,12 @@ class HTMLCommand(Command):
         )
 
         for post in posts:
-            render_post(post)
+            if post.sequence is not None and post.first_in_sequence():
+                posts_in_sequence = [p for p in all_posts if p.sequence == post.sequence]
+                render_post(post, all_posts=posts_in_sequence)
+            else:
+                render_post(post)
+
         return 0
 
 
@@ -80,8 +107,11 @@ def render_html(slug: str, title: str | None = None, **kwargs) -> None:
     html_path.write_text(content, encoding='utf8')
 
 
-def render_post(post: Post) -> None:
+def render_post(post: Post, *, all_posts: Optional[list[Post]] = None) -> None:
+    if all_posts is None:
+        all_posts = [post]
+
     template = jinja_env.get_template('post.html.j2')
-    content = template.render(post=post, title=post.title)
+    content = template.render(post=post, title=post.title, other_posts=all_posts)
     html_path = ROOT / 'public' / 'posts' / f'{post.slug}.html'
     html_path.write_text(content, encoding='utf8')

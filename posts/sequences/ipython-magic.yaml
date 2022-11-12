@@ -1,0 +1,4 @@
+posts:
+- name: ipython-magic
+- name: ipython-magic-img
+  delay_allowed: false
