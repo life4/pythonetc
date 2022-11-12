@@ -68,9 +68,7 @@ class HTMLCommand(Command):
             if p.first_in_sequence()
         ]
 
-        (ROOT / 'public' / 'posts').mkdir(exist_ok=True, parents=True)
-        shutil.rmtree(ROOT / 'public' / 'posts' / 'img')
-        shutil.copytree(ROOT / 'posts' / 'img', ROOT / 'public' / 'posts' / 'img')
+        self._prepare_dirs()
 
         years: defaultdict[int, list[Post]] = defaultdict(list)
         today = date.today()
@@ -120,6 +118,15 @@ class HTMLCommand(Command):
                 render_post(posts=[post])
 
         return 0
+
+    def _prepare_dirs(self) -> None:
+        posts = ROOT / 'public' / 'posts'
+        posts.mkdir(exist_ok=True, parents=True)
+
+        img = ROOT / 'public' / 'posts' / 'img'
+        shutil.rmtree(img, ignore_errors=True)
+
+        shutil.copytree(ROOT / 'posts' / 'img', ROOT / 'public' / 'posts' / 'img')
 
 
 def render_html(slug: str, title: str | None = None, **kwargs) -> None:
