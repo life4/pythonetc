@@ -165,9 +165,6 @@ class PostMarkdown:
     def _remove_code_info(self) -> None:
         lines = self.text.splitlines(keepends=True)
         for token in self._parser.parse(self.text):
-            info = set(token.info.split(','))
-            if 'hide' in info:
-                continue
             if token.type == 'fence':
                 assert token.map
                 line_number = token.map[0]
