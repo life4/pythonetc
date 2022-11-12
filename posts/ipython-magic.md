@@ -10,7 +10,7 @@ iPython supports a number of magic commands that can make your life easier.
 There are two types of them: line magics and cell magics.
 Line magics start with `%` sign, `%timeit` is a good example:
 
-```ipython
+```ipython {no-run}
 In [1]: %timeit sum(x**2 for x in range(1000))
 243 µs ± 2.31 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 ```

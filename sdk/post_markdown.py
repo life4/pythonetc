@@ -13,21 +13,52 @@ from sdk.ipython_executor import IPythonExecutor, IPythonCommand
 @dataclasses.dataclass
 class ParagraphCode:
     body: str
-    info: list[str]
-    hide: bool
-    continue_code: bool
+    language: str
+    hide: bool = False
+    continue_code: bool = False
+    no_run: bool = False
+
+    _MAP_TAGS_TO_ATTRS = {
+        "hide": "hide",
+        "continue": "continue_code",
+        "no-run": "no_run",
+    }
 
     @cached_property
     def is_python(self) -> bool:
-        return 'python' in self.info
+        return 'python' == self.language
 
     @cached_property
     def is_python_interactive(self) -> bool:
-        return 'python-interactive' in self.info
+        return 'python-interactive' == self.language
 
     @cached_property
     def is_ipython(self) -> bool:
-        return 'ipython' in self.info
+        return 'ipython' == self.language
+
+    @classmethod
+    def from_token(cls, token: markdown_it.token.Token) -> ParagraphCode:
+        assert token.type == 'fence'
+
+        words = token.info.split()
+        language = words[0] if words else ''
+        kwargs = {}
+
+        for tag in words[1:]:
+            if '{' != tag[0] or '}' != tag[-1]:
+                raise ValueError(f"Invalid tag: {tag}, should be {{tag}}")
+
+            tag_value = tag[1:-1]
+            if tag_value in cls._MAP_TAGS_TO_ATTRS:
+                kwargs[cls._MAP_TAGS_TO_ATTRS[tag_value]] = True
+            else:
+                raise ValueError(f"Invalid tag: {tag}")
+
+        return cls(
+            body=token.content,
+            language=language,
+            **kwargs,
+        )
 
 
 @dataclasses.dataclass
@@ -76,7 +107,9 @@ class PostMarkdown:
         shared_globals: dict = {}
         for paragraph in self._paragraphs():
             if (
-                paragraph.code is None or not (
+                paragraph.code is None
+                or paragraph.code.no_run
+                or not (
                     paragraph.code.is_python
                     or paragraph.code.is_python_interactive
                     or paragraph.code.is_ipython
@@ -177,13 +210,7 @@ class PostMarkdown:
                     raise ValueError('unexpected paragraph close')
                 else:
                     if token.type == 'fence':
-                        info = token.info.split(' ')
-                        code = ParagraphCode(
-                            body=token.content,
-                            info=info,
-                            hide='{hide}' in info,
-                            continue_code='{continue}' in info,
-                        )
+                        code = ParagraphCode.from_token(token)
                         yield Paragraph(tokens=[token], code=code)
                     else:
                         yield Paragraph(tokens=[token])
