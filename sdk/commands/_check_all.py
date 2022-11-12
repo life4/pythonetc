@@ -9,7 +9,7 @@ from ._command import Command
 
 class CheckAllCommand(Command):
     """Check all posts."""
-    name = 'check_all'
+    name = 'check-all'
 
     def run(self) -> int:
         known_post_paths: set[Path] = set()
