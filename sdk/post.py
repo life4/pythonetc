@@ -24,8 +24,8 @@ REX_FILE_NAME = re.compile(r'[a-z0-9-]+\.md')
 ROOT = Path(__file__).parent.parent
 
 
-def get_posts() -> list[Post]:
-    posts: list[Post] = []
+def get_posts() -> dict[Path, Post]:
+    posts: dict[Path, Post] = {}
     posts_path = ROOT / 'posts'
     for path in posts_path.iterdir():
         if path.suffix != '.md':
@@ -34,8 +34,8 @@ def get_posts() -> list[Post]:
         error = post.validate()
         if error:
             raise ValueError(f'invalid {post.path.name}: {error}')
-        posts.append(post)
-    posts.sort()
+        posts[path.absolute()] = post
+
     return posts
 
 
@@ -109,6 +109,10 @@ class Post:
     @cached_property
     def html_content(self) -> str:
         return self.markdown.copy().html_content()
+
+    @cached_property
+    def html_content_no_header(self) -> str:
+        return self.markdown.copy().html_content_no_header()
 
     @property
     def slug(self) -> str:

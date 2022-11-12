@@ -1,10 +1,10 @@
 from __future__ import annotations
 
+import shutil
 from collections import defaultdict
 from dataclasses import dataclass, field
 from datetime import date
-from pathlib import Path
-from typing import Optional
+from pathlib import Path, WindowsPath
 
 import jinja2
 
@@ -13,7 +13,6 @@ from ..pages import PAGES
 from ..pep import PEP
 from ..post import Post, get_posts
 from ._command import Command
-
 
 ROOT = Path(__file__).parent.parent.parent
 TEMPLATES_PATH = ROOT / 'templates'
@@ -26,6 +25,7 @@ jinja_env = jinja2.Environment(
 @dataclass(frozen=True)
 class PostToRender(Post):
     other_posts_in_sequence: list[Post] = field(default_factory=list)
+    stick_to_previous: bool = False
 
     @classmethod
     def from_post(cls, post: Post) -> PostToRender:
@@ -36,7 +36,20 @@ class PostToRender(Post):
                 if p.path.absolute() != post.path.absolute()
             ]
 
-        return cls(other_posts_in_sequence=other_posts_in_sequence, **post.__dict__)
+        stick_to_previous = False
+        self_in_sequence = post.self_in_sequence()
+        if (
+            not post.first_in_sequence() and
+            self_in_sequence is not None and
+            not self_in_sequence.delay_allowed
+        ):
+            stick_to_previous = True
+
+        return cls(
+            stick_to_previous=stick_to_previous,
+            other_posts_in_sequence=other_posts_in_sequence,
+            **post.__dict__,
+        )
 
 
 class HTMLCommand(Command):
@@ -45,13 +58,19 @@ class HTMLCommand(Command):
     name = 'html'
 
     def run(self) -> int:
-        all_posts = get_posts()
-        posts = [
-            PostToRender.from_post(post)
-            for post in all_posts
-            if post.first_in_sequence()
+        all_posts: dict[Path, Post] = get_posts()
+        all_posts_to_render: dict[Path, PostToRender] = {
+            path: PostToRender.from_post(post)
+            for path, post in all_posts.items()
+        }
+        posts: list[PostToRender] = [
+            p for p in all_posts_to_render.values()
+            if p.first_in_sequence()
         ]
+
         (ROOT / 'public' / 'posts').mkdir(exist_ok=True, parents=True)
+        shutil.rmtree(ROOT / 'public' / 'posts' / 'img')
+        shutil.copytree(ROOT / 'posts' / 'img', ROOT / 'public' / 'posts' / 'img')
 
         years: defaultdict[int, list[Post]] = defaultdict(list)
         today = date.today()
@@ -92,10 +111,13 @@ class HTMLCommand(Command):
 
         for post in posts:
             if post.sequence is not None and post.first_in_sequence():
-                posts_in_sequence = [p for p in all_posts if p.sequence == post.sequence]
-                render_post(post, all_posts=posts_in_sequence)
+                posts_in_sequence: list[PostToRender] = [
+                    all_posts_to_render[post_in_sequence.path.absolute()]
+                    for post_in_sequence in post.sequence.posts
+                ]
+                render_post(posts=posts_in_sequence)
             else:
-                render_post(post)
+                render_post(posts=[post])
 
         return 0
 
@@ -107,11 +129,9 @@ def render_html(slug: str, title: str | None = None, **kwargs) -> None:
     html_path.write_text(content, encoding='utf8')
 
 
-def render_post(post: Post, *, all_posts: Optional[list[Post]] = None) -> None:
-    if all_posts is None:
-        all_posts = [post]
-
+def render_post(posts: list[PostToRender] = None) -> None:
+    main_post = posts[0]
     template = jinja_env.get_template('post.html.j2')
-    content = template.render(post=post, title=post.title, other_posts=all_posts)
-    html_path = ROOT / 'public' / 'posts' / f'{post.slug}.html'
+    content = template.render(title=main_post.title, posts=posts)
+    html_path = ROOT / 'public' / 'posts' / f'{main_post.slug}.html'
     html_path.write_text(content, encoding='utf8')

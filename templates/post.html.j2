@@ -1,67 +1,73 @@
 {% extends "base.html.j2" %}
 {% block content %}
-  {% for post in other_posts %}
+  {% for post in posts %}
     <div class="row">
       <article class="col-12 col-md-8">
-        {{ post.html_content }}
+        {% if post.stick_to_previous %}
+          {{ post.html_content_no_header }}
+        {% else %}
+          {{ post.html_content }}
+        {% endif %}
       </article>
-      <aside class="col">
-        <ul class="list-group">
+      {% if not post.stick_to_previous %}
+        <aside class="col">
+          <ul class="list-group">
 
-          {% if post.published %}
-            <li class="list-group-item">
-              <i class="fa-regular fa-calendar"></i>
-              {{ post.published }}
-            </li>
-          {% endif %}
-
-          <li class="list-group-item">
-            <i class="fa-regular fa-user"></i>
-            <a href="https://github.com/{{ post.author }}" target="_blank">
-              {{ post.author }}
-            </a>
-          </li>
-
-          {% if post.id %}
-            <li class="list-group-item">
-              <i class="fa-brands fa-telegram"></i>
-              <a href="https://t.me/pythonetc/{{ post.id }}" target="_blank">
-                Telegram post #{{ post.id }}
-              </a>
-            </li>
-          {% endif %}
-
-          {% if post.pep_info %}
-            <li class="list-group-item">
-              <i class="fa-regular fa-file"></i>
-              <a href="{{ post.pep_info.url }}" target="_blank">
-                PEP {{ post.pep_info.number }} - {{ post.pep_info.title }}
-              </a>
-            </li>
-          {% endif %}
-
-          {% for trace in post.traces %}
-            {% if trace.docs_url %}
+            {% if post.published %}
               <li class="list-group-item">
-                <i class="fa-regular fa-question-circle"></i>
-                <a href="{{ trace.docs_url }}" target="_blank">
-                  {{ trace.title }}
+                <i class="fa-regular fa-calendar"></i>
+                {{ post.published }}
+              </li>
+            {% endif %}
+
+            <li class="list-group-item">
+              <i class="fa-regular fa-user"></i>
+              <a href="https://github.com/{{ post.author }}" target="_blank">
+                {{ post.author }}
+              </a>
+            </li>
+
+            {% if post.id %}
+              <li class="list-group-item">
+                <i class="fa-brands fa-telegram"></i>
+                <a href="https://t.me/pythonetc/{{ post.id }}" target="_blank">
+                  Telegram post #{{ post.id }}
                 </a>
               </li>
             {% endif %}
-          {% endfor %}
 
-          {% if post.python %}
-            <li class="list-group-item">
-              <i class="fa-brands fa-python"></i>
-              <a href="https://docs.python.org/3/whatsnew/{{ post.python }}.html" target="_blank">
-                Python {{ post.python }}
-              </a>
-            </li>
-          {% endif %}
+            {% if post.pep_info %}
+              <li class="list-group-item">
+                <i class="fa-regular fa-file"></i>
+                <a href="{{ post.pep_info.url }}" target="_blank">
+                  PEP {{ post.pep_info.number }} - {{ post.pep_info.title }}
+                </a>
+              </li>
+            {% endif %}
 
-        </ul>
-      </aside>
+            {% for trace in post.traces %}
+              {% if trace.docs_url %}
+                <li class="list-group-item">
+                  <i class="fa-regular fa-question-circle"></i>
+                  <a href="{{ trace.docs_url }}" target="_blank">
+                    {{ trace.title }}
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+
+            {% if post.python %}
+              <li class="list-group-item">
+                <i class="fa-brands fa-python"></i>
+                <a href="https://docs.python.org/3/whatsnew/{{ post.python }}.html" target="_blank">
+                  Python {{ post.python }}
+                </a>
+              </li>
+            {% endif %}
+
+          </ul>
+        </aside>
+      {% endif %}
     </div>
   {% endfor %}
 {% endblock %}

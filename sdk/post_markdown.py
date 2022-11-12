@@ -97,6 +97,11 @@ class PostMarkdown:
         self._remove_hidden_code_blocks()
         return self._parser.render(self.text)
 
+    def html_content_no_header(self) -> str:
+        self._remove_hidden_code_blocks()
+        self._remove_header()
+        return self.html_content()
+
     def to_telegram(self) -> None:
         self.run_code()
         self._remove_header()
