@@ -41,18 +41,25 @@ class ParagraphCode:
         assert token.type == 'fence'
 
         words = token.info.split()
-        language = words[0] if words else ''
+        language = ''
         kwargs = {}
 
-        for tag in words[1:]:
+        first_word: bool = True
+        for tag in words:
             if '{' != tag[0] or '}' != tag[-1]:
-                raise ValueError(f"Invalid tag: {tag}, should be {{tag}}")
+                if first_word:
+                    language = tag
+                    continue
+                else:
+                    raise ValueError(f"Invalid tag: {tag}, should be {{tag}}")
 
             tag_value = tag[1:-1]
             if tag_value in cls._MAP_TAGS_TO_ATTRS:
                 kwargs[cls._MAP_TAGS_TO_ATTRS[tag_value]] = True
             else:
                 raise ValueError(f"Invalid tag: {tag}")
+
+            first_word = False
 
         return cls(
             body=token.content,
