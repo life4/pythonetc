@@ -18,7 +18,8 @@ class CheckAllCommand(Command):
             if path.suffix != '.md':
                 continue
             post = Post.from_path(path)
-            # post.run_code()  # TODO: all posts should be runnable
+            if post.id is not None and post.id <= 11:
+                post.run_code()  # TODO: all posts should be runnable
             if post.sequence:
                 assert post.path in [p.path for p in post.sequence.posts],\
                     f'{post.path.name} is not in its sequence'

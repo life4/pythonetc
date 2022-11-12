@@ -9,7 +9,7 @@ sequence: dict-keys
 
 If `dict` remembers the order of elements in Python3.6+, why do you need `collections.OrderedDict` anymore? That's why:
 
-```python {skip}
+```python {hide}
 from collections import OrderedDict
 ```
 
