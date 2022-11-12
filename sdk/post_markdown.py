@@ -91,6 +91,17 @@ class PostMarkdown:
     def has_empty_line_eof(self) -> bool:
         return self.text.endswith('\n')
 
+    def has_images(self) -> bool:
+        queue = self._parser.parse(self.text)
+        while queue:
+            token = queue.pop(0)
+            if token.type == 'image':
+                return True
+            if token.type == 'inline':
+                queue.extend(token.children)
+
+        return False
+
     def title(self) -> str:
         first_line = self.text.lstrip().split('\n', maxsplit=1)[0]
         if first_line.startswith('# '):

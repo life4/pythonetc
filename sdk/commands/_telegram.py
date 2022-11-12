@@ -31,5 +31,11 @@ class TelegramCommand(Command):
                         f'python -m sdk telegram posts/{next_post.path.name}'
                     )
 
+        if post.markdown.has_images():
+            self.warn(
+                'This post contains images. '
+                'You must post them to Telegram manually.'
+            )
+
 
         return 0
