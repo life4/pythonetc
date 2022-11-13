@@ -144,6 +144,7 @@ class PostMarkdown:
                 shared_globals = {}
 
             code = paragraph.tokens[-1].content
+            print(shared_globals, '<<<<<<<<<<<<<<<<<<<')
             if paragraph.code.is_python:
                 exec(code, shared_globals)
             if paragraph.code.is_python_interactive:
