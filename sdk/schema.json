@@ -14,6 +14,25 @@
         "sequence": {
             "type": "string"
         },
+        "buttons": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "url"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
         "id": {
             "type": "integer",
             "minimum": 1

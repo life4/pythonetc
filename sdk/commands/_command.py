@@ -23,4 +23,4 @@ class Command:
         print(*args, file=self.stdout, sep=sep)
 
     def warn(self, message: str) -> None:
-        sys.stderr.write(f'WARNING: {message}')
+        sys.stderr.write(f'WARNING: {message}\n')

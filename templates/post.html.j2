@@ -8,6 +8,9 @@
         {% else %}
           {{ post.html_content }}
         {% endif %}
+        {% for button in post.buttons %}
+          <a href="{{ button.url }}" class="btn btn-primary">{{ button.title }}</a>
+        {% endfor %}
       </article>
       {% if not post.stick_to_previous %}
         <aside class="col">

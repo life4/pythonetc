@@ -1,2 +1,4 @@
 posts:
 - name: decorator-syntax
+- name: decorator-syntax-parametrized
+  delay_allowed: true

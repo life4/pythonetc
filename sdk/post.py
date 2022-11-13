@@ -25,7 +25,7 @@ ROOT = Path(__file__).parent.parent
 
 
 def get_posts() -> dict[Path, Post]:
-    posts: dict[Path, Post] = {}
+    posts: list[Post] = []
     posts_path = ROOT / 'posts'
     for path in posts_path.iterdir():
         if path.suffix != '.md':
@@ -34,9 +34,20 @@ def get_posts() -> dict[Path, Post]:
         error = post.validate()
         if error:
             raise ValueError(f'invalid {post.path.name}: {error}')
-        posts[path.absolute()] = post
+        posts.append(post)
 
-    return posts
+    posts.sort()
+
+    return {
+        post.path: post
+        for post in posts
+    }
+
+
+@dataclass(frozen=True)
+class PostButton:
+    title: str
+    url: str
 
 
 @dataclass(frozen=True)
@@ -52,6 +63,7 @@ class Post:
     published: date | None = None
     python: str | None = None
     sequence: PostSequence | None = None
+    buttons: list[PostButton] = field(default_factory=list)
 
     @classmethod
     def from_path(cls, path: Path) -> Post:
@@ -74,9 +86,17 @@ class Post:
                 / (meta.pop('sequence') + '.yaml')
             )
 
+        buttons: list[PostButton] = []
+        if 'buttons' in meta:
+            buttons = [
+                PostButton(**button)
+                for button in meta.pop('buttons')
+            ]
+
         return cls(
             **meta,
             sequence=sequence,
+            buttons=buttons,
             path=path,
             traces=traces,
             markdown=PostMarkdown(markdown),
