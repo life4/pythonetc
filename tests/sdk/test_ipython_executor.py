@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from textwrap import dedent
 
-from sdk.ipython_executor import IPythonExecutor, IPythonCommand
+from sdk.ipython_executor import IPythonCommand, IPythonExecutor
 
 
 def test__lines_of_code() -> None:
@@ -34,7 +34,7 @@ def test__lines_of_code() -> None:
 
 def test_run():
     shared_globals: dict = {}
-    exec("a = 4", shared_globals)
+    exec('a = 4', shared_globals)
     code = dedent("""
         In [0]: a *= 2
         In [1]: a
@@ -48,4 +48,4 @@ def test_run():
         IPythonCommand('a *= 2', '', ''),
         IPythonCommand('a', '7', '8'),  # 7 is just for test, should not happen
     ] == run_result
-    assert shared_globals["a"] == 8
+    assert shared_globals['a'] == 8

@@ -14,7 +14,7 @@ import yaml
 from sdk.post_markdown import PostMarkdown
 
 from .pep import PEP, get_pep
-from .sequence import PostSequence, PostOfSequence
+from .sequence import PostOfSequence, PostSequence
 from .trace import Trace, parse_traces
 
 
@@ -171,16 +171,17 @@ class Post:
             if p.path.absolute() == self.path.absolute()
         ]
         assert len(found) == 1,\
-            f"There should be only one post in sequence, but found {len(found)}: {found}"
+            f'There should be only one post in sequence, but found {len(found)}: {found}'
 
         return found[0]
 
     def first_in_sequence(self) -> bool:
         """Considered as first if there is no sequence, or it is first in sequence"""
-        if self.sequence is None:
+        self_in_sequence = self.self_in_sequence()
+        if self_in_sequence is None:
             return True
 
-        return self.self_in_sequence().index == 0
+        return self_in_sequence.index == 0
 
     def __lt__(self, other: Post) -> bool:
         date1 = self.published or date.today()

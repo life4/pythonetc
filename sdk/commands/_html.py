@@ -4,7 +4,7 @@ import shutil
 from collections import defaultdict
 from dataclasses import dataclass, field
 from datetime import date
-from pathlib import Path, WindowsPath
+from pathlib import Path
 
 import jinja2
 
@@ -13,6 +13,7 @@ from ..pages import PAGES
 from ..pep import PEP
 from ..post import Post, get_posts
 from ._command import Command
+from ..sequence import PostOfSequence
 
 ROOT = Path(__file__).parent.parent.parent
 TEMPLATES_PATH = ROOT / 'templates'
@@ -24,7 +25,7 @@ jinja_env = jinja2.Environment(
 
 @dataclass(frozen=True)
 class PostToRender(Post):
-    other_posts_in_sequence: list[Post] = field(default_factory=list)
+    other_posts_in_sequence: list[PostOfSequence] = field(default_factory=list)
     stick_to_previous: bool = False
 
     @classmethod
@@ -39,9 +40,9 @@ class PostToRender(Post):
         stick_to_previous = False
         self_in_sequence = post.self_in_sequence()
         if (
-            not post.first_in_sequence() and
-            self_in_sequence is not None and
-            not self_in_sequence.delay_allowed
+            not post.first_in_sequence()
+            and self_in_sequence is not None
+            and not self_in_sequence.delay_allowed
         ):
             stick_to_previous = True
 
@@ -136,7 +137,7 @@ def render_html(slug: str, title: str | None = None, **kwargs) -> None:
     html_path.write_text(content, encoding='utf8')
 
 
-def render_post(posts: list[PostToRender] = None) -> None:
+def render_post(posts: list[PostToRender]) -> None:
     main_post = posts[0]
     template = jinja_env.get_template('post.html.j2')
     content = template.render(title=main_post.title, posts=posts)

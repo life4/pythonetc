@@ -2,6 +2,7 @@ import json
 import sys
 from pathlib import Path
 
+
 meta = json.loads(Path('result.json').read_text('utf8'))
 target_id = int(sys.argv[1])
 

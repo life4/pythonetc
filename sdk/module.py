@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Iterable
 
 
 if TYPE_CHECKING:
@@ -17,7 +17,7 @@ class Module:
     child_posts: list[tuple[Trace, Post]] = field(default_factory=list)
 
     @classmethod
-    def from_posts(self, posts: list[Post]) -> list[Module]:
+    def from_posts(self, posts: Iterable[Post]) -> list[Module]:
         modules: defaultdict[str, Module] = defaultdict(Module)
         for post in posts:
             for trace in post.traces:

@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import TypeVar, Type
+from typing import Type, TypeVar
 
 import attr
 import yaml
+
 
 PostSequenceT = TypeVar('PostSequenceT', bound='PostSequence')
 

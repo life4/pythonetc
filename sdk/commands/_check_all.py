@@ -22,14 +22,15 @@ class CheckAllCommand(Command):
             if post.id is not None and post.id <= 100:
                 post.run_code()  # TODO: all posts should be runnable
             if post.id:
-                assert post.id not in known_post_ids, f"duplicate post id: {post.id}"
+                assert post.id not in known_post_ids, f'duplicate post id: {post.id}'
             if post.sequence:
                 assert post.path.absolute() in [
                     p.path.absolute() for p in post.sequence.posts
                 ], f'{post.path.name} is not in its sequence'
 
             known_posts_by_path[path.absolute()] = post
-            known_post_ids.add(post.id)
+            if post.id is not None:
+                known_post_ids.add(post.id)
 
         # check sequences
         for path in Path('posts/sequences').iterdir():

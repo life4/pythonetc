@@ -7,7 +7,7 @@ from typing import Iterator
 import markdown_it.token
 from markdown_it import MarkdownIt
 
-from sdk.ipython_executor import IPythonExecutor, IPythonCommand
+from sdk.ipython_executor import IPythonCommand, IPythonExecutor
 
 
 @dataclasses.dataclass
@@ -20,10 +20,10 @@ class ParagraphCode:
     no_check_interactive: bool = False
 
     _MAP_TAGS_TO_ATTRS = {
-        "hide": "hide",
-        "continue": "continue_code",
-        "no-run": "no_run",
-        "no-check-interactive": "no_check_interactive",
+        'hide': 'hide',
+        'continue': 'continue_code',
+        'no-run': 'no_run',
+        'no-check-interactive': 'no_check_interactive',
     }
 
     @cached_property
@@ -53,13 +53,13 @@ class ParagraphCode:
                     language = tag
                     continue
                 else:
-                    raise ValueError(f"Invalid tag: {tag}, should be {{tag}}")
+                    raise ValueError(f'Invalid tag: {tag}, should be {{tag}}')
 
             tag_value = tag[1:-1]
             if tag_value in cls._MAP_TAGS_TO_ATTRS:
                 kwargs[cls._MAP_TAGS_TO_ATTRS[tag_value]] = True
             else:
-                raise ValueError(f"Invalid tag: {tag}")
+                raise ValueError(f'Invalid tag: {tag}')
 
             first_word = False
 
@@ -100,7 +100,8 @@ class PostMarkdown:
             if token.type == 'image':
                 return True
             if token.type == 'inline':
-                queue.extend(token.children)
+                if token.children:
+                    queue.extend(token.children)
 
         return False
 

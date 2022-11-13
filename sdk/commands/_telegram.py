@@ -21,8 +21,9 @@ class TelegramCommand(Command):
         post = Post.from_path(self.args.post)
         self.print(post.telegram_markdown)
 
-        if post.sequence:
-            index = post.self_in_sequence().index
+        self_in_sequence = post.self_in_sequence()
+        if post.sequence and self_in_sequence:
+            index = self_in_sequence.index
             if len(post.sequence.posts) > index + 1:
                 next_post = post.sequence.posts[index + 1]
                 if not next_post.delay_allowed:

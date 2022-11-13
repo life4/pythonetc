@@ -1,5 +1,6 @@
 import functools
 
+
 def unparameterized_decorator(decorator):
     @functools.wraps(decorator)
     def wrapped(func=None):

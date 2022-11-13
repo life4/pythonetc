@@ -22,7 +22,7 @@ MD = dedent("""
     assert a == 2
     ```
 
-    ```python {no-run}
+    ```python {no-run} {hide}
     assert False
     ```
 
@@ -107,7 +107,7 @@ def test_post_markdown__paragraphs():
     assert paragraphs[5].code is not None
     assert paragraphs[5].code.body == 'assert False\n'
     assert paragraphs[5].code.language == 'python'
-    assert paragraphs[5].code.hide is False
+    assert paragraphs[5].code.hide is True
     assert paragraphs[5].code.continue_code is False
     assert paragraphs[5].code.no_run is True
 
