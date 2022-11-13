@@ -19,6 +19,12 @@ for line in target['text']:
             print("*{}*".format(line['text']), end='')
         elif line['type'] == 'italic':
             print("_{}_".format(line['text']), end='')
+        elif line['type'] == 'code':
+            print("`{}`".format(line['text']), end='')
+        elif line['type'] == 'pre':
+            print("```python")
+            print(line['text'])
+            print("```")
         else:
             raise ValueError("Unknown line type: {}".format(line['type']))
     else:
