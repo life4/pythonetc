@@ -1,0 +1,4 @@
+posts:
+- name: http-redirect
+- name: http-redirect-cheatsheet
+  delay_allowed: true
