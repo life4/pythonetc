@@ -17,11 +17,13 @@ class ParagraphCode:
     hide: bool = False
     continue_code: bool = False
     no_run: bool = False
+    no_check_interactive: bool = False
 
     _MAP_TAGS_TO_ATTRS = {
         "hide": "hide",
         "continue": "continue_code",
         "no-run": "no_run",
+        "no-check-interactive": "no_check_interactive",
     }
 
     @cached_property
@@ -147,11 +149,18 @@ class PostMarkdown:
             if paragraph.code.is_python:
                 exec(code, shared_globals)
             if paragraph.code.is_python_interactive:
-                self._exec_cli(code, shared_globals)
+                self._exec_cli(
+                    code, shared_globals,
+                    check_interactive=not paragraph.code.no_check_interactive,
+                )
             if paragraph.code.is_ipython:
                 self._exec_ipython(code, shared_globals)
 
-    def _exec_cli(self, code: str, shared_globals: dict) -> None:
+    def _exec_cli(
+        self, code: str, shared_globals: dict,
+        *,
+        check_interactive: bool,
+    ) -> None:
         in_out: list[tuple[str, str]] = []
         for line in code.splitlines():
             if line.startswith('>>> '):
@@ -163,7 +172,8 @@ class PostMarkdown:
 
         for in_, out in in_out:
             result = eval(in_, shared_globals)
-            assert str(result) == out, f'`{result}` != `{out}`'
+            if check_interactive:
+                assert str(result) == out, f'`{result}` != `{out}`'
 
     def _exec_ipython(self, code: str, shared_globals: dict) -> None:
         executor = IPythonExecutor(code)
