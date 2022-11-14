@@ -30,14 +30,7 @@
         </h2>
         <ul>
           {% for post in posts %}
-            <li>
-              <span class="text-muted">
-                {{ post.published }}
-              </span>
-              <a href="{{ post.url }}">
-                {{ post.title }}
-              </a>
-            </li>
+            {% include "_post_line.j2" %}
           {% endfor %}
         </ul>
       </div>

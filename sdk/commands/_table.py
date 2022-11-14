@@ -11,7 +11,7 @@ class TableCommand(Command):
     name = 'table'
 
     def run(self) -> int:
-        for post in get_posts():
+        for post in sorted(get_posts().values()):
             self.print(
                 post.published or 'TBA       ',
                 f'PEP {post.pep:<4}' if post.pep else ' ' * 8,

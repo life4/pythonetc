@@ -17,8 +17,8 @@ class IPythonCommand:
 
 class IPythonCommandBuffer:
     def __init__(self):
-        self._in_buffer: str = ""
-        self._out_buffer: str = ""
+        self._in_buffer: str = ''
+        self._out_buffer: str = ''
 
         self._out_started = False
 
@@ -26,7 +26,7 @@ class IPythonCommandBuffer:
         if self._in_buffer and self._in_buffer[-1] == '\\':
             self._in_buffer = self._in_buffer[:-1] + s
         elif self._in_buffer:
-            self._in_buffer += "\n" + s
+            self._in_buffer += '\n' + s
         else:
             self._in_buffer = s
 
@@ -49,8 +49,8 @@ class IPythonCommandBuffer:
             out=self._out_buffer,
             real_out=None,
         )
-        self._in_buffer = ""
-        self._out_buffer = ""
+        self._in_buffer = ''
+        self._out_buffer = ''
         self._out_started = False
 
         return result
@@ -89,9 +89,9 @@ class IPythonExecutor:
             sys.stdout = io.StringIO()
 
             from IPython import embed
-            shared_globals["embed"] = embed
-            shared_globals["__name__"] = __name__
-            exec("embed()", shared_globals)
+            shared_globals['embed'] = embed
+            shared_globals['__name__'] = __name__
+            exec('embed()', shared_globals)
 
             for out_line in sys.stdout.getvalue().splitlines():
                 if m := re.search(r'Out\[(\d+)]: (.*)$', out_line):

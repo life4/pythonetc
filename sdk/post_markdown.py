@@ -7,27 +7,67 @@ from typing import Iterator
 import markdown_it.token
 from markdown_it import MarkdownIt
 
-from sdk.ipython_executor import IPythonExecutor, IPythonCommand
+from sdk.ipython_executor import IPythonCommand, IPythonExecutor
 
 
 @dataclasses.dataclass
 class ParagraphCode:
     body: str
-    info: list[str]
-    hide: bool
-    continue_code: bool
+    language: str
+    hide: bool = False
+    continue_code: bool = False
+    no_run: bool = False
+    no_check_interactive: bool = False
+
+    _MAP_TAGS_TO_ATTRS = {
+        'hide': 'hide',
+        'continue': 'continue_code',
+        'no-run': 'no_run',
+        'no-check-interactive': 'no_check_interactive',
+    }
 
     @cached_property
     def is_python(self) -> bool:
-        return 'python' in self.info
+        return 'python' == self.language
 
     @cached_property
     def is_python_interactive(self) -> bool:
-        return 'python-interactive' in self.info
+        return 'python-interactive' == self.language
 
     @cached_property
     def is_ipython(self) -> bool:
-        return 'ipython' in self.info
+        return 'ipython' == self.language
+
+    @classmethod
+    def from_token(cls, token: markdown_it.token.Token) -> ParagraphCode:
+        assert token.type == 'fence'
+
+        words = token.info.split()
+        language = ''
+        kwargs = {}
+
+        first_word: bool = True
+        for tag in words:
+            if '{' != tag[0] or '}' != tag[-1]:
+                if first_word:
+                    language = tag
+                    continue
+                else:
+                    raise ValueError(f'Invalid tag: {tag}, should be {{tag}}')
+
+            tag_value = tag[1:-1]
+            if tag_value in cls._MAP_TAGS_TO_ATTRS:
+                kwargs[cls._MAP_TAGS_TO_ATTRS[tag_value]] = True
+            else:
+                raise ValueError(f'Invalid tag: {tag}')
+
+            first_word = False
+
+        return cls(
+            body=token.content,
+            language=language,
+            **kwargs,
+        )
 
 
 @dataclasses.dataclass
@@ -53,6 +93,18 @@ class PostMarkdown:
     def has_empty_line_eof(self) -> bool:
         return self.text.endswith('\n')
 
+    def has_images(self) -> bool:
+        queue = self._parser.parse(self.text)
+        while queue:
+            token = queue.pop(0)
+            if token.type == 'image':
+                return True
+            if token.type == 'inline':
+                if token.children:
+                    queue.extend(token.children)
+
+        return False
+
     def title(self) -> str:
         first_line = self.text.lstrip().split('\n', maxsplit=1)[0]
         if first_line.startswith('# '):
@@ -66,6 +118,11 @@ class PostMarkdown:
         self._remove_hidden_code_blocks()
         return self._parser.render(self.text)
 
+    def html_content_no_header(self) -> str:
+        self._remove_hidden_code_blocks()
+        self._remove_header()
+        return self.html_content()
+
     def to_telegram(self) -> None:
         self.run_code()
         self._remove_header()
@@ -76,7 +133,9 @@ class PostMarkdown:
         shared_globals: dict = {}
         for paragraph in self._paragraphs():
             if (
-                paragraph.code is None or not (
+                paragraph.code is None
+                or paragraph.code.no_run
+                or not (
                     paragraph.code.is_python
                     or paragraph.code.is_python_interactive
                     or paragraph.code.is_ipython
@@ -91,11 +150,18 @@ class PostMarkdown:
             if paragraph.code.is_python:
                 exec(code, shared_globals)
             if paragraph.code.is_python_interactive:
-                self._exec_cli(code, shared_globals)
+                self._exec_cli(
+                    code, shared_globals,
+                    check_interactive=not paragraph.code.no_check_interactive,
+                )
             if paragraph.code.is_ipython:
                 self._exec_ipython(code, shared_globals)
 
-    def _exec_cli(self, code: str, shared_globals: dict) -> None:
+    def _exec_cli(
+        self, code: str, shared_globals: dict,
+        *,
+        check_interactive: bool,
+    ) -> None:
         in_out: list[tuple[str, str]] = []
         for line in code.splitlines():
             if line.startswith('>>> '):
@@ -107,7 +173,8 @@ class PostMarkdown:
 
         for in_, out in in_out:
             result = eval(in_, shared_globals)
-            assert str(result) == out, f'`{result}` != `{out}`'
+            if check_interactive:
+                assert str(result) == out, f'`{result}` != `{out}`'
 
     def _exec_ipython(self, code: str, shared_globals: dict) -> None:
         executor = IPythonExecutor(code)
@@ -120,9 +187,6 @@ class PostMarkdown:
     def _remove_code_info(self) -> None:
         lines = self.text.splitlines(keepends=True)
         for token in self._parser.parse(self.text):
-            info = set(token.info.split(','))
-            if 'hide' in info:
-                continue
             if token.type == 'fence':
                 assert token.map
                 line_number = token.map[0]
@@ -177,13 +241,7 @@ class PostMarkdown:
                     raise ValueError('unexpected paragraph close')
                 else:
                     if token.type == 'fence':
-                        info = token.info.split(' ')
-                        code = ParagraphCode(
-                            body=token.content,
-                            info=info,
-                            hide='{hide}' in info,
-                            continue_code='{continue}' in info,
-                        )
+                        code = ParagraphCode.from_token(token)
                         yield Paragraph(tokens=[token], code=code)
                     else:
                         yield Paragraph(tokens=[token])

@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 from datetime import date
 from functools import cached_property
 from pathlib import Path
+from typing import Optional
 
 import jsonschema
 import yaml
@@ -13,7 +14,7 @@ import yaml
 from sdk.post_markdown import PostMarkdown
 
 from .pep import PEP, get_pep
-from .sequence import PostSequence
+from .sequence import PostOfSequence, PostSequence
 from .trace import Trace, parse_traces
 
 
@@ -23,7 +24,7 @@ REX_FILE_NAME = re.compile(r'[a-z0-9-]+\.md')
 ROOT = Path(__file__).parent.parent
 
 
-def get_posts() -> list[Post]:
+def get_posts() -> dict[Path, Post]:
     posts: list[Post] = []
     posts_path = ROOT / 'posts'
     for path in posts_path.iterdir():
@@ -34,8 +35,19 @@ def get_posts() -> list[Post]:
         if error:
             raise ValueError(f'invalid {post.path.name}: {error}')
         posts.append(post)
+
     posts.sort()
-    return posts
+
+    return {
+        post.path: post
+        for post in posts
+    }
+
+
+@dataclass(frozen=True)
+class PostButton:
+    title: str
+    url: str
 
 
 @dataclass(frozen=True)
@@ -51,6 +63,7 @@ class Post:
     published: date | None = None
     python: str | None = None
     sequence: PostSequence | None = None
+    buttons: list[PostButton] = field(default_factory=list)
 
     @classmethod
     def from_path(cls, path: Path) -> Post:
@@ -73,9 +86,17 @@ class Post:
                 / (meta.pop('sequence') + '.yaml')
             )
 
+        buttons: list[PostButton] = []
+        if 'buttons' in meta:
+            buttons = [
+                PostButton(**button)
+                for button in meta.pop('buttons')
+            ]
+
         return cls(
             **meta,
             sequence=sequence,
+            buttons=buttons,
             path=path,
             traces=traces,
             markdown=PostMarkdown(markdown),
@@ -109,6 +130,10 @@ class Post:
     def html_content(self) -> str:
         return self.markdown.copy().html_content()
 
+    @cached_property
+    def html_content_no_header(self) -> str:
+        return self.markdown.copy().html_content_no_header()
+
     @property
     def slug(self) -> str:
         return self.path.stem
@@ -137,6 +162,26 @@ class Post:
         copy.to_telegram()
 
         return copy.text
+
+    def self_in_sequence(self) -> Optional[PostOfSequence]:
+        if self.sequence is None:
+            return None
+        found = [
+            p for p in self.sequence.posts
+            if p.path.absolute() == self.path.absolute()
+        ]
+        assert len(found) == 1,\
+            f'There should be only one post in sequence, but found {len(found)}: {found}'
+
+        return found[0]
+
+    def first_in_sequence(self) -> bool:
+        """Considered as first if there is no sequence, or it is first in sequence"""
+        self_in_sequence = self.self_in_sequence()
+        if self_in_sequence is None:
+            return True
+
+        return self_in_sequence.index == 0
 
     def __lt__(self, other: Post) -> bool:
         date1 = self.published or date.today()

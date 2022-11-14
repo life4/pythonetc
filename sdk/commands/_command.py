@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from dataclasses import dataclass
 from typing import ClassVar, TextIO
 
@@ -20,3 +21,6 @@ class Command:
 
     def print(self, *args, sep='\n') -> None:
         print(*args, file=self.stdout, sep=sep)
+
+    def warn(self, message: str) -> None:
+        sys.stderr.write(f'WARNING: {message}\n')

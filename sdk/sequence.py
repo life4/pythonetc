@@ -1,16 +1,18 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import TypeVar, Type
+from typing import Type, TypeVar
 
 import attr
 import yaml
+
 
 PostSequenceT = TypeVar('PostSequenceT', bound='PostSequence')
 
 
 @attr.s(auto_attribs=True, frozen=True)
 class PostOfSequence:
+    index: int
     path: Path
     delay_allowed: bool = False
 
@@ -24,14 +26,16 @@ class PostSequence:
         data: dict = yaml.safe_load(path.read_text('utf8'))
 
         posts: list[PostOfSequence] = []
+        index = 0
         for post in data['posts']:
             if 'name' in post:
                 assert 'path' not in post,\
                     f'path and name are mutually exclusive in {path.name}'
-                post['path'] = Path('posts') / (post.pop('name') + '.md')
+                post['path'] = (Path('posts') / (post.pop('name') + '.md'))
             if 'post' in post:
                 post['path'] = Path(post['path'])
 
-            posts.append(PostOfSequence(**post))
+            posts.append(PostOfSequence(index=index, **post))
+            index += 1
 
         return cls(posts=posts)

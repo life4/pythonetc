@@ -22,6 +22,10 @@ MD = dedent("""
     assert a == 2
     ```
 
+    ```python {no-run} {hide}
+    assert False
+    ```
+
     SOME TEXT 2
 """)
 
@@ -71,10 +75,11 @@ def test_post_markdown_html_content():
 def test_post_markdown__paragraphs():
     p = PostMarkdown(MD)
     paragraphs = list(p._paragraphs())
-    assert len(paragraphs) == 6
+    assert len(paragraphs) == 7
     assert [len(p.tokens) for p in paragraphs] == [
         3,  # header: open, inline, close
         3,  # text: open, inline, close
+        1,  # fence
         1,  # fence
         1,  # fence
         1,  # fence
@@ -83,21 +88,28 @@ def test_post_markdown__paragraphs():
 
     assert paragraphs[2].code is not None
     assert paragraphs[2].code.body == 'a = 1\n'
-    assert paragraphs[2].code.info == ['python', '{hide}']
+    assert paragraphs[2].code.language == 'python'
     assert paragraphs[2].code.hide is True
     assert paragraphs[2].code.continue_code is False
 
     assert paragraphs[3].code is not None
     assert paragraphs[3].code.body == 'a += 1\n'
-    assert paragraphs[3].code.info == ['python', '{continue}']
+    assert paragraphs[3].code.language == 'python'
     assert paragraphs[3].code.hide is False
     assert paragraphs[3].code.continue_code is True
 
     assert paragraphs[4].code is not None
     assert paragraphs[4].code.body == 'assert a == 2\n'
-    assert paragraphs[4].code.info == ['python', '{hide}', '{continue}']
+    assert paragraphs[4].code.language == 'python'
     assert paragraphs[4].code.hide is True
     assert paragraphs[4].code.continue_code is True
+
+    assert paragraphs[5].code is not None
+    assert paragraphs[5].code.body == 'assert False\n'
+    assert paragraphs[5].code.language == 'python'
+    assert paragraphs[5].code.hide is True
+    assert paragraphs[5].code.continue_code is False
+    assert paragraphs[5].code.no_run is True
 
 
 MD_CODE_INFO = dedent("""
