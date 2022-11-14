@@ -12,8 +12,9 @@ from ..module import Module
 from ..pages import PAGES
 from ..pep import PEP
 from ..post import Post, get_posts
-from ._command import Command
 from ..sequence import PostOfSequence
+from ._command import Command
+
 
 ROOT = Path(__file__).parent.parent.parent
 TEMPLATES_PATH = ROOT / 'templates'
