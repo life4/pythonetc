@@ -2,6 +2,7 @@
 published: 2018-03-27
 id: 26
 author: pushtaev
+sequence: abc-abstractmethod
 ---
 
 # abc.abstractmethod
