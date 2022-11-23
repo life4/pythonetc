@@ -24,7 +24,8 @@ def main():
         ---
         
         # ...
-        '''))
+
+        ''').lstrip())
 
         for line in target['text']:
             if isinstance(line, str):
@@ -42,6 +43,8 @@ def main():
                     f.write('```\n')
                 elif line['type'] == 'text_link':
                     f.write('[{}]({})'.format(line['text'], line['href']))
+                elif line['type'] == 'mention':
+                    f.write('{}'.format(line['text']))
                 else:
                     raise ValueError('Unknown line type: {}'.format(line['type']))
             else:
