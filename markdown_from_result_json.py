@@ -10,7 +10,9 @@ def main():
 
     filtered = [x for x in meta['messages'] if x['id'] == target_id]
     assert len(filtered) == 1, (
-        'Found not exactly one message (but {}) with id {}'.format(len(filtered), target_id)
+        'Found not exactly one message (but {}) with id {}'.format(
+            len(filtered), target_id
+        )
     )
     target = filtered[0]
     date = target['date'][0:10]
@@ -22,7 +24,7 @@ def main():
         id: {target_id}
         author: pushtaev
         ---
-        
+
         # ...
 
         ''').lstrip())
