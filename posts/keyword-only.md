@@ -25,7 +25,6 @@ grep(text, pattern,
     perl_regexp=True)
 ```
 
-
 To achieve this result you should place the keyword-only arguments after varargs argument (aka `*args`):
 
 ```python
@@ -37,7 +36,6 @@ def grep(
 ):
     pass
 ```
-
 
 If you don't need `*args` (like in the example), just replace it with a bare asterisk:
 

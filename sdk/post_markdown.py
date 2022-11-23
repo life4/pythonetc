@@ -18,12 +18,14 @@ class ParagraphCode:
     continue_code: bool = False
     no_run: bool = False
     no_check_interactive: bool = False
+    no_print: bool = False
 
     _MAP_TAGS_TO_ATTRS = {
         'hide': 'hide',
         'continue': 'continue_code',
         'no-run': 'no_run',
         'no-check-interactive': 'no_check_interactive',
+        'no-print': 'no_print',
     }
 
     @cached_property
@@ -132,6 +134,7 @@ class PostMarkdown:
     def run_code(self) -> None:
         shared_globals: dict = {}
         for paragraph in self._paragraphs():
+
             if (
                 paragraph.code is None
                 or paragraph.code.no_run
@@ -145,6 +148,11 @@ class PostMarkdown:
 
             if not paragraph.code.continue_code:
                 shared_globals = {}
+            shared_globals['print'] = (
+                (lambda *args, **kwargs: None)
+                if paragraph.code.no_print
+                else print
+            )
 
             code = paragraph.tokens[-1].content
             if paragraph.code.is_python:

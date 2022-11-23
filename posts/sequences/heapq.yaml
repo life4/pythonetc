@@ -1,0 +1,4 @@
+posts:
+- name: heapq
+- name: heapq-extra
+  delay_allowed: true

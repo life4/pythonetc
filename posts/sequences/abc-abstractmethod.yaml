@@ -1,0 +1,4 @@
+posts:
+- name: abc-abstractmethod
+- name: notimplemented
+  delay_allowed: true

@@ -7,4 +7,4 @@ sequence: ipython-magic
 
 # iPython magic illustration
 
-![](./img/ipython-magic.jpg)
+![ipython-magic.jpg](./img/ipython-magic.jpg)

@@ -8,12 +8,12 @@ buttons:
   url: "https://replit.com/@VadimPushtaev/unparameterizeddecorator"
 ---
 
-# Parametrized decorators
+# Parameterized decorators
 
 Even if you use identifier with brackets as a decorator (`@atomic()`),
 it  will be called again with a function as an argument:
 `query = atomic(skip_errors=True)(query)`.
-There are tons of examples out there on how to create parametrized decorators,
+There are tons of examples out there on how to create parameterized decorators,
 let's just move on and write a decorator that has no parameters,
 but can be called with empty brackets `()`.
 
