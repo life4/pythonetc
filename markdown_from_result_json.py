@@ -34,9 +34,9 @@ def main():
                 f.write(line)
             elif isinstance(line, dict):
                 if line['type'] == 'bold':
-                    f.write('*{}*'.format(line['text']))
+                    f.write('**{}**'.format(line['text']))
                 elif line['type'] == 'italic':
-                    f.write('_{}_'.format(line['text']))
+                    f.write('*{}*'.format(line['text']))
                 elif line['type'] == 'code':
                     f.write('`{}`'.format(line['text']))
                 elif line['type'] == 'pre':

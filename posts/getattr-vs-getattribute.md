@@ -53,5 +53,4 @@ p = Point(16, 20)
 print(p.hex_x, p.hex_y)
 ```
 
-
 There are also `__setattr__` and `__delattr__` methods for setting and deleting attributes, and they both are called unconditionally. That means that the `__getattr__` method stands out here, not `__getattrbiute__` like it may seem.

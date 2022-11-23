@@ -13,7 +13,7 @@ to call higher-order function. Back then people had to do it manually:
 ```python {hide}
 def atomic(x):
     assert callable(x)
-```    
+```
 
 ```python {continue}
 # prior to Python 2.4
@@ -36,6 +36,6 @@ Looks like you use any kind of expression as a decorator, but that is not true.
 and optionally by one pair of brackets with arguments (just like a function call).
 So, no `@decorators[2]` for you. Here is a line from Python grammar:
 
-```
+```txt
 decorator: '@' dotted_name [ '(' [arglist] ')' ] NEWLINE
 ```
