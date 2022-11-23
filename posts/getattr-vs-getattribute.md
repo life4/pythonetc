@@ -28,7 +28,7 @@ With this code you can get `hex` version of any attribute
 by prepending `hex_` to its name
 (that's not really helpful but good enough as an example):
 
-```python
+```python {no-print}
 class Point:
     def __init__(self, x, y):
         self._x = x
