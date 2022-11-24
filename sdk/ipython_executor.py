@@ -93,7 +93,15 @@ class IPythonExecutor:
             shared_globals['__name__'] = __name__
             exec('embed()', shared_globals)
 
-            for out_line in sys.stdout.getvalue().splitlines():
+            out_lines = sys.stdout.getvalue().splitlines()
+            if any(('-' * 40) in line for line in out_lines):
+                raise RuntimeError(
+                    'Looks like exception in IPython occurred.\n' +
+                    'Now follows the whole original output:\n' +
+                    '\n'.join(f"OUTPUT WITH ERROR: {line}" for line in out_lines)
+                )
+
+            for out_line in out_lines:
                 if m := re.search(r'Out\[(\d+)]: (.*)$', out_line):
                     real_out[int(m.group(1))] = m.group(2)
         finally:
