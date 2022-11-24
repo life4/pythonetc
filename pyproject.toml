@@ -20,6 +20,8 @@ dependencies = [
     "pyyaml",
     "requests",
     "IPython",
+    "simplejson",
+    "pytz",
 ]
 
 [project.optional-dependencies]
