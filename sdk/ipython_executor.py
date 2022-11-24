@@ -96,9 +96,9 @@ class IPythonExecutor:
             out_lines = sys.stdout.getvalue().splitlines()
             if any(('-' * 40) in line for line in out_lines):
                 raise RuntimeError(
-                    'Looks like exception in IPython occurred.\n' +
-                    'Now follows the whole original output:\n' +
-                    '\n'.join(f"OUTPUT WITH ERROR: {line}" for line in out_lines)
+                    'Looks like exception in IPython occurred.\n'
+                    + 'Now follows the whole original output:\n'
+                    + '\n'.join(f"OUTPUT WITH ERROR: {line}" for line in out_lines)
                 )
 
             for out_line in out_lines:
