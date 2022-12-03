@@ -42,7 +42,6 @@ __END__
 """
 ```
 
-
 Here is how it works:
 
 ```bash

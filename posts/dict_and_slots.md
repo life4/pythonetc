@@ -36,7 +36,6 @@ class Point:
     __slots__ = ['x', 'y']
 ```
 
-
 There are some things you should remember while using slots. First, you can't set any attributes that are not specified in `__slots__` (unless you add `__dict__` there as well). Second, if you inherit from a class with slots, your own `__slots__` don't override parental `__slots__` but are added to it:
 
 ```python {continue}

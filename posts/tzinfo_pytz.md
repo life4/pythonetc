@@ -37,7 +37,6 @@ In : str(paris.localize(datetime(2017, 1, 1)))
 Out: '2017-01-01 00:00:00+01:00'
 ```
 
-
 Also, after any arithmetic operations, you should `normalize` your datetime object in case of offset changes (on the edge of DST period for instance).
 
 ```python {continue} {hide}
