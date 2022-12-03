@@ -42,7 +42,7 @@ datetime.datetime(2018, 3, 31, 8, 0,
 
 Since they are the same moments, their timestamps should be equal:
 
-```ipython {continue}
+```ipython {continue} {no-run} {# doesn't work on Windows #}
 In : int(utc_time.strftime('%s')),
      int(ny_time.strftime('%s'))
 Out: (1522486800, 1522468800)

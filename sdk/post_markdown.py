@@ -49,19 +49,28 @@ class ParagraphCode:
         kwargs = {}
 
         first_word: bool = True
-        for tag in words:
-            if '{' != tag[0] or '}' != tag[-1]:
+        in_comment: bool = False
+        for word in words:
+            if '{' != word[0] or '}' != word[-1]:
+                if word.startswith('{#'):
+                    in_comment = True
+                if in_comment:
+                    # no nested comments
+                    if word.endswith('#}'):
+                        in_comment = False
+                    continue
+
                 if first_word:
-                    language = tag
+                    language = word
                     continue
                 else:
-                    raise ValueError(f'Invalid tag: {tag}, should be {{tag}}')
+                    raise ValueError(f'Invalid tag: {word}, should be {{tag}}')
 
-            tag_value = tag[1:-1]
+            tag_value = word[1:-1]
             if tag_value in cls._MAP_TAGS_TO_ATTRS:
                 kwargs[cls._MAP_TAGS_TO_ATTRS[tag_value]] = True
             else:
-                raise ValueError(f'Invalid tag: {tag}')
+                raise ValueError(f'Invalid tag: {word}')
 
             first_word = False
 

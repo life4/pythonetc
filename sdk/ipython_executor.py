@@ -66,14 +66,17 @@ class IPythonExecutor:
 
         buffer = IPythonCommandBuffer()
         for line in self._code.splitlines():
-            if m := re.fullmatch(r'In \[\d+]: (.*)', line):
+            if m := re.fullmatch(r'In ?(?:\[\d+])?: (.*)', line):
                 if not buffer.is_empty():
                     result.append(buffer.reset())
                 buffer.add_in(m.group(1))
-            elif m := re.fullmatch(r'Out\[\d+]: (.*)', line):
+            elif m := re.fullmatch(r'Out(?:\[\d+])?: (.*)', line):
                 buffer.add_out(m.group(1))
-            elif m := re.fullmatch(r'\s+[.]{3}: (.*)', line):
-                buffer.add_unknown(m.group(1))
+            elif m := re.fullmatch(r'\s+[.]{3}:(?: (.*))?', line):
+                if m.group(1) is not None:
+                    buffer.add_unknown(m.group(1))
+            else:
+                pass  # unexpected line, probably output
 
         if not buffer.is_empty():
             result.append(buffer.reset())
