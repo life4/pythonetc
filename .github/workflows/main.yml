@@ -7,23 +7,25 @@ on:
   pull_request:
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v3
-
-      - name: install python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: "3.8"
+      - uses: arduino/setup-task@v1
+      - run: task lint
+      - run: task test
 
-      - name: install task
-        uses: arduino/setup-task@v1
-
-      - name: run linters
-        run: task lint
-
-      - name: run tests
-        run: task test
+  markdownlint-cli:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: nosborn/github-action-markdown-cli@v3.2.0
+        with:
+          files: .
