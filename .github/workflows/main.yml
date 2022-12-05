@@ -20,7 +20,7 @@ jobs:
           python-version: "3.8"
 
       - name: install task
-        uses: lagren/setup-task@v1
+        run: arduino/setup-task@v1
 
       - name: run linters
         run: task lint
