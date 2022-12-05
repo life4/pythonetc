@@ -1,5 +1,6 @@
 from heapq import heapify, heappop, heappush
 
+
 to_push  = [13, 5, 15, 3, 0]
 
 heap = [12, 14, 8, 6]
