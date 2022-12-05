@@ -1,0 +1,29 @@
+name: main
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: install python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.8"
+
+      - name: install task
+        uses: lagren/setup-task@v1
+
+      - name: run linters
+        run: task lint
+
+      - name: run tests
+        run: task test
