@@ -54,4 +54,4 @@ warn_unused_ignores = true
 [tool.isort]
 profile = "django"
 lines_after_imports = 2
-skip = ".venvs/"
+skip = [".venvs/", "venv", "repls/"]
