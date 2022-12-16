@@ -72,7 +72,7 @@ class IPythonExecutor:
                 buffer.add_in(m.group(1))
             elif m := re.fullmatch(r'Out(?:\[\d+])?: (.*)', line):
                 buffer.add_out(m.group(1))
-            elif m := re.fullmatch(r'\s+[.]{3}:(?: (.*))?', line):
+            elif m := re.fullmatch(r'\s*[.]{3}:(?: (.*))?', line):
                 if m.group(1) is not None:
                     buffer.add_unknown(m.group(1))
             else:
