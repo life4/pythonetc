@@ -1,0 +1,8 @@
+posts:
+- name: fsm
+- name: fsm-2
+  delay_allowed: false
+- name: chomsky
+  delay_allowed: true
+- name: bnf-of-bnf
+  delay_allowed: true

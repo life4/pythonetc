@@ -14,9 +14,9 @@ It would be nice to force the only reasonable form of this call:
 ```python {hide}
 def grep(text, pattern, *, ignore_case=False, perl_regexp=False):
     pass
-    
+
 text = ''
-pattern = ''    
+pattern = ''
 ```
 
 ```python {continue}

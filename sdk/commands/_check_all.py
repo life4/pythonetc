@@ -19,8 +19,11 @@ class CheckAllCommand(Command):
             if path.suffix != '.md':
                 continue
             post = Post.from_path(path)
+            if error := post.validate():
+                raise ValueError(f'invalid {post.path.name}: {error}')
             if post.id is not None and post.id <= 100:
                 post.run_code()  # TODO: all posts should be runnable
+                assert '' != post.telegram_markdown
             if post.id:
                 assert post.id not in known_post_ids, f'duplicate post id: {post.id}'
             if post.sequence:

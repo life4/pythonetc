@@ -2,6 +2,9 @@
 published: 2018-03-31
 id: 33
 author: pushtaev
+buttons:
+- title: Try this code live
+  url: "https://replit.com/@VadimPushtaev/strftime"
 ---
 
 # epoch before Python 3.3
@@ -39,7 +42,7 @@ datetime.datetime(2018, 3, 31, 8, 0,
 
 Since they are the same moments, their timestamps should be equal:
 
-```ipython {continue}
+```ipython {continue} {no-run} {# doesn't work on Windows #}
 In : int(utc_time.strftime('%s')),
      int(ny_time.strftime('%s'))
 Out: (1522486800, 1522468800)
