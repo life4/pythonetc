@@ -7,7 +7,7 @@ author: pushtaev
 # __getitem__ and slices
 
 In Python, you can override square brackets operator (`[]`) by defining `__getitem__` magic method.
-The example is `Cycle` object that virtually contains an infinite number of repeated elements: 
+The example is `Cycle` object that virtually contains an infinite number of repeated elements:
 
 ```python {no-print}
 class Cycle:
