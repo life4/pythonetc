@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import dataclasses
 from functools import cached_property
-from typing import Iterator
+from typing import Any, Iterator
 
 import markdown_it.token
 from markdown_it import MarkdownIt
@@ -48,7 +48,7 @@ class ParagraphCode:
 
         words = token.info.split()
         language = ''
-        kwargs = {}
+        kwargs: dict[str, Any] = {}
 
         first_word: bool = True
         in_comment: bool = False
@@ -68,6 +68,8 @@ class ParagraphCode:
                 else:
                     raise ValueError(f'Invalid tag: {word}, should be {{tag}}')
 
+            tag_name: str
+            tag_value: Any
             if ':' in word:
                 tag_name, tag_value = word[1:-1].split(':', 1)
             else:
