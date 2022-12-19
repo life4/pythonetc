@@ -56,16 +56,17 @@ class IPythonCommandBuffer:
         return result
 
 
+@dataclass
 class IPythonExecutor:
-    def __init__(self, code: str) -> None:
-        self._code = code
+    code: str
+    shield: str | None = None
 
     @cached_property
     def _commands(self) -> list[IPythonCommand]:
         result = []
 
         buffer = IPythonCommandBuffer()
-        for line in self._code.splitlines():
+        for line in self.code.splitlines():
             if m := re.fullmatch(r'In ?(?:\[\d+])?: (.*)', line):
                 if not buffer.is_empty():
                     result.append(buffer.reset())
@@ -97,9 +98,18 @@ class IPythonExecutor:
             exec('embed()', shared_globals)
 
             out_lines = sys.stdout.getvalue().splitlines()
-            if any(('-' * 40) in line for line in out_lines):
+
+            # Find errors
+            found = None
+            for line in reversed(out_lines):
+                if m := re.fullmatch(r'(\S+)\s+Traceback \(most recent call last\)', line):
+                    found = m.group(1)
+                    break
+
+            if found is not None and (self.shield is None or found != self.shield):
                 raise RuntimeError(
                     'Looks like exception in IPython occurred.\n'
+                    + f'Type of exception is `{found}`.\n'
                     + 'Now follows the whole original output:\n'
                     + '\n'.join(f"OUTPUT WITH ERROR: {line}" for line in out_lines)
                 )

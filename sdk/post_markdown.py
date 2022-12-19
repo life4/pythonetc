@@ -19,6 +19,7 @@ class ParagraphCode:
     no_run: bool = False
     no_check_interactive: bool = False
     no_print: bool = False
+    shield: str | None = None
 
     _MAP_TAGS_TO_ATTRS = {
         'hide': 'hide',
@@ -26,6 +27,7 @@ class ParagraphCode:
         'no-run': 'no_run',
         'no-check-interactive': 'no_check_interactive',
         'no-print': 'no_print',
+        'shield': 'shield',
     }
 
     @cached_property
@@ -66,9 +68,13 @@ class ParagraphCode:
                 else:
                     raise ValueError(f'Invalid tag: {word}, should be {{tag}}')
 
-            tag_value = word[1:-1]
-            if tag_value in cls._MAP_TAGS_TO_ATTRS:
-                kwargs[cls._MAP_TAGS_TO_ATTRS[tag_value]] = True
+            if ':' in word:
+                tag_name, tag_value = word[1:-1].split(':', 1)
+            else:
+                tag_name, tag_value = word[1:-1], True
+
+            if tag_name in cls._MAP_TAGS_TO_ATTRS:
+                kwargs[cls._MAP_TAGS_TO_ATTRS[tag_name]] = tag_value
             else:
                 raise ValueError(f'Invalid tag: {word}')
 
@@ -165,20 +171,26 @@ class PostMarkdown:
 
             code = paragraph.tokens[-1].content
             if paragraph.code.is_python:
+                if paragraph.code.shield:
+                    raise NotImplementedError()
                 exec(code, shared_globals)
             if paragraph.code.is_python_interactive:
                 self._exec_cli(
                     code, shared_globals,
                     check_interactive=not paragraph.code.no_check_interactive,
+                    shield=paragraph.code.shield,
                 )
             if paragraph.code.is_ipython:
-                self._exec_ipython(code, shared_globals)
+                self._exec_ipython(code, shared_globals, shield=paragraph.code.shield)
 
     def _exec_cli(
-        self, code: str, shared_globals: dict,
+        self, code: str, shared_globals: dict, shield: str | None = None,
         *,
         check_interactive: bool,
     ) -> None:
+        if shield is not None:
+            raise NotImplementedError()
+
         in_out: list[tuple[str, str]] = []
         for line in code.splitlines():
             if line.startswith('>>> '):
@@ -193,8 +205,8 @@ class PostMarkdown:
             if check_interactive:
                 assert str(result) == out, f'`{result}` != `{out}`'
 
-    def _exec_ipython(self, code: str, shared_globals: dict) -> None:
-        executor = IPythonExecutor(code)
+    def _exec_ipython(self, code: str, shared_globals: dict, shield: str | None) -> None:
+        executor = IPythonExecutor(code, shield=shield)
         commands: list[IPythonCommand] = list(executor.run(shared_globals))
 
         for command in commands:
