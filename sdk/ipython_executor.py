@@ -5,7 +5,7 @@ import re
 import sys
 from dataclasses import dataclass
 from functools import cached_property
-from typing import Iterable, Optional
+from typing import ClassVar, Iterable, Optional
 
 
 @dataclass
@@ -61,6 +61,10 @@ class IPythonExecutor:
     code: str
     shield: str | None = None
 
+    ERROR_REGEX: ClassVar[re.Pattern] = re.compile(
+        r'(\S+)\s+Traceback \(most recent call last\)'
+    )
+
     @cached_property
     def _commands(self) -> list[IPythonCommand]:
         result = []
@@ -102,7 +106,7 @@ class IPythonExecutor:
             # Find errors
             found = None
             for line in reversed(out_lines):
-                if m := re.fullmatch(r'(\S+)\s+Traceback \(most recent call last\)', line):
+                if m := re.fullmatch(self.ERROR_REGEX, line):
                     found = m.group(1)
                     break
 
