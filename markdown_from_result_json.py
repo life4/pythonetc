@@ -58,8 +58,7 @@ def main():
         output_string = output_string.replace("\n\n\n", "\n\n")
 
     with open(f'posts/__{target_id}__.md', 'w', encoding='utf8') as f2:
-        f2.write(output_string)
-
+        f2.write(output_string + "\n")
 
 if __name__ == '__main__':
     main()
