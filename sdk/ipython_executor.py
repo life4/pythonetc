@@ -3,7 +3,6 @@ from __future__ import annotations
 import io
 import re
 import sys
-from contextlib import suppress
 from dataclasses import dataclass
 from functools import cached_property
 from typing import ClassVar, Iterable, Optional
