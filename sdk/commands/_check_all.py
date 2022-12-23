@@ -22,7 +22,12 @@ class CheckAllCommand(Command):
             if error := post.validate():
                 raise ValueError(f'invalid {post.path.name}: {error}')
             if post.id is not None and post.id <= 100:
-                post.run_code()  # TODO: all posts should be runnable
+                try:
+                    post.run_code()  # TODO: all posts should be runnable
+                except BaseException as e:
+                    raise ValueError(
+                        f'Error occurred while running {post.path.name}: {e}'
+                    ) from e
                 assert '' != post.telegram_markdown
             if post.id:
                 assert post.id not in known_post_ids, f'duplicate post id: {post.id}'

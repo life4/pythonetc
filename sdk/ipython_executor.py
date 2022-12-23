@@ -60,6 +60,7 @@ class IPythonCommandBuffer:
 class IPythonExecutor:
     code: str
     shield: str | None = None
+    native: bool = False
 
     ERROR_REGEX: ClassVar[re.Pattern] = re.compile(
         r'(\S+)\s+Traceback \(most recent call last\)'
@@ -89,6 +90,45 @@ class IPythonExecutor:
         return result
 
     def run(self, shared_globals: dict) -> Iterable[IPythonCommand]:
+        if self.native:
+            yield from self._run_with_ipython_embed(shared_globals)
+        else:
+            yield from self._run_emulation(shared_globals)
+
+    def _run_emulation(self, shared_globals: dict) -> Iterable[IPythonCommand]:
+        """
+        This method of running iPython code:
+        * does not support iPython magic (e.g. %timeit)
+        * has no scope bug that _run_with_ipython_embed has
+        """
+        for cmd in self._commands:
+            real_out = None
+            try:
+                try:
+                    real_out = eval(cmd.in_, shared_globals)
+                except SyntaxError:
+                    # not an expression, but a statement
+                    exec(cmd.in_, shared_globals)
+            except Exception as e:
+                if self.shield is not None and self.shield == e.__class__.__name__:
+                    pass  # that was expected
+                else:
+                    raise
+
+            string_repr = repr(real_out) if real_out is not None else ''
+
+            yield IPythonCommand(
+                in_=cmd.in_,
+                out=cmd.out,
+                real_out=string_repr,
+            )
+
+    def _run_with_ipython_embed(self, shared_globals: dict) -> Iterable[IPythonCommand]:
+        """
+        This method of running iPython code:
+        * supports iPython magic (e.g. %timeit)
+        * has scope bug: https://github.com/ipython/ipython/issues/12199
+        """
         orig_stdin = sys.stdin
         orig_stdout = sys.stdout
         real_out: dict[int, str] = {}
