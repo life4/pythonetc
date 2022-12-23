@@ -19,6 +19,7 @@ class ParagraphCode:
     no_run: bool = False
     no_check_interactive: bool = False
     no_print: bool = False
+    ipython_native: bool = False
     shield: str | None = None
 
     _MAP_TAGS_TO_ATTRS = {
@@ -27,8 +28,13 @@ class ParagraphCode:
         'no-run': 'no_run',
         'no-check-interactive': 'no_check_interactive',
         'no-print': 'no_print',
+        'ipython-native': 'ipython_native',
         'shield': 'shield',
     }
+
+    def __post_init__(self) -> None:
+        if self.ipython_native and not self.is_ipython:
+            raise ValueError('ipython-native is only allowed for ipython code')
 
     @cached_property
     def is_python(self) -> bool:
@@ -183,7 +189,12 @@ class PostMarkdown:
                     shield=paragraph.code.shield,
                 )
             if paragraph.code.is_ipython:
-                self._exec_ipython(code, shared_globals, shield=paragraph.code.shield)
+                self._exec_ipython(
+                    code,
+                    shared_globals,
+                    shield=paragraph.code.shield,
+                    native=paragraph.code.ipython_native,
+                )
 
     def _exec_cli(
         self, code: str, shared_globals: dict, shield: str | None = None,
@@ -207,8 +218,14 @@ class PostMarkdown:
             if check_interactive:
                 assert str(result) == out, f'`{result}` != `{out}`'
 
-    def _exec_ipython(self, code: str, shared_globals: dict, shield: str | None) -> None:
-        executor = IPythonExecutor(code, shield=shield)
+    def _exec_ipython(
+        self,
+        code: str,
+        shared_globals: dict,
+        shield: str | None,
+        native: bool,
+    ) -> None:
+        executor = IPythonExecutor(code, shield=shield, native=native)
         commands: list[IPythonCommand] = list(executor.run(shared_globals))
 
         for command in commands:

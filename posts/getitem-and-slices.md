@@ -29,7 +29,7 @@ but you can use it any way you want for your custom objects.
 But what `__getitem__` gets as an `index` parameter if you call it using that syntax?
 The [slice objects](https://docs.python.org/3/library/functions.html#slice) exist precisely for this case.
 
-```ipython
+```ipython {no-print}
 In : class Inspector:
 ...:     def __getitem__(self, index):
 ...:         print(index)
@@ -46,7 +46,7 @@ slice(None, None, None)
 
 You can even combine tuple and slice syntaxes:
 
-```ipython {continue}
+```ipython {continue} {no-print}
 In : Inspector()[:, 0, :]
 (slice(None, None, None), 0, slice(None, None, None))
 ```

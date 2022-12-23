@@ -28,7 +28,7 @@ def atomic():
 
 Now `atomic` is a context manager that can be used like this:
 
-```ipython {continue}
+```ipython {continue} {no-print}
 In : with atomic():
 ...:     print('ERROR')
 ...:     raise RuntimeError()
@@ -40,7 +40,7 @@ ROLLBACK
 
 Additionally, the `@contextmanager` magic allows to use it as a decorator as well as a context manager:
 
-```ipython {continue}
+```ipython {continue} {no-print}
 In : @atomic()
 ...: def ok():
 ...:     print('OK')

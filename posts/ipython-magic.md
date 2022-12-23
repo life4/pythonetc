@@ -18,7 +18,7 @@ In [1]: %timeit sum(x**2 for x in range(1000))
 
 Cell magics start with double `%` sign, look at `%%ruby`:
 
-```ipython
+```ipython {ipython-native}
 In [2]: %%ruby
    ...: 3.times do |x|
    ...:   puts x
@@ -33,7 +33,7 @@ You can even define custom magics.
 This is an example magic that helps you ignore an expression result
 except the very end:
 
-```ipython
+```ipython {ipython-native}
 In [3]: from IPython.core.magic import register_line_magic
 
 In [4]: @register_line_magic
