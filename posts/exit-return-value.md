@@ -45,4 +45,3 @@ BEGIN
 B
 ROLLBACK due to <type 'exceptions.RuntimeError'>(C)
 ```
-
