@@ -154,6 +154,25 @@ def test_post_markdown__remove_hidden_code_blocks__no_new_line_after():
     assert p.text == ''
 
 
+MERGE_MD = dedent("""
+    ```
+    a
+    ```
+
+
+
+    ```{merge} {continue}
+    b
+    ```
+""")
+
+
+def test_post_markdown__merge_code_blocks():
+    p = PostMarkdown(MERGE_MD)
+    p._merge_code_blocks()
+    assert p.text == '\n```\na\nb\n```\n'
+
+
 MD_TELEGRAM = dedent("""
     SOME TEXT 1
 

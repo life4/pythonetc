@@ -6,7 +6,7 @@ published: 2018-03-22
 
 # Interactive shell: exit
 
-```python-interactive {no-check-interactive}
+```python-interactive {python-interactive-no-check}
 >>> exit
 Use exit() or Ctrl-D (i.e. EOF) to exit
 ```
