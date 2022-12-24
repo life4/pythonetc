@@ -18,7 +18,7 @@ In : look_for = 555555
 In : lst = sorted(randrange(0, n) for _ in range(n))
 ```
 
-```ipython {ipython-native} {continue}
+```ipython {ipython-native} {continue} {merge}
 In : %timeit look_for in lst
 69.7 ms ± 449 µs per loop
 In : %timeit look_for == lst[bisect_left(lst, look_for)]

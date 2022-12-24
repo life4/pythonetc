@@ -14,27 +14,68 @@ from sdk.ipython_executor import IPythonCommand, IPythonExecutor
 class ParagraphCode:
     body: str
     language: str
+
+    # {hide}
+    # Hide this code from actual users,
+    # (usually used for initialization or checking)
     hide: bool = False
+
+    # {continue}
+    # Run this code in context of previous code black,
+    # meaning you can use variables defined in previous code block
     continue_code: bool = False
+
+    # {merge}
+    # Visually merge this block and the previous one
+    # Cannot be used without {continue} since it doesn't make sense.
+    merge: bool = False
+
+    # {no-run}
+    # Don't run this block at all
     no_run: bool = False
-    no_check_interactive: bool = False
+
+    # {python-interactive-no-check}
+    # Every interactive python line is executed and result is checked against
+    # the output line.
+    # This flag disables this check.
+    # This is useful for code that is not deterministic, like random numbers.
+    python_interactive_no_check: bool = False
+
+    # {no-print}
+    # This flag removes any output done by print() or other functions
+    # of the code block.
+    # Usually useful for any code that prints something.
     no_print: bool = False
+
+    # {ipython-native}
+    # This flag enables ipython magic but for the price,
+    # see IPythonExecutor.
     ipython_native: bool = False
+
+    # {shield:ExceptionType}
+    # This flag allows the code to raise ExceptionType.
     shield: str | None = None
 
     _MAP_TAGS_TO_ATTRS = {
         'hide': 'hide',
         'continue': 'continue_code',
+        'merge': 'merge',
         'no-run': 'no_run',
-        'no-check-interactive': 'no_check_interactive',
+        'python-interactive-no-check': 'python_interactive_no_check',
         'no-print': 'no_print',
         'ipython-native': 'ipython_native',
         'shield': 'shield',
     }
 
     def __post_init__(self) -> None:
+        if self.merge and not self.continue_code:
+            raise ValueError('Cannot {merge} without {continue}')
         if self.ipython_native and not self.is_ipython:
             raise ValueError('ipython-native is only allowed for ipython code')
+        if self.python_interactive_no_check and not self.is_python_interactive:
+            raise ValueError(
+                'python-interactive-no-check is only allowed for python interactive code'
+            )
 
     @cached_property
     def is_python(self) -> bool:
@@ -141,10 +182,12 @@ class PostMarkdown:
 
     def html_content(self) -> str:
         self._remove_hidden_code_blocks()
+        self._merge_code_blocks()
         return self._parser.render(self.text)
 
     def html_content_no_header(self) -> str:
         self._remove_hidden_code_blocks()
+        self._merge_code_blocks()
         self._remove_header()
         return self.html_content()
 
@@ -152,6 +195,7 @@ class PostMarkdown:
         self.run_code()
         self._remove_header()
         self._remove_hidden_code_blocks()
+        self._merge_code_blocks()
         self._remove_code_info()
 
     def run_code(self) -> None:
@@ -185,7 +229,7 @@ class PostMarkdown:
             if paragraph.code.is_python_interactive:
                 self._exec_cli(
                     code, shared_globals,
-                    check_interactive=not paragraph.code.no_check_interactive,
+                    check_interactive=not paragraph.code.python_interactive_no_check,
                     shield=paragraph.code.shield,
                 )
             if paragraph.code.is_ipython:
@@ -262,6 +306,42 @@ class PostMarkdown:
                         until_line += 1
                     result = result[:first_line - shift] + result[until_line - shift:]
                     shift += until_line - first_line
+                    break
+
+        self.text = ''.join(result)
+
+    def _merge_code_blocks(self) -> None:
+        result = self.text.splitlines(keepends=True)
+
+        shift = 0
+        prev_code_map = None
+        for p in self._paragraphs():
+            if p.code:
+                if p.code.merge:
+                    if prev_code_map is None:
+                        raise ValueError(
+                            'Code block can not be merged with previous non-code block'
+                        )
+                    for token in p.tokens:
+                        if not token.map:
+                            continue
+                        first_line, _ = token.map
+                        _, prev_until_line = prev_code_map
+
+                        result = (
+                            result[:prev_until_line - shift - 1]
+                            + result[first_line - shift + 1:]
+                        )
+                        shift += first_line - prev_until_line + 2
+                        break
+                else:
+                    for token in p.tokens:
+                        if not token.map:
+                            continue
+                        prev_code_map = token.map
+                        break
+            else:
+                prev_code_map = None
 
         self.text = ''.join(result)
 
