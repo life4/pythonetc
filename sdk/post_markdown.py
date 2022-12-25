@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import dataclasses
+import enum
 from functools import cached_property
 from typing import Any, Iterator
 
@@ -11,10 +12,19 @@ from sdk.ipython_executor import IPythonCommand, IPythonExecutor
 from sdk.python_exec_utils import eval_or_exec
 
 
+class Language(enum.Enum):
+    PYTHON = 'python'
+    PYTHON_INTERACTIVE = 'python-interactive'
+    IPYTHON = 'ipython'
+    TXT = 'txt'
+    BASH = 'bash'
+    SQL = 'sql'
+
+
 @dataclasses.dataclass
 class ParagraphCode:
     body: str
-    language: str
+    language: Language
 
     # {hide}
     # Hide this code from actual users,
@@ -80,15 +90,15 @@ class ParagraphCode:
 
     @cached_property
     def is_python(self) -> bool:
-        return 'python' == self.language
+        return Language.PYTHON == self.language
 
     @cached_property
     def is_python_interactive(self) -> bool:
-        return 'python-interactive' == self.language
+        return Language.PYTHON_INTERACTIVE == self.language
 
     @cached_property
     def is_ipython(self) -> bool:
-        return 'ipython' == self.language
+        return Language.IPYTHON == self.language
 
     @classmethod
     def from_token(cls, token: markdown_it.token.Token) -> ParagraphCode:
@@ -132,7 +142,7 @@ class ParagraphCode:
 
         return cls(
             body=token.content,
-            language=language,
+            language=Language(language),
             **kwargs,
         )
 

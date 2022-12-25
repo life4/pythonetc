@@ -26,7 +26,7 @@ Luckily all above code is already written for you: `FunctionType` is an existing
 
 Note, that you usually don't care whether something is a function, but rather if it's callable or not. It can be done with `callable`:
 
-```python-interacive
+```python-interactive
 >>> callable(int)
 True
 >>> callable(42)

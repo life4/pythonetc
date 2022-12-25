@@ -40,7 +40,7 @@ It can be helpful when you need to pass a function as an argument to another hig
 
 Without `partial` you do something like this:
 
-```python-interacive
+```python-interactive
 >>> list(map(lambda x: int(x, base=2), ["1", "10", "100"]))
 [1, 2, 4]
 ```
