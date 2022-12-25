@@ -13,6 +13,7 @@ from sdk.python_exec_utils import eval_or_exec
 
 
 class Language(enum.Enum):
+    NONE = ''
     PYTHON = 'python'
     PYTHON_INTERACTIVE = 'python-interactive'
     IPYTHON = 'ipython'
