@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import dataclasses
+import enum
 from functools import cached_property
 from typing import Any, Iterator
 
@@ -8,12 +9,23 @@ import markdown_it.token
 from markdown_it import MarkdownIt
 
 from sdk.ipython_executor import IPythonCommand, IPythonExecutor
+from sdk.python_exec_utils import eval_or_exec
+
+
+class Language(enum.Enum):
+    NONE = ''
+    PYTHON = 'python'
+    PYTHON_INTERACTIVE = 'python-interactive'
+    IPYTHON = 'ipython'
+    TXT = 'txt'
+    BASH = 'bash'
+    SQL = 'sql'
 
 
 @dataclasses.dataclass
 class ParagraphCode:
     body: str
-    language: str
+    language: Language
 
     # {hide}
     # Hide this code from actual users,
@@ -79,15 +91,15 @@ class ParagraphCode:
 
     @cached_property
     def is_python(self) -> bool:
-        return 'python' == self.language
+        return Language.PYTHON == self.language
 
     @cached_property
     def is_python_interactive(self) -> bool:
-        return 'python-interactive' == self.language
+        return Language.PYTHON_INTERACTIVE == self.language
 
     @cached_property
     def is_ipython(self) -> bool:
-        return 'ipython' == self.language
+        return Language.IPYTHON == self.language
 
     @classmethod
     def from_token(cls, token: markdown_it.token.Token) -> ParagraphCode:
@@ -131,7 +143,7 @@ class ParagraphCode:
 
         return cls(
             body=token.content,
-            language=language,
+            language=Language(language),
             **kwargs,
         )
 
@@ -245,20 +257,17 @@ class PostMarkdown:
         *,
         check_interactive: bool,
     ) -> None:
-        if shield is not None:
-            raise NotImplementedError()
-
         in_out: list[tuple[str, str]] = []
         for line in code.splitlines():
             if line.startswith('>>> '):
                 in_out.append((line[4:], ''))
-            elif line.startswith('... '):
+            elif line.startswith('...'):
                 in_out[-1] = (in_out[-1][0] + line[4:], '')
             else:
                 in_out[-1] = (in_out[-1][0], in_out[-1][1] + line)
 
         for in_, out in in_out:
-            result = eval(in_, shared_globals)
+            result = eval_or_exec(in_, shared_globals=shared_globals, shield=shield)
             if check_interactive:
                 assert str(result) == out, f'`{result}` != `{out}`'
 

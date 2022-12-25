@@ -2,7 +2,7 @@ from textwrap import dedent
 
 import pytest
 
-from sdk.post_markdown import PostMarkdown
+from sdk.post_markdown import Language, PostMarkdown
 
 
 MD = dedent("""
@@ -88,25 +88,25 @@ def test_post_markdown__paragraphs():
 
     assert paragraphs[2].code is not None
     assert paragraphs[2].code.body == 'a = 1\n'
-    assert paragraphs[2].code.language == 'python'
+    assert paragraphs[2].code.language == Language.PYTHON
     assert paragraphs[2].code.hide is True
     assert paragraphs[2].code.continue_code is False
 
     assert paragraphs[3].code is not None
     assert paragraphs[3].code.body == 'a += 1\n'
-    assert paragraphs[3].code.language == 'python'
+    assert paragraphs[3].code.language == Language.PYTHON
     assert paragraphs[3].code.hide is False
     assert paragraphs[3].code.continue_code is True
 
     assert paragraphs[4].code is not None
     assert paragraphs[4].code.body == 'assert a == 2\n'
-    assert paragraphs[4].code.language == 'python'
+    assert paragraphs[4].code.language == Language.PYTHON
     assert paragraphs[4].code.hide is True
     assert paragraphs[4].code.continue_code is True
 
     assert paragraphs[5].code is not None
     assert paragraphs[5].code.body == 'assert False\n'
-    assert paragraphs[5].code.language == 'python'
+    assert paragraphs[5].code.language == Language.PYTHON
     assert paragraphs[5].code.hide is True
     assert paragraphs[5].code.continue_code is False
     assert paragraphs[5].code.no_run is True
