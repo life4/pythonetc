@@ -7,6 +7,8 @@ from dataclasses import dataclass
 from functools import cached_property
 from typing import ClassVar, Iterable, Optional
 
+from sdk.python_exec_utils import eval_or_exec
+
 
 @dataclass
 class IPythonCommand:
@@ -102,20 +104,11 @@ class IPythonExecutor:
         * has no scope bug that _run_with_ipython_embed has
         """
         for cmd in self._commands:
-            real_out = None
-            try:
-                try:
-                    real_out = eval(cmd.in_, shared_globals)
-                except SyntaxError:
-                    # not an expression, but a statement
-                    exec(cmd.in_, shared_globals)
-            except Exception as e:
-                if self.shield is not None and self.shield == e.__class__.__name__:
-                    pass  # that was expected
-                else:
-                    raise
-
-            string_repr = repr(real_out) if real_out is not None else ''
+            string_repr: str = eval_or_exec(
+                cmd.in_,
+                shield=self.shield,
+                shared_globals=shared_globals,
+            )
 
             yield IPythonCommand(
                 in_=cmd.in_,

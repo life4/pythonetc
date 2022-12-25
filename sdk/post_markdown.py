@@ -8,6 +8,7 @@ import markdown_it.token
 from markdown_it import MarkdownIt
 
 from sdk.ipython_executor import IPythonCommand, IPythonExecutor
+from sdk.python_exec_utils import eval_or_exec
 
 
 @dataclasses.dataclass
@@ -245,20 +246,17 @@ class PostMarkdown:
         *,
         check_interactive: bool,
     ) -> None:
-        if shield is not None:
-            raise NotImplementedError()
-
         in_out: list[tuple[str, str]] = []
         for line in code.splitlines():
             if line.startswith('>>> '):
                 in_out.append((line[4:], ''))
-            elif line.startswith('... '):
+            elif line.startswith('...'):
                 in_out[-1] = (in_out[-1][0] + line[4:], '')
             else:
                 in_out[-1] = (in_out[-1][0], in_out[-1][1] + line)
 
         for in_, out in in_out:
-            result = eval(in_, shared_globals)
+            result = eval_or_exec(in_, shared_globals=shared_globals, shield=shield)
             if check_interactive:
                 assert str(result) == out, f'`{result}` != `{out}`'
 
