@@ -18,8 +18,13 @@ class Language(enum.Enum):
     PYTHON_INTERACTIVE = 'python-interactive'
     IPYTHON = 'ipython'
     TXT = 'txt'
+    PLAIN = 'plain'
     BASH = 'bash'
     SQL = 'sql'
+    JS = 'js'
+    GO = 'go'
+    HASKELL = 'haskell'
+    TOML = 'toml'
 
 
 @dataclasses.dataclass
