@@ -1,0 +1,4 @@
+posts:
+- name: format-syntax
+- name: format-syntax-link
+  delay_allowed: false

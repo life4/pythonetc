@@ -2,6 +2,7 @@
 published: 2018-05-04
 id: 78
 author: pushtaev
+sequence: format-syntax
 ---
 
 # `format` syntax
