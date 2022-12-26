@@ -12,7 +12,7 @@ from sdk.ipython_executor import IPythonCommand, IPythonExecutor
 from sdk.python_exec_utils import eval_or_exec
 
 
-class Language(enum.Enum):
+class Language(str, enum.Enum):
     NONE = ''
     PYTHON = 'python'
     PYTHON_INTERACTIVE = 'python-interactive'
@@ -200,11 +200,13 @@ class PostMarkdown:
     def html_content(self) -> str:
         self._remove_hidden_code_blocks()
         self._merge_code_blocks()
+        self._rename_languages()
         return self._parser.render(self.text)
 
     def html_content_no_header(self) -> str:
         self._remove_hidden_code_blocks()
         self._merge_code_blocks()
+        self._rename_languages()
         self._remove_header()
         return self.html_content()
 
@@ -356,6 +358,29 @@ class PostMarkdown:
                         break
             else:
                 prev_code_map = None
+
+        self.text = ''.join(result)
+
+    def _rename_languages(self) -> None:
+        rules = {
+            Language.IPYTHON: 'python',
+            Language.PYTHON_INTERACTIVE: 'python',
+        }
+
+        result = self.text.splitlines(keepends=True)
+        for p in self._paragraphs():
+            if p.code and p.code.language in rules:
+                for token in p.tokens:
+                    if not token.map:
+                        continue
+
+                    first_line, until_line = token.map
+                    result[first_line] = result[first_line].replace(
+                        '```' + p.code.language,
+                        '```' + rules[p.code.language],
+                    )
+
+                    break
 
         self.text = ''.join(result)
 
