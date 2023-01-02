@@ -89,7 +89,10 @@ class ParagraphCode:
             raise ValueError('Cannot {merge} without {continue}')
         if self.ipython_native and not self.is_ipython:
             raise ValueError('ipython-native is only allowed for ipython code')
-        if self.python_interactive_no_check and not self.is_python_interactive:
+        if (
+            self.python_interactive_no_check
+            and not (self.is_python_interactive or self.is_ipython)
+        ):
             raise ValueError(
                 'python-interactive-no-check is only allowed for python interactive code'
             )
@@ -255,6 +258,7 @@ class PostMarkdown:
                 self._exec_ipython(
                     code,
                     shared_globals,
+                    check_interactive=not paragraph.code.python_interactive_no_check,
                     shield=paragraph.code.shield,
                     native=paragraph.code.ipython_native,
                 )
@@ -282,15 +286,17 @@ class PostMarkdown:
         self,
         code: str,
         shared_globals: dict,
+        check_interactive: bool,
         shield: str | None,
         native: bool,
     ) -> None:
         executor = IPythonExecutor(code, shield=shield, native=native)
         commands: list[IPythonCommand] = list(executor.run(shared_globals))
 
-        for command in commands:
-            assert command.out == command.real_out, \
-                f'`{command.out}` != `{command.real_out}`'
+        if check_interactive:
+            for command in commands:
+                assert command.out == command.real_out, \
+                    f'`{command.out}` != `{command.real_out}`'
 
     def _remove_code_info(self) -> None:
         lines = self.text.splitlines(keepends=True)
