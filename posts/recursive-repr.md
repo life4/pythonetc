@@ -4,7 +4,7 @@ id: 88
 author: pushtaev
 ---
 
-# ...
+# Recursive repr
 
 When you write custom `__repr__` for some object, you usually want to include representation of its attributes.
 You should be careful to call `repr()` explicitly, since formatting calls `str()` instead.
