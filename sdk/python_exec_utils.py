@@ -15,6 +15,9 @@ def eval_or_exec(code: str, *, shield: str | None = None, shared_globals: dict) 
         else:
             raise
 
-    string_repr = repr(real_out) if real_out is not None else ''
+    try:
+        string_repr = repr(real_out) if real_out is not None else ''
+    except Exception:
+        string_repr = ''
 
     return string_repr
