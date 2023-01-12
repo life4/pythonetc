@@ -245,9 +245,11 @@ class PostMarkdown:
 
             code = paragraph.tokens[-1].content
             if paragraph.code.is_python:
-                if paragraph.code.shield:
-                    raise NotImplementedError()
-                exec(code, shared_globals)
+                eval_or_exec(
+                    code,
+                    shared_globals=shared_globals,
+                    shield=paragraph.code.shield,
+                )
             if paragraph.code.is_python_interactive:
                 self._exec_cli(
                     code, shared_globals,
