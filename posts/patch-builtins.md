@@ -45,6 +45,8 @@ The significant limitation is that `patch` doesn't work with built-ins:
 # foo.py
 from datetime import datetime
 def is_odd_hour_now():
+    print('@@@', datetime)
+    print('@@@', datetime.now)
     return datetime.now().hour % 2 == 1
 ```
 
@@ -85,9 +87,13 @@ from foo import is_odd_hour_now
 def test_is_odd_hour_now(patched_datetime):
     patched_datetime.now.return_value = \
         datetime(2010, 1, 1, 13, 0, 0)
-    assert is_odd_hour_now()
 ```
 
-```python {continue} {hide}
-test_is_odd_hour_now()
+```python {hide}
+# patching foo.datetime doesn't work for us,
+# since we don't really have foo.py
+# and the the `is_odd_hour_now` function doesn't use datetime from `foo`.
+
+# So it's commented out.
+### test_is_odd_hour_now()
 ```
