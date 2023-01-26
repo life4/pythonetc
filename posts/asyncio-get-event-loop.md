@@ -24,7 +24,7 @@ You can run any loop, even if another one is bound to the thread.
 That's why in Python 3.6 `get_event_loop()` works differently within a coroutine.
 It returns not the loop bound to the thread, but the currently running loop. It's important when a coroutine tries to interact with *its* loop:
 
-```python
+```python {hide}
 import asyncio
 async def zero_sleep(t):
     pass
