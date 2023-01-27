@@ -26,7 +26,16 @@ async def indication(timeout):
         print('.', end='')
         sys.stdout.flush()
         await asyncio.sleep(timeout)
+```
 
+```python {merge} {continue} {hide}
+# suppress "coroutine never awaited" warning
+async def coro():
+    pass
+indication = lambda t: coro
+```
+
+```python {merge} {continue}
 async def sleep(t, indication_t):    # steps
     coro = indication(indication_t)  # 1
     loop = asyncio.get_event_loop()  # 2
@@ -58,7 +67,16 @@ async def indication(timeout):
         print('.', end='')
         sys.stdout.flush()
         await asyncio.sleep(timeout)
+```
 
+```python {merge} {continue} {hide}
+# suppress "coroutine never awaited" warning
+async def coro():
+    pass
+indication = lambda t: coro
+```
+
+```python {merge} {continue}
 async def sleep(t, indication_t):
     coro = indication(indication_t)
     loop = asyncio.get_event_loop()
