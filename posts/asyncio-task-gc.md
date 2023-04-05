@@ -2,7 +2,7 @@
 published: 2023-04-25
 author: orsinium
 traces:
-  - [module: asyncio, class: Task]
+  - [module: asyncio, type: Task]
 depends_on:
   - asyncio-create-task
 ---
@@ -20,8 +20,6 @@ async def child():
 async def main():
     asyncio.create_task(child())
     ...
-
-asyncio.run(main())
 ```
 
 Can you spot a bug?
@@ -33,11 +31,14 @@ bg_tasks = set()
 
 async def main():
     t = asyncio.create_task(child())
+
     # hold the reference to the task
     # in a global set
     bg_tasks.add(t)
+
     # automatically remove the task
     # from the set when it's done
     t.add_done_callback(t.discard)
+
     ...
 ```
