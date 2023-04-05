@@ -3,7 +3,7 @@ published: 2020-10-01
 id: 612
 author: orsinium
 traces:
-  - [{module: contextlib}, {decorator: nullcontext}]
+  - [module: contextlib, decorator: nullcontext]
 python: "3.7"
 ---
 

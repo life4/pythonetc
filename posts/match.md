@@ -5,7 +5,7 @@ author: orsinium
 pep: 622
 python: "3.10"
 traces:
-  - [{keyword: match}]
+  - [keyword: match]
 ---
 
 # match

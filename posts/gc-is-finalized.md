@@ -3,7 +3,7 @@ published: 2022-09-06
 id: 696
 author: orsinium
 traces:
-  - [{module: gc}, {function: is_finalized}]
+  - [module: gc, function: is_finalized]
 python: "3.9"
 ---
 

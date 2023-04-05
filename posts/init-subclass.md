@@ -4,7 +4,7 @@ id: 578
 author: orsinium
 pep: 487
 traces:
-  - [{type: object}, {method: __init_subclass__}]
+  - [type: object, method: __init_subclass__]
 python: "3.6"
 ---
 

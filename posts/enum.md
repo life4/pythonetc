@@ -4,7 +4,7 @@ id: 614
 author: orsinium
 python: "3.4"
 traces:
-  - [{module: enum}]
+  - [module: enum]
 ---
 
 # enum

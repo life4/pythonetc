@@ -3,7 +3,7 @@ published: 2020-09-01
 id: 597
 author: orsinium
 traces:
-  - [{module: math}, {constant: nan}]
+  - [module: math, constant: nan]
 ---
 
 # nan

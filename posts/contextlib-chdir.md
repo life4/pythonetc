@@ -2,7 +2,7 @@
 author: orsinium
 published: 2022-11-22
 traces:
-  - [{module: contextlib}, {function: chdir}]
+  - [module: contextlib, function: chdir]
 python: "3.11"
 depends_on:
   - os-curdir

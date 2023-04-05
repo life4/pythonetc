@@ -3,7 +3,7 @@ published: 2021-03-18
 id: 654
 author: orsinium
 traces:
-  - [{type: float}]
+  - [type: float]
 ---
 
 # float (IEEE 754)

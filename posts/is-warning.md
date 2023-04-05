@@ -3,7 +3,7 @@ published: 2021-03-16
 id: 653
 author: orsinium
 traces:
-  - [{keyword: is}]
+  - [keyword: is]
 python: "3.8"
 ---
 

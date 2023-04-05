@@ -3,7 +3,7 @@ published: 2020-10-29
 id: 626
 author: orsinium
 traces:
-  - [{module: codecs}]
+  - [module: codecs]
 ---
 
 # codecs

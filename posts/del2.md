@@ -3,7 +3,7 @@ published: 2022-08-30
 id: 695
 author: orsinium
 traces:
-  - [{type: object}, {method: __del__}]
+  - [type: object, method: __del__]
 ---
 
 # `__del__`

@@ -1,7 +1,7 @@
 ---
 author: orsinium
 traces:
-  - [{type: str}, {method: split}]
+  - [type: str, method: split]
 ---
 
 # str.split

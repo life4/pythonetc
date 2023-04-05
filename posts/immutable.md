@@ -3,7 +3,7 @@ published: 2021-04-29
 id: 666
 author: orsinium
 traces:
-  - [{module: types}, {function: MappingProxyType}]
+  - [module: types, function: MappingProxyType]
 python: "3.3"
 ---
 

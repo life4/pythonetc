@@ -2,7 +2,7 @@
 author: orsinium
 published: 2022-12-03
 traces:
-  - [{module: typing}, {type: Self}]
+  - [module: typing, type: Self]
 pep: 673
 python: "3.11"
 ---

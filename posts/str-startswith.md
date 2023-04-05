@@ -1,8 +1,8 @@
 ---
 author: orsinium
 traces:
-  - [{type: str}, {method: startswith}]
-  - [{type: str}, {method: endswith}]
+  - [type: str, method: startswith]
+  - [type: str, method: endswith]
 ---
 
 # str.startswith and str.endswith

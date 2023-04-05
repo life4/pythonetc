@@ -5,7 +5,7 @@ author: orsinium
 pep: 487
 python: "3.6"
 traces:
-  - [{type: object}, {method: __set_name__}]
+  - [type: object, method: __set_name__]
 ---
 
 # `__set_name__` (PEP-487)

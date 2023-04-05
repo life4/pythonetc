@@ -3,7 +3,7 @@ published: 2020-12-24
 id: 643
 author: orsinium
 traces:
-  - [{module: math}, {constant: tau}]
+  - [module: math, constant: tau]
 pep: 628
 python: "3.6"
 ---

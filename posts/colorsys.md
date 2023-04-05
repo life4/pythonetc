@@ -3,7 +3,7 @@ published: 2020-08-04
 id: 586
 author: orsinium
 traces:
-  - [{module: colorsys}]
+  - [module: colorsys]
 ---
 
 # colorsys

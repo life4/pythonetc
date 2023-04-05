@@ -3,7 +3,7 @@ published: 2021-05-06
 id: 668
 author: orsinium
 traces:
-  - [{type: str}, {function: __getitem__}]
+  - [type: str, function: __getitem__]
 ---
 
 # `str.__getitem__` quirks

@@ -3,7 +3,7 @@ published: 2020-11-17
 id: 632
 author: orsinium
 traces:
-  - [{module: ipaddress}]
+  - [module: ipaddress]
 python: "3.3"
 ---
 

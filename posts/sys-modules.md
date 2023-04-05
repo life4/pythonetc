@@ -3,7 +3,7 @@ published: 2020-09-17
 id: 606
 author: orsinium
 traces:
-  - [{module: sys}, {function: modules}]
+  - [module: sys, function: modules]
 ---
 
 # sys.modules

@@ -2,7 +2,7 @@
 published: 2022-09-27
 author: orsinium
 traces:
-  - [{keyword: is}]
+  - [keyword: is]
 ---
 
 # Chain `is`

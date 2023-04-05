@@ -2,7 +2,7 @@
 author: orsinium
 published: 2022-11-01
 traces:
-  - [{type: BaseException}, {method: add_note}]
+  - [type: BaseException, method: add_note]
 pep: 678
 python: "3.11"
 ---

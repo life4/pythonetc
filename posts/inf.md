@@ -3,7 +3,7 @@ published: 2021-03-23
 id: 655
 author: orsinium
 traces:
-  - [{type: float}]
+  - [type: float]
 ---
 
 # float division

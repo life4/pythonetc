@@ -1,7 +1,7 @@
 ---
 author: orsinium
 traces:
-  - [{type: str}, {method: join}]
+  - [type: str, method: join]
 ---
 
 # str.join

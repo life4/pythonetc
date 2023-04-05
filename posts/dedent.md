@@ -3,7 +3,7 @@ published: 2021-04-27
 id: 665
 author: orsinium
 traces:
-  - [{module: textwrap}, {function: dedent}]
+  - [module: textwrap, function: dedent]
 ---
 
 # textwrap.dedent

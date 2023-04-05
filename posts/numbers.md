@@ -3,7 +3,7 @@ published: 2020-09-22
 id: 608
 author: orsinium
 traces:
-  - [{module: numbers}]
+  - [module: numbers]
 pep: 3141
 ---
 
