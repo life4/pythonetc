@@ -10,7 +10,7 @@ from .commands import COMMANDS, Command
 try:
     import ipdb as pdb
 except ImportError:
-    import pdb  # type: ignore
+    import pdb
 
 
 def main(argv: list[str], stdout: TextIO) -> int:
