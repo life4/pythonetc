@@ -3,7 +3,7 @@ published: 2020-08-18
 id: 590
 author: orsinium
 traces:
-  - [{module: fnmatch}]
+  - [module: fnmatch]
 ---
 
 # fnmatch

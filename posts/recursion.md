@@ -3,8 +3,8 @@ published: 2020-06-23
 id: 573
 author: orsinium
 traces:
-    - [{module: sys}, {function: getrecursionlimit}]
-    - [{module: sys}, {function: setrecursionlimit}]
+    - [module: sys, function: getrecursionlimit]
+    - [module: sys, function: setrecursionlimit]
 ---
 
 # sys.setrecursionlimit

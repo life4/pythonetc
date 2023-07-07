@@ -3,7 +3,7 @@ published: 2020-11-19
 id: 633
 author: orsinium
 traces:
-  - [{type: object}, {method: __index__}]
+  - [type: object, method: __index__]
 pep: 357
 ---
 

@@ -5,7 +5,7 @@ author: orsinium
 pep: 591
 python: "3.8"
 traces:
-  - [{module: typing}, {decorator: final}]
+  - [module: typing, decorator: final]
 ---
 
 # typing.final

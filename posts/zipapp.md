@@ -3,7 +3,7 @@ published: 2020-10-13
 id: 616
 author: orsinium
 traces:
-  - [{module: zipapp}]
+  - [module: zipapp]
 python: "3.5"
 ---
 

@@ -3,7 +3,7 @@ published: 2020-12-10
 id: 639
 author: orsinium
 traces:
-  - [{module: array}]
+  - [module: array]
 ---
 
 # array performance

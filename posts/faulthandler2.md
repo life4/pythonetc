@@ -3,7 +3,7 @@ published: 2022-07-14
 id: 688
 author: orsinium
 traces:
-  - [{module: faulthandler}]
+  - [module: faulthandler]
 ---
 
 # faulthandler part 2

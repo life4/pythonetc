@@ -3,7 +3,7 @@ published: 2020-12-22
 id: 642
 author: orsinium
 traces:
-  - [{module: re}, {function: compile}]
+  - [module: re, function: compile]
 ---
 
 # re.compile

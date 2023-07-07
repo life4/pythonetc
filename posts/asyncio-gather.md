@@ -1,4 +1,5 @@
 ---
+published: 2023-04-11
 author: orsinium
 traces:
   - [module: asyncio, function: gather]
@@ -9,7 +10,7 @@ depends_on:
 
 # asyncio.gather
 
-The `asyncio.gather` is the function that you will use the most. You pass in it multiple coroutines, it schedules them, waits for all to finish, and returns the list of results in the same order.
+The `asyncio.gather` is the function that you will use the most. You pass to it multiple coroutines, it schedules them, waits for all to finish, and returns the list of results in the same order.
 
 ```python
 import asyncio
@@ -49,6 +50,6 @@ t.me 2
 That's what happened:
 
 1. `asyncio.gather` schedules all tasks in order as they are passed.
-2. We made the first task wait 3 seconds, the second wait 2 second, and the last one wait 1 second. And the tasks finished as soon as they could, without making everyone to wait for the first task.
+2. We made the first task wait 3 seconds, the second wait 2 seconds, and the last one wait 1 second. And the tasks finished as soon as they could, without making everyone wait for the first task.
 3. `asyncio.gather` waits for all tasks to finish.
-4. `asyncio.gather` returns list of results in the order as the coroutines were passed in it. So, it's safe to `zip` results with input values.
+4. `asyncio.gather` returns a list of results in the order as the coroutines were passed in it. So, it's safe to `zip` results with input values.

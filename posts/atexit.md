@@ -3,7 +3,7 @@ published: 2022-07-05
 id: 686
 author: orsinium
 traces:
-  - [{module: atexit}]
+  - [module: atexit]
 ---
 
 # atexit

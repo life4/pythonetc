@@ -2,7 +2,7 @@
 published: 2022-09-20
 author: orsinium
 traces:
-  - [{module: string}, {type: Template}]
+  - [module: string, type: Template]
 ---
 
 # string.Template

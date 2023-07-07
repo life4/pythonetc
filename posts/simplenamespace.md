@@ -3,7 +3,7 @@ published: 2020-09-24
 id: 609
 author: orsinium
 traces:
-  - [{module: types}, {type: SimpleNamespace}]
+  - [module: types, type: SimpleNamespace]
 ---
 
 # types.SimpleNamespace

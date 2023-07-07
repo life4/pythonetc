@@ -3,8 +3,8 @@ published: 2020-09-10
 id: 603
 author: orsinium
 traces:
-  - [{type: object}]
-  - [{type: type}]
+  - [type: object]
+  - [type: type]
 ---
 
 # object and type

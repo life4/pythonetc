@@ -4,7 +4,7 @@ published: 2022-12-20
 topics:
   - typing
 traces:
-  - [{module: typing}, {function: reveal_type}]
+  - [module: typing, function: reveal_type]
 python: "3.11"
 ---
 

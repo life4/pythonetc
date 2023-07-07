@@ -3,9 +3,9 @@ published: 2021-04-06
 id: 659
 author: orsinium
 traces:
-  - [{type: list}, {method: copy}]
-  - [{module: copy}, {function: copy}]
-  - [{module: copy}, {function: deepcopy}]
+  - [type: list, method: copy]
+  - [module: copy, function: copy]
+  - [module: copy, function: deepcopy]
 ---
 
 # copy.deepcopy

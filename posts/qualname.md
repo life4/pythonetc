@@ -4,7 +4,7 @@ id: 634
 author: orsinium
 pep: 3155
 traces:
-  - [{type: object}, {method: __qualname__}]
+  - [type: object, method: __qualname__]
 python: "3.3"
 ---
 

@@ -2,7 +2,7 @@
 published: 2022-09-13
 author: orsinium
 traces:
-  - [{module: warnings}]
+  - [module: warnings]
 ---
 
 # warnings

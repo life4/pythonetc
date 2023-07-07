@@ -58,3 +58,8 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + mock.seal
 + sys.set_int_max_str_digits
 + <https://peps.python.org/pep-0695/>
++ unittest.ANY
++ asyncio.TaskGroup
++ contextvars
++ itertools.pairwise
++ <https://peps.python.org/pep-0692/>

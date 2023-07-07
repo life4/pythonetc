@@ -3,7 +3,7 @@ published: 2020-12-29
 id: 644
 author: orsinium
 traces:
-  - [{type: str}, {method: join}]
+  - [type: str, method: join]
 ---
 
 # join strings

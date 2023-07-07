@@ -3,7 +3,7 @@ published: 2022-08-23
 id: 694
 author: orsinium
 traces:
-  - [{keyword: del}]
+  - [keyword: del]
 ---
 
 # del

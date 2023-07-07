@@ -3,7 +3,7 @@ published: 2020-10-22
 id: 620
 author: orsinium
 traces:
-  - [{keyword: yield}]
+  - [keyword: yield]
 python: "3.7"
 ---
 

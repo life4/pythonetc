@@ -3,7 +3,7 @@ published: 2020-10-08
 id: 615
 author: orsinium
 traces:
-  - [{module: types}, {decorator: DynamicClassAttribute}]
+  - [module: types, decorator: DynamicClassAttribute]
 ---
 
 # types.DynamicClassAttribute

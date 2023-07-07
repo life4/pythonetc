@@ -3,7 +3,7 @@ published: 2020-06-16
 id: 571
 author: orsinium
 traces:
-  - [{module: ast}, {function: unparse}]
+  - [module: ast, function: unparse]
 python: "3.9"
 ---
 

@@ -3,7 +3,7 @@ published: 2021-03-11
 id: 652
 author: orsinium
 traces:
-  - [{type: list}]
+  - [type: list]
 ---
 
 # join lists

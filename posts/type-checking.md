@@ -5,7 +5,7 @@ author: orsinium
 topics:
   - typing
 traces:
-  - [{module: typing}, {constant: TYPE_CHECKING}]
+  - [module: typing, constant: TYPE_CHECKING]
 ---
 
 # typing.TYPE_CHECKING

@@ -3,7 +3,7 @@ published: 2020-07-09
 id: 579
 author: orsinium
 traces:
-  - [{type: object}, {method: __prepare__}]
+  - [type: object, method: __prepare__]
 ---
 
 # `__prepare__`

@@ -3,7 +3,7 @@ published: 2020-11-26
 id: 635
 author: orsinium
 traces:
-  - [{type: str}, {method: isdigit}]
+  - [type: str, method: isdigit]
 ---
 
 # str.isdigit

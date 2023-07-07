@@ -3,8 +3,8 @@ published: 2021-03-04
 id: 650
 author: orsinium
 traces:
-  - [{type: str}]
-  - [{type: str}, {method: format}]
+  - [type: str]
+  - [type: str, method: format]
 ---
 
 # int to str performance

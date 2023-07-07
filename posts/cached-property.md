@@ -3,7 +3,7 @@ published: 2020-07-16
 id: 581
 author: orsinium
 traces:
-  - [{module: functools}, {decorator: cached_property}]
+  - [module: functools, decorator: cached_property]
 python: "3.8"
 ---
 

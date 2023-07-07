@@ -3,7 +3,7 @@ published: 2020-12-15
 id: 640
 author: orsinium
 traces:
-  - [{module: functools}, {decorator: lru_cache}]
+  - [module: functools, decorator: lru_cache]
 python: "3.2"
 ---
 
