@@ -10,13 +10,13 @@ In Python, `range()` defines all integers in a half-open interval. So `range(2, 
 
 Despite asymmetry, that is not a mistake nor an accident. It makes perfect sense since it allows you to glue together two adjacent intervals without risk of one-off errors:
 
-```txt
-[a, c) = [a, b) + [b, c) 
+```text
+[a, c) = [a, b) + [b, c)
 ```
 
 Compare to closed intervals that feel more “natural”:
 
-```txt
+```text
 [a, c] = [a, b] + [b+1, c]
 ```
 

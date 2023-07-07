@@ -22,7 +22,7 @@ This also means that to skip the first N characters of a string you can read and
 
 You can, however, skip some fixed number of bytes with some precautions. Let's look how a symbol can be decoded:
 
-```txt
+```text
 0xxxxxxx
 110xxxxx 10xxxxxx
 1110xxxx 10xxxxxx 10xxxxxx

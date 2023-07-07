@@ -12,7 +12,7 @@ After that, it may match a dot `(3->4)` which must be followed by one digit `(4-
 
 The classic example of a non-regular language is a family of strings like:
 
-```txt
+```text
 a-b
 aaa-bbb
 aaaaa-bbbbb

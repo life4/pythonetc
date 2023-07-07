@@ -9,7 +9,7 @@ python: "3.11"
 
 [PEP 657](https://peps.python.org/pep-0657/) (landed into Python 3.11) enhanced tracebacks so that they now include quite a precise location of where the error occurred:
 
-```plain
+```text
 Traceback (most recent call last):
   File "query.py", line 24, in add_counts
     return 25 + query_user(user1) + query_user(user2)

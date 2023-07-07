@@ -37,7 +37,7 @@ with Atomic():
 
 The output is:
 
-```txt
+```text
 BEGIN
 A
 COMMIT
