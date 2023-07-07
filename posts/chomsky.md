@@ -18,7 +18,7 @@ Usually, they require you to define some *grammar*, the rules on how to parse an
 The most popular way to define such grammar is the [BNF](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form) language.
 Here is the grammar to parse simple arithmetical expressions (only `+` supported) defined in BNF:
 
-```txt
+```text
  <expr> ::= <operand> "+" <expr>  |  <operand>
  <operand> ::= "(" <expr> ")"  |  <const>
  <const> ::= integer

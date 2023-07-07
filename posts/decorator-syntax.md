@@ -36,6 +36,6 @@ Looks like you use any kind of expression as a decorator, but that is not true.
 and optionally by one pair of brackets with arguments (just like a function call).
 So, no `@decorators[2]` for you. Here is a line from Python grammar:
 
-```txt
+```text
 decorator: '@' dotted_name [ '(' [arglist] ')' ] NEWLINE
 ```

@@ -9,7 +9,7 @@ sequence: fsm
 
 Since BNF is a context-free language itself, you can represent its syntax with a BNF :).
 
-```txt
+```text
 <syntax>         ::= <rule> | <rule> <syntax>
 <rule>           ::= <opt-whitespace> "<" <rule-name>
                      ">" <opt-whitespace>
