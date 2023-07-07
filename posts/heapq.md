@@ -18,7 +18,7 @@ It's a [complete binary tree](https://en.wikipedia.org/wiki/Binary_tree#Types_of
 the key stored in each node is equal to or less than (≤) the keys in the node's children.
 The minimum of all elements is a root of such tree.
 
-```txt
+```text
               1
 
       3               7

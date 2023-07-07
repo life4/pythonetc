@@ -31,7 +31,7 @@ ny_time = utc_time.astimezone(
 `ny_time` is the exact the same moment as `utc_time`,
 but written as New Yorkers see it:
 
-```txt
+```text
 # utc_time
 datetime.datetime(2018, 3, 31, 12, 0,
     tzinfo=<UTC>)

@@ -9,7 +9,7 @@ sequence: dict-keys
 
 In Python 3 `keys`, `values` and `items` methods of dicts return view objects. They returned lists back in Python 2. The main difference is views don't store all items in memory, but yield them as long as they are requested. It works just fine as long as you are trying to iterate over keys (which you usually are), but you can't access elements by index anymore.
 
-```txt
+```text
 TypeError: 'dict_keys' object does not support indexing
 ```
 

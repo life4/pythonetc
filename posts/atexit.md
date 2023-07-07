@@ -35,7 +35,7 @@ atexit.register(print, 'FINISHED')
 
 Output:
 
-```plain
+```text
 Traceback (most recent call last):
   File "example.py", line 4, in <module>
     1/0

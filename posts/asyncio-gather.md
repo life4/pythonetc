@@ -35,7 +35,7 @@ asyncio.run(main())
 
 Output:
 
-```plain
+```text
 started google.com
 started github.com
 started t.me

@@ -31,7 +31,7 @@ except* KeyError as e:
 
 The output:
 
-```plain
+```text
 caught1: ExceptionGroup('', [KeyError('hello'), KeyError('world')])
 caught2: ExceptionGroup('', [ValueError()])
   + Exception Group Traceback (most recent call last):

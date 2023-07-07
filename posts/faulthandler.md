@@ -27,7 +27,7 @@ for i in range(5):
 
 Output:
 
-```plain
+```text
 iteration 0
 iteration 1
 Timeout (0:00:02)!

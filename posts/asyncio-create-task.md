@@ -38,7 +38,7 @@ asyncio.run(main())
 
 Output:
 
-```plain
+```text
 before sleep
 started child
 after sleep
