@@ -5,7 +5,9 @@ python: "3.6"
 traces:
   - [module: datetime, type: datetime, arg: fold]
 depends_on:
-    - zoneinfo
+  - zoneinfo
+topics:
+  - time
 ---
 
 # datetime.datetime.fold

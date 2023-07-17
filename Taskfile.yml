@@ -35,50 +35,50 @@ tasks:
     deps:
       - install:flitenv
     cmds:
-      - "{{.FLITENV}} lint install"
+      - "{{.FLITENV}} install lint"
 
   sdk:
     desc: "run a command in the SDK"
     deps:
       - install:main
     cmds:
-      - "{{.FLITENV}} main run python3 -m sdk {{.CLI_ARGS}}"
+      - "{{.FLITENV}} run main python3 -m sdk {{.CLI_ARGS}}"
   pytest:
     desc: "run Python tests"
     deps:
       - install:test
     cmds:
-      - "{{.FLITENV}} test run pytest {{.CLI_ARGS}}"
+      - "{{.FLITENV}} run pytest {{.CLI_ARGS}}"
   flake8:
     desc: "lint Python code"
     deps:
       - install:lint
     cmds:
-      - "{{.FLITENV}} lint run flake8 {{.CLI_ARGS}} ."
+      - "{{.FLITENV}} run flake8 {{.CLI_ARGS}} ."
   mypy:
     desc: "check type annotations"
     deps:
       - install:lint
     cmds:
-      - "{{.FLITENV}} lint run mypy {{.CLI_ARGS}}"
+      - "{{.FLITENV}} run mypy {{.CLI_ARGS}}"
   unify:
     desc: "convert double quotes to single ones"
     deps:
       - install:lint
     cmds:
-      - "{{.FLITENV}} lint run unify -r -i --quote=\\' {{.CLI_ARGS}} sdk tests"
+      - "{{.FLITENV}} run unify -r -i --quote=\\' {{.CLI_ARGS}} sdk tests"
   isort:
     desc: "sort imports"
     deps:
       - install:lint
     cmds:
-      - "{{.FLITENV}} lint run isort {{.CLI_ARGS}} ."
+      - "{{.FLITENV}} run isort {{.CLI_ARGS}} ."
   isort:check:
     desc: "sort imports"
     deps:
       - install:lint
     cmds:
-      - "{{.FLITENV}} lint run isort --check {{.CLI_ARGS}} ."
+      - "{{.FLITENV}} run isort --check {{.CLI_ARGS}} ."
 
   # groups
   format:
@@ -102,4 +102,4 @@ tasks:
       - task: format
       - task: lint
       - task: test
-      - "{{.FLITENV}} main run python3 -m sdk html"
+      - "{{.FLITENV}} run main sdk html"

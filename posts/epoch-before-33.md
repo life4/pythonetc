@@ -3,8 +3,10 @@ published: 2018-03-31
 id: 33
 author: pushtaev
 buttons:
-- title: Try this code live
-  url: "https://replit.com/@VadimPushtaev/strftime"
+  - title: Try this code live
+    url: "https://replit.com/@VadimPushtaev/strftime"
+topics:
+  - time
 ---
 
 # epoch before Python 3.3

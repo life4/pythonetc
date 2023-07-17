@@ -148,7 +148,7 @@ class IPythonExecutor:
                     'Looks like exception in IPython occurred.\n'
                     + f'Type of exception is `{found}`.\n'
                     + 'Now follows the whole original output:\n'
-                    + '\n'.join(f"OUTPUT WITH ERROR: {line}" for line in out_lines)
+                    + '\n'.join(f'OUTPUT WITH ERROR: {line}' for line in out_lines)
                 )
 
             for out_line in out_lines:

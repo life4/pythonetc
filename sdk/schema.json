@@ -48,6 +48,7 @@
                 "enum": [
                     "news",
                     "packaging",
+                    "time",
                     "typing"
                 ]
             }

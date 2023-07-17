@@ -4,6 +4,8 @@ pep: 615
 python: "3.6"
 traces:
   - [module: zoneinfo]
+topics:
+  - time
 ---
 
 # zoneinfo
