@@ -3,10 +3,11 @@ from __future__ import annotations
 import shutil
 from collections import defaultdict
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, datetime, time
 from pathlib import Path
 
 import jinja2
+import rfeed
 
 from ..module import Module
 from ..pages import PAGES
@@ -22,6 +23,7 @@ jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(TEMPLATES_PATH),
     undefined=jinja2.StrictUndefined,
 )
+RSS_FILE_NAME = 'index.xml'
 
 
 @dataclass(frozen=True)
@@ -60,12 +62,12 @@ class HTMLCommand(Command):
     name = 'html'
 
     def run(self) -> int:
-        all_posts: dict[Path, Post] = get_posts()
-        all_posts_to_render: dict[Path, PostToRender] = {
+        all_posts = get_posts()
+        all_posts_to_render = {
             path: PostToRender.from_post(post)
             for path, post in all_posts.items()
         }
-        posts: list[PostToRender] = [
+        posts = [
             p for p in all_posts_to_render.values()
             if p.first_in_sequence()
         ]
@@ -108,6 +110,7 @@ class HTMLCommand(Command):
             modules=Module.from_posts(posts),
             title='stdlib',
         )
+        render_rss(list(all_posts.values()))
 
         for post in posts:
             if post.sequence is not None and post.first_in_sequence():
@@ -144,3 +147,33 @@ def render_post(posts: list[PostToRender]) -> None:
     content = template.render(title=main_post.title, posts=posts)
     html_path = ROOT / 'public' / 'posts' / f'{main_post.slug}.html'
     html_path.write_text(content, encoding='utf8')
+
+
+def render_rss(posts: list[Post]) -> None:
+    items: list[rfeed.Item] = []
+    for post in reversed(posts):
+        if not post.published:
+            continue
+        if post.published > date.today():
+            continue
+        item = rfeed.Item(
+            title=post.title,
+            link=post.absolute_url,
+            description=post.html_content,
+            creator=post.author,
+            guid=rfeed.Guid(post.slug),
+            pubDate=datetime.combine(post.published, time(16, 0)),
+        )
+        items.append(item)
+    feed = rfeed.Feed(
+        title="Python etc",
+        link=f"https://pythonetc.orsinium.dev/{RSS_FILE_NAME}",
+        description="Python tricks, tips, and new features.",
+        language="en-US",
+        lastBuildDate=datetime.now(),
+        items=items,
+        generator='Python etc SDK',
+        docs='https://github.com/life4/pythonetc',
+    )
+    path = ROOT / 'public' / RSS_FILE_NAME
+    path.write_text(feed.rss(), encoding='utf8')

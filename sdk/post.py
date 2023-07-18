@@ -142,6 +142,10 @@ class Post:
         return f'posts/{self.slug}.html'
 
     @property
+    def absolute_url(self) -> str:
+        return f'https://pythonetc.orsinium.dev/{self.url}'
+
+    @property
     def is_typing(self) -> bool:
         if 'typing' in self.topics:
             return True
