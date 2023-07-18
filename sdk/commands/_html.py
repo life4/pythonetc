@@ -151,6 +151,7 @@ def render_post(posts: list[PostToRender]) -> None:
 
 def render_rss(posts: list[Post]) -> None:
     items: list[rfeed.Item] = []
+    count = 0
     for post in reversed(posts):
         if not post.published:
             continue
@@ -165,6 +166,9 @@ def render_rss(posts: list[Post]) -> None:
             pubDate=datetime.combine(post.published, time(16, 0)),
         )
         items.append(item)
+        count += 1
+        if count >= 20:
+            break
     feed = rfeed.Feed(
         title="Python etc",
         link=f"https://pythonetc.orsinium.dev/{RSS_FILE_NAME}",
