@@ -8,6 +8,8 @@ vars:
 
 env:
   FLIT_ROOT_INSTALL: "1"
+dotenv:
+  - ".env"
 
 tasks:
   install:flitenv:

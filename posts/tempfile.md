@@ -15,7 +15,7 @@ import tempfile
 import os
 
 def files_of(dir_path):
-    return list(os.listdir(dir_path))
+    return set(os.listdir(dir_path))
 ```
 
 ```python {continue}
@@ -24,5 +24,5 @@ with tempfile.TemporaryDirectory() as dir_path:
     open(os.path.join(dir_path, 'b'), 'w').close()
     open(os.path.join(dir_path, 'c'), 'w').close()
 
-    assert files_of(dir_path) == ['a', 'b', 'c']
+    assert files_of(dir_path) == {'a', 'b', 'c'}
 ```

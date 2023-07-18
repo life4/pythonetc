@@ -6,7 +6,6 @@ from dataclasses import dataclass, field
 from datetime import date
 from functools import cached_property
 from pathlib import Path
-from typing import Optional
 
 import jsonschema
 import yaml
@@ -163,7 +162,7 @@ class Post:
 
         return copy.text
 
-    def self_in_sequence(self) -> Optional[PostOfSequence]:
+    def self_in_sequence(self) -> PostOfSequence | None:
         if self.sequence is None:
             return None
         found = [
