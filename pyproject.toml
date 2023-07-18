@@ -15,13 +15,14 @@ dynamic = ["version", "description"]
 classifiers = ["Private :: Do Not Upload"]
 dependencies = [
     "aiotask-context",
-    "IPython",
+    "ipython",
     "jinja2",
     "jsonschema",
     "markdown-it-py",
     "pytz",
     "pyyaml",
     "requests",
+    "rfeed",
     "simplejson",
     "telethon",
 ]
