@@ -4,10 +4,9 @@ from __future__ import annotations
 import argparse
 import asyncio
 import os
-from datetime import date, datetime, time, timedelta
+from datetime import date, datetime, time, timedelta, timezone
 from functools import cached_property
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
 from telethon import TelegramClient
 from telethon.types import Message
@@ -17,7 +16,7 @@ from ._command import Command
 
 
 CHANNEL = 'pythonetc'
-TZ = ZoneInfo('Europe/Amsterdam')
+TZ = timezone.utc
 
 
 class ScheduleCommand(Command):
@@ -61,7 +60,7 @@ class ScheduleCommand(Command):
                 return 'post already scheduled'
 
             # schedule the post
-            publish_at = datetime.combine(post.published, time(16, 0, tzinfo=TZ))
+            publish_at = datetime.combine(post.published, time(15, 0, tzinfo=TZ))
             in10m = datetime.now(TZ) + timedelta(minutes=10)
             if publish_at < in10m:
                 publish_at = in10m
