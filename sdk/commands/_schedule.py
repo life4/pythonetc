@@ -3,16 +3,18 @@ from __future__ import annotations
 
 import argparse
 import asyncio
-from datetime import date, datetime, timedelta, time
-from functools import cached_property
 import os
+from datetime import date, datetime, time, timedelta
+from functools import cached_property
 from pathlib import Path
+from zoneinfo import ZoneInfo
+
 from telethon import TelegramClient
 from telethon.types import Message
-from zoneinfo import ZoneInfo
 
 from ..post import Post
 from ._command import Command
+
 
 CHANNEL = 'pythonetc'
 TZ = ZoneInfo('Europe/Amsterdam')
