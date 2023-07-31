@@ -29,8 +29,8 @@ class PostSequence:
         index = 0
         for post in data['posts']:
             if 'name' in post:
-                assert 'path' not in post,\
-                    f'path and name are mutually exclusive in {path.name}'
+                msg = f'path and name are mutually exclusive in {path.name}'
+                assert 'path' not in post, msg
                 post['path'] = (Path('posts') / (post.pop('name') + '.md'))
             if 'post' in post:
                 post['path'] = Path(post['path'])

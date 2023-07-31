@@ -46,8 +46,8 @@ class CheckAllCommand(Command):
                 continue
             sequence = PostSequence.from_path(path)
             for post_of_seq in sequence.posts:
-                assert post_of_seq.path.absolute() in known_posts_by_path,\
-                    f'unknown post {post_of_seq.path} in {path.name}'
+                msg = f'unknown post {post_of_seq.path} in {path.name}'
+                assert post_of_seq.path.absolute() in known_posts_by_path, msg
                 post = known_posts_by_path[post_of_seq.path.absolute()]
                 assert post.sequence == sequence
 
