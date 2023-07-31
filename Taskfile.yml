@@ -2,7 +2,7 @@
 version: "3"
 
 vars:
-  PYTHON: python3
+  PYTHON: python3.11
   VENVS: .venvs
   FLITENV: "flitenv --venvs={{.VENVS}}"
 

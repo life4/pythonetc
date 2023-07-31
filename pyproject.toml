@@ -10,7 +10,7 @@ authors = [
 ]
 license = { file = "LICENSE" }
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 dynamic = ["version", "description"]
 classifiers = ["Private :: Do Not Upload"]
 dependencies = [
@@ -42,7 +42,7 @@ lint = [
 
 [tool.mypy]
 files = ["sdk", "tests"]
-python_version = "3.8"
+python_version = "3.11"
 show_error_codes = true
 ignore_missing_imports = true
 follow_imports = "silent"
