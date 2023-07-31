@@ -46,9 +46,7 @@ def main():
                 output.write('```\n')
             elif line['type'] == 'text_link':
                 output.write('[{}]({})'.format(line['text'], line['href']))
-            elif line['type'] == 'mention':
-                output.write('{}'.format(line['text']))
-            elif line['type'] == 'link':
+            elif line['type'] in ('mention', 'link'):
                 output.write('{}'.format(line['text']))
             else:
                 raise ValueError('Unknown line type: {}'.format(line['type']))
