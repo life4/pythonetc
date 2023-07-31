@@ -71,6 +71,7 @@ class HTMLCommand(Command):
     name = 'html'
 
     def run(self) -> int:
+        today = date.today()
         all_posts = get_posts()
         all_posts_to_render = {
             path: PostToRender.from_post(post)
@@ -80,11 +81,13 @@ class HTMLCommand(Command):
             p for p in all_posts_to_render.values()
             if p.first_in_sequence()
         ]
+        # for production build, show only published posts
+        if os.environ.get('CF_PAGES_BRANCH', '') == 'master':
+            posts = [p for p in posts if p.published and p.published <= today]
 
         self._prepare_dirs()
 
         years: defaultdict[int, list[Post]] = defaultdict(list)
-        today = date.today()
         for post in posts:
             published = post.published or today
             years[published.year].append(post)
@@ -169,10 +172,11 @@ def render_post(posts: list[PostToRender]) -> None:
 def render_rss(posts: list[Post]) -> None:
     items: list[rfeed.Item] = []
     count = 0
+    today = date.today()
     for post in reversed(posts):
         if not post.published:
             continue
-        if post.published > date.today():
+        if post.published > today:
             continue
         item = rfeed.Item(
             title=post.title,
