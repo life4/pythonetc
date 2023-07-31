@@ -226,44 +226,46 @@ class PostMarkdown:
     def run_code(self) -> None:
         shared_globals: dict[str, object] = dict(_DEFAULT_GLOBALS)
         for paragraph in self._paragraphs():
-
-            if (
-                paragraph.code is None
-                or paragraph.code.no_run
-                or not (
-                    paragraph.code.is_python
-                    or paragraph.code.is_python_interactive
-                    or paragraph.code.is_ipython
-                )
-            ):
+            if paragraph.code is None or paragraph.code.no_run:
                 continue
-
             if not paragraph.code.continue_code:
                 shared_globals = dict(_DEFAULT_GLOBALS)
             if paragraph.code.no_print:
                 shared_globals['print'] = lambda *args, **kwargs: None
+            else:
+                shared_globals['print'] = print
+            raw_code = paragraph.tokens[-1].content
+            self._run_paragraph(raw_code, paragraph.code, shared_globals)
 
-            code = paragraph.tokens[-1].content
-            if paragraph.code.is_python:
-                eval_or_exec(
-                    code,
-                    shared_globals=shared_globals,
-                    shield=paragraph.code.shield,
-                )
-            if paragraph.code.is_python_interactive:
-                self._exec_cli(
-                    code, shared_globals,
-                    check_interactive=not paragraph.code.python_interactive_no_check,
-                    shield=paragraph.code.shield,
-                )
-            if paragraph.code.is_ipython:
-                self._exec_ipython(
-                    code,
-                    shared_globals,
-                    check_interactive=not paragraph.code.python_interactive_no_check,
-                    shield=paragraph.code.shield,
-                    native=paragraph.code.ipython_native,
-                )
+    def _run_paragraph(
+        self,
+        raw_code: str,
+        par_code: ParagraphCode,
+        shared_globals: dict[str, object],
+    ) -> None:
+        if par_code.is_python:
+            eval_or_exec(
+                raw_code,
+                shared_globals=shared_globals,
+                shield=par_code.shield,
+            )
+            return
+        if par_code.is_python_interactive:
+            self._exec_cli(
+                raw_code, shared_globals,
+                check_interactive=not par_code.python_interactive_no_check,
+                shield=par_code.shield,
+            )
+            return
+        if par_code.is_ipython:
+            self._exec_ipython(
+                raw_code,
+                shared_globals,
+                check_interactive=not par_code.python_interactive_no_check,
+                shield=par_code.shield,
+                native=par_code.ipython_native,
+            )
+            return
 
     def _exec_cli(
         self, code: str, shared_globals: dict, shield: str | None = None,
