@@ -17,7 +17,7 @@ class Module:
     child_posts: list[tuple[Trace, Post]] = field(default_factory=list)
 
     @classmethod
-    def from_posts(self, posts: Iterable[Post]) -> list[Module]:
+    def from_posts(cls, posts: Iterable[Post]) -> list[Module]:
         modules: defaultdict[str, Module] = defaultdict(Module)
         for post in posts:
             for trace in post.traces:

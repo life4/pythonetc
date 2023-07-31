@@ -82,7 +82,7 @@ class Post:
             sequence = PostSequence.from_path(
                 path.parent
                 / 'sequences'
-                / (meta.pop('sequence') + '.yaml')
+                / (meta.pop('sequence') + '.yaml'),
             )
 
         buttons: list[PostButton] = []
@@ -173,8 +173,8 @@ class Post:
             p for p in self.sequence.posts
             if p.path.absolute() == self.path.absolute()
         ]
-        assert len(found) == 1,\
-            f'There should be only one post in sequence, but found {len(found)}: {found}'
+        msg = f'There should be only one post in sequence, found {len(found)}: {found}'
+        assert len(found) == 1, msg
 
         return found[0]
 

@@ -5,10 +5,10 @@ build-backend = "flit_core.buildapi"
 [project]
 name = "sdk"
 authors = [
-    {name = "Gram", email = "git@orsinium.dev"},
-    {name = "VadimPushtaev", email = "pushtaev.vm@gmail.com"}
+    { name = "Gram", email = "git@orsinium.dev" },
+    { name = "VadimPushtaev", email = "pushtaev.vm@gmail.com" },
 ]
-license = {file = "LICENSE"}
+license = { file = "LICENSE" }
 readme = "README.md"
 requires-python = ">=3.8"
 dynamic = ["version", "description"]
@@ -28,14 +28,12 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-test = [
-    "pytest",
-    "pytest-cov",
-]
+test = ["pytest", "pytest-cov"]
 lint = [
     "flake8",
     "isort",
     "mypy",
+    "ruff",
     "types-jsonschema",
     "types-pyyaml",
     "types-requests",
@@ -58,3 +56,32 @@ warn_unused_ignores = true
 profile = "django"
 lines_after_imports = 2
 skip = [".venvs/", "venv", "repls/"]
+
+[tool.ruff]
+line-length = 90
+select = [
+    "B",
+    "COM",
+    "E",
+    "F",
+    "ISC",
+    "N",
+    "PIE",
+    "PL",
+    "PTH",
+    "Q",
+    "RUF",
+    "SIM",
+    "W",
+]
+exclude = ["repls"]
+ignore = [
+    "PLR2004", # allow hardcoded constants
+    "PLR0913", # allow multiple arguments for a function
+    "B904",    # allow raising exceptions without `from`
+    "PLW2901", # allow shadowing loop variables
+]
+target-version = "py311"
+
+[tool.ruff.flake8-quotes]
+inline-quotes = "single"

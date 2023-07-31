@@ -1,12 +1,12 @@
 from __future__ import annotations
-import os
 
+import os
 import shutil
+import sys
 from collections import defaultdict
 from dataclasses import dataclass, field
 from datetime import date, datetime, time
 from pathlib import Path
-import sys
 from types import MappingProxyType
 
 import jinja2
@@ -187,10 +187,10 @@ def render_rss(posts: list[Post]) -> None:
         if count >= 20:
             break
     feed = rfeed.Feed(
-        title="Python etc",
-        link=f"https://pythonetc.orsinium.dev/{RSS_FILE_NAME}",
-        description="Python tricks, tips, and new features.",
-        language="en-US",
+        title='Python etc',
+        link=f'https://pythonetc.orsinium.dev/{RSS_FILE_NAME}',
+        description='Python tricks, tips, and new features.',
+        language='en-US',
         lastBuildDate=datetime.now(),
         items=items,
         generator='Python etc SDK',

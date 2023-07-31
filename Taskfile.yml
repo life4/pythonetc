@@ -57,6 +57,18 @@ tasks:
       - install:lint
     cmds:
       - "{{.FLITENV}} run lint flake8 {{.CLI_ARGS}} ."
+  ruff:
+    desc: "lint Python code"
+    deps:
+      - install:lint
+    cmds:
+      - "{{.FLITENV}} run lint ruff check {{.CLI_ARGS}} ."
+  ruff:fix:
+    desc: "fix all possible ruff violations"
+    deps:
+      - install:lint
+    cmds:
+      - "{{.FLITENV}} run lint ruff check --fix-only {{.CLI_ARGS}} ."
   mypy:
     desc: "check type annotations"
     deps:
@@ -91,6 +103,7 @@ tasks:
   lint:
     desc: "run all linters"
     cmds:
+      - task: ruff
       - task: flake8
       - task: mypy
       - task: isort:check

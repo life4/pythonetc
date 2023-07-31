@@ -34,14 +34,14 @@ class Representer(metaclass=ABCMeta):
 class JsonRepresenter(Representer):
   def represent_admin_user(self, user):
     return json.dumps({
-      "admin": True,
-      "name": user.name,
+      'admin': True,
+      'name': user.name,
     })
 
   def represent_trial_user(self, user):
     return json.dumps({
-      "trial": True,
-      "name": user.name,
+      'trial': True,
+      'name': user.name,
     })
 
 

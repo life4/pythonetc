@@ -26,9 +26,9 @@ class CheckAllCommand(Command):
                     post.run_code()  # TODO: all posts should be runnable
                 except BaseException as e:
                     raise ValueError(
-                        f'Error occurred while running {post.path.name}: {e}'
+                        f'Error occurred while running {post.path.name}: {e}',
                     ) from e
-                assert '' != post.telegram_markdown
+                assert post.telegram_markdown != ''
             if post.id:
                 assert post.id not in known_post_ids, f'duplicate post id: {post.id}'
             if post.sequence:
@@ -46,8 +46,8 @@ class CheckAllCommand(Command):
                 continue
             sequence = PostSequence.from_path(path)
             for post_of_seq in sequence.posts:
-                assert post_of_seq.path.absolute() in known_posts_by_path,\
-                    f'unknown post {post_of_seq.path} in {path.name}'
+                msg = f'unknown post {post_of_seq.path} in {path.name}'
+                assert post_of_seq.path.absolute() in known_posts_by_path, msg
                 post = known_posts_by_path[post_of_seq.path.absolute()]
                 assert post.sequence == sequence
 

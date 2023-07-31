@@ -16,7 +16,7 @@ class Crumb:
     @classmethod
     def from_raw(cls, raw: dict) -> Crumb:
         assert len(raw) == 1
-        k, v = list(raw.items())[0]
+        k, v = next(iter(raw.items()))
         return cls(k, v)
 
 
