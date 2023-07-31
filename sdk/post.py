@@ -82,7 +82,7 @@ class Post:
             sequence = PostSequence.from_path(
                 path.parent
                 / 'sequences'
-                / (meta.pop('sequence') + '.yaml')
+                / (meta.pop('sequence') + '.yaml'),
             )
 
         buttons: list[PostButton] = []

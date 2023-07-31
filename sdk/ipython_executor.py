@@ -65,7 +65,7 @@ class IPythonExecutor:
     native: bool = False
 
     ERROR_REGEX: ClassVar[re.Pattern] = re.compile(
-        r'(\S+)\s+Traceback \(most recent call last\)'
+        r'(\S+)\s+Traceback \(most recent call last\)',
     )
 
     @cached_property
@@ -146,9 +146,9 @@ class IPythonExecutor:
             if found is not None and (self.shield is None or found != self.shield):
                 raise RuntimeError(
                     'Looks like exception in IPython occurred.\n'
-                    + f'Type of exception is `{found}`.\n'
-                    + 'Now follows the whole original output:\n'
-                    + '\n'.join(f'OUTPUT WITH ERROR: {line}' for line in out_lines)
+                    f'Type of exception is `{found}`.\n'
+                    'Now follows the whole original output:\n'
+                    '\n'.join(f'OUTPUT WITH ERROR: {line}' for line in out_lines),
                 )
 
             for out_line in out_lines:

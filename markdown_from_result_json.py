@@ -12,14 +12,14 @@ def main():
     filtered = [x for x in meta['messages'] if x['id'] == target_id]
     assert len(filtered) == 1, (
         'Found not exactly one message (but {}) with id {}'.format(
-            len(filtered), target_id
+            len(filtered), target_id,
         )
     )
     target = filtered[0]
     date = target['date'][0:10]
 
     output = io.StringIO()
-    output.write(dedent(f'''
+    output.write(dedent(f"""
     ---
     published: {date}
     id: {target_id}
@@ -28,7 +28,7 @@ def main():
 
     # ...
 
-    ''').lstrip())
+    """).lstrip())
 
     for line in target['text']:
         if isinstance(line, str):
@@ -54,11 +54,12 @@ def main():
             raise ValueError('Unknown line type: {}'.format(type(line)))
 
     output_string = output.getvalue()
-    while "\n\n\n" in output_string:
-        output_string = output_string.replace("\n\n\n", "\n\n")
+    while '\n\n\n' in output_string:
+        output_string = output_string.replace('\n\n\n', '\n\n')
 
-    with open(f'posts/__{target_id}__.md', 'w', encoding='utf8') as f2:
-        f2.write(output_string + "\n")
+    path = Path('posts', f'__{target_id}__.md')
+    with path.open('w', encoding='utf8') as stream:
+        stream.write(output_string + '\n')
 
 
 if __name__ == '__main__':

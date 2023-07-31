@@ -12,6 +12,18 @@ from sdk.ipython_executor import IPythonCommand, IPythonExecutor
 from sdk.python_exec_utils import eval_or_exec
 
 
+_MAP_TAGS_TO_ATTRS = {
+    'hide': 'hide',
+    'continue': 'continue_code',
+    'merge': 'merge',
+    'no-run': 'no_run',
+    'python-interactive-no-check': 'python_interactive_no_check',
+    'no-print': 'no_print',
+    'ipython-native': 'ipython_native',
+    'shield': 'shield',
+}
+
+
 class Language(str, enum.Enum):
     NONE = ''
     PYTHON = 'python'
@@ -72,17 +84,6 @@ class ParagraphCode:
     # This flag allows the code to raise ExceptionType.
     shield: str | None = None
 
-    _MAP_TAGS_TO_ATTRS = {
-        'hide': 'hide',
-        'continue': 'continue_code',
-        'merge': 'merge',
-        'no-run': 'no_run',
-        'python-interactive-no-check': 'python_interactive_no_check',
-        'no-print': 'no_print',
-        'ipython-native': 'ipython_native',
-        'shield': 'shield',
-    }
-
     def __post_init__(self) -> None:
         if self.merge and not self.continue_code:
             raise ValueError('Cannot {merge} without {continue}')
@@ -93,20 +94,20 @@ class ParagraphCode:
             and not (self.is_python_interactive or self.is_ipython)
         ):
             raise ValueError(
-                'python-interactive-no-check is only allowed for python interactive code'
+                'python-interactive-no-check is only allowed for python interactive code',
             )
 
     @cached_property
     def is_python(self) -> bool:
-        return Language.PYTHON == self.language
+        return self.language == Language.PYTHON
 
     @cached_property
     def is_python_interactive(self) -> bool:
-        return Language.PYTHON_INTERACTIVE == self.language
+        return self.language == Language.PYTHON_INTERACTIVE
 
     @cached_property
     def is_ipython(self) -> bool:
-        return Language.IPYTHON == self.language
+        return self.language == Language.IPYTHON
 
     @classmethod
     def from_token(cls, token: markdown_it.token.Token) -> ParagraphCode:
@@ -119,7 +120,7 @@ class ParagraphCode:
         first_word: bool = True
         in_comment: bool = False
         for word in words:
-            if '{' != word[0] or '}' != word[-1]:
+            if word[0] != '{' or word[-1] != '}':
                 if word.startswith('{#'):
                     in_comment = True
                 if in_comment:
@@ -141,8 +142,8 @@ class ParagraphCode:
             else:
                 tag_name, tag_value = word[1:-1], True
 
-            if tag_name in cls._MAP_TAGS_TO_ATTRS:
-                kwargs[cls._MAP_TAGS_TO_ATTRS[tag_name]] = tag_value
+            if tag_name in _MAP_TAGS_TO_ATTRS:
+                kwargs[_MAP_TAGS_TO_ATTRS[tag_name]] = tag_value
             else:
                 raise ValueError(f'Invalid tag: {word}')
 
@@ -184,9 +185,8 @@ class PostMarkdown:
             token = queue.pop(0)
             if token.type == 'image':
                 return True
-            if token.type == 'inline':
-                if token.children:
-                    queue.extend(token.children)
+            if token.type == 'inline' and token.children:
+                queue.extend(token.children)
 
         return False
 
@@ -343,7 +343,7 @@ class PostMarkdown:
                 if p.code.merge:
                     if prev_code_map is None:
                         raise ValueError(
-                            'Code block can not be merged with previous non-code block'
+                            'Code block can not be merged with previous non-code block',
                         )
                     for token in p.tokens:
                         if not token.map:
@@ -407,15 +407,13 @@ class PostMarkdown:
                     paragraph_tokens = []
                 else:
                     paragraph_tokens.append(token)
+            elif token.type.endswith('_open'):
+                paragraph_tokens = [token]
+                paragraph_depth += 1
+            elif token.type.endswith('_close'):
+                raise ValueError('unexpected paragraph close')
+            elif token.type == 'fence':
+                code = ParagraphCode.from_token(token)
+                yield Paragraph(tokens=[token], code=code)
             else:
-                if token.type.endswith('_open'):
-                    paragraph_tokens = [token]
-                    paragraph_depth += 1
-                elif token.type.endswith('_close'):
-                    raise ValueError('unexpected paragraph close')
-                else:
-                    if token.type == 'fence':
-                        code = ParagraphCode.from_token(token)
-                        yield Paragraph(tokens=[token], code=code)
-                    else:
-                        yield Paragraph(tokens=[token])
+                yield Paragraph(tokens=[token])

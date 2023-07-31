@@ -29,19 +29,19 @@ class TelegramCommand(Command):
                 if not next_post.delay_allowed:
                     self.warn(
                         f'Next post must be posted immediately: '
-                        f'python -m sdk telegram posts/{next_post.path.name}'
+                        f'python -m sdk telegram posts/{next_post.path.name}',
                     )
 
         if post.markdown.has_images():
             self.warn(
                 'This post contains images. '
-                'You must post them to Telegram manually.'
+                'You must post them to Telegram manually.',
             )
 
         if post.buttons:
             self.warn(
                 'This post contains buttons. '
-                'You must post them to Telegram manually.'
+                'You must post them to Telegram manually.',
             )
             for button in post.buttons:
                 self.warn(f'\t{button.title}: {button.url}')
