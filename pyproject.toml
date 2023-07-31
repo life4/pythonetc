@@ -14,21 +14,26 @@ requires-python = ">=3.11"
 dynamic = ["version", "description"]
 classifiers = ["Private :: Do Not Upload"]
 dependencies = [
+    "ipython",        # for running IPython code snippets
+    "jinja2",         # for rendering html pages
+    "jsonschema",     # for validating posts' metadata
+    "markdown-it-py", # for parsing posts' markdown content
+    "pyyaml",         # for parsing posts' metadata
+    "requests",       # for fetching PEPs
+    "rfeed",          # for generating rss feed
+    "telethon",       # for scheduling telegram posts
+
+    # for running code examples
     "aiotask-context",
-    "ipython",
-    "jinja2",
-    "jsonschema",
-    "markdown-it-py",
     "pytz",
-    "pyyaml",
-    "requests",
-    "rfeed",
     "simplejson",
-    "telethon",
 ]
 
 [project.optional-dependencies]
-test = ["pytest", "pytest-cov"]
+test = [
+    "pytest",     # test framework
+    "pytest-cov", # for generating coverage report
+]
 lint = [
     "flake8",
     "isort",

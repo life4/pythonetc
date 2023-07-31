@@ -15,9 +15,10 @@ class CheckAllCommand(Command):
         known_posts_by_path: dict[Path, Post] = {}
         known_post_ids: set[int] = set()
 
-        for path in Path('posts').iterdir():
+        for path in sorted(Path('posts').iterdir()):
             if path.suffix != '.md':
                 continue
+            print(path.name)
             post = Post.from_path(path)
             if error := post.validate():
                 raise ValueError(f'invalid {post.path.name}: {error}')

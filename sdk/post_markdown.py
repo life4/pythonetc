@@ -230,6 +230,12 @@ class PostMarkdown:
         for paragraph in self._paragraphs():
             if paragraph.code is None or paragraph.code.no_run:
                 continue
+            if not (
+                paragraph.code.is_python
+                or paragraph.code.is_python_interactive
+                or paragraph.code.is_ipython
+            ):
+                continue
             if not paragraph.code.continue_code:
                 shared_globals = dict(_DEFAULT_GLOBALS)
             if paragraph.code.no_print:
@@ -243,6 +249,8 @@ class PostMarkdown:
                 lineno = self._get_lineno(raw_code)
                 if lineno is not None:
                     exc.add_note(f'Error occured in code block on line {lineno}')
+                if paragraph.code.shield:
+                    exc.add_note(f'Expected exception: {paragraph.code.shield}')
                 raise
 
     def _run_paragraph(
