@@ -3,6 +3,7 @@ from __future__ import annotations
 import dataclasses
 import enum
 from functools import cached_property
+from pathlib import Path
 from types import MappingProxyType
 from typing import Any, Iterator, Mapping
 
@@ -166,10 +167,11 @@ class Paragraph:
     code: ParagraphCode | None = None
 
 
+@dataclasses.dataclass
 class PostMarkdown:
-    def __init__(self, text):
-        self.text = text
-        self._parser = MarkdownIt()
+    text: str
+    path: Path | None = None
+    _parser: MarkdownIt = dataclasses.field(default_factory=MarkdownIt)
 
     def copy(self) -> 'PostMarkdown':
         return PostMarkdown(self.text)
@@ -235,7 +237,13 @@ class PostMarkdown:
             else:
                 shared_globals['print'] = print
             raw_code = paragraph.tokens[-1].content
-            self._run_paragraph(raw_code, paragraph.code, shared_globals)
+            try:
+                self._run_paragraph(raw_code, paragraph.code, shared_globals)
+            except BaseException as exc:
+                lineno = self._get_lineno(raw_code)
+                if lineno is not None:
+                    exc.add_note(f'Error occured in code block on line {lineno}')
+                raise
 
     def _run_paragraph(
         self,
@@ -266,6 +274,20 @@ class PostMarkdown:
                 native=par_code.ipython_native,
             )
             return
+
+    def _get_lineno(self, raw_code: str) -> int | None:
+        """Given raw code block, find its line number in the original file.
+        """
+        if self.path is None:
+            return None
+        post_content = self.path.read_text()
+        if post_content.count(raw_code) != 1:
+            return None
+        pos = post_content.find(raw_code)
+        if pos == -1:
+            return None
+        text_before = post_content[:pos]
+        return text_before.count('\n')
 
     def _exec_cli(
         self, code: str, shared_globals: dict, shield: str | None = None,
