@@ -3,7 +3,8 @@ from __future__ import annotations
 import dataclasses
 import enum
 from functools import cached_property
-from typing import Any, Iterator
+from types import MappingProxyType
+from typing import Any, Iterator, Mapping
 
 import markdown_it.token
 from markdown_it import MarkdownIt
@@ -22,6 +23,9 @@ _MAP_TAGS_TO_ATTRS = {
     'ipython-native': 'ipython_native',
     'shield': 'shield',
 }
+_DEFAULT_GLOBALS: Mapping[str, object] = MappingProxyType(dict(
+    reveal_type=lambda x: x,
+))
 
 
 class Language(str, enum.Enum):
@@ -220,7 +224,7 @@ class PostMarkdown:
         self._remove_code_info()
 
     def run_code(self) -> None:
-        shared_globals: dict = {}
+        shared_globals: dict[str, object] = dict(_DEFAULT_GLOBALS)
         for paragraph in self._paragraphs():
 
             if (
@@ -235,12 +239,9 @@ class PostMarkdown:
                 continue
 
             if not paragraph.code.continue_code:
-                shared_globals = {}
-            shared_globals['print'] = (
-                (lambda *args, **kwargs: None)
-                if paragraph.code.no_print
-                else print
-            )
+                shared_globals = dict(_DEFAULT_GLOBALS)
+            if paragraph.code.no_print:
+                shared_globals['print'] = lambda *args, **kwargs: None
 
             code = paragraph.tokens[-1].content
             if paragraph.code.is_python:
