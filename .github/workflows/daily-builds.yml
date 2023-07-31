@@ -7,6 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Netlify build using webhook
-        run: curl -s -X POST "$NETLIFY_BUILD_HOOK_URL"
+        run: curl -s -X POST "$CF_BUILD_HOOK_URL"
         env:
-          NETLIFY_BUILD_HOOK_URL: "${{ secrets.NETLIFY_BUILD_HOOK_URL }}"
+          CF_BUILD_HOOK_URL: "${{ secrets.CF_BUILD_HOOK_URL }}"
