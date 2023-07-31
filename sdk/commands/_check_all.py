@@ -22,7 +22,7 @@ class CheckAllCommand(Command):
             post = Post.from_path(path)
             if error := post.validate():
                 raise ValueError(f'invalid {post.path.name}: {error}')
-            if post.id is not None and post.id <= 200:
+            if post.id is not None and post.id <= 560:
                 try:
                     post.run_code()  # TODO: all posts should be runnable
                 except BaseException as exc:
