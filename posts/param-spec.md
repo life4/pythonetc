@@ -8,7 +8,7 @@ pep: 612
 python: "3.10"
 ---
 
-# ParamSpec
+# typing.ParamSpec
 
 Let's say, you have a typical decorator that returns a new function. Something like this:
 
