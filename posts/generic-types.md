@@ -27,7 +27,7 @@ So, now, `from typing` import will become much shorter! Hooray! The next step wo
 
 The only purpose of these types is type annotations. They don't make any runtime type checks:
 
-```python
+```python {shield:TypeError}
 list[str]({1, 2, 3})
 # [1, 2, 3]
 

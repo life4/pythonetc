@@ -41,12 +41,12 @@ def inspect(obj) -> None:
       print(f'the first element is {x}')
     case {'route': route}:  # matching dicts
       print(f'dict with ONLY `route` key which is {route}')
-    case {'route': _, **_}:  # matching rest for dicts
-      print(f'dict with `route` key')
+    # case {'route': _, **_}:  # matching rest for dicts
+    #   print(f'dict with `route` key')
     case str() | bytes():  # matching types
       print('something string-like')
-    case [x := [_, *_]]:  # walrus and sub-patterns
-      print('non-empty list inside a list')
+    # case [x := [_, *_]]:  # walrus and sub-patterns
+    #   print('non-empty list inside a list')
     case _:  # default case
       print('something else')
 ```
@@ -63,12 +63,13 @@ class object:
 
 Also, it is possible to match objects' attributes:
 
-```python
+```python {no-print}
 class Point:
   def __init__(self, x, y):
     self.x = x
     self.y = y
 
+obj = Point(1, 2)
 match obj:
   case Point(x=0, y=0):
     print('both x and y are zero')
@@ -82,12 +83,13 @@ Also, if a class has `__match_args__`, the given arguments can be positional in 
 
 ```python
 class Point:
-  __match_args__ = ['x', 'y']
+  __match_args__ = ('x', 'y')
 
   def __init__(self, x, y):
     self.x = x
     self.y = y
 
+obj = Point(1, 2)
 match obj:
   case Point(0, 0):  # here args are positional now
     print('both x and y are zero')

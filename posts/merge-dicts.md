@@ -12,22 +12,27 @@ python: "3.9"
 
 There are a lot of ways to merge two dicts:
 
+```python {hide}
+d1 = {}
+d2 = {}
+```
+
 1. Long but simple:
 
-    ```python
+    ```python {continue}
     merged = d1.copy()
     merged.update(d2)
     ```
 
 2. [Unpacking](https://t.me/pythonetc/538):
 
-    ```python
+    ```python {continue}
     merged = {**d1, **d2}
     ```
 
 3. Unpacking again (keys must be strings):
 
-    ```python
+    ```python {continue}
     merged = dict(d1, **d2)
     ```
 
@@ -35,7 +40,7 @@ There are a lot of ways to merge two dicts:
 
 In python 3.9, [PEP-584](https://www.python.org/dev/peps/pep-0584/) introduced the 5th way. Meet the `|` operator for `dict`!
 
-```python
+```python {continue}
 merged = d1 | d2
 ```
 

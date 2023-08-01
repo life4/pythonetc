@@ -18,11 +18,11 @@ class CheckAllCommand(Command):
         for path in sorted(Path('posts').iterdir()):
             if path.suffix != '.md':
                 continue
-            print(path.name)
+            # print(path.name)
             post = Post.from_path(path)
             if error := post.validate():
                 raise ValueError(f'invalid {post.path.name}: {error}')
-            if post.id is not None and post.id <= 560:
+            if post.id is not None and post.id <= 600:
                 try:
                     post.run_code()  # TODO: all posts should be runnable
                 except BaseException as exc:

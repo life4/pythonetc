@@ -10,7 +10,8 @@ traces:
 
 `ast.literal_eval` is a restricted version of `eval` that evaluates only literals:
 
-```python
+```python {shield:ValueError}
+import ast
 ast.literal_eval('[1, True, "three"]')
 # [1, True, 'three']
 
@@ -20,7 +21,7 @@ ast.literal_eval('1+2')
 
 This can be used for safely evaluating strings containing Python values from untrusted sources. For example, to support types for environment variables. However, be aware that too large and complex string can crash the interpreter:
 
-```python
+```python {no-run}
 >>> import ast
 >>> ast.literal_eval('1+1'*1000000)
 [1]    32177 segmentation fault  python3

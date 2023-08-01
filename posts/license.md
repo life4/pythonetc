@@ -8,7 +8,7 @@ author: orsinium
 
 Python provides 2 useless but interesting built-in functions: `copyright` and `license`. `copyright` gives a short overview who owned Python in different moments of history:
 
-```python
+```python {no-run}
 >>> copyright()
 Copyright (c) 2001-2020 Python Software Foundation.
 All Rights Reserved.
@@ -25,7 +25,7 @@ All Rights Reserved.
 
 An `license` gives not only all Python licenses but also an interesting reading about Python history:
 
-```python
+```python {no-run}
 >>> license()
 A. HISTORY OF THE SOFTWARE
 ==========================

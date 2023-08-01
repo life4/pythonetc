@@ -11,7 +11,11 @@ python: "3.8"
 
 Decorator `@cached_property` is an amazing way to simplify your code. It's like the regular `@property` but remembers the value after the first call:
 
-```python
+```python {hide}
+from functools import cached_property
+```
+
+```python {continue} {no-print}
 class C:
   @cached_property
   def p(self):
