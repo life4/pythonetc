@@ -10,7 +10,7 @@ author: orsinium
 
 Non-data descriptor:
 
-```python
+```python {no-print}
 class D:
   def __get__(self, obj, owner):
     print('get', obj, owner)
@@ -30,7 +30,7 @@ c.d
 
 Data descriptor:
 
-```python
+```python {no-print}
 class D:
   def __get__(self, obj, owner):
     print('get', obj, owner)

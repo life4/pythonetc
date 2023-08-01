@@ -4,6 +4,8 @@ id: 582
 author: orsinium
 pep: 487
 python: "3.6"
+depends_on:
+  - cached_property
 traces:
   - [type: object, method: __set_name__]
 ---
@@ -19,7 +21,7 @@ So, the best solution is to store data in the class itself. But how to name the 
 
 `@cached_property` that we implemented above, relies on the passed function name and it is wrong:
 
-```python
+```python {no-run}
 class C:
     @cached_property
     def a(self):

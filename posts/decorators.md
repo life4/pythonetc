@@ -22,7 +22,7 @@ def f(): pass
 
 Python 3.9 (via [PEP-614](https://www.python.org/dev/peps/pep-0614/)) relaxes with restriction allowing to have any expression as a decorator:
 
-```python
+```python {continue}
 decos = {
   'id': lambda x: x,
 }
@@ -36,7 +36,7 @@ f
 
 You can use matrix multiplication to make it confusing (don't try it at home!):
 
-```python
+```python {no-print}
 class D:
   f = None
   def __init__(self, name):
@@ -66,7 +66,7 @@ f()
 
 You can use a simple wrapper function to have any expression in older python versions:
 
-```python
+```python {continue}
 _ = lambda x: x
 
 @_(D('a') @ D('b'))

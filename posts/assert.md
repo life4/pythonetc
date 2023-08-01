@@ -25,7 +25,7 @@ However, there are few advantages of assert as directive over assert as a functi
 
 2. The message is lazy and executed only when needed:
 
-```python
+```python {shield:AssertionError} {no-print}
 assert False, print("executed")
 # executed
 # AssertionError: None
