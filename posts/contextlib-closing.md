@@ -35,7 +35,7 @@ data = b''
 ```
 
 ```python {continue}
-with closing(socket.socket()) as sock:
+with closing(socket.socket(socket.AF_INET6)) as sock:
     sock.connect(addr)
     sock.sendall(data)
 ```

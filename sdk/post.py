@@ -98,7 +98,7 @@ class Post:
             buttons=buttons,
             path=path,
             traces=traces,
-            markdown=PostMarkdown(markdown),
+            markdown=PostMarkdown(markdown, path=path),
         )
 
     def validate(self) -> str | None:

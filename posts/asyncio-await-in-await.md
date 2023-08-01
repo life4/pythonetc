@@ -45,7 +45,7 @@ async def sleep_one_sec():
 async def fake_sleep_one_sec():
     await asyncio.sleep(0)
 coro = fake_sleep_one_sec()
-sleep_one_sec = lambda: coro     
+sleep_one_sec = lambda: coro
 ```
 
 ```python {continue} {shield:TypeError} {merge}
@@ -77,7 +77,7 @@ class Future:
 
 Another one is to use generator-based coroutine as an adapter:
 
-```python {continue}
+```python {continue} {no-run}  {# doesn't work in Python 3.10+ #}
 @asyncio.coroutine
 def adapter(coroutine):
     yield from coroutine

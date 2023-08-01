@@ -58,9 +58,8 @@ But, as you can see, the timezone of datetime object is wholly ignored.
 
 The proper result can be achieved with straightforward subtraction:
 
-```python {continue}
-In : epoch_start = pytz.utc.localize(
-      datetime(1970, 1, 1))
+```ipython {continue}
+In : epoch_start = pytz.utc.localize(datetime(1970, 1, 1))
 
 In : (utc_time - epoch_start).total_seconds()
 Out: 1522497600.0

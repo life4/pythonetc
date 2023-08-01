@@ -41,4 +41,15 @@
     {% endfor %}
   </div>
 
+
+  <div class="container-fluid bg-white py-3">
+    <div class="container text-muted">
+      Generated on {{ now.date().isoformat() }}
+      using Python {{ python_version }}
+      {% if commit_sha %}
+        (<a href="https://github.com/life4/pythonetc/commit/{{ commit_sha }}">{{ commit_sha[:7] }}</a>)
+      {% endif %}
+    </div>
+  </div>
+
 {% endblock %}

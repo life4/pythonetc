@@ -17,7 +17,7 @@ import subprocess
 
 ```python {continue}
 p = subprocess.Popen(
-    ["python", "-c", "..."],
+    ["python3", "-c", "..."],
     stdout=subprocess.PIPE,
     stderr=subprocess.PIPE,
 )
@@ -35,7 +35,7 @@ print('out')
 """
 
 p = subprocess.Popen(
-    ["python", "-c", SUBPROCESS_CODE],
+    ["python3", "-c", SUBPROCESS_CODE],
     stdout=subprocess.PIPE,
     stderr=subprocess.PIPE,
 )
@@ -59,7 +59,7 @@ print('out')
 """
 
 p = subprocess.Popen(
-    ["python", "-c", SUBPROCESS_CODE],
+    ["python3", "-c", SUBPROCESS_CODE],
     stdout=subprocess.PIPE,
     stderr=subprocess.PIPE,
 )

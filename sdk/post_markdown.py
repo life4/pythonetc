@@ -3,7 +3,9 @@ from __future__ import annotations
 import dataclasses
 import enum
 from functools import cached_property
-from typing import Any, Iterator
+from pathlib import Path
+from types import MappingProxyType
+from typing import Any, Iterator, Mapping
 
 import markdown_it.token
 from markdown_it import MarkdownIt
@@ -22,6 +24,9 @@ _MAP_TAGS_TO_ATTRS = {
     'ipython-native': 'ipython_native',
     'shield': 'shield',
 }
+_DEFAULT_GLOBALS: Mapping[str, object] = MappingProxyType(dict(
+    reveal_type=lambda x: x,
+))
 
 
 class Language(str, enum.Enum):
@@ -162,10 +167,11 @@ class Paragraph:
     code: ParagraphCode | None = None
 
 
+@dataclasses.dataclass
 class PostMarkdown:
-    def __init__(self, text):
-        self.text = text
-        self._parser = MarkdownIt()
+    text: str
+    path: Path | None = None
+    _parser: MarkdownIt = dataclasses.field(default_factory=MarkdownIt)
 
     def copy(self) -> 'PostMarkdown':
         return PostMarkdown(self.text)
@@ -220,49 +226,76 @@ class PostMarkdown:
         self._remove_code_info()
 
     def run_code(self) -> None:
-        shared_globals: dict = {}
+        shared_globals: dict[str, object] = dict(_DEFAULT_GLOBALS)
         for paragraph in self._paragraphs():
-
-            if (
-                paragraph.code is None
-                or paragraph.code.no_run
-                or not (
-                    paragraph.code.is_python
-                    or paragraph.code.is_python_interactive
-                    or paragraph.code.is_ipython
-                )
+            if paragraph.code is None or paragraph.code.no_run:
+                continue
+            if not (
+                paragraph.code.is_python
+                or paragraph.code.is_python_interactive
+                or paragraph.code.is_ipython
             ):
                 continue
-
             if not paragraph.code.continue_code:
-                shared_globals = {}
-            shared_globals['print'] = (
-                (lambda *args, **kwargs: None)
-                if paragraph.code.no_print
-                else print
-            )
+                shared_globals = dict(_DEFAULT_GLOBALS)
+            if paragraph.code.no_print:
+                shared_globals['print'] = lambda *args, **kwargs: None
+            else:
+                shared_globals['print'] = print
+            raw_code = paragraph.tokens[-1].content
+            try:
+                self._run_paragraph(raw_code, paragraph.code, shared_globals)
+            except BaseException as exc:
+                lineno = self._get_lineno(raw_code)
+                if lineno is not None:
+                    exc.add_note(f'Error occured in code block on line {lineno}')
+                if paragraph.code.shield:
+                    exc.add_note(f'Expected exception: {paragraph.code.shield}')
+                raise
 
-            code = paragraph.tokens[-1].content
-            if paragraph.code.is_python:
-                eval_or_exec(
-                    code,
-                    shared_globals=shared_globals,
-                    shield=paragraph.code.shield,
-                )
-            if paragraph.code.is_python_interactive:
-                self._exec_cli(
-                    code, shared_globals,
-                    check_interactive=not paragraph.code.python_interactive_no_check,
-                    shield=paragraph.code.shield,
-                )
-            if paragraph.code.is_ipython:
-                self._exec_ipython(
-                    code,
-                    shared_globals,
-                    check_interactive=not paragraph.code.python_interactive_no_check,
-                    shield=paragraph.code.shield,
-                    native=paragraph.code.ipython_native,
-                )
+    def _run_paragraph(
+        self,
+        raw_code: str,
+        par_code: ParagraphCode,
+        shared_globals: dict[str, object],
+    ) -> None:
+        if par_code.is_python:
+            eval_or_exec(
+                raw_code,
+                shared_globals=shared_globals,
+                shield=par_code.shield,
+            )
+            return
+        if par_code.is_python_interactive:
+            self._exec_cli(
+                raw_code, shared_globals,
+                check_interactive=not par_code.python_interactive_no_check,
+                shield=par_code.shield,
+            )
+            return
+        if par_code.is_ipython:
+            self._exec_ipython(
+                raw_code,
+                shared_globals,
+                check_interactive=not par_code.python_interactive_no_check,
+                shield=par_code.shield,
+                native=par_code.ipython_native,
+            )
+            return
+
+    def _get_lineno(self, raw_code: str) -> int | None:
+        """Given raw code block, find its line number in the original file.
+        """
+        if self.path is None:
+            return None
+        post_content = self.path.read_text()
+        if post_content.count(raw_code) != 1:
+            return None
+        pos = post_content.find(raw_code)
+        if pos == -1:
+            return None
+        text_before = post_content[:pos]
+        return text_before.count('\n')
 
     def _exec_cli(
         self, code: str, shared_globals: dict, shield: str | None = None,

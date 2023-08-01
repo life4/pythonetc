@@ -8,7 +8,10 @@ def eval_or_exec(code: str, *, shield: str | None = None, shared_globals: dict) 
             real_out = eval(code, shared_globals)
         except SyntaxError:
             # not an expression, but a statement
-            exec(code, shared_globals)
+            try:
+                exec(code, shared_globals)
+            except Exception as exc:
+                raise exc from None
     except Exception as e:
         if shield is not None and shield == e.__class__.__name__:
             pass  # that was expected
