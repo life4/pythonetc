@@ -41,16 +41,6 @@
       </main>
     </div>
 
-    <footer class="container-fluid bg-white py-3">
-      <div class="container text-muted">
-        Generated on {{ now.date().isoformat() }}
-        using Python {{ python_version }}
-        {% if commit_sha %}
-          (<a href="https://github.com/life4/pythonetc/commit/{{ commit_sha }}">{{ commit_sha[:7] }}</a>)
-        {% endif %}
-      </div>
-    </footer>
-
     {# syntax highlighter #}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />

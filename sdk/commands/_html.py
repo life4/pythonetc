@@ -7,7 +7,6 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from datetime import date, datetime, time
 from pathlib import Path
-from types import MappingProxyType
 
 import jinja2
 import rfeed
@@ -28,11 +27,6 @@ jinja_env = jinja2.Environment(
 )
 RSS_FILE_NAME = 'index.xml'
 v = sys.version_info
-CONTEXT = MappingProxyType(dict(
-    python_version=f'{v.major}.{v.minor}.{v.micro}',
-    now=datetime.now(),
-    commit_sha=os.environ.get('CF_PAGES_COMMIT_SHA'),
-))
 
 
 @dataclass(frozen=True)
@@ -95,6 +89,11 @@ class HTMLCommand(Command):
             'index',
             pages=PAGES,
             years=sorted(years.items(), reverse=True),
+
+            # for rendering footer
+            python_version=f'{v.major}.{v.minor}.{v.micro}',
+            now=datetime.now(),
+            commit_sha=os.environ.get('CF_PAGES_COMMIT_SHA'),
         )
         render_html(
             'typing',
@@ -156,7 +155,7 @@ class HTMLCommand(Command):
 
 def render_html(slug: str, title: str | None = None, **kwargs) -> None:
     template = jinja_env.get_template(f'{slug}.html.j2')
-    content = template.render(len=len, title=title, **CONTEXT, **kwargs)
+    content = template.render(len=len, title=title, **kwargs)
     html_path = ROOT / 'public' / f'{slug}.html'
     html_path.write_text(content, encoding='utf8')
 
@@ -164,7 +163,7 @@ def render_html(slug: str, title: str | None = None, **kwargs) -> None:
 def render_post(posts: list[PostToRender]) -> None:
     main_post = posts[0]
     template = jinja_env.get_template('post.html.j2')
-    content = template.render(title=main_post.title, posts=posts, **CONTEXT)
+    content = template.render(title=main_post.title, posts=posts)
     html_path = ROOT / 'public' / 'posts' / f'{main_post.slug}.html'
     html_path.write_text(content, encoding='utf8')
 
