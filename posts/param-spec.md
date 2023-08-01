@@ -1,5 +1,6 @@
 ---
 author: orsinium
+published: 2023-08-08
 topics:
   - typing
 traces:
@@ -50,19 +51,23 @@ This is slightly better but function arguments are still untyped:
 from typing import TypeVar
 
 T = TypeVar('T')
-def debug(f: Callable[..., T]) -> Callable[..., T]: ...
+def debug(
+  f: Callable[..., T],
+) -> Callable[..., T]: ...
 ```
 
-This is type safe but it requres the decorated function to accept exactly 2 arguments:
+This is type-safe but it requires the decorated function to accept exactly 2 arguments:
 
 ```python {continue}
 A = TypeVar('A')
 B = TypeVar('B')
 R = TypeVar('R')
-def debug(f: Callable[[A, B], R]) -> Callable[[A, B], R]: ...
+def debug(
+  f: Callable[[A, B], R],
+) -> Callable[[A, B], R]: ...
 ```
 
-This is type safe and works on any function but it will report type error because `inner` is not guaranteed to have the same type as the passed callable (for example, someone might pass a class that is callable but we return a function):
+This is type-safe and works on any function but it will report a type error because `inner` is not guaranteed to have the same type as the passed callable (for example, someone might pass a class that is callable but we return a function):
 
 ```python {continue}
 F = TypeVar('F', bound=Callable)
@@ -77,8 +82,13 @@ from typing import Callable, TypeVar, ParamSpec
 P = ParamSpec('P')
 R = TypeVar('R')
 
-def debug(f: Callable[P, R]) -> Callable[P, R]:
-  def inner(*args: P.args, **kwargs: P.kwargs) -> R:
+def debug(
+  f: Callable[P, R],
+) -> Callable[P, R]:
+  def inner(
+    *args: P.args,
+    **kwargs: P.kwargs,
+  ) -> R:
     ...
     return f(*args, **kwargs)
   return inner

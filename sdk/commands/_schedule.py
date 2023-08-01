@@ -59,14 +59,20 @@ class ScheduleCommand(Command):
             if post.published in scheduled:
                 return 'post already scheduled'
 
-            # schedule the post
             publish_at = datetime.combine(post.published, time(15, 0, tzinfo=TZ))
             in10m = datetime.now(TZ) + timedelta(minutes=10)
             if publish_at < in10m:
                 publish_at = in10m
+
+            text = post.telegram_markdown
+            # telethon removes fences but not newlines
+            # which live 2 empty lines before every code block
+            text = text.replace('\n\n```', '\n```')
+            text = text.replace('```\n\n', '```\n')
+
             await self._client.send_message(
                 CHANNEL,
-                post.telegram_markdown,
+                text,
                 schedule=publish_at,
                 link_preview=False,
             )

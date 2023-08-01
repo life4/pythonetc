@@ -1,5 +1,6 @@
 ---
 author: orsinium
+published: 2023-08-10
 topics:
   - typing
 traces:
@@ -12,7 +13,7 @@ python: "3.10"
 
 # typing.Concatenate
 
-In addition to [typing.ParamSpec](https://docs.python.org/3/library/typing.html#typing.ParamSpec), [PEP 612](https://peps.python.org/pep-0612/) introduced [typing.Concatenate](https://docs.python.org/3/library/typing.html#typing.Concatenate) that allows to describe decorators that accept fewer or more arguments that the wrapped function:
+In addition to [typing.ParamSpec](https://docs.python.org/3/library/typing.html#typing.ParamSpec), [PEP 612](https://peps.python.org/pep-0612/) introduced [typing.Concatenate](https://docs.python.org/3/library/typing.html#typing.Concatenate) that allows describing decorators that accept fewer or more arguments that the wrapped function:
 
 ```python
 from typing import Callable, Concatenate, ParamSpec, TypeVar
