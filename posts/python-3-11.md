@@ -1,5 +1,6 @@
 ---
 author: orsinium
+id: 702
 published: 2022-10-24
 topics:
   - news

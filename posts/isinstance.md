@@ -1,5 +1,6 @@
 ---
 author: orsinium
+id: 714
 published: 2023-01-03
 traces:
   - [{function: isinstance}]

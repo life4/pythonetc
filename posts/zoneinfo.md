@@ -1,5 +1,6 @@
 ---
 author: orsinium
+id: 726
 published: 2023-07-18
 pep: 615
 python: "3.6"
