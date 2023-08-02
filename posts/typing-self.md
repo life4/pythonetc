@@ -1,5 +1,6 @@
 ---
 author: orsinium
+id: 711
 published: 2022-12-03
 traces:
   - [module: typing, type: Self]

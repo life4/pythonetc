@@ -1,5 +1,6 @@
 ---
 author: orsinium
+id: 704
 published: 2022-11-01
 traces:
   - [type: BaseException, method: add_note]

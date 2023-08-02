@@ -1,5 +1,6 @@
 ---
 author: orsinium
+id: 709
 published: 2022-11-29
 traces:
   - [module: typing, function: assert_type]

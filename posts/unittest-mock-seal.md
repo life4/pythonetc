@@ -1,5 +1,6 @@
 ---
 author: orsinium
+id: 728
 published: 2023-08-01
 traces:
   - [module: unittest.mock, function: seal]

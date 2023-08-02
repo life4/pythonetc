@@ -1,5 +1,6 @@
 ---
 author: orsinium
+id: 701
 published: 2022-10-18
 traces:
   - [module: os, function: curdir]

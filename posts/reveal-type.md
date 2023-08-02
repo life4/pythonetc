@@ -1,5 +1,6 @@
 ---
 author: orsinium
+id: 712
 published: 2022-12-20
 topics:
   - typing
