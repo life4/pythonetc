@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import asyncio
 import os
+import re
 from functools import cached_property
 from pathlib import Path
 
@@ -10,7 +11,7 @@ from telethon import TelegramClient
 
 from ..post import Post
 from ._command import Command
-import re
+
 
 CHANNEL = 'pythonetc'
 REX_URL = re.compile(r'https?\:[a-zA-Z0-9\-\/\.\(]+')
