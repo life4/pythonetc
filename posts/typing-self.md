@@ -2,6 +2,8 @@
 author: orsinium
 id: 711
 published: 2022-12-03
+topics:
+  - typing
 traces:
   - [module: typing, type: Self]
 pep: 673

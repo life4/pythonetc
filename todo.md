@@ -60,4 +60,5 @@ These are ideas for future posts. Let me know if you want to write a guest post 
 + asyncio.TaskGroup
 + contextvars
 + itertools.pairwise
++ typing.deprecated <https://peps.python.org/pep-0702/>
 + <https://peps.python.org/pep-0692/>
