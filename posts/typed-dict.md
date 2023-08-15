@@ -2,6 +2,8 @@
 published: 2021-03-25
 id: 656
 author: orsinium
+topics:
+  - typing
 traces:
   - [module: typing, type: TypedDict]
 pep: 589
